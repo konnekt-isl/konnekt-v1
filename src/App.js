@@ -1,119 +1,50 @@
-import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from "react-router-dom";
+import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
+import './App.css';
 
-////////////////////////////////////////////////////////////
-// 1. Click the public page
-// 2. Click the protected page
-// 3. Log in
-// 4. Click the back button, note the URL each time
 
-function AuthExample() {
-  return (
-    <Router>
-      <div>
-        <AuthButton />
-        <ul>
-          <li>
-            <Link to="/public">Public Page</Link>
-          </li>
-          <li>
-            <Link to="/protected">Protected Page</Link>
-          </li>
-        </ul>
-        <Route path="/public" component={Public} />
-        <Route path="/login" component={Login} />
-        <PrivateRoute path="/protected" component={Protected} />
-      </div>
-    </Router>
-  );
-}
-
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true;
-    setTimeout(cb, 100); // fake async
-  },
-  signout(cb) {
-    this.isAuthenticated = false;
-    setTimeout(cb, 100);
-  }
-};
-
-const AuthButton = withRouter(
-  ({ history }) =>
-    fakeAuth.isAuthenticated ? (
-      <p>
-        Welcome!{" "}
-        <button
-          onClick={() => {
-            fakeAuth.signout(() => history.push("/"));
-          }}
-        >
-          Sign out
-        </button>
-      </p>
-    ) : (
-        <p>You are not logged in.</p>
-      )
+const Home = () => (
+  <div>
+    <h2> Home </h2>
+  </div>
 );
 
-function PrivateRoute({ component: Component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        fakeAuth.isAuthenticated ? (
-          <Component {...props} />
-        ) : (
-            <Redirect
-              to={{
-                pathname: "/login",
-                state: { from: props.location }
-              }}
-            />
-          )
-      }
-    />
-  );
-}
+const Airport = () => (
+  <div>
+    <ul>
+      <li>Jomo Kenyatta</li>
+      <li>Tambo</li>
+      <li>Murtala Mohammed</li>
+    </ul>
+  </div>
+);
 
-function Public() {
-  return <h3>Public</h3>;
-}
+const City = () => (
+  <div>
+    <ul>
+      <li>San Francisco</li>
+      <li>Istanbul</li>
+      <li>Tokyo</li>
+    </ul>
+  </div>
+);
 
-function Protected() {
-  return <h3>Protected</h3>;
-}
-
-class Login extends Component {
-  state = { redirectToReferrer: false };
-
-  login = () => {
-    fakeAuth.authenticate(() => {
-      this.setState({ redirectToReferrer: true });
-    });
-  };
-
+class App extends Component {
   render() {
-    let { from } = this.props.location.state || { from: { pathname: "/" } };
-    let { redirectToReferrer } = this.state;
-
-    if (redirectToReferrer) return <Redirect to={from} />;
-
     return (
       <div>
-        <p>You must log in to view the page at {from.pathname}</p>
-        <button onClick={this.login}>Log in</button>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/airports">Airports</Link></li>
+          <li><Link to="/cities">Cities</Link></li>
+        </ul>
+
+        <Route path="/" component={Home} />
+        <Route path="/airports" component={Airport} />
+        <Route path="/cities" component={City} />
       </div>
     );
   }
 }
 
-export default AuthExample;
+export default App;
