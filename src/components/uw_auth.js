@@ -41,7 +41,7 @@ class uw_auth extends Component {
             },
             body: JSON.stringify({
                 "PhoneNumber": this.state.phone,
-                "FlowKey": "9a5f40ca1b01"
+                // "FlowKey": "9a5f40ca1b01"
             })
         })
             .then(response => {

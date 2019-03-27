@@ -30,11 +30,11 @@ class uw_status extends Component {
     tick = () => {
         const d = firebase.firestore.Timestamp.fromDate(new Date()).seconds - this.state.timeStamp
         console.log(d)
-        if (d > 60) {
-            this.setState({ status: { status: '400' } })
+        if (d < 60) {
+            this.setState({ status: { status: '200' } })
         }
         else {
-            this.setState({ status: { status: '200' } })
+            this.setState({ status: { status: '400' } })
         }
     }
 
