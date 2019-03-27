@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 
+import * as firebase from 'firebase'
+import { FirebaseContext } from './firebase';
+
+
 class uw_auth extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            phone: null,
+            phone: '',
             data: null,
         };
 
         this._handleChange = this._handleChange.bind(this);
-    }
-
-    _handebuttonclick = () => {
-        console.log(this.state.data)
     }
 
     _handleChange(event) {
@@ -33,10 +33,21 @@ class uw_auth extends Component {
             })
         })
             .then(response => {
-                console.log(response)
+                console.log(response.status)
                 return response.json()
             })
-            .then(data => this.setState({ data: data }))
+            .then(data => {
+                const { ssn, name, phoneNumber, address, postalCode, city, token } = data
+                firebase.database().ref('users/' + ssn).set({
+                    name,
+                    phoneNumber,
+                    address,
+                    postalCode,
+                    city,
+                    token,
+                });
+                this.setState({ data: data })
+            })
             .catch(err => {
                 console.log(err)
             });
@@ -45,12 +56,16 @@ class uw_auth extends Component {
     render() {
         return (
             <div>
-                <h1>Test</h1>
-                <label>Telephone: </label>
-                <input type="text" value={this.state.phone} onChange={this._handleChange} />
-                <button onClick={this._confirmphone}>Konnekt</button>
+                <FirebaseContext.Consumer>
+                    {firebase => {
+                        return <div>
+                            <label>Telephone: </label>
+                            <input type='text' placeholder='' value={this.state.phone} onChange={this._handleChange} />
+                            <button onClick={this._confirmphone}>Konnekt</button>
+                        </div>;
+                    }}
+                </FirebaseContext.Consumer>
 
-                <button onClick={this._handebuttonclick}>Console Log</button>
             </div>
         );
     }
