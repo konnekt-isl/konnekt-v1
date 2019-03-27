@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+// Fonts
+
+$font-stack: 'Lato', Arial, Helvetica, sans-serif;
+
+//Colors
+
+$primary: #3463FF;
+
+$secondary-green: #56E8A2;
+
+$secondary-red:#FF534A;
+
+// $light: 
+
+$grey: #86979E;
+
+$medium-grey: #3A3A3A;
+
+$dark-grey: #141414;
+
+
+//Buttons
+
+%button {
+    width: 202px;
+    height: 39.02px;
+    background: rgba(43, 226, 138, 0.8);
+    border-radius: 4px;
+}
+
+//Input fields
+%input-field {
+    width: 202px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+
+
