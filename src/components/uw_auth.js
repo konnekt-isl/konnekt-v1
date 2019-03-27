@@ -65,7 +65,12 @@ class uw_auth extends Component {
                     date: this.state.date,
                     status: this.state.status
                 });
-                this.props.history.push('/authenticate/status')
+                // this.props.history.push('/authenticate/status')
+                console.log("test" + this.state.data.ssn)
+                this.props.history.push({
+                    pathname: '/authenticate/status',
+                    state: { ssn: this.state.data.ssn }
+                })
             })
             .catch(err => {
                 console.log(err);
