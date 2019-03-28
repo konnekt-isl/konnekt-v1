@@ -1,1 +1,184 @@
-/* Hér á ekki að skrifa neinn kóða, sass setur allt sjálkrafa hingað inn */
+@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Lato");
+.netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .simi-skjar2 .yes-btn, .simi-skjar1 .yes-btn {
+  width: 208px;
+  height: 40px;
+  background: rgba(43, 226, 138, 0.8);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.netspjall-skjar1 .form input {
+  width: 202px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.netspjall-skjar2, .netspjall-skjar1 .btn-container, .netspjall-skjar1 .form, .netspjall-skjar1, .simi-skjar2 .text-container, .simi-skjar2, .simi-skjar1 .text-container, .simi-skjar1 .logo-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.netspjall-skjar1 .logo-container, .simi-skjar1 .wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+* {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.simi-skjar1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.simi-skjar1 .wrapper {
+  margin-top: 10%;
+  width: 100%;
+  justify-content: center;
+}
+.simi-skjar1 .logo-container {
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+}
+.simi-skjar1 .lady-container {
+  width: 10%;
+}
+.simi-skjar1 .text-container {
+  margin-top: 20%;
+  align-items: center;
+  justify-content: center;
+}
+.simi-skjar1 h1 {
+  font-size: 17px;
+  margin: auto;
+}
+.simi-skjar1 h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 20px;
+}
+.simi-skjar1 .yes-btn {
+  margin-top: 60%;
+}
+.simi-skjar1 p {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+.simi-skjar1 .no-btn-container {
+  margin-top: 5%;
+}
+.simi-skjar1 .no-btn {
+  text-decoration: none;
+  border: 0;
+  background: none;
+}
+
+.simi-skjar2 {
+  justify-content: center;
+  align-items: center;
+}
+.simi-skjar2 .wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 80%;
+}
+.simi-skjar2 h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 18px;
+}
+.simi-skjar2 p {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+.simi-skjar2 .yes-btn {
+  margin-top: 60%;
+}
+.simi-skjar2 .text-container {
+  margin-top: 20%;
+  align-items: center;
+  justify-content: center;
+}
+
+.netspjall-skjar1 .logo-container {
+  justify-content: flex-start;
+}
+.netspjall-skjar1 h1 {
+  margin-top: 10%;
+  color: #3463FF;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.netspjall-skjar1 .form label {
+  font-size: 12px;
+  color: #56E8A2;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.netspjall-skjar1 .form input {
+  padding: 0px;
+  margin: 0 0 5 0;
+  border: 0;
+  background-color: #E6ECFF;
+}
+.netspjall-skjar1 .btn-container {
+  width: 100%;
+  align-items: center;
+}
+.netspjall-skjar1 .yes-btn {
+  margin-top: 60%;
+}
+
+.netspjall-skjar2 {
+  align-items: center;
+}
+.netspjall-skjar2 .csr-connect {
+  color: #4F4F4F;
+  font-size: 13px;
+  font-weight: 400;
+}
+.netspjall-skjar2 .chat-bubble-wrapper {
+  width: 100%;
+}
+.netspjall-skjar2 .chat-bubble-user {
+  border-radius: 10px 10px 10px 0px;
+  width: 240px;
+  background: rgba(214, 224, 255, 0.6);
+  padding: 10px 15px;
+}
+.netspjall-skjar2 .chat-bubble-user p {
+  color: #4F4F4F;
+}
+.netspjall-skjar2 .chat-bubble-csr {
+  border-radius: 10px 10px 0px 10px;
+  width: 240px;
+  background: #3463FF;
+  padding: 10px 15px;
+}
+.netspjall-skjar2 .chat-bubble-csr p {
+  color: #FFFFFF;
+  font-size: 14px;
+}
+.netspjall-skjar2 .timestamp {
+  font-size: 10px;
+  color: #828282;
+}
+
+/*# sourceMappingURL=styles.css.map */
