@@ -23,7 +23,8 @@ class uw_auth extends Component {
             phone: '',
             data: null,
             status: null,
-            date: null
+            date: null,
+            message: null,
         };
 
         this._handleChange = this._handleChange.bind(this);
@@ -46,12 +47,15 @@ class uw_auth extends Component {
             })
         })
             .then(response => {
-                this.setState({ status: '200' });
-                // this.setState({ status: response.status });
-                this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
-                return response
+                this.setState({ status: response.status });
+                return response.json();
             })
             .then(data => {
+                console.log(data)
+
+                this.setState({ message: data.responseStatus.message })
+                // this.setState({ status: response.status });
+                this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
                 const { ssn, name, phoneNumber, address, postalCode, city, token, } = mockResponse;
                 firebase.firestore().collection('users').doc(ssn).set({
                     name,
@@ -65,8 +69,8 @@ class uw_auth extends Component {
                 firebase.firestore().collection('status').doc(mockResponse.ssn).set({
                     date: this.state.date,
                     status: this.state.status,
+                    message: data.responseStatus.message,
                 })
-                // this.props.history.push('/authenticate/status')
                 console.log("Test: " + this.state.data.ssn)
                 this.props.history.push({
                     pathname: '/authenticate/status',
