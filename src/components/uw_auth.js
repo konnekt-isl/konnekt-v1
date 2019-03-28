@@ -10,7 +10,8 @@ const mockResponse = {
     "name": "Marcel Radix",
     "phoneNumber": "6470788",
     "postalCode": "112",
-    "token": "cd1ae943b74749d099fa"
+    "token": "cd1ae943b74749d099fa",
+    "status": "200"
 }
 
 
@@ -28,8 +29,8 @@ class uw_auth extends Component {
         this._handleChange = this._handleChange.bind(this);
     }
 
-    _handleChange(event) {
-        this.setState({ phone: event.target.value });
+    _handleChange = (event) => {
+        this.setState({ phone: event.target.value })
     }
 
     _confirmphone = () => {
@@ -52,7 +53,7 @@ class uw_auth extends Component {
             })
             .then(data => {
                 const { ssn, name, phoneNumber, address, postalCode, city, token, } = mockResponse;
-                firebase.database().ref('users/' + ssn).set({
+                firebase.firestore().collection('users').doc(ssn).set({
                     name,
                     phoneNumber,
                     address,
@@ -61,12 +62,12 @@ class uw_auth extends Component {
                     token,
                 });
                 this.setState({ data: mockResponse });
-                firebase.database().ref('status/' + this.state.data.ssn).set({
+                firebase.firestore().collection('status').doc(mockResponse.ssn).set({
                     date: this.state.date,
-                    status: this.state.status
-                });
+                    status: this.state.status,
+                })
                 // this.props.history.push('/authenticate/status')
-                console.log("test" + this.state.data.ssn)
+                console.log("Test: " + this.state.data.ssn)
                 this.props.history.push({
                     pathname: '/authenticate/status',
                     state: { ssn: this.state.data.ssn }

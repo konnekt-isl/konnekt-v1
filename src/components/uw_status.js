@@ -9,44 +9,52 @@ class uw_status extends Component {
 
         this.state = {
             date: null,
-            status: {},
+            status: '200',
             timeStamp: null,
             statusStamp: null,
+            sessionTimeOut: false,
         }
     }
 
     componentDidMount() {
-        firebase.database().ref('status/').on('value', (data) => {
-            console.log(data.val()[this.props.location.state.ssn])
-            this.setState({ timeStamp: data.val()[this.props.location.state.ssn].date.seconds })
-        });
+        firebase.firestore().collection('status').doc(this.props.location.state.ssn).get()
+            .then((doc) => {
+                this.setState({ timeStamp: doc.data().date.seconds })
+                this.setState({ status: doc.data().status })
+            })
 
         this.timerID = setInterval(
             this.tick,
             1000
         );
+
+    }
+    componentWillUnmount() {
+        clearInterval(this.timerID);
     }
 
     tick = () => {
         const d = firebase.firestore.Timestamp.fromDate(new Date()).seconds - this.state.timeStamp
         console.log(d)
         if (d < 60) {
-            this.setState({ status: { status: '200' } })
+            this.setState({ sessionTimeOut: false })
         }
         else {
-            this.setState({ status: { status: '400' } })
+            this.setState({ sessionTimeOut: true })
         }
     }
 
     render() {
-        const statusCode = this.state.status.status;
+        const { sessionTimeOut } = this.state;
         let statusScreen;
-        if (statusCode === '200') {
+        if (!sessionTimeOut) {
             statusScreen = <div> green </div>;
         } else {
-            statusScreen = <div> red </div>;
+            statusScreen = <div> Session Time Out </div>;
         }
-
+        if (this.state.status == '403') {
+            statusScreen += <div>  </div>
+        }
         return (
             <div>
                 {statusScreen}
