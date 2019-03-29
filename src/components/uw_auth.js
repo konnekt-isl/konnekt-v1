@@ -43,7 +43,7 @@ class uw_auth extends Component {
             },
             body: JSON.stringify({
                 "PhoneNumber": this.state.phone,
-                // "FlowKey": "9a5f40ca1b01"
+                "FlowKey": "9a5f40ca1b01"
             })
         })
             .then(response => {
@@ -53,9 +53,8 @@ class uw_auth extends Component {
             .then(data => {
                 console.log(data)
 
-                this.setState({ message: data.responseStatus.message })
-                // this.setState({ status: response.status });
-                this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
+                data.responseStatus ? this.setState({ message: data.responseStatus.message }) :
+                    this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
                 const { ssn, name, phoneNumber, address, postalCode, city, token, } = mockResponse;
                 firebase.firestore().collection('users').doc(ssn).set({
                     name,
@@ -65,11 +64,11 @@ class uw_auth extends Component {
                     city,
                     token,
                 });
-                this.setState({ data: mockResponse });
-                firebase.firestore().collection('status').doc(mockResponse.ssn).set({
+                this.setState({ data: data });
+                firebase.firestore().collection('status').doc(data.ssn).set({
                     date: this.state.date,
                     status: this.state.status,
-                    message: data.responseStatus.message,
+                    message: this.state.message,
                 })
                 console.log("Test: " + this.state.data.ssn)
                 this.props.history.push({

@@ -13,6 +13,7 @@ class uw_status extends Component {
             timeStamp: null,
             statusStamp: null,
             sessionTimeOut: false,
+            message: '',
         }
     }
 
@@ -21,6 +22,7 @@ class uw_status extends Component {
             .then((doc) => {
                 this.setState({ timeStamp: doc.data().date.seconds })
                 this.setState({ status: doc.data().status })
+                this.setState({ message: doc.data().message })
             })
 
         this.timerID = setInterval(
@@ -47,17 +49,22 @@ class uw_status extends Component {
     render() {
         const { sessionTimeOut } = this.state;
         let statusScreen;
+        let statusMessage;
         if (!sessionTimeOut) {
             statusScreen = <div> green </div>;
         } else {
             statusScreen = <div> Session Time Out </div>;
         }
-        if (this.state.status == '403') {
-            statusScreen += <div>  </div>
+        if (this.state.status !== '200') {
+            statusMessage = this.state.message
+        }
+        else {
+            statusMessage = '';
         }
         return (
             <div>
                 {statusScreen}
+                {statusMessage}
             </div>
         );
     }
