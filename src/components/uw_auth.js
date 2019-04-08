@@ -90,11 +90,11 @@ class uw_auth extends Component {
                             <div className="simi-skjar1">
                                 <div className="wrapper">
                                     <div className="logo-container">
-                                        <img className="logo" src="logo.svg" />
+                                        <img className="logo" src="./styles/img/logo.svg"/>
                                         <h1>Frá Arion Banka</h1>
                                     </div>
                                     <div className="lady-container">
-                                        <img src="konnektlady.svg" />
+                                        <img src="./styles/img/konnektlady.svg" />
                                     </div>
                                 </div>
                                 <div className="wrapper">
@@ -107,7 +107,7 @@ class uw_auth extends Component {
                                     </div>
                                 </div>
                                 <div className="no-btn-container">
-                                    <img src="exit.svg" />
+                                    <img src="./styles/img/exit.svg" />
                                     <button className="no-btn">Nei takk</button>
                                 </div>
                             </div>)
