@@ -6,7 +6,9 @@ import uw_auth from './components/uw_auth'
 import uw_status from './components/uw_status'
 
 
+
 import './App.css';
+import './styles/css/styles.css'
 
 
 class App extends Component {

@@ -86,16 +86,34 @@ class uw_auth extends Component {
             <div>
                 <FirebaseContext.Consumer>
                     {firebase => {
-                        return <div>
-                            <label>Telephone: </label>
-                            <input type='text' placeholder='' value={this.state.phone} onChange={this._handleChange} />
-                            <button onClick={this._confirmphone}>Konnekt</button>
-                        </div>;
-                    }}
-                </FirebaseContext.Consumer>
+                        return (
+                            <div className="simi-skjar1">
+                                <div className="wrapper">
+                                    <div className="logo-container">
+                                        <img className="logo" src="logo.svg" />
+                                        <h1>Frá Arion Banka</h1>
+                                    </div>
+                                    <div className="lady-container">
+                                        <img src="konnektlady.svg" />
+                                    </div>
+                                </div>
+                                <div className="wrapper">
+                                    <div className="text-container">
+                                        <h2>Hæ Jón</h2>
+                                        <p>Þú hefur fengið beiðni um auðkenningu</p>
+                                        <p>Viltu halda áfram?</p>
+                                        <input type='text' placeholder='Simanummer' value={this.state.phone} onChange={this._handleChange} />
+                                        <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
+                                    </div>
+                                </div>
+                                <div className="no-btn-container">
+                                    <img src="exit.svg" />
+                                    <button className="no-btn">Nei takk</button>
+                                </div>
+                            </div>)
+                    }}</FirebaseContext.Consumer>
             </div>
-        );
-    }
+        )
+    };
 }
-
-export default uw_auth;
+export default uw_auth

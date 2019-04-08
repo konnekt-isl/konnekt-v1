@@ -32,4 +32,4 @@ class login extends Component {
     }
 }
 
-export default loginl
+export default login
