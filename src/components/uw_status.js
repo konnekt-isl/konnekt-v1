@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import * as firebase from 'firebase'
-import { FirebaseContext } from './firebase';
+import { FirebaseContext } from './firebase_bk';
 
 class uw_status extends Component {
     constructor(props) {
