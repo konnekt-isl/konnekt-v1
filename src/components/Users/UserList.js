@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { withFirebase } from '../firebase_bk';
+import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 class UserList extends Component {

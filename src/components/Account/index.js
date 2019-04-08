@@ -6,7 +6,7 @@ import {
   withAuthorization,
   withEmailVerification,
 } from '../Session';
-import { withFirebase } from '../firebase_bk';
+import { withFirebase } from '../Firebase';
 import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
 

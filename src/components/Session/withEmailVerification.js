@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AuthUserContext from './context';
-import { withFirebase } from '../firebase_bk';
+import { withFirebase } from '../Firebase';
 
 const needsEmailVerification = authUser =>
   authUser &&

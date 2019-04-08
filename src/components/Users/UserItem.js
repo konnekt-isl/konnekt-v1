@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { withFirebase } from '../firebase_bk';
+import { withFirebase } from '../Firebase';
 
 class UserItem extends Component {
   constructor(props) {
