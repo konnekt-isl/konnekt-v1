@@ -1,0 +1,32 @@
+.simi-skjar2 {
+    @extend %flex-column;
+    justify-content: center;
+    align-items: center;
+    
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        width:80%;
+    }
+    h1 {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $primary;
+        font-size:18px;
+    }
+    p {
+        font-size:14px;
+        padding: 0;
+        margin: 0;
+    }
+    .yes-btn {
+        @extend %yes-btn;
+        margin-top:60%;    }
+    .text-container {
+        margin-top: 20%;
+        @extend %flex-column;
+        align-items: center;
+        justify-content: center;
+    }
+}
