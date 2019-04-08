@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+// Fonts
+
+$font-stack: 'Lato', Arial, Helvetica, sans-serif;
+
+//Colors
+
+$primary: #3463FF;
+
+$secondary-green: #56E8A2;
+
+$secondary-red:#FF534A;
+
+$light: #FFFFFF;
+
+$grey: #B0B0B0;
+
+$medium-grey: #828282;
+
+$text: #4F4F4F;
+
+$bg-light: #FBFCFE;
+
+
+//Buttons
+
+%yes-btn {
+    width: 208px;
+    height: 40px;
+    background: rgba(43, 226, 138, 0.8);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 0;
+    color: $light;
+    text-decoration: none;
+}
+
+%no-btn {
+    width: 208px;
+    height: 40px;
+    background: rgba(255, 83, 74, 0.1);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 0;
+    color: #FF534A;
+    text-decoration: none;
+}
+
+//Input fields
+%input-field {
+    width: 202px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+%flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+
