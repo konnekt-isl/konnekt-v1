@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-import firebase from './components/firebase_bk/firebase';
+import firebase from './components/Firebase/firebase';
 
 import uw_auth from './components/uw_auth';
 import uw_status from './components/uw_status';
