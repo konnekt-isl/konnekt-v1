@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import { FirebaseContext } from './firebase';
+import { FirebaseContext } from './Firebase';
 import logo from './img/logo.svg';
 import konnektlady from './img/konnektlady.svg';
 
