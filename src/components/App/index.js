@@ -20,7 +20,7 @@ import '../../styles/css/styles.css';
 
 const App = () => (
   <Router>
-    <div>
+    <div className="page-wrapper">
       <Navigation />
 
       <hr />

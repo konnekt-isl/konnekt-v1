@@ -4,8 +4,26 @@
 @import 'netspjallskjar1';
 @import 'netspjallskjar2';
 @import 'netspjalldesktop';
+@import 'signindesktop';
 
 * {
     font-family: $font-stack;
     box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#root {
+    height: inherit;
+}
+
+.page-wrapper {
+    height: 100%;
+}
+
+ul {
+    margin: 0;
 }
