@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-
-import * as firebase from 'firebase'
-import { FirebaseContext } from './Firebase';
+import * as firebase from 'firebase';
+import { FirebaseContext } from './firebase';
+import logo from './img/logo.svg';
+import konnektlady from './img/konnektlady.svg';
 
 const mockResponse = {
     "ssn": "0307844489",
@@ -90,11 +91,11 @@ class uw_auth extends Component {
                             <div className="simi-skjar1">
                                 <div className="wrapper">
                                     <div className="logo-container">
-                                        <img className="logo" src="logo.svg" />
+                                        <img className="logo" src={logo} alt="Logo" />
                                         <h1>Frá Arion Banka</h1>
                                     </div>
                                     <div className="lady-container">
-                                        <img src="konnektlady.svg" />
+                                        <img src={konnektlady} />
                                     </div>
                                 </div>
                                 <div className="wrapper">
@@ -107,8 +108,7 @@ class uw_auth extends Component {
                                     </div>
                                 </div>
                                 <div className="no-btn-container">
-                                    <img src="exit.svg" />
-                                    <button className="no-btn">Nei takk</button>
+                                    <button className="no-btn">Hætta við</button>
                                 </div>
                             </div>)
                     }}</FirebaseContext.Consumer>

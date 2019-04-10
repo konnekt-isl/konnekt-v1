@@ -5,7 +5,6 @@ import firebase from './components/Firebase/firebase';
 import uw_auth from './components/uw_auth';
 import uw_status from './components/uw_status';
 
-
 import Navigation from './components/Navigation';
 import LandingPage from './components/Landing';
 import SignUpPage from './components/SignUp';
@@ -16,7 +15,6 @@ import AccountPage from './components/Account';
 import AdminPage from './components/Admin';
 
 import * as ROUTES from './constants/routes';
-
 import './styles/css/styles.css'
 
 class App extends Component {

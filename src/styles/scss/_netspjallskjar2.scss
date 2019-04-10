@@ -1,0 +1,45 @@
+.netspjall-skjar2 {
+    @extend %flex-column;
+    align-items: center;
+
+    .csr-connect {
+        color: $text;
+        font-size: 13px;
+        font-weight: 400;
+    }
+    .chat-bubble-wrapper {
+        width:100%;
+    }
+
+    .chat-bubble-user {
+        border-radius: 10px 10px 10px 0px;
+        width: 240px;
+        background: rgba(214, 224, 255, 0.6);
+        padding: 10px 15px;
+
+        p {
+            color: $text;
+        }
+    }
+    .chat-bubble-csr {
+        border-radius: 10px 10px 0px 10px;
+        width: 240px;
+        background: $primary;
+        padding: 10px 15px;
+        p {
+            color: #FFFFFF;
+            font-size: 14px;
+        }
+     
+    }
+    .timestamp {
+        font-size: 10px;
+        color: $medium-grey;
+    }
+    .yes-btn {
+        @extend %yes-btn;
+        
+}
+
+    
+}
