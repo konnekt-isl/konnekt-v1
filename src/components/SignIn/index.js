@@ -6,16 +6,23 @@ import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import logoVertical from '../img/logovertical.svg';
+import phoneIcon from '../img/phone.svg';
+import messageIcon from '../img/messenger.svg';
+import facetofaceIcon from '../img/face2face.svg';
+import settingsIcon from '../img/settings.svg';
+import konnektlady from '../img/konnektlady.svg';
+import logo from '../img/logo.svg';
 
 const SignInPage = () => (
-  <div>
-    <h1>SignIn</h1>
+  <div className="page-wrapper">
+    {/* <h1>SignIn</h1> */}
     <SignInForm />
-    <SignInGoogle />
+    {/* <SignInGoogle />
     <SignInFacebook />
-    <SignInTwitter />
+    <SignInTwitter /> */}
     <PasswordForgetLink />
-    <SignUpLink />
+    {/* <SignUpLink /> */}
   </div>
 );
 
@@ -68,27 +75,65 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
+      <div className="signin-page">
+        {/* Sidebar with vertical logo and icons */}
+        <div className="sidebar">
+          <img className="logo-vertical" src={logoVertical} alt="Logo" />
+            {/* Container around the 3 icons */}
+              <div className="icons-container">
+                  <div className="single-icon-container">
+                      <img className="phone-icon" src={phoneIcon} alt="Phone Icon" />
+                  </div>
+                  <div className="single-icon-container">
+                      <img className="message-icon" src={messageIcon} alt="Message Icon" />
+                  </div>
+                  <div className="single-icon-container">
+                      <img className="face-icon" src={facetofaceIcon} alt="Face to face Icon" />
+                  </div>
+              </div>
+              <div className="single-icon-container">
+                     <img className="settings-icon" src={settingsIcon} alt="Settings Icon" />
+              </div>
+              </div>{/* Sidebar ends */}
+              
+              {/* Sign in section with 2 inputs and submit button */}
+              <div className="signin-section">
+                <h1>Velkomin/n</h1>
+                <form onSubmit={this.onSubmit}>
+                <fieldset>
+                <legend>Innskráning</legend>
+                <img src={konnektlady} />
+                  <label for="email">Notandi</label>
+                    <input
+                      name="email"
+                      value={email}
+                      onChange={this.onChange}
+                      type="text"
+                      placeholder="Email Address"
+                    />
+                    <label for="password">Lykilorð</label>
+                    <input
+                      name="password"
+                      value={password}
+                      onChange={this.onChange}
+                      type="password"
+                      placeholder="Password"
+                    />
+                </fieldset>
+              
+                  <button className="btn" disabled={isInvalid} type="submit">
+                    Innskráning
+                  </button>
 
-        {error && <p>{error.message}</p>}
-      </form>
+                    {error && <p>{error.message}</p>}
+                </form>
+              </div>
+              <img src={logo} />
+    
+
+      </div>// Sign in page end
+      
+     
     );
   }
 }
