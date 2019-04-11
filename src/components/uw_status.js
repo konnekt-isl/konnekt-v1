@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 
 import * as firebase from 'firebase'
 import { FirebaseContext } from './Firebase';
+import logo from './img/logo.svg';
+import konnektlady from './img/konnektlady.svg';
+import checkcircle from './img/check-circle.svg';
+// import SVGIcon from "./img/SVGIcon";
+
+
 
 class uw_status extends Component {
     constructor(props) {
@@ -52,7 +58,22 @@ class uw_status extends Component {
         let statusMessage;
         if (!sessionTimeOut) {
             statusScreen = 
-            <div> 
+            <div className="page-wrapper">
+                <div className="status-screen-green">
+                    <div className="logo-container">
+                        <img className="logo" src={logo} />
+                    </div>
+                    <div className="lady-container">
+                        <img src={konnektlady} />
+                    </div>
+                    <img src={checkcircle} />
+                    <div className="text-container">
+                        <h1>Auðkenni staðfest</h1>
+                        <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
+                        <button class="yes-btn">Áfram</button>
+                    </div>
+                </div>
+               
             green 
             </div>;
         } else {

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
 @import url("https://fonts.googleapis.com/css?family=Lato");
-.signin-page .signin-section .btn, .netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .simi-skjar2 .yes-btn, .simi-skjar1 .yes-btn {
+.signin-page .signin-section .btn, .netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .status-screen-green .yes-btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -30,7 +30,7 @@
   border-radius: 4px;
 }
 
-.netspjall-skjar2, .netspjall-skjar1 .btn-container, .netspjall-skjar1 .form, .netspjall-skjar1, .simi-skjar2 .text-container, .simi-skjar2, .simi-skjar1 .text-container, .simi-skjar1 .logo-container {
+.netspjall-skjar2, .netspjall-skjar1 .btn-container, .netspjall-skjar1 .form, .netspjall-skjar1, .status-screen-green .text-container, .status-screen-green, .simi-skjar1 .text-container, .simi-skjar1 .logo-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -88,31 +88,31 @@
 .simi-skjar1 .no-btn-container {
   margin-top: 5%;
 }
-.simi-skjar2 {
+.status-screen-green {
   justify-content: center;
   align-items: center;
 }
-.simi-skjar2 .wrapper {
+.status-screen-green .wrapper {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   width: 80%;
 }
-.simi-skjar2 h1 {
+.status-screen-green h1 {
   text-transform: uppercase;
   font-weight: bold;
   color: #3463FF;
   font-size: 18px;
 }
-.simi-skjar2 p {
+.status-screen-green p {
   font-size: 14px;
   padding: 0;
   margin: 0;
 }
-.simi-skjar2 .yes-btn {
+.status-screen-green .yes-btn {
   margin-top: 60%;
 }
-.simi-skjar2 .text-container {
+.status-screen-green .text-container {
   margin-top: 20%;
   align-items: center;
   justify-content: center;
