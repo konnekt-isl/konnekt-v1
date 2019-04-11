@@ -8,3 +8,4 @@ export const ADMIN = '/admin';
 export const ADMIN_DETAILS = '/admin/:id';
 export const AUTH = '/authenticate';
 export const STATUS = '/authenticate/status'
+export const FACETOFACE = '/FaceToFace';
