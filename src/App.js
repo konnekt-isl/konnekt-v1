@@ -20,7 +20,7 @@ import './styles/css/styles.css'
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="page-wrapper">
         <Navigation />
         <hr />
         <Route exact path={ROUTES.LANDING} component={LandingPage} />

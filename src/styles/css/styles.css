@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
 @import url("https://fonts.googleapis.com/css?family=Lato");
-.netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .simi-skjar2 .yes-btn, .simi-skjar1 .yes-btn {
+.signin-page .signin-section .btn, .netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .simi-skjar2 .yes-btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -181,45 +181,17 @@
   font-size: 10px;
   color: #828282;
 }
-.page-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-.page-wrapper .sidebar {
-  width: 72px;
-  background-color: #3463FF;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 0px;
-}
-.page-wrapper .icons-container {
-  height: 216px;
-}
-.page-wrapper .single-icon-container {
-  width: 72px;
-  height: 72px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.page-wrapper .active {
-  background-color: #F1F3FF;
-}
-.page-wrapper .wrapper {
+.wrapper {
   padding: 0px 24px;
   margin-top: 80px;
 }
-.page-wrapper .wrapper h1 {
+.wrapper h1 {
   font-size: 16px;
   font-family: "Lato", Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   color: #3463FF;
 }
-.page-wrapper .wrapper .name-container {
+.wrapper .name-container {
   width: 200px;
   height: 27px;
   display: flex;
@@ -229,17 +201,99 @@
   justify-content: space-between;
   padding: 4px 0px 4px 12px;
 }
-.page-wrapper .wrapper .active {
+.wrapper .active {
   background-color: #F1F3FF;
   border-radius: 4px;
 }
-.page-wrapper .wrapper p {
+.wrapper p {
   margin: 0px;
 }
 
+.signin-page {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.signin-page .sidebar {
+  width: 72px;
+  background-color: #3463FF;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0px;
+}
+.signin-page .icons-container {
+  height: 216px;
+}
+.signin-page .single-icon-container {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signin-page .active {
+  background-color: #F1F3FF;
+}
+.signin-page .signin-section {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.signin-page .signin-section h1 {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  color: #3463FF;
+  font-size: 24px;
+  margin: 0px;
+}
+.signin-page .signin-section legend {
+  font-size: 16px;
+  color: #4F4F4F;
+  margin: 0px;
+  padding: 0px;
+}
+.signin-page .signin-section fieldset {
+  border: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.signin-page .signin-section label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #3463FF;
+  text-transform: uppercase;
+}
+.signin-page .signin-section input {
+  border-radius: 4px;
+  background: #E6ECFF;
+  height: 40px;
+  width: 208px;
+  border: none;
+}
 * {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: inherit;
+}
+
+.page-wrapper {
+  height: 100%;
+}
+
+ul {
+  margin: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
