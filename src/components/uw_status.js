@@ -58,6 +58,7 @@ class uw_status extends Component {
         let statusMessage;
         if (!sessionTimeOut) {
             statusScreen = 
+            // Screen that shows when authentication is successfull
             <div className="page-wrapper">
                 <div className="status-screen-green">
                     <div className="logo-container">
@@ -73,11 +74,15 @@ class uw_status extends Component {
                         <button class="yes-btn">Áfram</button>
                     </div>
                 </div>
-               
-            green 
             </div>;
         } else {
-            statusScreen = <div> Session Time Out </div>;
+            statusScreen =     
+            // Screen that shows when authentication failed or connection timed out     
+            <div className="page-wrapper">
+            <div className="status-screen-red">
+                <p>Auðkenning tókst ekki</p>
+            </div>
+        </div>;
         }
         if (this.state.status !== '200') {
             statusMessage = this.state.message

@@ -2,6 +2,9 @@
     @extend %flex-column;
     justify-content: center;
     align-items: center;
+    max-height:667px;
+    max-width:375px;
+    margin: auto;
     
     .wrapper {
         display: flex;
