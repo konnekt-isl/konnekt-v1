@@ -51,7 +51,10 @@ class uw_status extends Component {
         let statusScreen;
         let statusMessage;
         if (!sessionTimeOut) {
-            statusScreen = <div> green </div>;
+            statusScreen = 
+            <div> 
+            green 
+            </div>;
         } else {
             statusScreen = <div> Session Time Out </div>;
         }

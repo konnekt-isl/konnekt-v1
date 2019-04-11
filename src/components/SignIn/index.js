@@ -7,12 +7,10 @@ import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import logoVertical from '../img/logovertical.svg';
-import phoneIcon from '../img/phone.svg';
-import messageIcon from '../img/messenger.svg';
-import facetofaceIcon from '../img/face2face.svg';
-import settingsIcon from '../img/settings.svg';
 import konnektlady from '../img/konnektlady.svg';
 import logo from '../img/logo.svg';
+import SVGIcon from "../img/SVGIcon";
+
 
 const SignInPage = () => (
   <div className="page-wrapper">
@@ -82,27 +80,31 @@ class SignInFormBase extends Component {
             {/* Container around the 3 icons */}
               <div className="icons-container">
                   <div className="single-icon-container">
-                      <img className="phone-icon" src={phoneIcon} alt="Phone Icon" />
+                  <SVGIcon name="phone" width={24}/>
                   </div>
                   <div className="single-icon-container">
-                      <img className="message-icon" src={messageIcon} alt="Message Icon" />
+                  <SVGIcon name="message" width={24} />
                   </div>
                   <div className="single-icon-container">
-                      <img className="face-icon" src={facetofaceIcon} alt="Face to face Icon" />
+                  <SVGIcon name="face" width={24} />
                   </div>
               </div>
               <div className="single-icon-container">
-                     <img className="settings-icon" src={settingsIcon} alt="Settings Icon" />
+                <SVGIcon name="settings" width={24} />
               </div>
               </div>{/* Sidebar ends */}
               
-              {/* Sign in section with 2 inputs and submit button */}
+              {/* Sign in section with the form, 2 inputs and submit button */}
               <div className="signin-section">
                 <h1>Velkomin/n</h1>
                 <form onSubmit={this.onSubmit}>
                 <fieldset>
                 <legend>Innskráning</legend>
-                <img src={konnektlady} />
+                <div class="img-container">
+                  <img src={konnektlady} />
+                </div>
+                
+                
                   <label for="email">Notandi</label>
                     <input
                       name="email"
@@ -128,7 +130,10 @@ class SignInFormBase extends Component {
                     {error && <p>{error.message}</p>}
                 </form>
               </div>
-              <img src={logo} />
+              <div className="logo-container">
+                <img className="logo" src={logo} />
+              </div>
+              
     
 
       </div>// Sign in page end

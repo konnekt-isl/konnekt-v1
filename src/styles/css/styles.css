@@ -210,14 +210,14 @@
 }
 
 .signin-page {
-  height: 100%;
+  height: inherit;
   display: flex;
   flex-direction: row;
 }
 .signin-page .sidebar {
   width: 72px;
   background-color: #3463FF;
-  height: 100%;
+  height: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -238,34 +238,51 @@
   background-color: #F1F3FF;
 }
 .signin-page .signin-section {
-  width: inherit;
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 .signin-page .signin-section h1 {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   color: #3463FF;
   font-size: 24px;
-  margin: 0px;
+  margin: 0px 0px 10px 0px;
+  max-width: 208px;
+}
+.signin-page .signin-section .img-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 50px 0px;
+}
+.signin-page .signin-section form {
+  max-width: 208px;
 }
 .signin-page .signin-section legend {
   font-size: 16px;
   color: #4F4F4F;
   margin: 0px;
   padding: 0px;
+  text-align: center;
 }
 .signin-page .signin-section fieldset {
   border: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
+  max-width: 208px;
+  margin: 0;
 }
 .signin-page .signin-section label {
   font-size: 12px;
   font-weight: 600;
   color: #3463FF;
   text-transform: uppercase;
+  max-width: 208px;
 }
 .signin-page .signin-section input {
   border-radius: 4px;
@@ -273,7 +290,17 @@
   height: 40px;
   width: 208px;
   border: none;
+  padding: 0px;
+  margin-bottom: 10px;
 }
+.signin-page .signin-section .btn {
+  padding: 0px;
+  margin-top: 34px;
+}
+.signin-page .signin-section .logo-container .logo {
+  padding-right: 64px;
+}
+
 * {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   box-sizing: border-box;
