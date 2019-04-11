@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
 @import url("https://fonts.googleapis.com/css?family=Lato");
-.signin-page .signin-section .btn, .netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .simi-skjar2 .yes-btn, .simi-skjar1 .yes-btn {
+.signin-page .signin-section .btn, .netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .status-screen-green .yes-btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -24,13 +24,21 @@
   text-decoration: none;
 }
 
+.landing .big-btn {
+  width: 577px;
+  height: 131px;
+  border: 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .netspjall-skjar1 .form input {
   width: 202px;
   height: 40px;
   border-radius: 4px;
 }
 
-.netspjall-skjar2, .netspjall-skjar1 .btn-container, .netspjall-skjar1 .form, .netspjall-skjar1, .simi-skjar2 .text-container, .simi-skjar2, .simi-skjar1 .text-container, .simi-skjar1 .logo-container {
+.netspjall-skjar2, .netspjall-skjar1 .btn-container, .netspjall-skjar1 .form, .netspjall-skjar1, .status-screen-green .text-container, .status-screen-green, .simi-skjar1 .text-container, .simi-skjar1 .logo-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -48,11 +56,24 @@
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
+  max-height: 667px;
+  max-width: 375px;
+  margin: auto;
 }
 .simi-skjar1 .wrapper {
   margin-top: 10%;
   width: 100%;
   justify-content: center;
+}
+.simi-skjar1 input {
+  margin-top: 20px;
+  border-radius: 4px;
+  background: #E6ECFF;
+  height: 40px;
+  width: 208px;
+  border: none;
+  padding: 0px;
+  margin-bottom: 10px;
 }
 .simi-skjar1 .logo-container {
   width: 90%;
@@ -88,31 +109,34 @@
 .simi-skjar1 .no-btn-container {
   margin-top: 5%;
 }
-.simi-skjar2 {
+.status-screen-green {
   justify-content: center;
   align-items: center;
+  max-height: 667px;
+  max-width: 375px;
+  margin: auto;
 }
-.simi-skjar2 .wrapper {
+.status-screen-green .wrapper {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   width: 80%;
 }
-.simi-skjar2 h1 {
+.status-screen-green h1 {
   text-transform: uppercase;
   font-weight: bold;
   color: #3463FF;
   font-size: 18px;
 }
-.simi-skjar2 p {
+.status-screen-green p {
   font-size: 14px;
   padding: 0;
   margin: 0;
 }
-.simi-skjar2 .yes-btn {
+.status-screen-green .yes-btn {
   margin-top: 60%;
 }
-.simi-skjar2 .text-container {
+.status-screen-green .text-container {
   margin-top: 20%;
   align-items: center;
   justify-content: center;
@@ -210,14 +234,14 @@
 }
 
 .signin-page {
-  height: 100%;
+  height: inherit;
   display: flex;
   flex-direction: row;
 }
 .signin-page .sidebar {
   width: 72px;
   background-color: #3463FF;
-  height: 100%;
+  height: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -238,34 +262,51 @@
   background-color: #F1F3FF;
 }
 .signin-page .signin-section {
-  width: inherit;
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 .signin-page .signin-section h1 {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   color: #3463FF;
   font-size: 24px;
-  margin: 0px;
+  margin: 0px 0px 10px 0px;
+  max-width: 208px;
+}
+.signin-page .signin-section .img-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 50px 0px;
+}
+.signin-page .signin-section form {
+  max-width: 208px;
 }
 .signin-page .signin-section legend {
   font-size: 16px;
   color: #4F4F4F;
   margin: 0px;
   padding: 0px;
+  text-align: center;
 }
 .signin-page .signin-section fieldset {
   border: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
+  max-width: 208px;
+  margin: 0;
 }
 .signin-page .signin-section label {
   font-size: 12px;
   font-weight: 600;
   color: #3463FF;
   text-transform: uppercase;
+  max-width: 208px;
 }
 .signin-page .signin-section input {
   border-radius: 4px;
@@ -273,7 +314,100 @@
   height: 40px;
   width: 208px;
   border: none;
+  padding: 0px;
+  margin-bottom: 10px;
 }
+.signin-page .signin-section .btn {
+  padding: 0px;
+  margin-top: 34px;
+}
+.signin-page .signin-section .logo-container .logo {
+  padding-right: 64px;
+}
+
+.landing header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.landing header nav {
+  width: 50%;
+}
+.landing header nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  justify-content: space-around;
+}
+.landing header nav li {
+  color: #4F4F4F;
+}
+.landing .section {
+  height: 90vh;
+}
+.landing h1 {
+  color: #3463FF;
+  font-size: 80px;
+  text-align: center;
+  font-weight: bolder;
+  margin: 0;
+}
+.landing h2 {
+  font-size: 22px;
+  color: #4F4F4F;
+  text-align: center;
+}
+.landing .lausnir-btn {
+  border: 4px solid #56E8A2;
+  background: none;
+  width: 191px;
+  height: 64px;
+  text-transform: uppercase;
+  color: #56E8A2;
+}
+.landing h3 {
+  color: #56E8A2;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0px;
+}
+.landing h4 {
+  font-size: 60px;
+  color: #3463FF;
+  margin: 0px;
+}
+.landing p {
+  color: #4F4F4F;
+  font-size: 20px;
+}
+.landing .okkar-syn {
+  height: 797px;
+  width: 756px;
+}
+.landing footer {
+  height: 367px;
+  background-color: #3463FF;
+  color: #FFFFFF;
+}
+.landing footer p {
+  color: #FFFFFF;
+}
+.landing .big-btn {
+  color: #FFFFFF;
+}
+.landing .big-btn span {
+  font-size: 18px;
+}
+.landing .green {
+  background: #56E8A2;
+}
+.landing .blue {
+  background: #3463FF;
+}
+
 * {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   box-sizing: border-box;

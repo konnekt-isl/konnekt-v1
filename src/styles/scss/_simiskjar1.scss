@@ -4,11 +4,24 @@
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+    max-height:667px;
+    max-width:375px;
+    margin: auto;
     .wrapper {
         margin-top:10%;
         @extend %flex-row;
         width:100%;
         justify-content: center;
+    }
+    input {
+        margin-top:20px;
+        border-radius: 4px;
+        background: #E6ECFF;
+        height: 40px;
+        width: 208px;
+        border: none;
+        padding: 0px;
+        margin-bottom: 10px;
     }
 
     .logo-container {
