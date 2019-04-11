@@ -1,10 +1,12 @@
 import React from 'react';
 import konnektlady from '../img/konnektlady.svg';
 import logo from '../img/logo.svg';
+import okkarsyn from '../img/okkarsyn.png'
+import SVGIcon from "../img/SVGIcon";
 const Landing = () => (
   <div className="page-wrapper landing">
     <header>
-    <img src={logo} />
+    <img src={logo} alt="Fara á forsíðu" />
       <nav>
         <ul>
           <li>Lausnir</li>
@@ -17,8 +19,8 @@ const Landing = () => (
         <div className="section">
           <h1>Örugg samskipti,<br></br>Hraðar.</h1>
           <h2>Hjálpum fyrirtækjum að auka hagkvæmni og skilvirkni í rekstri</h2>
-          <button>Lausnir</button>
-          <img src={konnektlady} />
+          <button class="lausnir-btn">Lausnir</button>
+          <img src={konnektlady} alt="" />
         </div>
         <div className="section">
           <div className="summary-wrapper">
@@ -30,10 +32,14 @@ const Landing = () => (
         </div>
 
         <div className="section">
+        <video width="320" height="240" controls>
+          {/* <source src="movie.mp4" type="video/mp4">
+          <source src="movie.ogg" type="video/ogg"> */}
+        </video>
           <div className="summary-wrapper">
             <h3>Hvernig virkar það?</h3>
             <h4>Virkar fyrir allt og alla</h4>
-            <p>Konnekt er hægt að bæta við hvaða stafræna vettvang sem er, hvort sem það sé núverandi grunnkerfi eða samfélagsmiðla tól.  Hér til hliðar sérðu dæmi um notkun. Möguleikarnir eru endalausir. </p>
+            <p>Konnekt er hægt að bæta við hvaða stafræna vettvang sem er, hvort sem það sé núverandi grunnkerfi eða samfélagsmiðla tól. Hér til hliðar sérðu dæmi um notkun. Möguleikarnir eru endalausir. </p>
           </div>
         </div>
 
@@ -42,12 +48,16 @@ const Landing = () => (
             <h3>Viltu prófa?</h3>
             <h4>Sjáðu snilldina</h4>
             <p>Segðu okkur hvort þú sért fyrirtæki eða einstaklingur og við leiðum þig áfram. </p>
-            <button>Einstaklingur<br></br>Meira</button>
-            <button>Fyrirtæki<br></br>Meira</button>
+            <SVGIcon name="arrow" fill="#000" width={431}/>
+            <button className="big-btn blue">Einstaklingur<br></br><span>Meira</span></button>
+            <button className="big-btn green">Fyrirtæki<br></br><span>Meira</span></button>
           </div>
         </div>
 
         <div className="section">
+        <div className="img-wrapper">
+          <img className="okkar-syn" src={okkarsyn} alt="" />
+        </div>
           <div className="summary-wrapper">
             <h3>Framtíðin</h3>
             <h4>Okkar sýn</h4>
@@ -58,7 +68,7 @@ const Landing = () => (
         </div>
 
         <footer>
-          <p>Er þitt fyrirtæki tilbúið til þess að?</p>
+          <p>Er þitt fyrirtæki tilbúið til þess að</p>
           <ul>
           <li>Ræða um framtíðina?</li>
           <li>Öryggisvæða stafrænu samskiptaleiðirnar?</li>
