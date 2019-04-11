@@ -57,7 +57,7 @@ class uw_auth extends Component {
                 data.responseStatus ? this.setState({ message: data.responseStatus.message }) :
                     this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
                 const { ssn, name, phoneNumber, address, postalCode, city, token, } = mockResponse;
-                firebase.firestore().collection('users').doc(ssn).set({
+                firebase.firestore().collection('end_users').doc(ssn).set({
                     name,
                     phoneNumber,
                     address,
