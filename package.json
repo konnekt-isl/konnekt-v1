@@ -5,6 +5,7 @@
   "dependencies": {
     "auth0-js": "^9.10.1",
     "firebase": "^5.9.1",
+    "md5": "^2.2.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-router": "^5.0.0",

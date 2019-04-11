@@ -13,6 +13,7 @@ import FaceToFace from '../FaceToFace';
 
 import uw_auth from '../uw_auth';
 import uw_status from '../uw_status';
+import sw_request from '../sw_request';
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
@@ -36,9 +37,10 @@ const App = () => (
       <Route path={ROUTES.HOME} component={HomePage} />
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.ADMIN} component={AdminPage} />
-      <Route exact path={ROUTES.AUTH} component={uw_auth} />
+      <Route path={ROUTES.AUTH} component={uw_auth} />
       <Route path={ROUTES.STATUS} component={uw_status} />
       <Route path={ROUTES.FACETOFACE} component={FaceToFace} />
+      <Route path={ROUTES.REQUEST} component={sw_request} />
     </div>
   </Router>
 );

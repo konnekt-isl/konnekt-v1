@@ -8,6 +8,7 @@ class uw_status extends Component {
         super(props);
 
         this.state = {
+            ssn: null,
             date: null,
             status: '200',
             timeStamp: null,
@@ -18,8 +19,9 @@ class uw_status extends Component {
     }
 
     componentDidMount() {
-        firebase.firestore().collection('status').doc(this.props.location.state.ssn).get()
+        firebase.firestore().collection('status').doc(this.props.location.state.session).get()
             .then((doc) => {
+                this.setState({ ssn: doc.data().ssn })
                 this.setState({ timeStamp: doc.data().date.seconds })
                 this.setState({ status: doc.data().status })
                 this.setState({ message: doc.data().message })

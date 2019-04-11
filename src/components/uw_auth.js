@@ -26,6 +26,7 @@ class uw_auth extends Component {
             status: null,
             date: null,
             message: null,
+            url_id: '',
         };
 
         this._handleChange = this._handleChange.bind(this);
@@ -34,6 +35,14 @@ class uw_auth extends Component {
     _handleChange = (event) => {
         this.setState({ phone: event.target.value })
     }
+
+
+    componentDidMount() {
+        this.setState({ url_id: this.props.match.params.session });
+        console.log(this.props.match.params.session);
+        console.log(this.state.url_id)
+    }
+
 
     _confirmphone = () => {
         fetch('https://onboardingdev.taktikal.is:443/api/Auth', {
@@ -56,7 +65,7 @@ class uw_auth extends Component {
 
                 data.responseStatus ? this.setState({ message: data.responseStatus.message }) :
                     this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
-                const { ssn, name, phoneNumber, address, postalCode, city, token, } = mockResponse;
+                const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
                 firebase.firestore().collection('end_users').doc(ssn).set({
                     name,
                     phoneNumber,
@@ -66,15 +75,16 @@ class uw_auth extends Component {
                     token,
                 });
                 this.setState({ data: data });
-                firebase.firestore().collection('status').doc(data.ssn).set({
+                firebase.firestore().collection('status').doc(this.props.match.params.session).set({
+                    ssn: data.ssn,
                     date: this.state.date,
                     status: this.state.status,
                     message: this.state.message,
                 })
                 console.log("Test: " + this.state.data.ssn)
                 this.props.history.push({
-                    pathname: '/authenticate/status',
-                    state: { ssn: this.state.data.ssn }
+                    pathname: '/status',
+                    state: { session: this.props.match.params.session }
                 })
             })
             .catch(err => {
