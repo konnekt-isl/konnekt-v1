@@ -6,6 +6,8 @@ import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
+import logo from '../img/logo.svg';
+
 const Navigation = () => (
   <AuthUserContext.Consumer>
     {authUser =>
@@ -49,7 +51,7 @@ const NavigationAuth = ({ authUser }) => (
 const NavigationNonAuth = () => (
   <ul>
     <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
+      <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
     </li>
     <li>
       <Link to={ROUTES.SIGN_IN}>Sign In</Link>

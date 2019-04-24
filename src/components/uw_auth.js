@@ -81,7 +81,7 @@ class uw_auth extends Component {
                     status: this.state.status,
                     message: this.state.message,
                 })
-                console.log("Test: " + this.state.data.ssn)
+                console.log("Test: " + this.state.data)
                 this.props.history.push({
                     pathname: '/status',
                     state: { session: this.props.match.params.session }
