@@ -1,8 +1,11 @@
+//Innskráningar síða fyrir desktop
+
+
 .signin-page {
     height: inherit;
     display: flex;
     flex-direction: row;
-    // flex-wrap: wrap;
+    flex-wrap: wrap;
        //Sidebar
        .sidebar {
         width: 72px;
@@ -28,74 +31,109 @@
         background-color: #F1F3FF;
     }
 
-    .signin-section {
-        width: 100%;
+    .wrapper {
         display: flex;
         flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        
-        h1 {
-            font-family: $font-stack;
-            text-transform: uppercase;
-            color: $primary;
-            font-size: 24px;
-            margin: 0px 0px 10px 0px;
-            max-width: 208px;
-        }
-        .img-container {
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            margin: 50px 0px;
-        }
-        form {
-            max-width: 208px;
-        }
-        legend {
-            font-size: 16px;
-            color: $text;
-            margin: 0px;
-            padding: 0px;
-            text-align: center;
-        }
-        fieldset {
-            border: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            max-width: 208px;
-            margin: 0;
-        }
-        label {
-            font-size: 12px;
-            font-weight: 600;
-            color: $primary;
-            text-transform: uppercase;
-            max-width: 208px;
-        }
-        input {
-            border-radius: 4px;
-            background: #E6ECFF;
-            height: 40px;
-            width: 208px;
-            border: none;
-            padding: 0px;
-            margin-bottom: 10px;
-        }
-        .btn {
-           @extend %yes-btn;
-           padding: 0px;
-           margin-top:34px;
-        }
+        flex-direction: row;
+        width: 95%;
         .logo-container {
-      
-            .logo {
-                padding-right:64px;
-            }
+         width: inherit;
+         display: flex;
+         justify-content: flex-end;
+         align-items: flex-start;
+         .logo  {
+             height: 50px;
+         }
         }
+        .signin-section {
+            width: 95%;
+
+            .container {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-content: center;
+                flex-wrap: wrap;
+                h1 {
+                    font-family: $font-stack;
+                    text-transform: uppercase;
+                    color: $primary;
+                    font-size: 24px;
+                    margin: 0px 0px 10px 0px;
+                    max-width: 208px;
+                    text-align: center;
+                }
+                .img-container {
+                    display: flex;
+                    justify-content: center;
+                    align-content: center;
+                    margin: 50px 0px;
+                    height: 75px;
+                    .konnekt-lady {
+                        height: 75px;
+                    }
+                    
+                }
+                form {
+                    max-width: 208px;
+                }
+                legend {
+                    font-size: 16px;
+                    color: $text;
+                    margin: 0px;
+                    padding: 0px;
+                    text-align: center;
+                }
+                fieldset {
+                    border: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 208px;
+                    margin: 0;
+                }
+                label {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: $primary;
+                    text-transform: uppercase;
+                    max-width: 208px;
+                }
+                input {
+                    border-radius: 4px;
+                    background: #E6ECFF;
+                    height: 40px;
+                    width: 208px;
+                    border: none;
+                    padding: 0px;
+                    margin-bottom: 10px;
+                }
+                .btn {
+                   @extend %yes-btn;
+                   padding: 0px;
+                   margin-top:34px;
+                }
+
+                .btn:hover {
+                    background: rgba(43, 226, 138, 1);
+                    cursor: pointer;
+                }
+            }
+            
+              
+               
+            
+    
+            }
     }
 
     
-}
+        
+        
+    }
+
+
+    @media only screen and (max-width: 600px) {
+
+      }
+    
