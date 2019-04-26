@@ -1,0 +1,14 @@
+    // Adding to the array of objects
+    onSubmit = event => {
+        const { phone, chatName, message, messageDate } = this.state;
+        firebase.firestore().collection('chat').doc(phone).update({
+            read: false,
+            messages: firebase.firestore.FieldValue.arrayUnion({
+                chatName,
+                message,
+                messageDate,
+            })
+        })
+
+        event.preventDefault();
+    };

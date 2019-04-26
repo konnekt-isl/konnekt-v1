@@ -59,32 +59,32 @@ class uw_status extends Component {
         let statusScreen;
         let statusMessage;
         if (!sessionTimeOut) {
-            statusScreen = 
-            // Screen that shows when authentication is successfull
-            <div className="page-wrapper">
-                <div className="status-screen-green">
-                    <div className="logo-container">
-                        <img className="logo" src={logo} />
+            statusScreen =
+                // Screen that shows when authentication is successfull
+                <div className="page-wrapper">
+                    <div className="status-screen-green">
+                        <div className="logo-container">
+                            <img className="logo" src={logo} />
+                        </div>
+                        <div className="lady-container">
+                            <img src={konnektlady} />
+                        </div>
+                        <img src={checkcircle} />
+                        <div className="text-container">
+                            <h1>Auðkenni staðfest</h1>
+                            <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
+                            <button class="yes-btn">Áfram</button>
+                        </div>
                     </div>
-                    <div className="lady-container">
-                        <img src={konnektlady} />
-                    </div>
-                    <img src={checkcircle} />
-                    <div className="text-container">
-                        <h1>Auðkenni staðfest</h1>
-                        <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
-                        <button class="yes-btn">Áfram</button>
-                    </div>
-                </div>
-            </div>;
+                </div>;
         } else {
-            statusScreen =     
-            // Screen that shows when authentication failed or connection timed out     
-            <div className="page-wrapper">
-            <div className="status-screen-red">
-                <p>Auðkenning tókst ekki</p>
-            </div>
-        </div>;
+            statusScreen =
+                // Screen that shows when authentication failed or connection timed out     
+                <div className="page-wrapper">
+                    <div className="status-screen-red">
+                        <p>Auðkenning tókst ekki</p>
+                    </div>
+                </div>;
         }
         if (this.state.status !== '200') {
             statusMessage = this.state.message

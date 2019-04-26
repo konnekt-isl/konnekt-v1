@@ -10,3 +10,6 @@ export const AUTH = '/authenticate/:session';
 export const STATUS = '/status'
 export const FACETOFACE = '/facetoface';
 export const REQUEST = '/request';
+export const CHAT = '/chat';
+export const CHATBOX = '/chatbox';
+export const CHATLIST = '/chatlist';

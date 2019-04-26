@@ -37,6 +37,9 @@ const NavigationAuth = ({ authUser }) => (
     <li>
       <Link to={ROUTES.REQUEST}>Request</Link>
     </li>
+    <li>
+      <Link to={ROUTES.CHATLIST}>Chat</Link>
+    </li>
     {!!authUser.roles[ROLES.ADMIN] && (
       <li>
         <Link to={ROUTES.ADMIN}>Admin</Link>
@@ -52,6 +55,9 @@ const NavigationNonAuth = () => (
   <ul>
     <li>
       <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
+    </li>
+    <li>
+      <Link to={ROUTES.CHAT}>Chat</Link>
     </li>
     <li>
       <Link to={ROUTES.SIGN_IN}>Sign In</Link>

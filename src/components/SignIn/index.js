@@ -77,68 +77,68 @@ class SignInFormBase extends Component {
         {/* Sidebar with vertical logo and icons */}
         <div className="sidebar">
           <img className="logo-vertical" src={logoVertical} alt="Logo" />
-            {/* Container around the 3 icons */}
-              <div className="icons-container">
-                  <div className="single-icon-container">
-                  <SVGIcon name="phone" width={24}/>
-                  </div>
-                  <div className="single-icon-container">
-                  <SVGIcon name="message" width={24} />
-                  </div>
-                  <div className="single-icon-container">
-                  <SVGIcon name="face" width={24} />
-                  </div>
+          {/* Container around the 3 icons */}
+          <div className="icons-container">
+            <div className="single-icon-container">
+              <SVGIcon name="phone" width={24} />
+            </div>
+            <div className="single-icon-container">
+              <SVGIcon name="message" width={24} />
+            </div>
+            <div className="single-icon-container">
+              <SVGIcon name="face" width={24} />
+            </div>
+          </div>
+          <div className="single-icon-container">
+            <SVGIcon name="settings" width={24} />
+          </div>
+        </div>{/* Sidebar ends */}
+
+        {/* Sign in section with the form, 2 inputs and submit button */}
+        <div className="signin-section">
+          <h1>Velkomin/n</h1>
+          <form onSubmit={this.onSubmit}>
+            <fieldset>
+              <legend>Innskráning</legend>
+              <div class="img-container">
+                <img src={konnektlady} />
               </div>
-              <div className="single-icon-container">
-                <SVGIcon name="settings" width={24} />
-              </div>
-              </div>{/* Sidebar ends */}
-              
-              {/* Sign in section with the form, 2 inputs and submit button */}
-              <div className="signin-section">
-                <h1>Velkomin/n</h1>
-                <form onSubmit={this.onSubmit}>
-                <fieldset>
-                <legend>Innskráning</legend>
-                <div class="img-container">
-                  <img src={konnektlady} />
-                </div>
-                
-                
-                  <label for="email">Notandi</label>
-                    <input
-                      name="email"
-                      value={email}
-                      onChange={this.onChange}
-                      type="text"
-                      placeholder="Email Address"
-                    />
-                    <label for="password">Lykilorð</label>
-                    <input
-                      name="password"
-                      value={password}
-                      onChange={this.onChange}
-                      type="password"
-                      placeholder="Password"
-                    />
-                </fieldset>
-              
-                  <button className="btn" disabled={isInvalid} type="submit">
-                    Innskráning
+
+
+              <label for="email">Notandi</label>
+              <input
+                name="email"
+                value={email}
+                onChange={this.onChange}
+                type="text"
+                placeholder="Email Address"
+              />
+              <label for="password">Lykilorð</label>
+              <input
+                name="password"
+                value={password}
+                onChange={this.onChange}
+                type="password"
+                placeholder="Password"
+              />
+            </fieldset>
+
+            <button className="btn" disabled={isInvalid} type="submit">
+              Innskráning
                   </button>
 
-                    {error && <p>{error.message}</p>}
-                </form>
-              </div>
-              <div className="logo-container">
-                <img className="logo" src={logo} />
-              </div>
-              
-    
+            {error && <p>{error.message}</p>}
+          </form>
+        </div>
+        <div className="logo-container">
+          <img className="logo" src={logo} />
+        </div>
+
+
 
       </div>// Sign in page end
-      
-     
+
+
     );
   }
 }

@@ -81,6 +81,9 @@ class uw_auth extends Component {
                     status: this.state.status,
                     message: this.state.message,
                 })
+                firebase.firestore().collection('systemState').doc('session').update({
+                    url_id: this.props.match.params.session
+                })
                 console.log("Test: " + this.state.data)
                 this.props.history.push({
                     pathname: '/status',
