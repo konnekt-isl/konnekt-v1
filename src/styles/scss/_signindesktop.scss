@@ -34,10 +34,11 @@
     .wrapper {
         display: flex;
         flex-wrap: wrap;
-        flex-direction: row;
+        flex-direction: column;
         width: 95%;
         .logo-container {
          width: inherit;
+         max-height: 70px;
          display: flex;
          justify-content: flex-end;
          align-items: flex-start;

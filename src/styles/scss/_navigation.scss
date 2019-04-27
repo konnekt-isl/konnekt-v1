@@ -2,10 +2,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 1% 5%;
     ul {
         list-style-type: none;
+        padding: 0;
         display: flex;
-    flex-direction: row;
+        flex-direction: row;
+        
+        li {
+            padding-right:15px;
+        }
      
     }
 }

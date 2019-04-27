@@ -1,0 +1,86 @@
+.homepage {
+    display: flex;
+    flex-direction: row;
+    .homepage-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .sidebar {
+        width: 72px;
+        background-color: $primary; 
+        height: inherit;
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 0px;
+    }
+    .icons-container {
+        height: 216px;
+    }
+    .single-icon-container {
+        width: 72px; 
+        height: 72px;
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+    }
+    .active {
+        background-color: #F1F3FF;
+    }
+
+    .message-icon {
+        path {
+            fill: $primary;
+        }
+        
+    }
+
+    .csr-header {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        .user-container {
+            display: flex;
+            flex-direction: row;
+            p {
+                margin: 0px;
+            }
+            .avatar {
+                path {
+                    fill: $text;
+                }
+            }
+        }
+    
+    }
+
+    .chat-overview {
+        width: 230px;
+        height: 100%;
+        border-right: 1px solid #E9E9E9;
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+        h2 {
+            text-transform: uppercase;
+            color: $primary;
+            font-size: 16px;
+        }
+    }
+    .konnekt-status-overview {
+        width: 230px;
+        height: 100%;
+        border-left: 1px solid #E9E9E9;
+    }
+
+   
+}
