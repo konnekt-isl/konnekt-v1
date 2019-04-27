@@ -10,25 +10,6 @@ import chatexpand from '../img/chatexpand.svg';
 
 const HomePage = () => (
   <div className="page-wrapper homepage">
-   {/* Sidebar with vertical logo and icons */}
-   <div className="sidebar">
-          <img className="logo-vertical" src={logoVertical} alt="Logo" />
-            {/* Container around the 3 icons */}
-              <div className="icons-container">
-                  <div className="single-icon-container">
-                  <SVGIcon name="phone" width={24}/>
-                  </div>
-                  <div className="active single-icon-container">
-                  <SVGIcon name="message" width={24} className="message-icon" />
-                  </div>
-                  <div className="single-icon-container">
-                  <SVGIcon name="face" width={24} />
-                  </div>
-              </div>
-              <div className="single-icon-container">
-                <SVGIcon name="settings" width={24} />
-              </div>
-              </div>{/* Sidebar ends */}
 
 
     <div className="homepage-wrapper">

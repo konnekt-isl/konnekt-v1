@@ -5,6 +5,8 @@ import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
+import SVGIcon from "../img/SVGIcon";
+import logoVertical from '../img/logovertical.svg';
 
 const Navigation = () => (
   <AuthUserContext.Consumer>
@@ -19,18 +21,27 @@ const Navigation = () => (
 );
 
 const NavigationAuth = ({ authUser }) => (
+  
   <div className="navigation auth">
-    <Link to={ROUTES.LANDING}><img className="logo" src={logo} /></Link>
+  <div className="sidebar">{/* Sidebar with vertical logo and icons */}
+  <Link to={ROUTES.HOME}><img className="logo-vertical" src={logoVertical} alt="Logo" /></Link>
+          {/* Container around the 3 icons */}
+            <div className="icons-container">
+                <div className="single-icon-container">
+                <SVGIcon name="phone" width={24}/>
+                </div>
+                <div className="single-icon-container">
+                <SVGIcon name="message" width={24} />
+                </div>
+                <div className="single-icon-container">
+                <Link to={ROUTES.FACETOFACE}><SVGIcon name="face" width={24} /></Link>
+                </div>
+            </div>
+            <div className="single-icon-container">
+            <Link to={ROUTES.ACCOUNT}><SVGIcon name="settings" width={24} /></Link>
+            </div>
+            {/* Sidebar ends */}</div>
     <ul>
-      <li>
-        <Link to={ROUTES.FACETOFACE}>Face To Face</Link>
-      </li>
-      <li>
-        <Link to={ROUTES.HOME}>Home</Link>
-      </li>
-      <li>
-        <Link to={ROUTES.ACCOUNT}>Account</Link>
-      </li>
       {!!authUser.roles[ROLES.ADMIN] && (
         <li>
           <Link to={ROUTES.ADMIN}>Admin</Link>

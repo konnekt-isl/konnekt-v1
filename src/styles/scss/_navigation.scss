@@ -1,8 +1,8 @@
 .navigation {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 1% 5%;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
+    // margin: 1% 5%;
     ul {
         list-style-type: none;
         padding: 0;
@@ -14,4 +14,32 @@
         }
      
     }
+}
+
+.auth {
+    //Sidebar
+   .sidebar {
+    width: 72px;
+    background-color: $primary; 
+    height: inherit;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0px;
+}
+.icons-container {
+    height: 216px;
+}
+.single-icon-container {
+    width: 72px; 
+    height: 72px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.active {
+    background-color: #F1F3FF;
+}
+
 }

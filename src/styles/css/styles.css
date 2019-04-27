@@ -42,12 +42,6 @@
   flex-wrap: wrap;
 }
 
-.navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 1% 5%;
-}
 .navigation ul {
   list-style-type: none;
   padding: 0;
@@ -56,6 +50,30 @@
 }
 .navigation ul li {
   padding-right: 15px;
+}
+
+.auth .sidebar {
+  width: 72px;
+  background-color: #3463FF;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0px;
+}
+.auth .icons-container {
+  height: 216px;
+}
+.auth .single-icon-container {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth .active {
+  background-color: #F1F3FF;
 }
 
 .landing header {
