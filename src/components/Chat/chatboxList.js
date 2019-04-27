@@ -9,7 +9,7 @@ class ChatList extends Component {
 
         this.state = {
             read: true,
-            phone: '6470788',
+            phone: '',
             chatName: '',
             message: '',
             chatboxes: [],
@@ -37,8 +37,7 @@ class ChatList extends Component {
         })
     }
 
-    _loadChat = () => {
-        const phone = this.state.phone
+    _loadChat = (phone) => {
         firebase.firestore().collection('chat').doc(phone).onSnapshot((doc) => {
             console.log(doc.data().messages)
             this.setState({
@@ -62,7 +61,7 @@ class ChatList extends Component {
         firebase.firestore().collection('chat').doc(phone).update({
             read: true,
         })
-        this._loadChat();
+        this._loadChat(phone);
     }
 
     onSubmit = event => {
@@ -75,7 +74,7 @@ class ChatList extends Component {
                 messageDate,
             })
         })
-
+        this.setState({ message: '', messageDate: '' })
         event.preventDefault();
     };
 
@@ -90,26 +89,19 @@ class ChatList extends Component {
                 <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
 
                 <p>{this.state.messages.map((message) => <div class={message.chatName === this.state.chatName ? 'right' : 'left'}>{message.chatName + ':' + message.message}</div>)}</p>
-                <form onSubmit={this.onSubmit}>
-
-                    <fieldset>
-                        <legend>Chatbox</legend>
-
-                        <label for="message">Message</label>
-                        <input
-                            name="message"
-                            value={message}
-                            onChange={this._handleChange}
-                            type="text"
-                            placeholder=""
-                        />
-                    </fieldset>
+                {this.state.phone ? (<form onSubmit={this.onSubmit}>
+                    <input
+                        name="message"
+                        value={message}
+                        onChange={this._handleChange}
+                        type="text"
+                        placeholder="Skrifaðu hér..."
+                    />
                     <button className="btn" disabled={isInvalid} type="submit">
-                        Sent
+                        Senda
                     </button>
-                </form>
+                </form>) : (<div>Click on the chatbox to start chatting </div>)}
             </div>)
-
     };
 }
 

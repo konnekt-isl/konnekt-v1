@@ -39,6 +39,7 @@ class ChatBox extends Component {
     }
     // Adding to the array of objects
     onSubmit = event => {
+        event.preventDefault();
         const { phone, message, messageDate, chatName } = this.state;
         firebase.firestore().collection('chat').doc(phone).update({
             read: false,
@@ -48,8 +49,7 @@ class ChatBox extends Component {
                 messageDate,
             })
         })
-
-        event.preventDefault();
+        this.setState({ message: '', messageDate: '' })
     };
 
     render() {
@@ -57,26 +57,20 @@ class ChatBox extends Component {
         const isInvalid = message === '';
 
         return (
+
             <div>
                 <h1>Chat</h1>
                 <p>{this.state.messages.map((message) => <div class={message.chatName === this.state.chatName ? 'right' : 'left'}>{message.chatName + ':' + message.message}</div>)}</p>
                 <form onSubmit={this.onSubmit}>
-
-                    <fieldset>
-                        <legend>Chatbox</legend>
-
-
-                        <label for="message">Message</label>
-                        <input
-                            name="message"
-                            value={message}
-                            onChange={this._handleChange}
-                            type="text"
-                            placeholder=""
-                        />
-                    </fieldset>
+                    <input
+                        name="message"
+                        value={message}
+                        onChange={this._handleChange}
+                        type="text"
+                        placeholder="Skrifaðu hér..."
+                    />
                     <button className="btn" disabled={isInvalid} type="submit">
-                        Sent
+                        Senda
                     </button>
                 </form>
             </div >
