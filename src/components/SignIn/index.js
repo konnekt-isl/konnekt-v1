@@ -74,78 +74,25 @@ class SignInFormBase extends Component {
 
     return (
       <div className="signin-page">
-<<<<<<< HEAD
-              {/* wrapper around form and logo */}
-              <div className="wrapper">
-                <div className="logo-container">
-                  <img className="logo" src={logo} />
-                </div>
-              {/* Sign in section with the form, 2 inputs and submit button */}
-              <div className="signin-section">
-                  <div className="container">
-                    <h1>Velkomin/n</h1>
-                    <form onSubmit={this.onSubmit}>
-                    
-                    <fieldset>
-                      <legend>Innskráning</legend>
-                      <div className="img-container">
-                        <img className="konnekt-lady" src={konnektlady} />
-                      </div>
 
-                      <label for="email">Notandi</label>
-                        <input
-                          name="email"
-                          value={email}
-                          onChange={this.onChange}
-                          type="text"
-                          placeholder="Email Address"
-                        />
-                        <label for="password">Lykilorð</label>
-                        <input
-                          name="password"
-                          value={password}
-                          onChange={this.onChange}
-                          type="password"
-                          placeholder="Password"
-                        />
-                    </fieldset>
-                  
-                      <button className="btn" disabled={isInvalid} type="submit">
-                        Skrá inn
-=======
-        {/* Sidebar with vertical logo and icons */}
-        <div className="sidebar">
-          <img className="logo-vertical" src={logoVertical} alt="Logo" />
-          {/* Container around the 3 icons */}
-          <div className="icons-container">
-            <div className="single-icon-container">
-              <SVGIcon name="phone" width={24} />
-            </div>
-            <div className="single-icon-container">
-              <SVGIcon name="message" width={24} />
-            </div>
-            <div className="single-icon-container">
-              <SVGIcon name="face" width={24} />
-            </div>
-          </div>
-          <div className="single-icon-container">
-            <SVGIcon name="settings" width={24} />
-          </div>
-        </div>{/* Sidebar ends */}
-
-        {/* wrapper around form and logo */}
+      
         <div className="wrapper">
+
           <div className="logo-container">
             <img className="logo" src={logo} />
           </div>
-          {/* Sign in section with the form, 2 inputs and submit button */}
-          <div className="signin-section">
-            <div className="container">
-              <h1>Velkomin/n</h1>
-              <form onSubmit={this.onSubmit}>
 
+          
+          <div className="signin-section">
+
+            <div className="container">
+
+              <h1>Velkomin/n</h1>
+
+              <form onSubmit={this.onSubmit}>
                 <fieldset>
                   <legend>Innskráning</legend>
+                  
                   <div className="img-container">
                     <img className="konnekt-lady" src={konnektlady} />
                   </div>
@@ -170,20 +117,25 @@ class SignInFormBase extends Component {
 
                 <button className="btn" disabled={isInvalid} type="submit">
                   Skrá inn
->>>>>>> master
-                      </button>
+                </button>
 
-                {/* {error && <p>{error.message}</p>} */}
+            
               </form>
-            </div>
-          </div>
-        </div>
-      </div >// Sign in page end
+
+              </div> 
+              
+
+            </div> 
+           
+          
+          </div> 
+          
 
 
-    );
-  }
-}
+        </div> 
+    )
+  } }
+
 
 class SignInGoogleBase extends Component {
   constructor(props) {
