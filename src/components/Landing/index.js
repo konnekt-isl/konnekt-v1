@@ -4,6 +4,10 @@ import okkarsyn from '../img/okkarsyn.png'
 import sky from '../img/ský.svg';
 import SVGIcon from "../img/SVGIcon";
 
+import { HashLink as Link } from 'react-router-hash-link';
+import * as ROUTES from '../../constants/routes';
+import * as ROLES from '../../constants/roles';
+
 const Landing = () => (
   <div className="page-wrapper landing">
     <div className="section landing-section">
@@ -47,7 +51,7 @@ const Landing = () => (
         {/* <SVGIcon className="arrow" name="arrow" fill="#000" width={431} height={8}/> */}
       </div>
       <div className="summary-decoration">
-        <button className="big-btn blue">Einstaklingur</button>
+        <Link to={ROUTES.CHAT}><button className="big-btn blue">Einstaklingur</button></Link>
         <button className="big-btn green">Fyrirtæki</button>
       </div>
     </div>

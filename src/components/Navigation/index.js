@@ -29,6 +29,9 @@ const NavigationAuth = ({ authUser }) => (
         <Link to={ROUTES.FACETOFACE}>Face To Face</Link>
       </li>
       <li>
+        <Link to={ROUTES.CHATLIST}>Chat</Link>
+      </li>
+      <li>
         <Link to={ROUTES.HOME}>Home</Link>
       </li>
       <li>
@@ -64,9 +67,6 @@ const NavigationNonAuth = () => (
         </li>
         <li>
           <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
-        </li>
-        <li>
-          <Link to={ROUTES.CHAT}>Chat (needs to move to the lower part)</Link>
         </li>
         <li>
           <Link to={ROUTES.SIGN_IN}>Sign In</Link>

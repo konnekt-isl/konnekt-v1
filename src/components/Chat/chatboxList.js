@@ -8,11 +8,18 @@ class ChatList extends Component {
         super(props);
 
         this.state = {
+            read: true,
+            phone: '6470788',
             chatName: '',
+            message: '',
             chatboxes: [],
+            messages: [],
             authUser: JSON.parse(localStorage.getItem('authUser')),
+            messageDate: '',
         };
         this._handleClick = this._handleClick.bind(this);
+        this._handleChange = this._handleChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -27,25 +34,75 @@ class ChatList extends Component {
             this.setState({ chatboxes })
             this.setState({ chatName: this.state.authUser.username })
         })
+        const phone = this.state.phone
+        firebase.firestore().collection('chat').doc(phone).onSnapshot((doc) => {
+            console.log(doc.data().messages)
+            this.setState({
+                read: doc.data().read,
+                messages: doc.data().messages,
+            })
+        })
+    }
+
+    _handleChange = (event) => {
+        this.setState({ messageDate: firebase.firestore.Timestamp.fromDate(new Date()) });
+        if (event.target.name === 'message') {
+            this.setState({
+                message: event.target.value
+            })
+        }
     }
 
     _handleClick(phone) {
-        this.props.history.push({
-            pathname: '/chatbox',
-            state: { phone: phone, chatName: this.state.chatName }
-        })
+        this.setState({ phone })
         firebase.firestore().collection('chat').doc(phone).update({
             read: true,
         })
     }
 
+    onSubmit = event => {
+        const { phone, message, messageDate, chatName } = this.state;
+        firebase.firestore().collection('chat').doc(phone).update({
+            read: false,
+            messages: firebase.firestore.FieldValue.arrayUnion({
+                chatName,
+                message,
+                messageDate,
+            })
+        })
+
+        event.preventDefault();
+    };
+
+
+
     render() {
+        const { message, } = this.state;
+        const isInvalid = message === '';
         return (
             <div>
-                {this.state.authUser ? (<div>
-                    < h1 > Chat</h1 >
-                    <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
-                </div>) : (null)}
+                < h1 > Chat</h1 >
+                <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
+
+                <p>{this.state.messages.map((message) => <div class={message.chatName === this.state.chatName ? 'right' : 'left'}>{message.chatName + ':' + message.message}</div>)}</p>
+                <form onSubmit={this.onSubmit}>
+
+                    <fieldset>
+                        <legend>Chatbox</legend>
+
+                        <label for="message">Message</label>
+                        <input
+                            name="message"
+                            value={message}
+                            onChange={this._handleChange}
+                            type="text"
+                            placeholder=""
+                        />
+                    </fieldset>
+                    <button className="btn" disabled={isInvalid} type="submit">
+                        Sent
+                    </button>
+                </form>
             </div>)
 
     };

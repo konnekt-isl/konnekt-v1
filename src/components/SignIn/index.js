@@ -6,10 +6,8 @@ import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
-import logoVertical from '../img/logovertical.svg';
 import konnektlady from '../img/konnektlady.svg';
 import logo from '../img/logo.svg';
-import SVGIcon from "../img/SVGIcon";
 
 
 const SignInPage = () => (
@@ -75,24 +73,7 @@ class SignInFormBase extends Component {
     return (
       <div className="signin-page">
         {/* Sidebar with vertical logo and icons */}
-        <div className="sidebar">
-          <img className="logo-vertical" src={logoVertical} alt="Logo" />
-          {/* Container around the 3 icons */}
-          <div className="icons-container">
-            <div className="single-icon-container">
-              <SVGIcon name="phone" width={24} />
-            </div>
-            <div className="single-icon-container">
-              <SVGIcon name="message" width={24} />
-            </div>
-            <div className="single-icon-container">
-              <SVGIcon name="face" width={24} />
-            </div>
-          </div>
-          <div className="single-icon-container">
-            <SVGIcon name="settings" width={24} />
-          </div>
-        </div>{/* Sidebar ends */}
+        {/* Sidebar ends */}
 
         {/* wrapper around form and logo */}
         <div className="wrapper">

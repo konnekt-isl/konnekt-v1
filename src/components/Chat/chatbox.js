@@ -28,7 +28,7 @@ class ChatBox extends Component {
             })
         })
     }
-    
+
     _handleChange = (event) => {
         this.setState({ messageDate: firebase.firestore.Timestamp.fromDate(new Date()) });
         if (event.target.name === 'message') {
