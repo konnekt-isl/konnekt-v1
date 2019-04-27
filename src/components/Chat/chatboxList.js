@@ -10,21 +10,24 @@ class ChatList extends Component {
         super(props);
 
         this.state = {
-            chatName: 'Starfsmadur',
+            chatName: '',
             chatboxes: [],
+            authUser: JSON.parse(localStorage.getItem('authUser')),
         };
         this._handleClick = this._handleClick.bind(this);
     }
 
     componentDidMount() {
-        firebase.firestore().collection('chat').onSnapshot((querySnapshot) => {
+        firebase.firestore().collection('chat').onSnapshot({ includeMetadataChanges: true }, (querySnapshot) => {
             console.log(querySnapshot)
             var chatboxes = [];
             querySnapshot.docs.forEach(function (doc) {
-                console.log(doc.id)
-                chatboxes.push(doc.id)
+                const data = doc.data()
+                chatboxes.push({ id: doc.id, read: data.read, date: data.messages.pop().messageDate.seconds })
             });
+            console.log(chatboxes)
             this.setState({ chatboxes })
+            this.setState({ chatName: this.state.authUser.username })
         })
     }
 
@@ -33,15 +36,18 @@ class ChatList extends Component {
             pathname: '/chatbox',
             state: { phone: phone, chatName: this.state.chatName }
         })
+        firebase.firestore().collection('chat').doc(phone).update({
+            read: true,
+        })
     }
 
     render() {
-        console.log(this.state.chatboxes)
+        console.log(this.state.chatName)
 
         return (
             <div>
                 <h1>Chat</h1>
-                <ul>{this.state.chatboxes.map((chatbox) => <li><button onClick={() => this._handleClick(chatbox)}>{chatbox}</button></li>)}</ul>
+                <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
             </div >
         )
     };

@@ -35,6 +35,7 @@ const App = () => (
       <Route path={ROUTES.SIGN_IN} component={SignInPage} />
       <Route path={ROUTES.CHAT} component={ChatStart} />
       <Route path={ROUTES.CHATBOX} component={ChatBox} />
+      <Route path={ROUTES.CHATLIST} component={ChatList} />
       <Route
         path={ROUTES.PASSWORD_FORGET}
         component={PasswordForgetPage}
@@ -46,7 +47,7 @@ const App = () => (
       <Route path={ROUTES.STATUS} component={uw_status} />
       <Route path={ROUTES.FACETOFACE} component={FaceToFace} />
       <Route path={ROUTES.REQUEST} component={sw_request} />
-      <Route path={ROUTES.CHATLIST} component={ChatList} />
+
     </div>
   </Router>
 );

@@ -26,7 +26,6 @@ class ChatBox extends Component {
                 read: doc.data().read,
                 messages: doc.data().messages,
             })
-            console.log(this.state.messages[0].chatName + ':' + this.state.messages[0].message)
         })
     }
 
