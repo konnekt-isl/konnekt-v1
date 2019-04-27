@@ -72,22 +72,24 @@ class SignInFormBase extends Component {
 
     return (
       <div className="signin-page">
-        {/* Sidebar with vertical logo and icons */}
-        {/* Sidebar ends */}
 
-        {/* wrapper around form and logo */}
         <div className="wrapper">
+
           <div className="logo-container">
             <img className="logo" src={logo} />
           </div>
-          {/* Sign in section with the form, 2 inputs and submit button */}
-          <div className="signin-section">
-            <div className="container">
-              <h1>Velkomin/n</h1>
-              <form onSubmit={this.onSubmit}>
 
+          
+          <div className="signin-section">
+
+            <div className="container">
+
+              <h1>Velkomin/n</h1>
+
+              <form onSubmit={this.onSubmit}>
                 <fieldset>
                   <legend>Innskráning</legend>
+                  
                   <div className="img-container">
                     <img className="konnekt-lady" src={konnektlady} />
                   </div>
@@ -112,19 +114,25 @@ class SignInFormBase extends Component {
 
                 <button className="btn" disabled={isInvalid} type="submit">
                   Skrá inn
-                      </button>
+                </button>
 
-                {/* {error && <p>{error.message}</p>} */}
+            
               </form>
-            </div>
-          </div>
-        </div>
-      </div >// Sign in page end
+
+              </div> 
+              
+
+            </div> 
+           
+          
+          </div> 
+          
 
 
-    );
-  }
-}
+        </div> 
+    )
+  } }
+
 
 class SignInGoogleBase extends Component {
   constructor(props) {
