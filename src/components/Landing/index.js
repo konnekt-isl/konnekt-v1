@@ -6,17 +6,6 @@ import SVGIcon from "../img/SVGIcon";
 
 const Landing = () => (
   <div className="page-wrapper landing">
-    <header>
-      <img src={logo} alt="Fara á forsíðu" />
-      <nav>
-        <ul>
-          <li>Lausnir</li>
-          <li>Demo</li>
-          <li>Um okkur</li>
-          <li>Hafa samband</li>
-        </ul>
-      </nav>
-    </header>
     <div className="section">
       <h1>Örugg samskipti,<br></br>Hraðar.</h1>
       <h2>Hjálpum fyrirtækjum að auka hagkvæmni og skilvirkni í rekstri</h2>
@@ -25,6 +14,7 @@ const Landing = () => (
     </div>
     <div className="section">
       <div className="summary-wrapper">
+        <a id="kausnir" />
         <h3>Hvað er?</h3>
         <h4>Konnekt</h4>
         <p>Með Konnekt opna fyrirtæki fyrir örugga samskiptaleið á milli þeirra og viðskiptavinarins. Þar er hægt að afhenda upplýsingar og gögn á öruggan hátt á rafrænum vettvangi.</p>
@@ -46,6 +36,7 @@ const Landing = () => (
 
     <div className="section">
       <div className="summary-wrapper">
+        <a id="demo" />
         <h3>Viltu prófa?</h3>
         <h4>Sjáðu snilldina</h4>
         <p>Segðu okkur hvort þú sért fyrirtæki eða einstaklingur og við leiðum þig áfram. </p>
@@ -57,6 +48,7 @@ const Landing = () => (
 
     <div className="section">
       <div className="img-wrapper">
+        <a id="okkar-syn" />
         <img className="okkar-syn" src={okkarsyn} alt="" />
       </div>
       <div className="summary-wrapper">
@@ -69,6 +61,7 @@ const Landing = () => (
     </div>
 
     <footer>
+      <a id="samband" />
       <p>Er þitt fyrirtæki tilbúið til þess að</p>
       <ul>
         <li>Ræða um framtíðina?</li>
@@ -77,7 +70,7 @@ const Landing = () => (
       <p>hello@konnekt.is</p>
     </footer>
 
-  </div>//Page wrapper end
+  </div >//Page wrapper end
 
 );
 

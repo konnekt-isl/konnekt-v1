@@ -36,7 +36,7 @@ const AccountPage = () => (
         <h1>Account: {authUser.email}</h1>
         <PasswordForgetForm />
         <PasswordChangeForm />
-        <LoginManagement authUser={authUser} />
+        {/* <LoginManagement authUser={authUser} /> */}
       </div>
     )}
   </AuthUserContext.Consumer>

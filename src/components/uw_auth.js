@@ -4,18 +4,6 @@ import { FirebaseContext } from './Firebase';
 import logo from './img/logo.svg';
 import konnektlady from './img/konnektlady.svg';
 
-const mockResponse = {
-    "ssn": "0307844489",
-    "address": "Brúnastöðum 27",
-    "city": "Reykjavík",
-    "name": "Marcel Radix",
-    "phoneNumber": "6470788",
-    "postalCode": "112",
-    "token": "cd1ae943b74749d099fa",
-    "status": "200"
-}
-
-
 class uw_auth extends Component {
     constructor(props) {
         super(props);

@@ -77,15 +77,24 @@ class sw_request extends Component {
         } else {
             url_message = <div> Click to generate url</div>;
         }
+
+        let user_info = <div></div>;
+        if (this.state.userInfo != null) {
+            user_info = <div>{this.state.userInfo.name}</div>;
+        } else {
+            user_info = <div></div>;
+        }
+
         return (
             <AuthUserContext.Consumer>
                 {authUser => (
                     <div>
                         <button onClick={this._handleButtonClick} className="yes-btn">Senda audkenni</button>
                         {url_message}
+                        {user_info}
                     </div>
                 )}
-            </AuthUserContext.Consumer>
+            </AuthUserContext.Consumer >
         )
     }
 }

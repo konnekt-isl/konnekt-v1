@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import { Link } from 'react-router-dom';
-
 import { AuthUserContext, withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
 
@@ -42,14 +40,14 @@ class ChatList extends Component {
     }
 
     render() {
-        console.log(this.state.chatName)
-
         return (
             <div>
-                <h1>Chat</h1>
-                <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
-            </div >
-        )
+                {this.state.authUser ? (<div>
+                    < h1 > Chat</h1 >
+                    <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
+                </div>) : (null)}
+            </div>)
+
     };
 }
 

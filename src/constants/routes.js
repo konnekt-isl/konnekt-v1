@@ -1,6 +1,14 @@
 export const LANDING = '/';
-export const SIGN_UP = '/signup';
+
+//Links within the landing page
+export const L_LAUSNIR = '/#lausnir';
+export const L_DEMO = '/#demo';
+export const L_OKKARSYN = '/#okkar-syn';
+export const L_SAMBAND = '/#samband';
 export const SIGN_IN = '/signin';
+//
+
+export const SIGN_UP = '/signup';
 export const HOME = '/home';
 export const ACCOUNT = '/account';
 export const PASSWORD_FORGET = '/pw-forget';
