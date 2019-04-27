@@ -25,7 +25,6 @@
     .section {
         height: 90vh;
         display: flex;
-        padding: 0% 5%;
         flex-direction: column;
     }
 
@@ -208,9 +207,12 @@
             }
         }
         .section {
+            display: flex;
+            flex-direction: row;
             height: 80vh;
             display: flex;
-            padding: 0% 5%;
+            max-width: 1360px;
+            margin: 0% auto;
         }
     
         .landing-section {
@@ -232,11 +234,17 @@
             }
            
         }
+        .m-h{
+            margin: 0 80px 0 0;
+        }
+        .m-v{
+            margin: 0 0 0 80px;
+        }
         .summary-wrapper {
-            width:50%;
+            width:600px;
         }
         .summary-decoration {
-            width: 50%;
+            width:600px;
             display: flex;
             align-items: center;
             justify-content: space-around;
