@@ -10,9 +10,13 @@ import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import FaceToFace from '../FaceToFace';
+import ChatStart from '../Chat';
+import ChatBox from '../Chat/chatbox';
+import ChatList from '../Chat/chatboxList';
 
 import uw_auth from '../uw_auth';
 import uw_status from '../uw_status';
+import sw_request from '../sw_request';
 
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
@@ -24,11 +28,12 @@ const App = () => (
     <div className="page-wrapper">
       <Navigation />
 
-      <hr />
-
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
       <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
       <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+      <Route path={ROUTES.CHAT} component={ChatStart} />
+      <Route path={ROUTES.CHATBOX} component={ChatBox} />
+      <Route path={ROUTES.CHATLIST} component={ChatList} />
       <Route
         path={ROUTES.PASSWORD_FORGET}
         component={PasswordForgetPage}
@@ -36,9 +41,11 @@ const App = () => (
       <Route path={ROUTES.HOME} component={HomePage} />
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.ADMIN} component={AdminPage} />
-      <Route exact path={ROUTES.AUTH} component={uw_auth} />
+      <Route path={ROUTES.AUTH} component={uw_auth} />
       <Route path={ROUTES.STATUS} component={uw_status} />
       <Route path={ROUTES.FACETOFACE} component={FaceToFace} />
+      <Route path={ROUTES.REQUEST} component={sw_request} />
+
     </div>
   </Router>
 );

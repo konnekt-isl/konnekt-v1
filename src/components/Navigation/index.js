@@ -1,12 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+
 import logo from '../img/logo.svg';
+
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 import SVGIcon from "../img/SVGIcon";
 import logoVertical from '../img/logovertical.svg';
+
 
 const Navigation = () => (
   <AuthUserContext.Consumer>
@@ -51,18 +54,37 @@ const NavigationAuth = ({ authUser }) => (
         <SignOutButton />
       </li>
     </ul>
-  </div>
+  </div >
 );
 
 const NavigationNonAuth = () => (
-  <div className="navigation non-auth">
-  <Link to={ROUTES.LANDING}><img className="logo" src={logo} /></Link>
-    <ul>
-      <li>
-        <Link to={ROUTES.SIGN_IN}>Innskráning</Link>
-      </li>
-    </ul>
-  </div>
+  <header>
+    <nav className="navigation non-auth">
+      <ul>
+        <li>
+          <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
+        </li>
+        <li>
+          <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
+        </li>
+        <li>
+          <Link to={ROUTES.L_DEMO}>Demo</Link>
+        </li>
+        <li>
+          <Link to={ROUTES.L_OKKARSYN}>Um okkur</Link>
+        </li>
+        <li>
+          <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
+        </li>
+        <li>
+          <Link to={ROUTES.CHAT}>Chat (needs to move to the lower part)</Link>
+        </li>
+        <li>
+          <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+        </li>
+      </ul>
+    </nav>
+  </header>
 );
 
 export default Navigation;

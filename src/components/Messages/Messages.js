@@ -57,7 +57,7 @@ class Messages extends Component {
   onCreateMessage = (event, authUser) => {
     this.props.firebase.messages().push({
       text: this.state.text,
-      userId: authUser.uid,
+      userId: authUser.username,
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
     });
 
