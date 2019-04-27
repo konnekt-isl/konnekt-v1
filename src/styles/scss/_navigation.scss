@@ -1,8 +1,5 @@
 .navigation {
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: space-between;
-    // margin: 1% 5%;
+
     ul {
         list-style-type: none;
         padding: 0;
@@ -17,11 +14,12 @@
 }
 
 .auth {
+    width: 72px;
     //Sidebar
    .sidebar {
     width: 72px;
     background-color: $primary; 
-    height: inherit;
+    height: 900px;
     display: flex; 
     flex-direction: column;
     align-items: center;

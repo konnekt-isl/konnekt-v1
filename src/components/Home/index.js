@@ -7,6 +7,8 @@ import Messages from '../Messages';
 import SVGIcon from "../img/SVGIcon";
 import logoVertical from '../img/logovertical.svg';
 import chatexpand from '../img/chatexpand.svg';
+import logo from '../img/logo.svg';
+import konnektlady from '../img/konnektlady.svg';
 
 const HomePage = () => (
   <div className="page-wrapper homepage">
@@ -23,22 +25,42 @@ const HomePage = () => (
         </div>
         <div className="chat-overview">
                 <div className="container">
-                  <h2>Virk Netspjöll</h2><img className="chat-expand" src={chatexpand} />
+                  <div>
+                    <h2>Virk Netspjöll</h2><img className="chat-expand" src={chatexpand} />
+                  </div>
                 </div>
-                <div className="container">
-                  <h2>Öll Netspjöll</h2><img className="chat-expand" src={chatexpand} />
+
+                
+                  <div className="container">
+                  <div>
+                    <h2>Öll Netspjöll</h2><img className="chat-expand" src={chatexpand} />
+                  </div>
                 </div>
+                
                 <div className="container">
-                  <h2>Þjónustuteymi</h2><img className="chat-expand" src={chatexpand} />
+                  <div>
+                    <h2>Þjónustuteymi</h2><img className="chat-expand" src={chatexpand} />
+                  </div>
                 </div>
         </div>
+
         <div>
-          <h1>Home Page</h1>
-          <p>The Home Page is accessible by every signed in user.</p>
-          <Messages />
+        <div className="csr-middle-section">
+          <h1>Hæ Username</h1>
+          <p>Gaman að sjá þig!</p>
         </div>
+       
+        </div>
+
          <div className="konnekt-status-overview">
-          
+          <div>
+            <img className="logo" src={logo}/>
+          </div>
+
+          <div>
+            <img className="konnekt-lady" src={konnektlady}/>
+          </div>
+
          </div>
 
 
