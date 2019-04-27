@@ -94,49 +94,51 @@ class SignInFormBase extends Component {
           </div>
         </div>{/* Sidebar ends */}
 
-        {/* Sign in section with the form, 2 inputs and submit button */}
-        <div className="signin-section">
-          <h1>Velkomin/n</h1>
-          <form onSubmit={this.onSubmit}>
-            <fieldset>
-              <legend>Innskráning</legend>
-              <div class="img-container">
-                <img src={konnektlady} />
-              </div>
+        {/* wrapper around form and logo */}
+        <div className="wrapper">
+          <div className="logo-container">
+            <img className="logo" src={logo} />
+          </div>
+          {/* Sign in section with the form, 2 inputs and submit button */}
+          <div className="signin-section">
+            <div className="container">
+              <h1>Velkomin/n</h1>
+              <form onSubmit={this.onSubmit}>
 
+                <fieldset>
+                  <legend>Innskráning</legend>
+                  <div className="img-container">
+                    <img className="konnekt-lady" src={konnektlady} />
+                  </div>
 
-              <label for="email">Notandi</label>
-              <input
-                name="email"
-                value={email}
-                onChange={this.onChange}
-                type="text"
-                placeholder="Email Address"
-              />
-              <label for="password">Lykilorð</label>
-              <input
-                name="password"
-                value={password}
-                onChange={this.onChange}
-                type="password"
-                placeholder="Password"
-              />
-            </fieldset>
+                  <label for="email">Notandi</label>
+                  <input
+                    name="email"
+                    value={email}
+                    onChange={this.onChange}
+                    type="text"
+                    placeholder="Email Address"
+                  />
+                  <label for="password">Lykilorð</label>
+                  <input
+                    name="password"
+                    value={password}
+                    onChange={this.onChange}
+                    type="password"
+                    placeholder="Password"
+                  />
+                </fieldset>
 
-            <button className="btn" disabled={isInvalid} type="submit">
-              Innskráning
-                  </button>
+                <button className="btn" disabled={isInvalid} type="submit">
+                  Skrá inn
+                      </button>
 
-            {error && <p>{error.message}</p>}
-          </form>
+                {/* {error && <p>{error.message}</p>} */}
+              </form>
+            </div>
+          </div>
         </div>
-        <div className="logo-container">
-          <img className="logo" src={logo} />
-        </div>
-
-
-
-      </div>// Sign in page end
+      </div >// Sign in page end
 
 
     );

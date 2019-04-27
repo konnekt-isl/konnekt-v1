@@ -1,11 +1,14 @@
 @import 'variables';
+@import 'navigation';
+@import 'landing';
 @import 'simiskjar1';
 @import 'simiskjar2';
 @import 'netspjallskjar1';
 @import 'netspjallskjar2';
 @import 'netspjalldesktop';
 @import 'signindesktop';
-@import 'landing';
+@import 'home';
+
 
 * {
     font-family: $font-stack;
@@ -22,7 +25,7 @@ html, body {
 }
 
 .page-wrapper {
-    height: 100%;
+    height: inherit;
 }
 
 ul {

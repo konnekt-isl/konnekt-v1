@@ -1,36 +1,85 @@
+
+
 .landing {
     header {
-        display: flex;
-        flex-direction: row;
         width: 100%;
-        justify-content: space-between;
-        align-items: flex-end;
         nav {
-            width:50%;
+            justify-content: center;
+            width:100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             ul {
                 list-style-type: none;
                 display: flex;
                 flex-direction: row;
                 font-size: 18px;
-                justify-content: space-around;
+                padding: 0px;
             }
             li {
+                margin: 0px 5px 0px 5px;
                 color: $text;
             }
         }
     }
     .section {
         height: 90vh;
+        display: flex;
+        padding: 0% 5%;
+        flex-direction: column;
     }
-    // .summary-wrapper {
-    //     width:50%;
-    // }
-    h1 {
-        color: $primary;
-        font-size: 80px;
-        text-align: center;
-        font-weight: bolder;
-        margin: 0;
+
+    .landing-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        h1 {
+            color: $primary;
+            font-size: 32px;
+            text-align: center;
+            font-weight: bolder;
+            margin: 0;
+            text-transform: uppercase;
+            width: 90%;
+        }
+        h2 {
+          font-size:20px;
+          width: 90%;
+        }
+       
+    }
+    .summary-wrapper {
+        width:90%;
+    }
+    .summary-decoration {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        .big-btn {
+            width: 90%;
+            height: 68px;
+            border: 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: $light;
+            span {
+                font-size: 18px;
+            }
+        }
+        .arrow {
+           display: hidden;
+            
+        }
+        .green {
+            background: $secondary-green;
+        }
+        .blue {
+            background: $primary;
+        }
     }
     h2 {
         font-size: 22px;
@@ -39,21 +88,30 @@
     }
     .lausnir-btn {
         border: 4px solid $secondary-green ;
-        background: none;
-        width: 191px;
-        height: 64px;
+        background:$secondary-green; 
+        width: 90%;
+        height: 66px;
         text-transform: uppercase;
-        color: $secondary-green;
+        color: $light;
+        font-size: 20px;
+        font-weight: bolder;
 
+    }
+    .lausnir-btn:hover {
+        background:$secondary-green; 
+        color: $light;
+        cursor: pointer;
     }
     h3 {
         color: $secondary-green;
         text-transform: uppercase;
         font-size: 16px;
         margin: 0px;
+        padding-bottom: 25px;
     }
     h4 {
-        font-size: 60px;
+        padding-bottom: 25px;
+        font-size: 50px;
         color: $primary;
         margin: 0px;
     }
@@ -62,30 +120,244 @@
         color: $text;
         font-size: 20px;
     }
-    .okkar-syn {
-        height: 797px;
-        width: 756px;
+
+    .okkar-syn-container {
+        background-image:url("/src/components/img/okkarsyn.png");
+        background-repeat: no-repeat;
+        background-size: contain;
     }
+    // .okkar-syn-section {
+    //     background-image:url("/../img/okkarsyn.png");
+    //     background-repeat: no-repeat;
+    //     background-size: cover;
+    //     .okkar-syn {
+    //         // height: 797px;
+    //         // width: 756px;
+    //     }
+    // }
+  
 
     footer {
         height: 367px;
+        width: 100%;
         background-color: $primary;
         color: $light;
+        font-size: 22px;
+        display: flex;
+        flex-direction: row;
+        padding: 0% 5%;
+
+        div {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            justify-content: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0px;
+            width: 100%;
+            li {
+                font-size: 22px;
+                padding: 5% 0%;
+            }
+          
+        }
+        .konnekt-sky {
+             margin-right: 2%;   
+        }
+        .contact-link {
+            font-size: 60px;
+            font-weight: bolder;
+            margin: auto;
+          }
+          .contact-link:hover {
+              text-decoration: underline;
+              cursor: pointer;
+          }
         p {
             color: $light; 
         }
+   
     }
-    .big-btn {
-        @extend %big-btn;
-        color: $light;
-        span {
-            font-size: 18px;
-        }
-    }
-    .green {
-        background: $secondary-green;
-    }
-    .blue {
-        background: $primary;
-    }
+  
 }
+
+
+@media only screen and (min-width: 768px) {
+
+    .landing {
+        header {
+            nav {
+                justify-content: flex-end;
+                width:100%;
+                display: flex;
+                flex-direction: row;
+                ul {
+                    list-style-type: none;
+                    display: flex;
+                    flex-direction: row;
+                    font-size: 18px;
+                    margin-right: 5%;
+                }
+                li {
+                    margin: 0px 5px 0px 5px;
+                    color: $text;
+                }
+            }
+        }
+        .section {
+            height: 80vh;
+            display: flex;
+            padding: 0% 5%;
+        }
+    
+        .landing-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+    
+            h1 {
+                color: $primary;
+                font-size: 80px;
+                text-align: center;
+                font-weight: bolder;
+                margin: 0;
+                text-transform: uppercase;
+            }
+            h2 {
+              font-size:20px;
+            }
+           
+        }
+        .summary-wrapper {
+            width:50%;
+        }
+        .summary-decoration {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            .big-btn {
+                color: $light;
+                span {
+                    font-size: 18px;
+                }
+            }
+            .green {
+                background: $secondary-green;
+            }
+            .blue {
+                background: $primary;
+            }
+        }
+        h1 {
+            color: $primary;
+            font-size: 80px;
+            text-align: center;
+            font-weight: bolder;
+            margin: 0;
+        }
+        h2 {
+            font-size: 22px;
+            color: $text;
+            text-align:center;
+        }
+        .lausnir-btn {
+            border: 4px solid $secondary-green ;
+            background:$secondary-green; 
+            width: 304px;
+            height: 66px;
+            text-transform: uppercase;
+            color: $light;
+            font-size: 20px;
+            font-weight: bolder;
+    
+        }
+        .lausnir-btn:hover {
+            background:$secondary-green; 
+            color: $light;
+            cursor: pointer;
+        }
+        h3 {
+            color: $secondary-green;
+            text-transform: uppercase;
+            font-size: 16px;
+            margin: 0px;
+            padding-bottom: 25px;
+        }
+        h4 {
+            padding-bottom: 25px;
+            font-size: 60px;
+            color: $primary;
+            margin: 0px;
+        }
+    
+        p {
+            color: $text;
+            font-size: 20px;
+        }
+    
+        .okkar-syn-container {
+            background-image:url("/src/components/img/okkarsyn.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    
+        footer {
+            height: 367px;
+            width: 100%;
+            background-color: $primary;
+            color: $light;
+            font-size: 22px;
+            display: flex;
+            flex-direction: row;
+            padding: 0% 5%;
+    
+            div {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: baseline;
+                justify-content: center;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0px;
+                width: 100%;
+                li {
+                    font-size: 22px;
+                    padding: 5% 0%;
+                }
+              
+            }
+            .konnekt-sky {
+                 margin-right: 2%;   
+            }
+            .contact-link {
+                font-size: 60px;
+                font-weight: bolder;
+                margin: auto;
+              }
+              .contact-link:hover {
+                  text-decoration: underline;
+                  cursor: pointer;
+              }
+            p {
+                color: $light; 
+            }
+       
+        }
+      
+    }
+
+
+};
+
+
+
+
+
