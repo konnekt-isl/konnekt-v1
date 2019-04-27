@@ -19,6 +19,7 @@ class ChatList extends Component {
         };
         this._handleClick = this._handleClick.bind(this);
         this._handleChange = this._handleChange.bind(this);
+        this._loadChat = this._loadChat.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
@@ -34,6 +35,9 @@ class ChatList extends Component {
             this.setState({ chatboxes })
             this.setState({ chatName: this.state.authUser.username })
         })
+    }
+
+    _loadChat = () => {
         const phone = this.state.phone
         firebase.firestore().collection('chat').doc(phone).onSnapshot((doc) => {
             console.log(doc.data().messages)
@@ -58,6 +62,7 @@ class ChatList extends Component {
         firebase.firestore().collection('chat').doc(phone).update({
             read: true,
         })
+        this._loadChat();
     }
 
     onSubmit = event => {
