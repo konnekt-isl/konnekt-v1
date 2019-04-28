@@ -54,37 +54,36 @@ const NavigationAuth = ({ authUser }) => (
         <SignOutButton />
       </li>
     </ul>
-  </div >
+  </div>
 );
 
 const NavigationNonAuth = () => (
-  <header>
     <nav className="navigation non-auth">
+      <div className="logo-container">
+        <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
+      </div>
       <ul>
-        <li>
-          <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
-        </li>
-        <li>
+        <li className="navigation-link">
           <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to={ROUTES.L_DEMO}>Demo</Link>
-        </li>
+        </li> */ }
+        {/* Commented out the demo link since it was removed from the design */}
         <li>
           <Link to={ROUTES.L_OKKARSYN}>Um okkur</Link>
         </li>
         <li>
           <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
         </li>
+        {/* <li>
+          <Link to={ROUTES.CHAT}>Chat </Link> 
+        </li>  (needs to move to the lower part)*/ }
         <li>
-          <Link to={ROUTES.CHAT}>Chat (needs to move to the lower part)</Link>
-        </li>
-        <li>
-          <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+          <Link to={ROUTES.SIGN_IN}>Innskráning</Link>
         </li>
       </ul>
     </nav>
-  </header>
 );
 
 export default Navigation;
