@@ -132,7 +132,6 @@ class SignInFormBase extends Component {
     )
   } }
 
-
 class SignInGoogleBase extends Component {
   constructor(props) {
     super(props);
