@@ -192,8 +192,17 @@
 
     .landing {
         .section {
+<<<<<<< HEAD
             padding: 5% 5%;
             flex-direction: row;
+=======
+            display: flex;
+            flex-direction: row;
+            height: 80vh;
+            display: flex;
+            max-width: 1360px;
+            margin: 0% auto;
+>>>>>>> Landingpage
         }
 
         .landing-section {
@@ -210,6 +219,7 @@
                 font-size: 20px;
                 max-width: 700px;
             }
+<<<<<<< HEAD
 
             .lausnir-btn {
                 width: 304px;
@@ -217,9 +227,29 @@
             }
         
 
+=======
+           
+        }
+        .m-h{
+            margin: 0 80px 0 0;
+        }
+        .m-v{
+            margin: 0 0 0 80px;
+        }
+        .summary-wrapper {
+            width:600px;
+>>>>>>> Landingpage
         }
 
         .summary-decoration {
+<<<<<<< HEAD
+=======
+            width:600px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+>>>>>>> Landingpage
             .big-btn {
                 width: 600px;
                 height: 128px;
