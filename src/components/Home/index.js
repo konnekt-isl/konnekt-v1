@@ -15,8 +15,8 @@ const HomePage = () => (
           <SVGIcon className="avatar" name="avatar" width={30} height={30} />
           <p>UserName</p>
         </div>
-
       </div>
+
       <div className="chat-overview">
         <div className="container">
           <h2>Virk Netspjöll</h2><img className="chat-expand" src={chatexpand} />
@@ -81,15 +81,14 @@ const HomePage = () => (
           <SVGIcon className="reply" name="reply" width={18} height={16} />
           <button class="btn">Senda</button>
         </div>
-
-
       </div>
     </div>
-    );
-    
-    const condition = authUser => !!authUser;
-    
-    export default compose(
-      withEmailVerification,
-      withAuthorization(condition),
-    )(HomePage);
+  </div>
+);
+
+const condition = authUser => !!authUser;
+
+export default compose(
+  withEmailVerification,
+  withAuthorization(condition),
+)(HomePage);
