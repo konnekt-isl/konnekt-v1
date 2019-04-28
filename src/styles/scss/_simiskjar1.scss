@@ -1,17 +1,24 @@
+
+//Mobile View
 .simi-skjar1 {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height:667px;
-    max-width:375px;
     margin: auto;
+    height: 100vh;
+    .logo-container {
+        width:90%;
+        @extend %flex-column;
+        align-items: center;
+        justify-content: center;
+    }
     .wrapper {
-        margin-top:10%;
         @extend %flex-row;
         width:100%;
         justify-content: center;
+        
     }
     input {
         margin-top:20px;
@@ -24,17 +31,11 @@
         margin-bottom: 10px;
     }
 
-    .logo-container {
-        width:90%;
-        @extend %flex-column;
-        align-items: center;
-        justify-content: center;
-    }
+  
     .lady-container {
         width:10%;
     }
     .text-container {
-        margin-top:20%;
         @extend %flex-column;
         align-items: center;
         justify-content: center;
@@ -52,16 +53,13 @@
     }
     .yes-btn {
         @extend %yes-btn;
-        margin-top:60%;
     }
     p {
         font-size:14px;
         padding: 0;
         margin: 0;
     }
-    .no-btn-container {
-        margin-top:5%;
-    }
+
     .no-btn {
      @extend %no-btn;
     }

@@ -39,7 +39,7 @@
   border-radius: 4px;
 }
 
-.netspjall-skjar2, .netspjall-skjar1 .btn-container, .netspjall-skjar1 .form, .netspjall-skjar1, .status-screen-green .text-container, .status-screen-green, .simi-skjar1 .text-container, .simi-skjar1 .logo-container, .landing footer {
+.netspjall-skjar2, .netspjall-skjar1 .btn-container, .netspjall-skjar1 .form, .netspjall-skjar1, .status-screen-green .text-container, .simi-skjar1 .text-container, .simi-skjar1 .logo-container, .landing footer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -357,16 +357,19 @@
 }
 .simi-skjar1 {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
-  max-height: 667px;
-  max-width: 375px;
   margin: auto;
+  height: 100vh;
+}
+.simi-skjar1 .logo-container {
+  width: 90%;
+  align-items: center;
+  justify-content: center;
 }
 .simi-skjar1 .wrapper {
-  margin-top: 10%;
   width: 100%;
   justify-content: center;
 }
@@ -380,16 +383,10 @@
   padding: 0px;
   margin-bottom: 10px;
 }
-.simi-skjar1 .logo-container {
-  width: 90%;
-  align-items: center;
-  justify-content: center;
-}
 .simi-skjar1 .lady-container {
   width: 10%;
 }
 .simi-skjar1 .text-container {
-  margin-top: 20%;
   align-items: center;
   justify-content: center;
 }
@@ -403,29 +400,22 @@
   color: #3463FF;
   font-size: 20px;
 }
-.simi-skjar1 .yes-btn {
-  margin-top: 60%;
-}
 .simi-skjar1 p {
   font-size: 14px;
   padding: 0;
   margin: 0;
 }
-.simi-skjar1 .no-btn-container {
-  margin-top: 5%;
-}
 .status-screen-green {
-  justify-content: center;
+  display: flex;
   align-items: center;
-  max-height: 667px;
-  max-width: 375px;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin: auto;
+  height: 100vh;
 }
 .status-screen-green .wrapper {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
-  width: 80%;
 }
 .status-screen-green h1 {
   text-transform: uppercase;
@@ -437,14 +427,19 @@
   font-size: 14px;
   padding: 0;
   margin: 0;
-}
-.status-screen-green .yes-btn {
-  margin-top: 60%;
+  max-width: 300px;
+  text-align: center;
 }
 .status-screen-green .text-container {
-  margin-top: 20%;
   align-items: center;
   justify-content: center;
+}
+
+.status-screen-red p {
+  font-size: 16px;
+  color: #FF0000;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .netspjall-skjar1 .logo-container {
@@ -511,46 +506,22 @@
   color: #828282;
 }
 .signin-page {
-  height: inherit;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-.signin-page .sidebar {
-  width: 72px;
-  background-color: #3463FF;
-  height: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 0px;
-}
-.signin-page .icons-container {
-  height: 216px;
-}
-.signin-page .single-icon-container {
-  width: 72px;
-  height: 72px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.signin-page .active {
-  background-color: #F1F3FF;
 }
 .signin-page .wrapper {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 95%;
+  margin: auto;
 }
 .signin-page .wrapper .logo-container {
   width: inherit;
   max-height: 70px;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 .signin-page .wrapper .logo-container .logo {
   height: 50px;
@@ -592,6 +563,14 @@
   color: #4F4F4F;
   margin: 0px;
   padding: 0px;
+  text-align: center;
+}
+.signin-page .wrapper .signin-section .container .forgot-password {
+  text-align: center;
+}
+.signin-page .wrapper .signin-section .container .forgot-password a {
+  width: 100%;
+  text-decoration: none;
   text-align: center;
 }
 .signin-page .wrapper .signin-section .container fieldset {

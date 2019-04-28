@@ -1,47 +1,19 @@
-//Innskráningar síða fyrir desktop
-
-
+//Mobile View
 .signin-page {
-    height: inherit;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-       //Sidebar
-       .sidebar {
-        width: 72px;
-        background-color: $primary; 
-        height: inherit;
-        display: flex; 
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        padding: 24px 0px;
-    }
-    .icons-container {
-        height: 216px;
-    }
-    .single-icon-container {
-        width: 72px; 
-        height: 72px;
-        display: flex; 
-        justify-content: center; 
-        align-items: center;
-    }
-    .active {
-        background-color: #F1F3FF;
-    }
-
     .wrapper {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        width: 95%;
+        margin: auto;
         .logo-container {
          width: inherit;
          max-height: 70px;
          display: flex;
-         justify-content: flex-end;
-         align-items: flex-start;
+         justify-content: center;
+         align-items: center;
          .logo  {
              height: 50px;
          }
@@ -83,6 +55,14 @@
                     color: $text;
                     margin: 0px;
                     padding: 0px;
+                    text-align: center;
+                }
+                .forgot-password {
+                    a {
+                        width:100%;
+                        text-decoration: none;
+                        text-align: center;
+                    }
                     text-align: center;
                 }
                 fieldset {
@@ -133,8 +113,4 @@
         
     }
 
-
-    @media only screen and (max-width: 600px) {
-
-      }
     
