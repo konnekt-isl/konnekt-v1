@@ -9,7 +9,6 @@ import * as ROUTES from '../../constants/routes';
 import konnektlady from '../img/konnektlady.svg';
 import logo from '../img/logo.svg';
 
-
 const SignInPage = () => (
   <div className="page-wrapper">
     {/* <h1>SignIn</h1> */}

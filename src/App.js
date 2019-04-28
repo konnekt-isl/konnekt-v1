@@ -20,9 +20,8 @@ import './styles/css/styles.css'
 class App extends Component {
   render() {
     return (
-      <div className="page-wrapper">
+      <div className="body-wrapper">
         <Navigation />
-        <hr />
         <Route exact path={ROUTES.LANDING} component={LandingPage} />
         <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
         <Route path={ROUTES.SIGN_IN} component={SignInPage} />

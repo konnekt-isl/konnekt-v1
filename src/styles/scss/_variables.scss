@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
-
-
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 // Fonts
@@ -52,13 +50,14 @@ $bg-light: #FBFCFE;
     text-decoration: none;
 }
 
-// %big-btn {
-//     width: 400px;
-//     height: 130px;
-//     border: 0;
-//     font-size: 30px;
-//     font-weight: bold;
-// }
+%landing-btn{
+    border: none;
+    border-radius: 4px;
+    min-height: 66px;
+    text-transform: uppercase;
+    color: $light;
+    font-weight: bolder;
+}
 
 //Input fields
 %input-field {

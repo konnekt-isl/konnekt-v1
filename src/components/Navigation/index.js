@@ -24,26 +24,26 @@ const Navigation = () => (
 );
 
 const NavigationAuth = ({ authUser }) => (
-  
+
   <div className="navigation auth">
-  <div className="sidebar">{/* Sidebar with vertical logo and icons */}
-  <Link to={ROUTES.HOME}><img className="logo-vertical" src={logoVertical} alt="Logo" /></Link>
-          {/* Container around the 3 icons */}
-            <div className="icons-container">
-                <div className="single-icon-container">
-                <SVGIcon name="phone" width={24}/>
-                </div>
-                <div className="single-icon-container">
-                <SVGIcon name="message" width={24} />
-                </div>
-                <div className="single-icon-container">
-                <Link to={ROUTES.FACETOFACE}><SVGIcon name="face" width={24} /></Link>
-                </div>
-            </div>
-            <div className="single-icon-container">
-            <Link to={ROUTES.ACCOUNT}><SVGIcon name="settings" width={24} /></Link>
-            </div>
-            {/* Sidebar ends */}</div>
+    <div className="sidebar">{/* Sidebar with vertical logo and icons */}
+      <Link to={ROUTES.HOME}><img className="logo-vertical" src={logoVertical} alt="Logo" /></Link>
+      {/* Container around the 3 icons */}
+      <div className="icons-container">
+        <div className="single-icon-container">
+          <SVGIcon name="phone" width={24} />
+        </div>
+        <div className="single-icon-container">
+          <SVGIcon name="message" width={24} />
+        </div>
+        <div className="single-icon-container">
+          <Link to={ROUTES.FACETOFACE}><SVGIcon name="face" width={24} /></Link>
+        </div>
+      </div>
+      <div className="single-icon-container">
+        <Link to={ROUTES.ACCOUNT}><SVGIcon name="settings" width={24} /></Link>
+      </div>
+      {/* Sidebar ends */}</div>
     <ul>
       {!!authUser.roles[ROLES.ADMIN] && (
         <li>
@@ -54,34 +54,36 @@ const NavigationAuth = ({ authUser }) => (
         <SignOutButton />
       </li>
     </ul>
-  </div >
+  </div>
 );
 
 const NavigationNonAuth = () => (
-  <header>
-    <nav className="navigation non-auth">
-      <ul>
-        <li>
-          <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
-        </li>
-        <li>
-          <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
-        </li>
-        <li>
+  <nav className="navigation non-auth">
+    <div className="logo-container">
+      <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
+    </div>
+    <ul>
+      <li className="navigation-link">
+        <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
+      </li>
+      {/* <li>
           <Link to={ROUTES.L_DEMO}>Demo</Link>
-        </li>
-        <li>
-          <Link to={ROUTES.L_OKKARSYN}>Um okkur</Link>
-        </li>
-        <li>
-          <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
-        </li>
-        <li>
-          <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-        </li>
-      </ul>
-    </nav>
-  </header>
+        </li> */ }
+      {/* Commented out the demo link since it was removed from the design */}
+      <li>
+        <Link to={ROUTES.L_OKKARSYN}>Um okkur</Link>
+      </li>
+      <li>
+        <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
+      </li>
+      {/* <li>
+          <Link to={ROUTES.CHAT}>Chat </Link> 
+        </li>  (needs to move to the lower part)*/ }
+      <li>
+        <Link to={ROUTES.SIGN_IN}>Innskráning</Link>
+      </li>
+    </ul>
+  </nav>
 );
 
 export default Navigation;

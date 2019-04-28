@@ -1,16 +1,13 @@
 .status-screen-green {
-    @extend %flex-column;
-    justify-content: center;
+    display: flex;
     align-items: center;
-    max-height:667px;
-    max-width:375px;
+    flex-direction: column;
+    flex-wrap: wrap;
     margin: auto;
-    
+    height: 100vh;
     .wrapper {
         display: flex;
-        justify-content: space-between;
         flex-direction: row;
-        width:80%;
     }
     h1 {
         text-transform: uppercase;
@@ -22,14 +19,24 @@
         font-size:14px;
         padding: 0;
         margin: 0;
+        max-width: 300px;
+        text-align: center;
     }
     .yes-btn {
         @extend %yes-btn;
-        margin-top:60%;    }
+ }
     .text-container {
-        margin-top: 20%;
         @extend %flex-column;
         align-items: center;
         justify-content: center;
+    }
+}
+
+.status-screen-red {
+    p {
+        font-size: 16px;
+        color: #FF0000;
+        text-transform: uppercase;
+        font-weight: bold;
     }
 }

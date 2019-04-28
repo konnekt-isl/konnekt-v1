@@ -100,7 +100,7 @@ class FaceToFace extends Component {
                                 </div>
                                 <div className="wrapper">
                                     <div className="text-container">
-                                        <h2>Hæ Jón</h2>
+                                        <h2>Hæ *customer name*</h2>
                                         <p>Þú hefur fengið beiðni um auðkenningu</p>
                                         <p>Viltu halda áfram?</p>
                                         <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />

@@ -82,7 +82,14 @@ class uw_status extends Component {
                 // Screen that shows when authentication failed or connection timed out     
                 <div className="page-wrapper">
                     <div className="status-screen-red">
+                    <div className="lady-container">
+                            <img src={konnektlady} />
+                    </div>
+                    <div>
                         <p>Auðkenning tókst ekki</p>
+                        <p>Viltu reyna aftur?</p>
+                    </div>
+                        
                     </div>
                 </div>;
         }
