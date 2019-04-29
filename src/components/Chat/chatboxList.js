@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { AuthUserContext, withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
+import md5 from 'md5';
+import { HashLink as Link } from 'react-router-hash-link';
+
+import chatexpand from '../img/chatexpand.svg';
+import logo from '../img/logo.svg';
+import konnektlady from '../img/konnektlady.svg';
+import SVGIcon from "../img/SVGIcon";
 
 class ChatList extends Component {
     constructor(props) {
@@ -16,7 +23,24 @@ class ChatList extends Component {
             messages: [],
             authUser: JSON.parse(localStorage.getItem('authUser')),
             messageDate: '',
+
+            // sw_request
+            url_id: null,
+            now: null,
+            loading: false,
+            ssn: '',
+            status: '',
+            timeStamp: '',
+            message: '',
+            userInfo: {},
+            url_link: '',
+            //end
         };
+        // sw_request
+        this._handleButtonClick = this._handleButtonClick.bind(this);
+        this.onListenForStatus = this.onListenForStatus.bind(this);
+        // end
+
         this._handleClick = this._handleClick.bind(this);
         this._handleChange = this._handleChange.bind(this);
         this._loadChat = this._loadChat.bind(this);
@@ -79,28 +103,153 @@ class ChatList extends Component {
     };
 
 
+    /// sw_request
+
+    onListenForStatus = (sessionID) => {
+        firebase.firestore().collection('status').doc(sessionID).set({
+            sessionID,
+            date: { seconds: null }
+        })
+            .then(() => {
+                firebase.firestore().collection('status').doc(sessionID).onSnapshot((doc) => {
+                    const { ssn, date, status, message } = doc.data();
+                    this.setState({
+                        ssn: ssn,
+                        timeStamp: date.seconds,
+                        status: status,
+                        message: message
+                    })
+                    if (ssn) {
+                        this.getUserInfo(ssn);
+                    }
+                });
+            });
+    }
+
+    getUserInfo = (ssn) => {
+        console.log("Test")
+        firebase.firestore().collection('end_users').doc(ssn).get()
+            .then((doc) => {
+                this.setState({
+                    userInfo: doc.data()
+                })
+            })
+    }
+
+    _handleButtonClick = (event) => {
+        const md5Date = md5(new Date())
+        this.setState({ url_id: 'http://localhost:3000/authenticate/' + md5Date })
+        this.state.url_id ? (this.setState({ url_link: '<a href="' + this.state.url_id + '" target="_blank">Link</a>' })) : (console.log("error"))
+        const { phone, messageDate, chatName } = this.state;
+        const message = this.state.url_link
+        this.state.url_link ? firebase.firestore().collection('chat').doc(phone).update({
+            read: false,
+            messages: firebase.firestore.FieldValue.arrayUnion({
+                chatName,
+                message,
+                messageDate,
+            })
+        }) : (console.log('did not send'))
+        event.preventDefault();
+        this.onListenForStatus(md5Date);
+    }
+    // end
+
+
 
     render() {
+        // sw_request
+        let url_message = <div> Click to generate url</div>;
+        if (this.state.url_id != null) {
+            url_message = <div>{this.state.url_id} </div>;
+        } else {
+            url_message = <div> Click to generate url</div>;
+        }
+
+        let user_info = <div></div>;
+        if (this.state.userInfo != null) {
+            user_info = <div>{this.state.userInfo.name}</div>;
+        } else {
+            user_info = <div></div>;
+        }
+        // end
+        console.log(this.state.url_id)
+
         const { message, } = this.state;
         const isInvalid = message === '';
         return (
-            <div>
-                < h1 > Chat</h1 >
-                <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
+            <div className="page-wrapper homepage">
+                <div className="homepage-wrapper">
+                    <div className="csr-header">
+                        <div className="user-container">
+                            <SVGIcon className="avatar" name="avatar" width={30} height={30} />
+                            <p>User name</p>
+                        </div>
 
-                <p>{this.state.messages.map((message) => <div class={message.chatName === this.state.chatName ? 'right' : 'left'}>{message.chatName + ':' + message.message}</div>)}</p>
-                {this.state.phone ? (<form onSubmit={this.onSubmit}>
-                    <input
-                        name="message"
-                        value={message}
-                        onChange={this._handleChange}
-                        type="text"
-                        placeholder="Skrifaðu hér..."
-                    />
-                    <button className="btn" disabled={isInvalid} type="submit">
-                        Senda
+                    </div>
+                    <div className="chat-overview">
+                        <div className="container">
+                            <div>
+                                <h2>Virk Netspjöll</h2><img className="chat-expand" src={chatexpand} />
+                            </div>
+                            <div>
+                                <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
+                            </div>
+                        </div>
+
+                        <div className="container">
+                            <div>
+                                <h2>Öll Netspjöll</h2><img className="chat-expand" src={chatexpand} />
+                            </div>
+                        </div>
+
+                        <div className="container">
+                            <div>
+                                <h2>Þjónustuteymi</h2><img className="chat-expand" src={chatexpand} />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="csr-middle-section ">
+                            <div className="chatbubble-wrapper">
+                                <div className="chat-bubble-user-container netspjall-skjar2">
+                                    {this.state.messages.map((message) => <div class={message.chatName === this.state.chatName ? 'chat-bubble-csr' : 'chat-bubble-user'}>{message.chatName + ':' + message.message}</div>)}
+                                </div>
+                            </div>
+                            {this.state.phone ? (<form onSubmit={this.onSubmit}>
+                                <input
+                                    name="message"
+                                    value={message}
+                                    onChange={this._handleChange}
+                                    type="text"
+                                    placeholder="Skrifaðu hér..."
+                                />
+
+                                <button className="btn" disabled={isInvalid} type="submit">
+                                    Senda
                     </button>
-                </form>) : (<div>Click on the chatbox to start chatting </div>)}
+                            </form>) : (<div>Click on the chatbox to start chatting </div>)}
+                        </div>
+
+                    </div>
+
+                    <div className="konnekt-status-overview">
+                        <div>{user_info}</div>
+                        <div>
+                            <img className="logo" src={logo} />
+                        </div>
+                        <div>
+                            <img className="konnekt-lady" src={konnektlady} />
+                        </div>
+
+                        <div>
+                            <button onClick={this._handleButtonClick} className="yes-btn">Senda audkenni</button>
+                            {this.state.url_id ? (<a href={this.state.url_id} target="_blank">Link</a>) : (null)}
+                        </div>
+
+                    </div>
+                </div >
             </div>)
     };
 }

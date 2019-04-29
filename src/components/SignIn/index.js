@@ -51,7 +51,7 @@ class SignInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.LANDING);
+        this.props.history.push(ROUTES.HOME);
       })
       .catch(error => {
         this.setState({ error });
@@ -78,7 +78,7 @@ class SignInFormBase extends Component {
             <img className="logo" src={logo} />
           </div>
 
-          
+
           <div className="signin-section">
 
             <div className="container">
@@ -88,7 +88,7 @@ class SignInFormBase extends Component {
               <form onSubmit={this.onSubmit}>
                 <fieldset>
                   <legend>Innskráning</legend>
-                  
+
                   <div className="img-container">
                     <img className="konnekt-lady" src={konnektlady} />
                   </div>
@@ -115,22 +115,23 @@ class SignInFormBase extends Component {
                   Skrá inn
                 </button>
 
-            
+
               </form>
 
-              </div> 
-              
-
-            </div> 
-           
-          
-          </div> 
-          
+            </div>
 
 
-        </div> 
+          </div>
+
+
+        </div>
+
+
+
+      </div>
     )
-  } }
+  }
+}
 
 class SignInGoogleBase extends Component {
   constructor(props) {

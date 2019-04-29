@@ -59,7 +59,7 @@ const Landing = () => (
         <p>Hér til hliðar getur þú ýtt á takkana til að fá upp sýnishorn af því hvernig varan virkar. Þar getur þú prófað vöruna sem bæði fyrirtæki / þjónustufulltrúi og sem einstakling.</p>
       </div>
       <div className="summary-decoration m-v">
-        <button className="big-btn blue">Einstaklingur</button>
+        <Link to={ROUTES.CHAT}><button className="big-btn blue">Einstaklingur</button></Link>
         <button className="big-btn green">Fyrirtæki</button>
       </div>
 

@@ -34,7 +34,7 @@ const NavigationAuth = ({ authUser }) => (
           <SVGIcon name="phone" width={24} />
         </div>
         <div className="single-icon-container">
-          <SVGIcon name="message" width={24} />
+          <Link to={ROUTES.CHATLIST}><SVGIcon name="message" width={24} /></Link>
         </div>
         <div className="single-icon-container">
           <Link to={ROUTES.FACETOFACE}><SVGIcon name="face" width={24} /></Link>
@@ -42,6 +42,7 @@ const NavigationAuth = ({ authUser }) => (
       </div>
       <div className="single-icon-container">
         <Link to={ROUTES.ACCOUNT}><SVGIcon name="settings" width={24} /></Link>
+        <SignOutButton />
       </div>
       {/* Sidebar ends */}</div>
     <ul>
