@@ -1,38 +1,33 @@
-
+// Mobile View
 
 .landing {
-    header {
-        width: 100%;
-        nav {
-            justify-content: center;
-            width:100%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            ul {
-                list-style-type: none;
-                display: flex;
-                flex-direction: row;
-                font-size: 18px;
-                padding: 0px;
-            }
-            li {
-                margin: 0px 5px 0px 5px;
-                color: $text;
-            }
-        }
-    }
+
+    //Div sem heldur utan um hvert section fyrir sig,
     .section {
-        height: 90vh;
         display: flex;
         flex-direction: column;
+        padding: 5% 5%;
+        align-items: center;
     }
-
+    //Fyrsta sectionið, það sem birtist þegar síðan er opnuð
     .landing-section {
+        height:90vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+        .landing-img-container {
+            width: 100%;
+            @extend %flex-row;
+            align-items: flex-end;
+            justify-content: space-around;
+            .konnekt-dude {
+                height: 122px;
+            }
+            .konnekt-lady {
+                height: 113px;
+            }
+        }
 
         h1 {
             color: $primary;
@@ -40,38 +35,45 @@
             text-align: center;
             font-weight: bolder;
             margin: 0;
-            text-transform: uppercase;
             width: 90%;
+            letter-spacing: 2px;
         }
         h2 {
           font-size:20px;
           width: 90%;
+          color: $text;
+          text-align: center;
         }
-       
+        .lausnir-btn {
+            @extend %landing-btn;
+            background:$primary;
+            width: 90%;
+            font-size: 20px;
+        }
+        .lausnir-btn:hover {
+            background: none;
+            color: $primary;
+            border: 4px solid $primary;
+        }
     }
+    //Div sem heldur utan um texta
     .summary-wrapper {
+        padding-top:5%;
         width:90%;
     }
+    //Div sem heldur utan um mynd eða annað stuðningsefni við texta
     .summary-decoration {
-        width: 100%;
+        width: 90%;
         display: flex;
         align-items: center;
         justify-content: space-around;
         flex-direction: column;
+        //Risa takkarnir: Lausnir/Fyrirtæki
         .big-btn {
-            width: 90%;
-            height: 68px;
-            border: 0;
+            @extend %landing-btn;
+            width: 100%;
             font-size: 20px;
-            font-weight: bold;
-            color: $light;
-            span {
-                font-size: 18px;
-            }
-        }
-        .arrow {
-           display: hidden;
-            
+            margin: 5% auto;
         }
         .green {
             background: $secondary-green;
@@ -79,40 +81,33 @@
         .blue {
             background: $primary;
         }
+        .green:hover {
+            background: none;
+            color: $secondary-green;
+            border: 4px solid $secondary-green;
+            cursor:pointer
+        }
+        .blue:hover {
+            background: none;
+            color: $primary;
+            border: 4px solid $primary;
+            cursor:pointer
+        }
     }
-    h2 {
-        font-size: 22px;
-        color: $text;
-        text-align:center;
-    }
-    .lausnir-btn {
-        border: 4px solid $secondary-green ;
-        background:$secondary-green; 
-        width: 90%;
-        height: 66px;
-        text-transform: uppercase;
-        color: $light;
-        font-size: 20px;
-        font-weight: bolder;
-
-    }
-    .lausnir-btn:hover {
-        background:$secondary-green; 
-        color: $light;
-        cursor: pointer;
-    }
+    //Spurninga fyrirsagnir: Hvað er?/Hvernig Virkar það?
     h3 {
         color: $secondary-green;
         text-transform: uppercase;
         font-size: 16px;
         margin: 0px;
-        padding-bottom: 25px;
     }
+    //Undirfyrisagnir 
     h4 {
-        padding-bottom: 25px;
+        margin: 5% 0% 0% 0%;
         font-size: 50px;
         color: $primary;
-        margin: 0px;
+        font-weight: bold;
+        letter-spacing: 2px;
     }
 
     p {
@@ -120,92 +115,84 @@
         font-size: 20px;
     }
 
-    .okkar-syn-container {
-        background-image:url("/src/components/img/okkarsyn.png");
-        background-repeat: no-repeat;
-        background-size: contain;
+    .mobile-mockup {
+        height: 540px;
+        margin: 5% auto;
     }
-    // .okkar-syn-section {
-    //     background-image:url("/../img/okkarsyn.png");
-    //     background-repeat: no-repeat;
-    //     background-size: cover;
-    //     .okkar-syn {
-    //         // height: 797px;
-    //         // width: 756px;
-    //     }
-    // }
-  
+    .okkar-syn-container {
+        margin: 5% 0%;
+        .okkar-syn {
+            height: 152px;
+
+        }
+    }
 
     footer {
-        height: 367px;
+        height: 620px;
         width: 100%;
         background-color: $primary;
         color: $light;
-        font-size: 22px;
-        display: flex;
-        flex-direction: row;
-        padding: 0% 5%;
+       @extend %flex-column;
+        padding: 5% 5%;
+        .list-container {
+            ul {
+                list-style-type: none;
+                padding: 0px;
+                width: 100%;
+                li {
+                    font-size: 20px;
+                    margin: 0px;
+                    width: 250px;
 
-        div {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: baseline;
-            justify-content: center;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0px;
-            width: 100%;
-            li {
-                font-size: 22px;
+                }
+            }
+            .list-item {
+                display: flex;
+                @extend %flex-row;
+                align-items: baseline;
                 padding: 5% 0%;
             }
-          
+
+            h2 {
+                color: $light;
+                text-align: left;
+                font-size: 22px;
+            }
+            .dot {
+                width: 12px;
+                height: 12px;
+                background: $secondary-green;
+                border-radius: 50%;
+                margin-right: 3%;
+            }
         }
-        .konnekt-sky {
-             margin-right: 2%;   
-        }
-        .contact-link {
-            font-size: 60px;
-            font-weight: bolder;
-            margin: auto;
-          }
-          .contact-link:hover {
-              text-decoration: underline;
-              cursor: pointer;
-          }
-        p {
-            color: $light; 
-        }
-   
+                    .contact-link-container {
+                margin-top: 10%;
+                p {
+                    color: $light;
+                }
+                .contact-link {
+                    font-size: 30px;
+                    font-weight: bold;
+                    margin: auto;
+                  }
+                  .contact-link:hover {
+                      text-decoration: underline;
+                      cursor: pointer;
+                  }
+            }
+
+ 
+
+
     }
-  
+
 }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////Desktop view
 @media only screen and (min-width: 768px) {
 
     .landing {
-        header {
-            nav {
-                justify-content: flex-end;
-                width:100%;
-                display: flex;
-                flex-direction: row;
-                ul {
-                    list-style-type: none;
-                    display: flex;
-                    flex-direction: row;
-                    font-size: 18px;
-                    margin-right: 5%;
-                }
-                li {
-                    margin: 0px 5px 0px 5px;
-                    color: $text;
-                }
-            }
-        }
         .section {
             display: flex;
             flex-direction: row;
@@ -213,24 +200,23 @@
             display: flex;
             max-width: 1360px;
             margin: 0% auto;
+            padding: 0;
         }
-    
+
         .landing-section {
-            display: flex;
+            height: 90vh;
             flex-direction: column;
             align-items: center;
-            justify-content: space-around;
-    
+
             h1 {
-                color: $primary;
                 font-size: 80px;
-                text-align: center;
-                font-weight: bolder;
-                margin: 0;
                 text-transform: uppercase;
+                width:600px;
             }
+
             h2 {
-              font-size:20px;
+                font-size: 20px;
+                max-width: 700px;
             }
            
         }
@@ -241,129 +227,87 @@
             margin: 0 0 0 80px;
         }
         .summary-wrapper {
-            width:600px;
+            max-width: 600px;
+            p {
+                width: 600px;
+            }
         }
+
         .summary-decoration {
-            width:600px;
+            width: 600px;
             display: flex;
             align-items: center;
             justify-content: space-around;
             flex-direction: column;
             .big-btn {
-                color: $light;
-                span {
-                    font-size: 18px;
-                }
-            }
-            .green {
-                background: $secondary-green;
-            }
-            .blue {
-                background: $primary;
+                width: 600px;
+                height: 128px;
             }
         }
-        h1 {
-            color: $primary;
-            font-size: 80px;
-            text-align: center;
-            font-weight: bolder;
-            margin: 0;
-        }
-        h2 {
-            font-size: 22px;
-            color: $text;
-            text-align:center;
-        }
-        .lausnir-btn {
-            border: 4px solid $secondary-green ;
-            background:$secondary-green; 
-            width: 304px;
-            height: 66px;
-            text-transform: uppercase;
-            color: $light;
-            font-size: 20px;
-            font-weight: bolder;
-    
-        }
-        .lausnir-btn:hover {
-            background:$secondary-green; 
-            color: $light;
-            cursor: pointer;
-        }
-        h3 {
-            color: $secondary-green;
-            text-transform: uppercase;
-            font-size: 16px;
-            margin: 0px;
-            padding-bottom: 25px;
-        }
+
         h4 {
-            padding-bottom: 25px;
             font-size: 60px;
-            color: $primary;
-            margin: 0px;
+           
         }
-    
-        p {
-            color: $text;
-            font-size: 20px;
+
+        .okkar-syn {
+            height: 445px;
         }
-    
-        .okkar-syn-container {
-            background-image:url("/src/components/img/okkarsyn.png");
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-    
-        footer {
-            height: 367px;
-            width: 100%;
-            background-color: $primary;
-            color: $light;
-            font-size: 22px;
-            display: flex;
-            flex-direction: row;
-            padding: 0% 5%;
-    
-            div {
-                width: 50%;
-                display: flex;
-                flex-direction: column;
-                align-items: baseline;
-                justify-content: center;
-            }
+
+    }
+
+    footer {
+        height: 800px;
+
+        .list-container {
             ul {
                 list-style-type: none;
                 padding: 0px;
                 width: 100%;
+
                 li {
-                    font-size: 22px;
-                    padding: 5% 0%;
+                    font-size: 20px;
+                    margin: 0px;
+                    width: 250px;
+
                 }
-              
             }
-            .konnekt-sky {
-                 margin-right: 2%;   
+
+            .list-item {
+                display: flex;
+                align-items: baseline;
+                padding: 5% 0%;
             }
+
+            h2 {
+                color: $light;
+                text-align: left;
+                font-size: 22px;
+            }
+
+            .dot {
+                border-radius: 50%;
+                margin-right: 3%;
+            }
+        }
+
+        .contact-link-container {
+
             .contact-link {
                 font-size: 60px;
-                font-weight: bolder;
-                margin: auto;
-              }
-              .contact-link:hover {
-                  text-decoration: underline;
-                  cursor: pointer;
-              }
-            p {
-                color: $light; 
             }
-       
+
         }
-      
+
+
+
+
     }
 
 
-};
+}
+
+;
 
 
 

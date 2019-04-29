@@ -1,11 +1,30 @@
+//Mobile View
+
+//Navigation
 .navigation {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 1% 5%;
     ul {
         list-style-type: none;
         padding: 0;
+        font-size: 20px;
+        color: $text;
+        li {
+
+            a {
+                text-decoration: none;
+            }
+            a:visited {
+                color: $text;
+            }
+            
+        }
+    }
+}
+
+//Nav when user is logged in
+.auth {
+    width: 72px;
+    ul {
+        
         display: flex;
         flex-direction: row;
         
@@ -14,4 +33,82 @@
         }
      
     }
+    //Sidebar navigation
+   .sidebar {
+    position: absolute;
+    width: 72px;
+    background-color: $primary; 
+    height: 900px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0px;
+}
+.icons-container {
+    height: 216px;
+}
+.single-icon-container {
+    width: 72px; 
+    height: 72px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.active {
+    background-color: #F1F3FF;
+}
+
+}
+
+//Nav when user is not logged in
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+.non-auth {
+ @extend %flex-row;
+ width: 100%;
+ justify-content: space-between;
+ padding: 30px 80px;
+ background-color:rgba(255, 255, 255, 0.95);
+ul {
+    @extend %flex-row;
+
+    li {
+        display: block;
+        position: relative;
+        margin-left: 40px;
+        text-decoration: none;
+        -webkit-transition: color .2s ease-in-out;
+        transition: color .2s ease-in-out;
+    }
+    
+    li:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        border-bottom: solid 2px;
+    }
+    li:before {
+        left: 0;
+    }
+    
+    li:hover {
+        color: $primary;
+    }
+    
+    li:hover:before {
+        width: 100%;
+    }
+    
+    li:before {
+        -webkit-transition: width .2s ease-in-out;
+        transition: width .2s ease-in-out;
+    }
+}
+
+
 }
