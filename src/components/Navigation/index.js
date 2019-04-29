@@ -59,15 +59,15 @@ const NavigationAuth = ({ authUser }) => (
 );
 
 const NavigationNonAuth = () => (
-  <nav className="navigation non-auth">
-    <div className="logo-container">
-      <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
-    </div>
-    <ul>
-      <li className="navigation-link">
-        <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
-      </li>
-      {/* <li>
+    <nav className="navigation non-auth sticky">
+      <div className="logo-container">
+        <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
+      </div>
+      <ul>
+        <li className="navigation-link">
+          <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
+        </li>
+        {/* <li>
           <Link to={ROUTES.L_DEMO}>Demo</Link>
         </li> */ }
       {/* Commented out the demo link since it was removed from the design */}

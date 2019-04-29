@@ -45,33 +45,28 @@ const Landing = () => (
       </div>
       <div className="summary-wrapper m-v">
         <h3>Hvernig virkar það?</h3>
-        <h4>Virkar fyrir allt og alla</h4>
+        <h4>Virkar fyrir allt & alla</h4>
         <p>Konnekt er hægt að bæta við hvaða stafræna vettvang sem er, hvort sem það sé núverandi grunnkerfi eða samfélagsmiðla tól. Hér til hliðar sérðu dæmi um notkun. Möguleikarnir eru endalausir. </p>
       </div>
     </div>
 
     <div className="section">
 
-      <a id="demo" />
+      <a id="demo"></a>
       <div className="summary-wrapper m-h">
         <h3>Viltu prófa?</h3>
-        <h4>Sjáðu snilldina</h4>
+        <h4>Sjáðu & prófaðu snilldina</h4>
         <p>Hér til hliðar getur þú ýtt á takkana til að fá upp sýnishorn af því hvernig varan virkar. Þar getur þú prófað vöruna sem bæði fyrirtæki / þjónustufulltrúi og sem einstakling.</p>
       </div>
       <div className="summary-decoration m-v">
         <Link to={ROUTES.CHAT}><button className="big-btn blue">Einstaklingur</button></Link>
         <button className="big-btn green">Fyrirtæki</button>
       </div>
-
     </div>
 
     <div className="section okkar-syn-section">
 
-      {/* <img className="okkar-syn" src={okkarsyn} alt="" /> */}
-      <div className="summary-decoration okkar-syn-container m-h">
-        {/* <img className="okkar-syn" src={okkarsyn} /> */}
-      </div>
-      <div className="summary-wrapper m-v">
+      <div className="summary-wrapper m-h">
         <a id="okkar-syn" />
         <h3>Framtíðin</h3>
         <h4>Okkar sýn</h4>
@@ -81,7 +76,7 @@ const Landing = () => (
       </div>
 
 
-      <div className="summary-decoration okkar-syn-container">
+      <div className="summary-decoration okkar-syn-container m-v">
         <img className="okkar-syn" src={okkarSyn} />
       </div>
 

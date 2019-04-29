@@ -19,6 +19,7 @@
         }
     }
 }
+
 //Nav when user is logged in
 .auth {
     width: 72px;
@@ -61,11 +62,17 @@
 }
 
 //Nav when user is not logged in
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 .non-auth {
  @extend %flex-row;
  width: 100%;
  justify-content: space-between;
- padding: 3% 5%;
+ padding: 30px 80px;
+ background-color:rgba(255, 255, 255, 0.95);
 ul {
     @extend %flex-row;
 

@@ -99,10 +99,17 @@
   background-color: #F1F3FF;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .non-auth {
   width: 100%;
   justify-content: space-between;
-  padding: 3% 5%;
+  padding: 30px 80px;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 .non-auth ul li {
   display: block;
@@ -164,6 +171,7 @@
   font-weight: bolder;
   margin: 0;
   width: 90%;
+  letter-spacing: 2px;
 }
 .landing .landing-section h2 {
   font-size: 20px;
@@ -226,6 +234,7 @@
   font-size: 50px;
   color: #3463FF;
   font-weight: bold;
+  letter-spacing: 2px;
 }
 .landing p {
   color: #4F4F4F;
@@ -299,6 +308,7 @@
     display: flex;
     max-width: 1360px;
     margin: 0% auto;
+    padding: 0;
   }
   .landing .landing-section {
     height: 90vh;
@@ -308,6 +318,7 @@
   .landing .landing-section h1 {
     font-size: 80px;
     text-transform: uppercase;
+    width: 600px;
   }
   .landing .landing-section h2 {
     font-size: 20px;
@@ -320,6 +331,9 @@
     margin: 0 0 0 80px;
   }
   .landing .summary-wrapper {
+    max-width: 600px;
+  }
+  .landing .summary-wrapper p {
     width: 600px;
   }
   .landing .summary-decoration {

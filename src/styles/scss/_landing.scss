@@ -36,6 +36,7 @@
             font-weight: bolder;
             margin: 0;
             width: 90%;
+            letter-spacing: 2px;
         }
         h2 {
           font-size:20px;
@@ -106,6 +107,7 @@
         font-size: 50px;
         color: $primary;
         font-weight: bold;
+        letter-spacing: 2px;
     }
 
     p {
@@ -192,17 +194,17 @@
 
     .landing {
         .section {
-<<<<<<< HEAD
             padding: 5% 5%;
             flex-direction: row;
-=======
+
             display: flex;
             flex-direction: row;
             height: 80vh;
             display: flex;
             max-width: 1360px;
             margin: 0% auto;
->>>>>>> Landingpage
+            padding: 0;
+
         }
 
         .landing-section {
@@ -213,13 +215,14 @@
             h1 {
                 font-size: 80px;
                 text-transform: uppercase;
+                width:600px;
             }
 
             h2 {
                 font-size: 20px;
                 max-width: 700px;
             }
-<<<<<<< HEAD
+
 
             .lausnir-btn {
                 width: 304px;
@@ -227,7 +230,7 @@
             }
         
 
-=======
+
            
         }
         .m-h{
@@ -238,18 +241,28 @@
         }
         .summary-wrapper {
             width:600px;
->>>>>>> Landingpage
+
         }
 
         .summary-decoration {
-<<<<<<< HEAD
-=======
+
+
             width:600px;
+
+            max-width: 600px;
+            p {
+                width: 600px;
+            }
+        }
+
+        .summary-decoration {
+            width: 600px;
+
             display: flex;
             align-items: center;
             justify-content: space-around;
             flex-direction: column;
->>>>>>> Landingpage
+
             .big-btn {
                 width: 600px;
                 height: 128px;
@@ -258,6 +271,7 @@
 
         h4 {
             font-size: 60px;
+           
         }
 
         .okkar-syn {
