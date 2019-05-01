@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
-
-.homepage .chat-input-wrapper .btn, .homepage .konnekt-status-overview .customer-konnekt-status .btn, .signin-page .wrapper .signin-section .container .btn, .netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .status-screen-green .yes-btn, .simi-skjar1 .yes-btn {
+@import url("https://fonts.googleapis.com/css?family=Lato");
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .signin-page .wrapper .signin-section .container .btn, .netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .status-screen-green .yes-btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -78,7 +78,7 @@
   position: absolute;
   width: 72px;
   background-color: #3463FF;
-  height: 900px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -302,6 +302,8 @@
 
 @media only screen and (min-width: 768px) {
   .landing .section {
+    padding: 5% 5%;
+    flex-direction: row;
     display: flex;
     flex-direction: row;
     height: 80vh;
@@ -324,6 +326,10 @@
     font-size: 20px;
     max-width: 700px;
   }
+  .landing .landing-section .lausnir-btn {
+    width: 304px;
+    cursor: pointer;
+  }
   .landing .m-h {
     margin: 0 80px 0 0;
   }
@@ -331,9 +337,13 @@
     margin: 0 0 0 80px;
   }
   .landing .summary-wrapper {
+    width: 600px;
+  }
+  .landing .summary-decoration {
+    width: 600px;
     max-width: 600px;
   }
-  .landing .summary-wrapper p {
+  .landing .summary-decoration p {
     width: 600px;
   }
   .landing .summary-decoration {
@@ -342,36 +352,6 @@
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-  }
-  .landing .summary-decoration .big-btn {
-    color: #FFFFFF;
-  }
-  .landing .summary-decoration .big-btn span {
-    font-size: 18px;
-  }
-  .landing .summary-decoration .green {
-    background: #56E8A2;
-  }
-  .landing .summary-decoration .blue {
-    background: #3463FF;
-  }
-  .landing h1 {
-    color: #3463FF;
-    font-size: 80px;
-    text-align: center;
-    font-weight: bolder;
-    margin: 0;
-  }
-  .landing h2 {
-    font-size: 22px;
-    color: #4F4F4F;
-    text-align: center;
-  }
-  .landing .lausnir-btn {
-    border: 4px solid #56E8A2;
-    background: #56E8A2;
-    width: 304px;
-    cursor: pointer;
   }
   .landing .summary-decoration .big-btn {
     width: 600px;
@@ -666,137 +646,259 @@
   cursor: pointer;
 }
 
-.homepage .homepage-wrapper {
-  margin-left: 72px;
+.chathomepage {
+  height: 100vh;
+  padding-left: 72px;
+}
+.chathomepage .chathomepage-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
+  height: inherit;
 }
-.homepage .csr-header {
-  height: 50px;
+.chathomepage .csr-header {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-.homepage .csr-header .user-container {
+.chathomepage .csr-header .user-container {
   display: flex;
   flex-direction: row;
 }
-.homepage .csr-header .user-container p {
+.chathomepage .csr-header .user-container p {
   margin: 0px;
 }
-.homepage .csr-header .user-container .avatar path {
+.chathomepage .csr-header .user-container .avatar path {
   fill: #4F4F4F;
 }
-.homepage .chat-overview {
-  width: 230px;
-  height: 850px;
-  border-right: 1px solid #E9E9E9;
+.chathomepage .csr-header .user-container .logout-icon path {
+  fill: #3463FF;
 }
-.homepage .chat-overview .container {
+.chathomepage .chat-overview {
+  width: 230px;
+  height: inherit;
+  border-right: 1px solid #E9E9E9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.chathomepage .chat-overview .chat-el-container {
+  border-bottom: 1px solid #E9E9E9;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-grow: 1;
 }
-.homepage .chat-overview .container div {
+.chathomepage .chat-overview .chat-el-container div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: baseline;
 }
-.homepage .chat-overview .active-chat-users .dot {
-  width: 8px;
-  height: 8px;
-  background: #B0B0B0;
-  border-radius: 50%;
-}
-.homepage .chat-overview h2 {
+.chathomepage .chat-overview .chat-el-container div h2 {
   margin: 0px;
   text-transform: uppercase;
   color: #3463FF;
   font-size: 16px;
 }
-.homepage .csr-middle-section {
+.chathomepage .csr-middle-section {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  height: 850px;
-  width: 100%;
+  height: inherit;
 }
-.homepage .csr-middle-section h1 {
+.chathomepage .csr-middle-section h1 {
   color: #3463FF;
   text-transform: uppercase;
   font-size: 22px;
 }
-.homepage .csr-middle-section h2 {
+.chathomepage .csr-middle-section h2 {
   font-size: 16px;
   color: #4F4F4F;
 }
-.homepage .csr-middle-section p {
+.chathomepage .csr-middle-section p {
   color: #4F4F4F;
   font-size: 14px;
 }
-.homepage .csr-middle-section span {
+.chathomepage .csr-middle-section span {
   font-size: 36px;
   color: #56E8A2;
 }
-.homepage .konnekt-status-overview {
+.chathomepage .user-info-konnekt-wrapper {
   width: 300px;
-  height: 850px;
   border-left: 1px solid #E9E9E9;
-}
-.homepage .konnekt-status-overview .customer-name {
-  font-size: 16px;
-  text-transform: uppercase;
-  color: #3463FF;
-}
-.homepage .konnekt-status-overview .customer-api {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
+  justify-content: space-around;
 }
-.homepage .konnekt-status-overview .customer-api .customer-info-title {
-  font-size: 11px;
-  color: #56E8A2;
-  text-transform: uppercase;
+.chathomepage .user-info-konnekt-wrapper .current-user-wrapper {
+  width: 100%;
+  border-bottom: 1px solid #E9E9E9;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
-.homepage .konnekt-status-overview .customer-api .customer-info {
-  font-size: 14px;
-  margin: 0px;
-}
-.homepage .konnekt-status-overview .customer-konnekt-status .logo {
-  height: 25px;
-}
-.homepage .konnekt-status-overview .logo {
+.chathomepage .user-info-konnekt-wrapper .current-user-wrapper .logo {
   height: 50px;
+  margin: auto auto;
 }
-.homepage .konnekt-status-overview .konnekt-lady {
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-lady {
   height: 102px;
+  margin: auto auto;
 }
-.homepage .chat-input-wrapper {
-  width: 60%;
-  margin: auto;
+
+.chathomepage {
+  height: 100vh;
+  padding-left: 72px;
+}
+.chathomepage .chathomepage-wrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
+  height: inherit;
 }
-.homepage .chat-input-wrapper input {
-  width: 516px;
-  border: none;
-  height: 88px;
+.chathomepage .csr-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
-.homepage .chat-input-wrapper .plus path {
-  fill: #B0B0B0;
+.chathomepage .csr-header .user-container {
+  display: flex;
+  flex-direction: row;
 }
-.homepage .chat-input-wrapper .reply path {
-  fill: #B0B0B0;
+.chathomepage .csr-header .user-container p {
+  margin: 0px;
+}
+.chathomepage .csr-header .user-container .avatar path {
+  fill: #4F4F4F;
+}
+.chathomepage .csr-header .user-container .logout-icon path {
+  fill: #3463FF;
+}
+.chathomepage .chat-overview {
+  width: 230px;
+  height: inherit;
+  border-right: 1px solid #E9E9E9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.chathomepage .chat-overview .chat-el-container {
+  border-bottom: 1px solid #E9E9E9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
+}
+.chathomepage .chat-overview .chat-el-container div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+.chathomepage .chat-overview .chat-el-container div h2 {
+  margin: 0px;
+  text-transform: uppercase;
+  color: #3463FF;
+  font-size: 16px;
+}
+.chathomepage .csr-middle-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: inherit;
+}
+.chathomepage .csr-middle-section h1 {
+  color: #3463FF;
+  text-transform: uppercase;
+  font-size: 22px;
+}
+.chathomepage .csr-middle-section h2 {
+  font-size: 16px;
+  color: #4F4F4F;
+}
+.chathomepage .csr-middle-section p {
+  color: #4F4F4F;
+  font-size: 14px;
+}
+.chathomepage .csr-middle-section span {
+  font-size: 36px;
+  color: #56E8A2;
+}
+.chathomepage .user-info-konnekt-wrapper {
+  width: 300px;
+  border-left: 1px solid #E9E9E9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container {
+  width: 100%;
+  align-self: flex-start;
+}
+.chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container h2 {
+  font-size: 16px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  color: #3463FF;
+  text-align: center;
+}
+.chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container .user-info {
+  padding: 5% 0% 0% 10%;
+}
+.chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container .user-info h3 {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #56E8A2;
+}
+.chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container .user-info p {
+  font-size: 14px;
+  color: #4F4F4F;
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .logo {
+  height: 30px;
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section h2 {
+  font-size: 16px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  color: #3463FF;
+  text-align: center;
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section p {
+  font-size: 14px;
+  color: #4F4F4F;
+  text-align: center;
 }
 * {
   font-family: "Lato", Arial, Helvetica, sans-serif;
