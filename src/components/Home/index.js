@@ -16,9 +16,15 @@ const HomePage = () => (
 
         <div className="csr-header">
           <div className="user-container">
-            <SVGIcon className="avatar" name="avatar" width={30} height={30} />
+          <div className="username-container">
+          <SVGIcon className="avatar" name="avatar" width={30} height={30} />
             <p>User name</p>
+          </div>
+            
+            <div className="signout-comp">
             <SignOutButton />
+            </div>
+            
           </div>
         </div>
 

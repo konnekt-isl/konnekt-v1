@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
 @import url("https://fonts.googleapis.com/css?family=Lato");
-.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .signin-page .wrapper .signin-section .container .btn, .netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .status-screen-green .yes-btn, .simi-skjar1 .yes-btn {
+.simi-skjar2 .wrapper .status-screen .yes-btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .signin-page .wrapper .signin-section .container .btn, .netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -12,7 +12,7 @@
   text-decoration: none;
 }
 
-.simi-skjar1 .no-btn {
+.simi-skjar2 .wrapper .status-screen .no-btn, .simi-skjar1 .no-btn {
   width: 208px;
   height: 40px;
   background: #FFEEED;
@@ -39,13 +39,13 @@
   border-radius: 4px;
 }
 
-.netspjall-skjar2, .netspjall-skjar1 .btn-container, .netspjall-skjar1 .form, .netspjall-skjar1, .status-screen-green .text-container, .simi-skjar1 .text-container, .simi-skjar1 .logo-container, .landing footer {
+.netspjall-skjar2, .netspjall-skjar1 .btn-container, .netspjall-skjar1 .form, .netspjall-skjar1, .landing footer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-.netspjall-skjar1 .logo-container, .simi-skjar1 .wrapper, .landing footer .list-container .list-item, .landing .landing-section .landing-img-container, .non-auth ul, .non-auth {
+.netspjall-skjar1 .logo-container, .landing footer .list-container .list-item, .landing .landing-section .landing-img-container, .non-auth ul, .non-auth {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -313,6 +313,7 @@
     padding: 0;
   }
   .landing .landing-section {
+    padding-top: 92px;
     height: 90vh;
     flex-direction: column;
     align-items: center;
@@ -397,21 +398,26 @@
 }
 .simi-skjar1 {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  flex-wrap: wrap;
-  margin: auto;
   height: 100vh;
 }
-.simi-skjar1 .logo-container {
-  width: 90%;
-  align-items: center;
-  justify-content: center;
-}
 .simi-skjar1 .wrapper {
-  width: 100%;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+.simi-skjar1 .wrapper .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.simi-skjar1 .wrapper .container .logo {
+  margin-bottom: 5%;
+}
+.simi-skjar1 .wrapper .container h1 {
+  margin-bottom: 15%;
 }
 .simi-skjar1 input {
   margin-top: 20px;
@@ -423,13 +429,6 @@
   padding: 0px;
   margin-bottom: 10px;
 }
-.simi-skjar1 .lady-container {
-  width: 10%;
-}
-.simi-skjar1 .text-container {
-  align-items: center;
-  justify-content: center;
-}
 .simi-skjar1 h1 {
   font-size: 17px;
   margin: auto;
@@ -440,48 +439,14 @@
   color: #3463FF;
   font-size: 20px;
 }
+.simi-skjar1 .yes-btn {
+  margin-bottom: 10%;
+}
 .simi-skjar1 p {
   font-size: 14px;
   padding: 0;
   margin: 0;
 }
-.status-screen-green {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: auto;
-  height: 100vh;
-}
-.status-screen-green .wrapper {
-  display: flex;
-  flex-direction: row;
-}
-.status-screen-green h1 {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #3463FF;
-  font-size: 18px;
-}
-.status-screen-green p {
-  font-size: 14px;
-  padding: 0;
-  margin: 0;
-  max-width: 300px;
-  text-align: center;
-}
-.status-screen-green .text-container {
-  align-items: center;
-  justify-content: center;
-}
-
-.status-screen-red p {
-  font-size: 16px;
-  color: #FF0000;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
 .netspjall-skjar1 .logo-container {
   justify-content: flex-start;
 }
@@ -546,6 +511,7 @@
   color: #828282;
 }
 .signin-page {
+  padding-top: 92px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -659,19 +625,27 @@
 }
 .chathomepage .csr-header {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
 }
 .chathomepage .csr-header .user-container {
   display: flex;
   flex-direction: row;
+  width: inherit;
+  padding-right: 3%;
+  align-items: center;
+  justify-content: center;
 }
-.chathomepage .csr-header .user-container p {
+.chathomepage .csr-header .user-container .username-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.chathomepage .csr-header .user-container .username-container p {
   margin: 0px;
+  text-align: center;
+  font-size: 16px;
+  color: #4F4F4F;
 }
-.chathomepage .csr-header .user-container .avatar path {
+.chathomepage .csr-header .user-container .username-container .avatar path {
   fill: #4F4F4F;
 }
 .chathomepage .csr-header .user-container .logout-icon path {
@@ -900,6 +874,62 @@
   color: #4F4F4F;
   text-align: center;
 }
+.simi-skjar2 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.simi-skjar2 .wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.simi-skjar2 .wrapper .logo {
+  margin-bottom: 15%;
+}
+.simi-skjar2 .wrapper .status-screen {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.simi-skjar2 .wrapper .status-screen .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+.simi-skjar2 .wrapper .status-screen h1 {
+  font-size: 17px;
+  color: #3463FF;
+  text-transform: uppercase;
+}
+.simi-skjar2 .wrapper .status-screen h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 20px;
+}
+.simi-skjar2 .wrapper .status-screen .yes-btn {
+  margin-bottom: 10%;
+}
+.simi-skjar2 .wrapper .status-screen p {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  max-width: 250px;
+  text-align: center;
+}
+.simi-skjar2 .wrapper .status-screen .error-p {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: red;
+  font-weight: bold;
+}
+
 * {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   box-sizing: border-box;

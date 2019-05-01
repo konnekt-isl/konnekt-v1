@@ -72,12 +72,6 @@ class SignInFormBase extends Component {
       <div className="signin-page">
 
         <div className="wrapper">
-
-          <div className="logo-container">
-            <img className="logo" src={logo} />
-          </div>
-
-
           <div className="signin-section">
 
             <div className="container">

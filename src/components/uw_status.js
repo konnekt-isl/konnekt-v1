@@ -61,37 +61,37 @@ class uw_status extends Component {
         if (!sessionTimeOut) {
             statusScreen =
                 // Screen that shows when authentication is successfull
-                <div className="page-wrapper">
-                    <div className="status-screen-green">
-                        <div className="logo-container">
-                            <img className="logo" src={logo} />
-                        </div>
-                        <div className="lady-container">
-                            <img src={konnektlady} />
-                        </div>
-                        <img src={checkcircle} />
-                        <div className="text-container">
-                            <h1>Auðkenni staðfest</h1>
-                            <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
-                            <button class="yes-btn">Áfram</button>
-                        </div>
+                <div className="wrapper">
+                <div className="status-screen">
+                    <div className="container">
+                        <img className="logo" src={logo} />
+                        <img src={konnektlady} />
                     </div>
-                </div>;
+                    <div className="container">
+                        <img src={checkcircle} />
+                        <h1>Auðkenni staðfest</h1>
+                        <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
+                    </div>
+                    <div className="container">
+                        <button class="yes-btn">Áfram</button>
+                    </div>
+                </div>
+            </div>;
         } else {
             statusScreen =
                 // Screen that shows when authentication failed or connection timed out     
-                <div className="page-wrapper">
-                    <div className="status-screen-red">
-                    <div className="lady-container">
+                <div className="wrapper">
+                    <div className="status-screen">
+                        <div className="container">
+                            <img className="logo" src={logo} />
                             <img src={konnektlady} />
+                        </div>
+                        <div className="container">
+                            <p className="error-p">Auðkenning tókst ekki</p>
+                            <p className="error-p">Viltu reyna aftur?</p>
+                        </div>
                     </div>
-                    <div>
-                        <p>Auðkenning tókst ekki</p>
-                        <p>Viltu reyna aftur?</p>
-                    </div>
-                        
-                    </div>
-                </div>;
+            </div>;
         }
         if (this.state.status !== '200') {
             statusMessage = this.state.message

@@ -89,27 +89,29 @@ class FaceToFace extends Component {
                     {firebase => {
                         return (
                             <div className="simi-skjar1">
+
                                 <div className="wrapper">
-                                    <div className="logo-container">
+                                    <div className="container">
                                         <img className="logo" src={logo} alt="Logo" />
-                                        <h1>Frá Arion Banka</h1>
+                                        <h1>frá *nafn*</h1>
+                                        <img className="konnekt-lady" src={konnektlady} />
                                     </div>
-                                    <div className="lady-container">
-                                        <img src={konnektlady} />
-                                    </div>
-                                </div>
-                                <div className="wrapper">
-                                    <div className="text-container">
+                                    <div className="container">
                                         <h2>Hæ *customer name*</h2>
                                         <p>Þú hefur fengið beiðni um auðkenningu</p>
                                         <p>Viltu halda áfram?</p>
                                         <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
-                                        <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
                                     </div>
+                                       <div className="container">
+                                            <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
+                                            <button className="no-btn">Hætta við</button>
+                                       </div>
+                        
+                                    
                                 </div>
-                                <div className="no-btn-container">
-                                    <button className="no-btn">Hætta við</button>
-                                </div>
+                
+                                    
+                                
                             </div>)
                     }}</FirebaseContext.Consumer>
             </div>

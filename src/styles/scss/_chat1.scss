@@ -13,25 +13,41 @@
     //wrapper með nafn notendans og útskráningar takka 
     .csr-header {
         width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
+        // display: flex;
+        // flex-direction: row;
+        // align-items: center;
+        // justify-content: center;
         .user-container {
             display: flex;
             flex-direction: row;
-            p {
-                margin: 0px;
-            }
-            .avatar {
-                path {
-                    fill: $text;
+            width: inherit;
+            padding-right: 3%;
+            align-items: center;
+            justify-content: center;
+            .username-container {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                p{
+                    margin: 0px;
+                    text-align: center;
+                    font-size: 16px;
+                    color: $text;
+                }
+                .avatar {
+                    path {
+                        fill: $text;
+                    }
                 }
             }
+     
             .logout-icon {
                 path {
                     fill: $primary;
                 }
+            }
+            .signout-comp {
+            // justify-self: flex-end;
             }
         }
     
