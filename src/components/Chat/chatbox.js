@@ -61,7 +61,15 @@ class ChatBox extends Component {
 
             <div>
                 <h1>Chat</h1>
-                <p>{this.state.messages.map((message) => <div class={message.chatName === this.state.chatName ? 'right' : 'left'}>{message.chatName + ':' + message.message}</div>)}</p>
+                <div className="chat-bubble-user-container netspjall-skjar2">
+                    {this.state.messages.map((message) => {
+                        return (
+                            <div class={message.chatName === this.state.chatName ? 'chat-bubble-csr' : 'chat-bubble-user'}>
+                                {message.url ? <a href={message.url}>Click</a> : message.chatName + ':' + message.message}
+                            </div>)
+                    })
+                    }
+                </div>
                 <form onSubmit={this.onSubmit}>
                     <input
                         name="message"

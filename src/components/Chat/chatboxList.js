@@ -25,6 +25,9 @@ class ChatList extends Component {
             authUser: JSON.parse(localStorage.getItem('authUser')),
             messageDate: '',
             url_id: null,
+            username: '',
+            email: '',
+            ip: '',
         };
 
         this._handleClick = this._handleClick.bind(this);
@@ -39,10 +42,13 @@ class ChatList extends Component {
             var chatboxes = [];
             querySnapshot.docs.forEach(function (doc) {
                 const data = doc.data()
-                chatboxes.push({ id: doc.id, read: data.read, date: data.messages.pop().messageDate.seconds })
+                chatboxes.push({ id: doc.id, read: data.read, username: data.username, email: data.email, date: data.messages.pop().messageDate.seconds })
             });
+            console.log(chatboxes)
             this.setState({ chatboxes })
-            this.setState({ chatName: this.state.authUser.username })
+            this.setState({
+                chatName: this.state.authUser.username
+            })
         })
     }
 
@@ -51,6 +57,9 @@ class ChatList extends Component {
             this.setState({
                 read: doc.data().read,
                 messages: doc.data().messages,
+                username: doc.data().username,
+                email: doc.data().email,
+                ip: doc.data().ip
             })
         })
     }
@@ -90,7 +99,18 @@ class ChatList extends Component {
         this.setState({
             url_id
         })
-        console.log(url_id)
+
+        const url = 'http://localhost:3000/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.chatName
+        const { phone, messageDate, chatName } = this.state;
+        firebase.firestore().collection('chat').doc(phone).update({
+            read: false,
+            messages: firebase.firestore.FieldValue.arrayUnion({
+                chatName,
+                url,
+                message: '',
+                messageDate,
+            })
+        })
     }
 
 
@@ -98,12 +118,12 @@ class ChatList extends Component {
         const { message, } = this.state;
         const isInvalid = message === '';
         return (
-            <div className="page-wrapper chathomepage">
+            <div className="page-wrapper chathomepage" >
                 <div className="chathomepage-wrapper">
                     <div className="csr-header">
                         <div className="user-container">
                             <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-                            <p>User name</p>
+                            <p>{this.state.chatName}</p>
                             <SignOutButton />
                         </div>
 
@@ -114,7 +134,7 @@ class ChatList extends Component {
                                 <h2>Virk Netspjöll</h2><img className="chat-expand" src={chatexpand} />
                             </div>
                             <div>
-                                <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
+                                <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.username}</button></li>)}</ul>
                             </div>
                         </div>
 
@@ -135,7 +155,13 @@ class ChatList extends Component {
                         <div className="csr-middle-section ">
                             <div className="chatbubble-wrapper">
                                 <div className="chat-bubble-user-container netspjall-skjar2">
-                                    {this.state.messages.map((message) => <div class={message.chatName === this.state.chatName ? 'chat-bubble-csr' : 'chat-bubble-user'}>{message.chatName + ':' + message.message}</div>)}
+                                    {this.state.messages.map((message) => {
+                                        return (
+                                            <div class={message.chatName === this.state.chatName ? 'chat-bubble-csr' : 'chat-bubble-user'}>
+                                                {message.url ? <a href={message.url}>Click</a> : message.chatName + ':' + message.message}
+                                            </div>)
+                                    })
+                                    }
                                 </div>
                             </div>
                             {this.state.phone ? (<form onSubmit={this.onSubmit}>
@@ -162,11 +188,11 @@ class ChatList extends Component {
                                 <h2>Selected User name</h2>
                                 <div className="user-info">
                                     <h3>Email</h3>
-                                    <p>user email</p>
+                                    <p>{this.state.email}</p>
                                     <h3>Sími</h3>
                                     <p>{this.state.phone}</p>
                                     <h3>IP</h3>
-                                    <p>User IP</p>
+                                    <p>{this.state.ip}</p>
                                 </div>
                                 <div>{this.state.user_info}</div>
                             </div>
@@ -177,7 +203,7 @@ class ChatList extends Component {
                                 <img className="logo" src={logo} />
                                 <div className="konnekt-section">
                                     <p>Senda auðkenningsbeiðni til</p>
-                                    <h2>Selected User name</h2>
+                                    <h2>Selected {this.state.username}</h2>
                                     <Request phone={this.state.phone} authenticate={this.authenticate} />
                                 </div>
                             </div>

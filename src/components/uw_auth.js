@@ -9,28 +9,23 @@ class uw_auth extends Component {
         super(props);
 
         this.state = {
-            phone: '',
+            phone: null,
+            userName: '',
             data: null,
             status: null,
             date: null,
             message: null,
             url_id: '',
         };
-
-        this._handleChange = this._handleChange.bind(this);
     }
-
-    _handleChange = (event) => {
-        this.setState({ phone: event.target.value })
-    }
-
 
     componentDidMount() {
-        this.setState({ url_id: this.props.match.params.session });
-        console.log(this.props.match.params.session);
-        console.log(this.state.url_id)
+        this.setState({
+            url_id: this.props.match.params.session,
+            phone: this.props.match.params.phone,
+            userName: this.props.match.params.username,
+        });
     }
-
 
     _confirmphone = () => {
         fetch('https://onboardingdev.taktikal.is:443/api/Auth', {
@@ -91,24 +86,24 @@ class uw_auth extends Component {
                         return (
                             <div className="simi-skjar1">
 
-                        <div className="wrapper">
-                            <div className="container">
-                                <img className="logo" src={logo} alt="Logo" />
-                                <h1>frá *nafn*</h1>
-                                <img className="konnekt-lady" src={konnektlady} />
-                            </div>
-                            <div className="container">
-                                <h2>Hæ *customer name*</h2>
-                                <p>Þú hefur fengið beiðni um auðkenningu</p>
-                                <p>Viltu halda áfram?</p>
-                                <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
-                            </div>
-                            <div className="container">
-                                    <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
-                                    <button className="no-btn">Hætta við</button>
-                            </div>
-                        </div>
-                </div>)
+                                <div className="wrapper">
+                                    <div className="container">
+                                        <img className="logo" src={logo} alt="Logo" />
+                                        <h1>frá *nafn*</h1>
+                                        <img className="konnekt-lady" src={konnektlady} />
+                                    </div>
+                                    <div className="container">
+                                        <h2>Hæ *customer name*</h2>
+                                        <p>Þú hefur fengið beiðni um auðkenningu</p>
+                                        <p>Viltu halda áfram?</p>
+                                        {/* <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} /> */}
+                                    </div>
+                                    <div className="container">
+                                        <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
+                                        <button className="no-btn">Hætta við</button>
+                                    </div>
+                                </div>
+                            </div>)
                     }}</FirebaseContext.Consumer>
             </div>
         )

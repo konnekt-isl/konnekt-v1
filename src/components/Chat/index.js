@@ -6,42 +6,62 @@ class ChatStart extends Component {
         super(props);
 
         this.state = {
+            email: '',
             phone: '',
             chatName: '',
             message: '',
             messageDate: '',
+            ip: '',
         };
         this._handleChange = this._handleChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
     }
 
+    componentDidMount() {
+        fetch('https://ipapi.co/json/')
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                console.log(data)
+                this.setState({ ip: data.ip + ' (' + data.city + ')' })
+            })
+    }
+
+
+
     _handleChange = (event) => {
         this.setState({ messageDate: firebase.firestore.Timestamp.fromDate(new Date()) });
         if (event.target.name === 'name') {
-            console.log("test name")
             this.setState({
                 chatName: event.target.value
             })
         }
         else if (event.target.name === 'phone') {
-            console.log("test phone")
             this.setState({
                 phone: event.target.value
             })
         }
         else if (event.target.name === 'message') {
-            console.log("test message")
             this.setState({
                 message: event.target.value
+            })
+        }
+        else if (event.target.name === 'email') {
+            this.setState({
+                email: event.target.value
             })
         }
     }
 
     onSubmit = event => {
-        const { phone, chatName, message, messageDate } = this.state;
+        const { phone, chatName, message, messageDate, email, ip } = this.state;
         firebase.firestore().collection('chat').doc(phone).set({
             read: false,
+            ip: ip,
+            email: email,
+            username: chatName,
             messages: firebase.firestore.FieldValue.arrayUnion({
                 chatName,
                 message,
@@ -57,8 +77,10 @@ class ChatStart extends Component {
     };
 
     render() {
-        const { name, phone, message, } = this.state;
+        const { name, phone, message, email } = this.state;
         const isInvalid = phone === '' || name === '';
+
+        console.log(this.state.ip)
 
         return (
             <div>
@@ -79,6 +101,14 @@ class ChatStart extends Component {
                         <input
                             name="phone"
                             value={phone}
+                            onChange={this._handleChange}
+                            type="text"
+                            placeholder="Phone"
+                        />
+                        <label for="email">E-mail</label>
+                        <input
+                            name="email"
+                            value={email}
                             onChange={this._handleChange}
                             type="text"
                             placeholder="Phone"
