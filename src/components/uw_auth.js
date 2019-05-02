@@ -94,7 +94,7 @@ class uw_auth extends Component {
                                         <img className="konnekt-lady" src={konnektlady} />
                                     </div>
                                     <div className="container">
-                                        <h2>Hæ *customer name*</h2>
+                                        <h2>Hæ {this.state.userName}</h2>
                                         <p>Þú hefur fengið beiðni um auðkenningu</p>
                                         <p>Viltu halda áfram?</p>
                                         {/* <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} /> */}

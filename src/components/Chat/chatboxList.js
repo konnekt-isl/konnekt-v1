@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { AuthUserContext, withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
-import md5 from 'md5';
-import { HashLink as Link } from 'react-router-hash-link';
+// import md5 from 'md5';
+// import { HashLink as Link } from 'react-router-hash-link';
 import chatexpand from '../img/chatexpand.svg';
 import SVGIcon from "../img/SVGIcon";
 import SignOutButton from '../SignOut';
 import logo from '../img/logo.svg';
+import konnektlady from '../img/konnektlady.svg';
 
 import Request from '../sw_request'
 
@@ -100,7 +101,7 @@ class ChatList extends Component {
             url_id
         })
 
-        const url = 'http://localhost:3000/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.chatName
+        const url = 'http://localhost:3000/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.username
         const { phone, messageDate, chatName } = this.state;
         firebase.firestore().collection('chat').doc(phone).update({
             read: false,
@@ -112,7 +113,6 @@ class ChatList extends Component {
             })
         })
     }
-
 
     render() {
         const { message, } = this.state;
@@ -181,40 +181,50 @@ class ChatList extends Component {
 
                     </div>
 
-                    <div className="user-info-konnekt-wrapper">
-
-                        <div className="current-user-wrapper">
-                            <div className="current-user-container">
-                                <h2>Selected User name</h2>
-                                <div className="user-info">
-                                    <h3>Email</h3>
-                                    <p>{this.state.email}</p>
-                                    <h3>Sími</h3>
-                                    <p>{this.state.phone}</p>
-                                    <h3>IP</h3>
-                                    <p>{this.state.ip}</p>
-                                </div>
-                                <div>{this.state.user_info}</div>
-                            </div>
-                        </div>
-
-                        <div className="konnekt-status-wrapper">
-                            <div className="konnekt-status-container">
+                    {this.state.phone === '' ? (
+                        <div className="user-info-konnekt-wrapper">
+                            <div className="current-user-wrapper">
                                 <img className="logo" src={logo} />
-                                <div className="konnekt-section">
-                                    <p>Senda auðkenningsbeiðni til</p>
-                                    <h2>Selected {this.state.username}</h2>
-                                    <Request phone={this.state.phone} authenticate={this.authenticate} />
+                            </div>
+
+                            <div className="konnekt-status-wrapper">
+                                <img className="konnekt-lady" src={konnektlady} />
+                            </div>
+
+                        </div>)
+                        :
+                        (<div className="user-info-konnekt-wrapper">
+                            <div className="current-user-wrapper">
+                                <div className="current-user-container">
+                                    <h2>{this.state.username}</h2>
+                                    <div className="user-info">
+                                        <h3>Email</h3>
+                                        <p>{this.state.email}</p>
+                                        <h3>Sími</h3>
+                                        <p>{this.state.phone}</p>
+                                        <h3>IP</h3>
+                                        <p>{this.state.ip}</p>
+                                    </div>
+                                    <div>{this.state.user_info}</div>
                                 </div>
                             </div>
 
-                        </div>
 
-
-
-                    </div>
+                            <div className="konnekt-status-wrapper">
+                                <div className="konnekt-status-container">
+                                    <img className="logo" src={logo} />
+                                    <div className="konnekt-section">
+                                        <p>Senda auðkenningsbeiðni til</p>
+                                        <h2>{this.state.username}</h2>
+                                        <Request phone={this.state.phone} authenticate={this.authenticate} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>)
+                    }
                 </div>
-            </div>)
+            </div>
+        )
     };
 }
 
