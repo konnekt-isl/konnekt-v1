@@ -97,7 +97,6 @@ class uw_auth extends Component {
                                         <h2>Hæ {this.state.userName}</h2>
                                         <p>Þú hefur fengið beiðni um auðkenningu</p>
                                         <p>Viltu halda áfram?</p>
-                                        {/* <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} /> */}
                                     </div>
                                     <div className="container">
                                         <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>

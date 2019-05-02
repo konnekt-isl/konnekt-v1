@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import md5 from 'md5';
-
 import { compose } from 'recompose';
-
-
 import * as firebase from 'firebase'
 import { AuthUserContext, withAuthorization, withEmailVerification } from './Session';
+
 
 class Request extends Component {
     constructor(props) {
@@ -62,39 +60,33 @@ class Request extends Component {
         this.setState({
             url_id: md5Date,
         })
-        console.log(md5Date)
         this.props.authenticate(md5Date)
         this.onListenForStatus(md5Date);
     }
 
 
     render() {
-        // let url_message = <div> Click to generate url</div>;
-        // if (this.state.url_id != null) {
-        //     this.setState({
-        //         url_message: 'http://localhost:3000/authenticate/{this.state.url_id}?{this.props.phone}'
-        //     });
-        // } else {
-        //     url_message = <div></div>;
-        // }
-
-        // let user_info = <div></div>;
-        // if (this.state.userInfo != null) {
-        //     user_info = <div>{this.state.userInfo.name}</div>;
-        // } else {
-        //     user_info = <div></div>;
-        // }
+        let user_info = <div></div>;
+        if (this.state.userInfo != null) {
+            user_info = <div>{this.state.userInfo.name}</div>;
+        } else {
+            user_info = <div></div>;
+        }
 
         const phone = this.props.phone;
         const isInvalid = phone === '';
+        console.log(this.state.status)
+
+        let result = < button onClick={this._handleButtonClick} disabled={isInvalid} className="konnekt-btn" > Auðkenna með Konnekt</button >
+
+        if (Object.keys(this.state.userInfo).length != 0) {
+            result = <div>{this.state.status === '200' ? (<p>Green</p>) : (<p>Red</p>)}</div>
+        }
+
         return (
-            <AuthUserContext.Consumer>
-                {authUser => (
-                    <div>
-                        <button onClick={this._handleButtonClick} disabled={isInvalid} className="konnekt-btn">Auðkenna með Konnekt</button>
-                    </div>
-                )}
-            </AuthUserContext.Consumer >
+            <div>
+                {result}
+            </div>
         )
     }
 }
