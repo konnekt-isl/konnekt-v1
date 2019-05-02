@@ -24,23 +24,23 @@ class ChatList extends Component {
             messages: [],
             authUser: JSON.parse(localStorage.getItem('authUser')),
             messageDate: '',
+            url_id: null,
         };
 
         this._handleClick = this._handleClick.bind(this);
         this._handleChange = this._handleChange.bind(this);
         this._loadChat = this._loadChat.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.authenticate = this.authenticate.bind(this);
     }
 
     componentDidMount() {
         firebase.firestore().collection('chat').onSnapshot({ includeMetadataChanges: true }, (querySnapshot) => {
-            console.log(querySnapshot)
             var chatboxes = [];
             querySnapshot.docs.forEach(function (doc) {
                 const data = doc.data()
                 chatboxes.push({ id: doc.id, read: data.read, date: data.messages.pop().messageDate.seconds })
             });
-            console.log(chatboxes)
             this.setState({ chatboxes })
             this.setState({ chatName: this.state.authUser.username })
         })
@@ -48,7 +48,6 @@ class ChatList extends Component {
 
     _loadChat = (phone) => {
         firebase.firestore().collection('chat').doc(phone).onSnapshot((doc) => {
-            console.log(doc.data().messages)
             this.setState({
                 read: doc.data().read,
                 messages: doc.data().messages,
@@ -87,8 +86,12 @@ class ChatList extends Component {
         event.preventDefault();
     };
 
-
-
+    authenticate = (url_id) => {
+        this.setState({
+            url_id
+        })
+        console.log(url_id)
+    }
 
 
     render() {
@@ -161,11 +164,11 @@ class ChatList extends Component {
                                     <h3>Email</h3>
                                     <p>user email</p>
                                     <h3>Sími</h3>
-                                    <p>User nr</p>
+                                    <p>{this.state.phone}</p>
                                     <h3>IP</h3>
                                     <p>User IP</p>
                                 </div>
-                                <div>{user_info}</div>
+                                <div>{this.state.user_info}</div>
                             </div>
                         </div>
 
@@ -175,8 +178,7 @@ class ChatList extends Component {
                                 <div className="konnekt-section">
                                     <p>Senda auðkenningsbeiðni til</p>
                                     <h2>Selected User name</h2>
-                                    <button onClick={this._handleButtonClick} className="konnekt-btn">Auðkenna með Konnekt</button>
-                                    {this.state.url_id ? (<a href={this.state.url_id} target="_blank">Link</a>) : (null)}
+                                    <Request phone={this.state.phone} authenticate={this.authenticate} />
                                 </div>
                             </div>
 
