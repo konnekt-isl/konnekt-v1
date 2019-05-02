@@ -2,6 +2,7 @@
 
 //Navigation
 .navigation {
+ 
     ul {
         list-style-type: none;
         padding: 0;
@@ -38,7 +39,7 @@
     position: absolute;
     width: 72px;
     background-color: $primary; 
-    height: 900px;
+    height: 100vh;
     display: flex; 
     flex-direction: column;
     align-items: center;

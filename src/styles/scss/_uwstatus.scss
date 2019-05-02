@@ -1,0 +1,69 @@
+
+//Mobile View
+.simi-skjar2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        .logo {
+            margin-bottom: 15%;
+        }
+        .status-screen {
+            height: inherit;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+         
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex-grow: 1;
+                justify-content: center;
+            }
+            h1 {
+                font-size: 17px;
+                color: $primary; 
+                text-transform: uppercase;
+            }
+            h2 {
+                text-transform: uppercase;
+                font-weight: bold;
+                color: $primary;
+                font-size:20px;
+            }
+            .yes-btn {
+                @extend %yes-btn;
+                margin-bottom: 10%;
+            }
+            p {
+                font-size:14px;
+                padding: 0;
+                margin: 0;
+                max-width: 250px;
+                text-align: center;
+            }
+        
+            .no-btn {
+             @extend %no-btn;
+            }
+            .error-p {
+                font-size: 16px;
+                text-transform: uppercase;
+                color: red;
+                font-weight: bold;
+            }
+        }
+
+        
+
+    }
+
+   
+}
+

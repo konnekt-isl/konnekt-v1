@@ -4,15 +4,12 @@ import { AuthUserContext, withAuthorization, withEmailVerification } from '../Se
 import { compose } from 'recompose';
 import md5 from 'md5';
 import { HashLink as Link } from 'react-router-hash-link';
-
 import chatexpand from '../img/chatexpand.svg';
-import logo from '../img/logo.svg';
-import konnektlady from '../img/konnektlady.svg';
 import SVGIcon from "../img/SVGIcon";
+import SignOutButton from '../SignOut';
+import logo from '../img/logo.svg';
 
 import Request from '../sw_request'
-
-console.log(Request)
 
 class ChatList extends Component {
     constructor(props) {
@@ -98,17 +95,18 @@ class ChatList extends Component {
         const { message, } = this.state;
         const isInvalid = message === '';
         return (
-            <div className="page-wrapper homepage">
-                <div className="homepage-wrapper">
+            <div className="page-wrapper chathomepage">
+                <div className="chathomepage-wrapper">
                     <div className="csr-header">
                         <div className="user-container">
                             <SVGIcon className="avatar" name="avatar" width={30} height={30} />
                             <p>User name</p>
+                            <SignOutButton />
                         </div>
 
                     </div>
                     <div className="chat-overview">
-                        <div className="container">
+                        <div className="chat-el-container">
                             <div>
                                 <h2>Virk Netspjöll</h2><img className="chat-expand" src={chatexpand} />
                             </div>
@@ -117,13 +115,13 @@ class ChatList extends Component {
                             </div>
                         </div>
 
-                        <div className="container">
+                        <div className="chat-el-container">
                             <div>
                                 <h2>Öll Netspjöll</h2><img className="chat-expand" src={chatexpand} />
                             </div>
                         </div>
 
-                        <div className="container">
+                        <div className="chat-el-container">
                             <div>
                                 <h2>Þjónustuteymi</h2><img className="chat-expand" src={chatexpand} />
                             </div>
@@ -154,17 +152,40 @@ class ChatList extends Component {
 
                     </div>
 
-                    <div className="konnekt-status-overview">
-                        {/* <div>{user_info} {this.state.status}</div> */}
-                        <div>
-                            <img className="logo" src={logo} />
+                    <div className="user-info-konnekt-wrapper">
+
+                        <div className="current-user-wrapper">
+                            <div className="current-user-container">
+                                <h2>Selected User name</h2>
+                                <div className="user-info">
+                                    <h3>Email</h3>
+                                    <p>user email</p>
+                                    <h3>Sími</h3>
+                                    <p>User nr</p>
+                                    <h3>IP</h3>
+                                    <p>User IP</p>
+                                </div>
+                                <div>{user_info}</div>
+                            </div>
                         </div>
-                        <div>
-                            <img className="konnekt-lady" src={konnektlady} />
+
+                        <div className="konnekt-status-wrapper">
+                            <div className="konnekt-status-container">
+                                <img className="logo" src={logo} />
+                                <div className="konnekt-section">
+                                    <p>Senda auðkenningsbeiðni til</p>
+                                    <h2>Selected User name</h2>
+                                    <button onClick={this._handleButtonClick} className="konnekt-btn">Auðkenna með Konnekt</button>
+                                    {this.state.url_id ? (<a href={this.state.url_id} target="_blank">Link</a>) : (null)}
+                                </div>
+                            </div>
+
                         </div>
-                        <Request />
+
+
+
                     </div>
-                </div >
+                </div>
             </div>)
     };
 }

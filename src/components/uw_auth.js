@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 import { FirebaseContext } from './Firebase';
 import logo from './img/logo.svg';
 import konnektlady from './img/konnektlady.svg';
-
+import checkcircle from './img/check-circle.svg';
 class uw_auth extends Component {
     constructor(props) {
         super(props);
@@ -90,28 +90,25 @@ class uw_auth extends Component {
                     {firebase => {
                         return (
                             <div className="simi-skjar1">
-                                <div className="wrapper">
-                                    <div className="logo-container">
-                                        <img className="logo" src={logo} alt="Logo" />
-                                        <h1>Frá Arion Banka</h1>
-                                    </div>
-                                    <div className="lady-container">
-                                        <img src={konnektlady} />
-                                    </div>
-                                </div>
-                                <div className="wrapper">
-                                    <div className="text-container">
-                                        <h2>Hæ Jón</h2>
-                                        <p>Þú hefur fengið beiðni um auðkenningu</p>
-                                        <p>Viltu halda áfram?</p>
-                                        <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
-                                        <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
-                                    </div>
-                                </div>
-                                <div className="no-btn-container">
+
+                        <div className="wrapper">
+                            <div className="container">
+                                <img className="logo" src={logo} alt="Logo" />
+                                <h1>frá *nafn*</h1>
+                                <img className="konnekt-lady" src={konnektlady} />
+                            </div>
+                            <div className="container">
+                                <h2>Hæ *customer name*</h2>
+                                <p>Þú hefur fengið beiðni um auðkenningu</p>
+                                <p>Viltu halda áfram?</p>
+                                <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
+                            </div>
+                            <div className="container">
+                                    <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
                                     <button className="no-btn">Hætta við</button>
-                                </div>
-                            </div>)
+                            </div>
+                        </div>
+                </div>)
                     }}</FirebaseContext.Consumer>
             </div>
         )

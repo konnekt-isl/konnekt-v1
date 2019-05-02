@@ -1,11 +1,15 @@
 import React from 'react';
-
+import SVGIcon from "../img/SVGIcon";
 import { withFirebase } from '../Firebase';
 
 const SignOutButton = ({ firebase }) => (
-  <button type="button" onClick={firebase.doSignOut}>
-    Sign Out
-  </button>
+  <div>
+    <button type="button" onClick={firebase.doSignOut}>
+      <SVGIcon name="logout" width={24} className="logout-icon" />
+    </button>
+  </div>
+
+
 );
 
 export default withFirebase(SignOutButton);

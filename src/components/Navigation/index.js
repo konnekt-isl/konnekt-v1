@@ -42,7 +42,7 @@ const NavigationAuth = ({ authUser }) => (
       </div>
       <div className="single-icon-container">
         <Link to={ROUTES.ACCOUNT}><SVGIcon name="settings" width={24} /></Link>
-        <SignOutButton />
+        {/* <SignOutButton /> */}
       </div>
       {/* Sidebar ends */}</div>
     <ul>
@@ -51,9 +51,6 @@ const NavigationAuth = ({ authUser }) => (
           <Link to={ROUTES.ADMIN}>Admin</Link>
         </li>
       )}
-      <li>
-        <SignOutButton />
-      </li>
     </ul>
   </div>
 );
