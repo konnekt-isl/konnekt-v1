@@ -154,40 +154,6 @@ class ChatList extends Component {
 
                     </div>
 
-<<<<<<< HEAD
-                    <div className="user-info-konnekt-wrapper">
-                        
-                        <div className="current-user-wrapper">
-                            <div className="current-user-container">
-                                <h2>Selected User name</h2>
-                                    <div className="user-info">
-                                        <h3>Email</h3>
-                                        <p>user email</p>
-                                        <h3>Sími</h3>
-                                        <p>User nr</p>
-                                        <h3>IP</h3>
-                                        <p>User IP</p>
-                                    </div>
-                                <div>{user_info}</div>
-                            </div>
-                        </div>
-
-                        <div className="konnekt-status-wrapper">
-                            <div className="konnekt-status-container">
-                                <img className="logo" src={logo}/>
-                                <div className="konnekt-section">
-                                <p>Senda auðkenningsbeiðni til</p>
-                                <h2>Selected User name</h2>
-                                    <button onClick={this._handleButtonClick} className="konnekt-btn">Auðkenna með Konnekt</button>
-                                    {this.state.url_id ? (<a href={this.state.url_id} target="_blank">Link</a>) : (null)}
-                                </div>
-                            </div>
-                  
-                        </div>
-
-                  
-
-=======
                     <div className="konnekt-status-overview">
                         {/* <div>{user_info} {this.state.status}</div> */}
                         <div>
@@ -197,7 +163,6 @@ class ChatList extends Component {
                             <img className="konnekt-lady" src={konnektlady} />
                         </div>
                         <Request />
->>>>>>> 1187d2a5aba5d454d37361428341755aec59b51d
                     </div>
                 </div>
             </div>)
