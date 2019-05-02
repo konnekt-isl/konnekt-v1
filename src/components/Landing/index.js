@@ -8,9 +8,10 @@ import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
-const Landing = () => (
-  <div className="page-wrapper landing">
 
+const Landing = () => (
+
+  <div className="page-wrapper landing">
     <div className="landing-section">
 
       <div className="landing-img-container">
@@ -66,6 +67,11 @@ const Landing = () => (
 
     <div className="section okkar-syn-section">
 
+
+    <div className="summary-decoration okkar-syn-container m-h">
+        <img className="okkar-syn" src={okkarSyn} />
+      </div>
+
       <div className="summary-wrapper m-h">
         <a id="okkar-syn" />
         <h3>Framtíðin</h3>
@@ -76,9 +82,6 @@ const Landing = () => (
       </div>
 
 
-      <div className="summary-decoration okkar-syn-container m-v">
-        <img className="okkar-syn" src={okkarSyn} />
-      </div>
 
     </div>
 

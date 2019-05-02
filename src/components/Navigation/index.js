@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import logo from '../img/logo.svg';
@@ -55,33 +55,40 @@ const NavigationAuth = ({ authUser }) => (
   </div>
 );
 
-const NavigationNonAuth = () => (
-    <nav className="navigation non-auth sticky">
-      <div className="logo-container">
-        <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
-      </div>
-      <ul>
-        <li className="navigation-link">
-          <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
-        </li>
-        {/* <li>
-          <Link to={ROUTES.L_DEMO}>Demo</Link>
-        </li> */ }
-      {/* Commented out the demo link since it was removed from the design */}
-      <li>
-        <Link to={ROUTES.L_OKKARSYN}>Um okkur</Link>
-      </li>
-      <li>
-        <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
-      </li>
-      {/* <li>
-          <Link to={ROUTES.CHAT}>Chat </Link> 
-        </li>  (needs to move to the lower part)*/ }
-      <li>
-        <Link to={ROUTES.SIGN_IN}>Innskráning</Link>
-      </li>
-    </ul>
-  </nav>
-);
+class NavigationNonAuth extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+
+  }
+
+  render() {
+
+
+    return (
+      <nav className="navigation non-auth sticky" >
+        <div className="logo-container">
+          <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
+        </div>
+        <ul>
+          <li className="navigation-link">
+            <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
+          </li>
+          <li>
+            <Link to={ROUTES.L_OKKARSYN}>Um okkur</Link>
+          </li>
+          <li>
+            <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
+          </li>
+          <li>
+            <Link to={ROUTES.SIGN_IN}>Innskráning</Link>
+          </li>
+        </ul>
+      </nav>
+    )
+  }
+};
 
 export default Navigation;

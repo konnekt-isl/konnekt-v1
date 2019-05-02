@@ -9,6 +9,10 @@ import SVGIcon from "../img/SVGIcon";
 import SignOutButton from '../SignOut';
 import logo from '../img/logo.svg';
 
+import Request from '../sw_request'
+
+console.log(Request)
+
 class ChatList extends Component {
     constructor(props) {
         super(props);
@@ -22,23 +26,7 @@ class ChatList extends Component {
             messages: [],
             authUser: JSON.parse(localStorage.getItem('authUser')),
             messageDate: '',
-
-            // sw_request
-            url_id: null,
-            now: null,
-            loading: false,
-            ssn: '',
-            status: '',
-            timeStamp: '',
-            message: '',
-            userInfo: {},
-            url_link: '',
-            //end
         };
-        // sw_request
-        this._handleButtonClick = this._handleButtonClick.bind(this);
-        this.onListenForStatus = this.onListenForStatus.bind(this);
-        // end
 
         this._handleClick = this._handleClick.bind(this);
         this._handleChange = this._handleChange.bind(this);
@@ -102,78 +90,10 @@ class ChatList extends Component {
     };
 
 
-    /// sw_request
-
-    onListenForStatus = (sessionID) => {
-        firebase.firestore().collection('status').doc(sessionID).set({
-            sessionID,
-            date: { seconds: null }
-        })
-            .then(() => {
-                firebase.firestore().collection('status').doc(sessionID).onSnapshot((doc) => {
-                    const { ssn, date, status, message } = doc.data();
-                    this.setState({
-                        ssn: ssn,
-                        timeStamp: date.seconds,
-                        status: status,
-                        message: message
-                    })
-                    if (ssn) {
-                        this.getUserInfo(ssn);
-                    }
-                });
-            });
-    }
-
-    getUserInfo = (ssn) => {
-        console.log("Test")
-        firebase.firestore().collection('end_users').doc(ssn).get()
-            .then((doc) => {
-                this.setState({
-                    userInfo: doc.data()
-                })
-            })
-    }
-
-    _handleButtonClick = (event) => {
-        const md5Date = md5(new Date())
-        this.setState({ url_id: 'http://localhost:3000/authenticate/' + md5Date })
-        this.state.url_id ? (this.setState({ url_link: '<a href="' + this.state.url_id + '" target="_blank">Link</a>' })) : (console.log("error"))
-        const { phone, messageDate, chatName } = this.state;
-        const message = this.state.url_link
-        this.state.url_link ? firebase.firestore().collection('chat').doc(phone).update({
-            read: false,
-            messages: firebase.firestore.FieldValue.arrayUnion({
-                chatName,
-                message,
-                messageDate,
-            })
-        }) : (console.log('did not send'))
-        event.preventDefault();
-        this.onListenForStatus(md5Date);
-    }
-    // end
 
 
 
     render() {
-        // sw_request
-        let url_message = <div> Click to generate url</div>;
-        if (this.state.url_id != null) {
-            url_message = <div>{this.state.url_id} </div>;
-        } else {
-            url_message = <div> Click to generate url</div>;
-        }
-
-        let user_info = <div></div>;
-        if (this.state.userInfo != null) {
-            user_info = <div>{this.state.userInfo.name}</div>;
-        } else {
-            user_info = <div></div>;
-        }
-        // end
-        console.log(this.state.url_id)
-
         const { message, } = this.state;
         const isInvalid = message === '';
         return (
@@ -234,6 +154,7 @@ class ChatList extends Component {
 
                     </div>
 
+<<<<<<< HEAD
                     <div className="user-info-konnekt-wrapper">
                         
                         <div className="current-user-wrapper">
@@ -266,6 +187,17 @@ class ChatList extends Component {
 
                   
 
+=======
+                    <div className="konnekt-status-overview">
+                        {/* <div>{user_info} {this.state.status}</div> */}
+                        <div>
+                            <img className="logo" src={logo} />
+                        </div>
+                        <div>
+                            <img className="konnekt-lady" src={konnektlady} />
+                        </div>
+                        <Request />
+>>>>>>> 1187d2a5aba5d454d37361428341755aec59b51d
                     </div>
                 </div>
             </div>)
