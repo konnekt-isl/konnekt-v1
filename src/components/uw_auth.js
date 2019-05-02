@@ -4,6 +4,7 @@ import { FirebaseContext } from './Firebase';
 import logo from './img/logo.svg';
 import konnektlady from './img/konnektlady.svg';
 import checkcircle from './img/check-circle.svg';
+
 class uw_auth extends Component {
     constructor(props) {
         super(props);
