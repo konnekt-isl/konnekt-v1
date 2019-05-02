@@ -96,7 +96,7 @@ class ChatStart extends Component {
                         Innskráning
                     </button>
                 </form>
-            </div >
+            </div>
         )
     };
 

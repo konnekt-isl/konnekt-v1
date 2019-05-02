@@ -8,9 +8,11 @@ import chatexpand from '../img/chatexpand.svg';
 import SVGIcon from "../img/SVGIcon";
 import SignOutButton from '../SignOut';
 import logo from '../img/logo.svg';
-
+import paperclip from '../img/paperclip.svg';
 import Request from '../sw_request'
 
+
+// Þetta er chat fyrir þjónustuaðila
 class ChatList extends Component {
     constructor(props) {
         super(props);
@@ -25,6 +27,7 @@ class ChatList extends Component {
             authUser: JSON.parse(localStorage.getItem('authUser')),
             messageDate: '',
             url_id: null,
+            contentIsVisible: false,
         };
 
         this._handleClick = this._handleClick.bind(this);
@@ -94,9 +97,29 @@ class ChatList extends Component {
     }
 
 
+
+
+    expand = ()=> {
+        console.log("clicked")
+        this.setState({contentIsVisible:true})
+    }
+
+
+
     render() {
+
         const { message, } = this.state;
         const isInvalid = message === '';
+        console.log(this.state.contentIsVisible);
+
+
+        let MyCollapse = "content";
+        if  (this.state.contentIsVisible) 
+        {MyCollapse = "content active" }
+        else {
+            MyCollapse = "content"
+        }
+        
         return (
             <div className="page-wrapper chathomepage">
                 <div className="chathomepage-wrapper">
@@ -108,13 +131,14 @@ class ChatList extends Component {
                         </div>
 
                     </div>
+                    {/* Vinstri dálkur (Virk spjöll, öll spjöll og þjónustuteymi) */}
                     <div className="chat-overview">
                         <div className="chat-el-container">
                             <div>
-                                <h2>Virk Netspjöll</h2><img className="chat-expand" src={chatexpand} />
+                                <h2>Virk Netspjöll</h2><img onClick={this.expand} className="chat-expand" src={chatexpand} />
                             </div>
-                            <div>
-                                <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
+                            <div className={MyCollapse}>
+                                <ul className="chat-list-collapsed">{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</li>)}</ul>
                             </div>
                         </div>
 
@@ -131,32 +155,38 @@ class ChatList extends Component {
                         </div>
                     </div>
 
-                    <div>
+                    {/* Miðju dálkur sem sýnir chat history*/}
                         <div className="csr-middle-section ">
-                            <div className="chatbubble-wrapper">
-                                <div className="chat-bubble-user-container netspjall-skjar2">
-                                    {this.state.messages.map((message) => <div class={message.chatName === this.state.chatName ? 'chat-bubble-csr' : 'chat-bubble-user'}>{message.chatName + ':' + message.message}</div>)}
+                            <div className="chat-display-wrapper">
+                                <div className="chat-bubble-container">
+                                        {this.state.messages.map((message) => <div className={message.chatName === this.state.chatName ? 'chat-bubble' : 'chat-bubble user'}>{message.chatName + ':' + message.message}</div>)}
                                 </div>
                             </div>
-                            {this.state.phone ? (<form onSubmit={this.onSubmit}>
-                                <input
-                                    name="message"
-                                    value={message}
-                                    onChange={this._handleChange}
-                                    type="text"
-                                    placeholder="Skrifaðu hér..."
-                                />
-
-                                <button className="btn" disabled={isInvalid} type="submit">
-                                    Senda
-                    </button>
-                            </form>) : (<div>Click on the chatbox to start chatting </div>)}
+                            <div className="chat-input-wrapper">
+                                        {this.state.phone ? (<form className="chat-input-form"onSubmit={this.onSubmit}>
+                                        <input
+                                            name="message"
+                                            value={message}
+                                            onChange={this._handleChange}
+                                            type="text"
+                                            placeholder="Skrifaðu hér..."
+                                            
+                                        />
+                                        <div className="chat-options">
+                                            <img className="paperclip" src={paperclip} />
+                                            <SVGIcon className="plus" name="plus" width={30} height={30} />
+                                            <button className="btn" disabled={isInvalid} type="submit">
+                                                Senda
+                                            </button>
+                                        </div>
+                                   
+                                    </form>) : (<div>Click on the chatbox to start chatting </div>)}
+                            </div>
                         </div>
 
-                    </div>
-
+                    
+                    {/* Hægri dálkur (User info og konnekt status) */}
                     <div className="user-info-konnekt-wrapper">
-
                         <div className="current-user-wrapper">
                             <div className="current-user-container">
                                 <h2>Selected User name</h2>

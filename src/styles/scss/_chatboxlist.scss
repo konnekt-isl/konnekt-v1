@@ -8,13 +8,11 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
         height: inherit;
     }
 
     //wrapper með nafn notendans og útskráningar takka 
     .csr-header {
-        width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -59,14 +57,16 @@
             flex-direction: row;
             justify-content: center;
             flex-grow: 1;
+            flex-wrap: wrap;
 
             //heldur utan um lýsingu á flokk og expand takkann
             div {
                 display: flex;
                 flex-direction: row;
-                justify-content: flex-start;
+                justify-content: center;
                 align-items: baseline;
-
+                width: 100%;
+                
                 h2 {
                     margin: 0px;
                     text-transform: uppercase;
@@ -74,8 +74,30 @@
                     font-size: 16px;
                 }
             }
+            .chat-expand {
+                cursor: pointer;
+            }
+            .chat-list-collapsed {
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                li {
+                    width: 100%;
+                }
+            }
         }
-
+        .content {
+            overflow:hidden;
+            transition: max-height 0.2s ease-out;
+            max-height: 0;
+        }
+        .active {
+            max-height: 300px;
+        }
     }
 
     //Miðjan á síðunni
@@ -83,8 +105,59 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        justify-content: center;
-        height: inherit;
+        justify-content: space-between;
+        height: 100%;
+        // width: 100%;
+        .chat-display-wrapper {
+            .chat-bubble-container {
+                width: 100%;
+                .chat-bubble {
+                    max-width: 320px;
+                    height: 50px;
+                }
+                .user {
+                    background-color: #EBEFFF;
+                    border-radius: 4px 4px 4px 0px;
+                }
+                .csr {
+                    background-color: $primary;
+                    border-radius: 0px 4px 4px 4px;
+                }
+            }
+        }
+        .chat-input-wrapper {
+            margin-top: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-top: 1px solid $border;
+            flex-wrap: wrap;
+            width: 100%;
+            .chat-input-form {
+                width: 100%;
+            }
+            input {
+                border: none;
+                height: 88px;
+            }
+            .plus {
+                height: 25px;
+                path {
+                    fill: $grey;
+                }
+            }
+            .paperclip {
+                height: 25px;
+                path {
+                    fill: $grey;
+                }
+            }
+        
+            .btn {
+                @extend %yes-btn;
+            }
+        }
 
         h1 {
             color: $primary;

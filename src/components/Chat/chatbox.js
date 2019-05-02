@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-
-
+import SVGIcon from "../img/SVGIcon";
+//Chat fyrir endanotenda
 class ChatBox extends Component {
     constructor(props) {
         super(props);
@@ -59,22 +59,24 @@ class ChatBox extends Component {
 
         return (
 
-            <div>
+            <div className="chat-wrapper">
                 <h1>Chat</h1>
                 <p>{this.state.messages.map((message) => <div class={message.chatName === this.state.chatName ? 'right' : 'left'}>{message.chatName + ':' + message.message}</div>)}</p>
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        name="message"
-                        value={message}
-                        onChange={this._handleChange}
-                        type="text"
-                        placeholder="Skrifaðu hér..."
-                    />
-                    <button className="btn" disabled={isInvalid} type="submit">
-                        Senda
-                    </button>
-                </form>
-            </div >
+                <div className="chat-input-wrapper">
+                    <form onSubmit={this.onSubmit}>
+                        
+                            <input 
+                                name="message"
+                                value={message}
+                                onChange={this._handleChange}
+                                type="text" 
+                                placeholder="Skrifaðu hér"
+                            />
+                            <button class="btn">Senda</button>
+                        
+                    </form>
+                </div>
+            </div>
         )
     };
 }

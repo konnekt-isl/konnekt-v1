@@ -57,7 +57,7 @@ class HomePage extends Component {
               </div>
 
               <div className="signout-comp">
-                <SignOutButton />
+                <SignOutButton className="signout-btn" />
               </div>
 
             </div>
