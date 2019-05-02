@@ -7,7 +7,7 @@ import { compose } from 'recompose';
 import * as firebase from 'firebase'
 import { AuthUserContext, withAuthorization, withEmailVerification } from './Session';
 
-class sw_request extends Component {
+class Request extends Component {
     constructor(props) {
         super(props);
 
@@ -24,11 +24,6 @@ class sw_request extends Component {
 
         this._handleButtonClick = this._handleButtonClick.bind(this);
         this.onListenForStatus = this.onListenForStatus.bind(this);
-    }
-
-
-    componentDidMount() {
-        // this.onListenForStatus();
     }
 
     onListenForStatus = (sessionID) => {
@@ -104,4 +99,4 @@ const condition = authUser => !!authUser;
 export default compose(
     withEmailVerification,
     withAuthorization(condition),
-)(sw_request);
+)(Request);

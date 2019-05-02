@@ -8,9 +8,10 @@ import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
-const Landing = () => (
-  <div className="page-wrapper landing">
 
+const Landing = () => (
+
+  <div className="page-wrapper landing">
     <div className="landing-section">
 
       <div className="landing-img-container">
