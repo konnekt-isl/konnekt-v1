@@ -20,6 +20,7 @@ class Request extends Component {
             timeStamp: '',
             message: '',
             userInfo: {},
+            url_message: ''
         };
 
         this._handleButtonClick = this._handleButtonClick.bind(this);
@@ -48,7 +49,6 @@ class Request extends Component {
     }
 
     getUserInfo = (ssn) => {
-        console.log("Test")
         firebase.firestore().collection('end_users').doc(ssn).get()
             .then((doc) => {
                 this.setState({
@@ -59,34 +59,39 @@ class Request extends Component {
 
     _handleButtonClick = (event) => {
         const md5Date = md5(new Date())
-        this.setState({ url_id: md5Date })
+        this.setState({
+            url_id: md5Date,
+        })
+        console.log(md5Date)
+        this.props.authenticate(md5Date)
         this.onListenForStatus(md5Date);
     }
 
 
     render() {
-        console.log(this.state.userInfo)
-        let url_message = <div> Click to generate url</div>;
-        if (this.state.url_id != null) {
-            url_message = <div>http://localhost:3000/authenticate/{this.state.url_id} </div>;
-        } else {
-            url_message = <div> Click to generate url</div>;
-        }
+        // let url_message = <div> Click to generate url</div>;
+        // if (this.state.url_id != null) {
+        //     this.setState({
+        //         url_message: 'http://localhost:3000/authenticate/{this.state.url_id}?{this.props.phone}'
+        //     });
+        // } else {
+        //     url_message = <div></div>;
+        // }
 
-        let user_info = <div></div>;
-        if (this.state.userInfo != null) {
-            user_info = <div>{this.state.userInfo.name}</div>;
-        } else {
-            user_info = <div></div>;
-        }
+        // let user_info = <div></div>;
+        // if (this.state.userInfo != null) {
+        //     user_info = <div>{this.state.userInfo.name}</div>;
+        // } else {
+        //     user_info = <div></div>;
+        // }
 
+        const phone = this.props.phone;
+        const isInvalid = phone === '';
         return (
             <AuthUserContext.Consumer>
                 {authUser => (
                     <div>
-                        <button onClick={this._handleButtonClick} className="yes-btn">Senda audkenni</button>
-                        {url_message}
-                        {user_info}
+                        <button onClick={this._handleButtonClick} disabled={isInvalid} className="konnekt-btn">Auðkenna með Konnekt</button>
                     </div>
                 )}
             </AuthUserContext.Consumer >

@@ -11,8 +11,6 @@ import logo from '../img/logo.svg';
 
 import Request from '../sw_request'
 
-console.log(Request)
-
 class ChatList extends Component {
     constructor(props) {
         super(props);
@@ -26,23 +24,23 @@ class ChatList extends Component {
             messages: [],
             authUser: JSON.parse(localStorage.getItem('authUser')),
             messageDate: '',
+            url_id: null,
         };
 
         this._handleClick = this._handleClick.bind(this);
         this._handleChange = this._handleChange.bind(this);
         this._loadChat = this._loadChat.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.authenticate = this.authenticate.bind(this);
     }
 
     componentDidMount() {
         firebase.firestore().collection('chat').onSnapshot({ includeMetadataChanges: true }, (querySnapshot) => {
-            console.log(querySnapshot)
             var chatboxes = [];
             querySnapshot.docs.forEach(function (doc) {
                 const data = doc.data()
                 chatboxes.push({ id: doc.id, read: data.read, date: data.messages.pop().messageDate.seconds })
             });
-            console.log(chatboxes)
             this.setState({ chatboxes })
             this.setState({ chatName: this.state.authUser.username })
         })
@@ -50,7 +48,6 @@ class ChatList extends Component {
 
     _loadChat = (phone) => {
         firebase.firestore().collection('chat').doc(phone).onSnapshot((doc) => {
-            console.log(doc.data().messages)
             this.setState({
                 read: doc.data().read,
                 messages: doc.data().messages,
@@ -89,8 +86,12 @@ class ChatList extends Component {
         event.preventDefault();
     };
 
-
-
+    authenticate = (url_id) => {
+        this.setState({
+            url_id
+        })
+        console.log(url_id)
+    }
 
 
     render() {
@@ -112,9 +113,9 @@ class ChatList extends Component {
                             <div>
                                 <h2>Virk Netspjöll</h2><img className="chat-expand" src={chatexpand} />
                             </div>
-                            {/* <div>
+                            <div>
                                 <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</button></li>)}</ul>
-                            </div> */}
+                            </div>
                         </div>
 
                         <div className="chat-el-container">
@@ -154,15 +155,37 @@ class ChatList extends Component {
 
                     </div>
 
-                    <div className="konnekt-status-overview">
-                        {/* <div>{user_info} {this.state.status}</div> */}
-                        <div>
-                            <img className="logo" src={logo} />
+                    <div className="user-info-konnekt-wrapper">
+
+                        <div className="current-user-wrapper">
+                            <div className="current-user-container">
+                                <h2>Selected User name</h2>
+                                <div className="user-info">
+                                    <h3>Email</h3>
+                                    <p>user email</p>
+                                    <h3>Sími</h3>
+                                    <p>{this.state.phone}</p>
+                                    <h3>IP</h3>
+                                    <p>User IP</p>
+                                </div>
+                                <div>{this.state.user_info}</div>
+                            </div>
                         </div>
-                        <div>
-                            <img className="konnekt-lady" src={konnektlady} />
+
+                        <div className="konnekt-status-wrapper">
+                            <div className="konnekt-status-container">
+                                <img className="logo" src={logo} />
+                                <div className="konnekt-section">
+                                    <p>Senda auðkenningsbeiðni til</p>
+                                    <h2>Selected User name</h2>
+                                    <Request phone={this.state.phone} authenticate={this.authenticate} />
+                                </div>
+                            </div>
+
                         </div>
-                        <Request />
+
+
+
                     </div>
                 </div>
             </div>)
