@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
-
-.simi-skjar2 .wrapper .status-screen .yes-btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .signin-page .wrapper .signin-section .container .btn, .netspjall-skjar2 .yes-btn, .netspjall-skjar1 .yes-btn, .simi-skjar1 .yes-btn {
+@import url("https://fonts.googleapis.com/css?family=Lato");
+.simi-skjar2 .wrapper .status-screen .yes-btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .btn, .signin-page .wrapper .signin-section .container .btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -33,19 +33,13 @@
   font-weight: bolder;
 }
 
-.netspjall-skjar1 .form input {
-  width: 202px;
-  height: 40px;
-  border-radius: 4px;
-}
-
-.netspjall-skjar2, .netspjall-skjar1 .btn-container, .netspjall-skjar1 .form, .netspjall-skjar1, .landing footer {
+.landing footer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-.netspjall-skjar1 .logo-container, .landing footer .list-container .list-item, .landing .landing-section .landing-img-container, .non-auth ul, .non-auth {
+.landing footer .list-container .list-item, .landing .landing-section .landing-img-container, .non-auth ul, .non-auth {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -245,10 +239,10 @@
   margin: 5% auto;
 }
 .landing .okkar-syn-container {
-  margin: 5% 0%;
+  margin: 10% 0%;
 }
 .landing .okkar-syn-container .okkar-syn {
-  height: 152px;
+  height: 352px;
 }
 .landing footer {
   height: 620px;
@@ -447,69 +441,6 @@
   padding: 0;
   margin: 0;
 }
-.netspjall-skjar1 .logo-container {
-  justify-content: flex-start;
-}
-.netspjall-skjar1 h1 {
-  margin-top: 10%;
-  color: #3463FF;
-  font-size: 18px;
-  text-transform: uppercase;
-}
-.netspjall-skjar1 .form label {
-  font-size: 12px;
-  color: #56E8A2;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-.netspjall-skjar1 .form input {
-  padding: 0px;
-  margin: 0 0 5 0;
-  border: 0;
-  background-color: #E6ECFF;
-}
-.netspjall-skjar1 .btn-container {
-  width: 100%;
-  align-items: center;
-}
-.netspjall-skjar1 .yes-btn {
-  margin-top: 60%;
-}
-
-.netspjall-skjar2 {
-  align-items: center;
-}
-.netspjall-skjar2 .csr-connect {
-  color: #4F4F4F;
-  font-size: 13px;
-  font-weight: 400;
-}
-.netspjall-skjar2 .chat-bubble-wrapper {
-  width: 100%;
-}
-.netspjall-skjar2 .chat-bubble-user {
-  border-radius: 10px 10px 10px 0px;
-  width: 240px;
-  background: rgba(214, 224, 255, 0.6);
-  padding: 10px 15px;
-}
-.netspjall-skjar2 .chat-bubble-user p {
-  color: #4F4F4F;
-}
-.netspjall-skjar2 .chat-bubble-csr {
-  border-radius: 10px 10px 0px 10px;
-  width: 240px;
-  background: #3463FF;
-  padding: 10px 15px;
-}
-.netspjall-skjar2 .chat-bubble-csr p {
-  color: #FFFFFF;
-  font-size: 14px;
-}
-.netspjall-skjar2 .timestamp {
-  font-size: 10px;
-  color: #828282;
-}
 .signin-page {
   padding-top: 92px;
   display: flex;
@@ -651,6 +582,11 @@
 .chathomepage .csr-header .user-container .logout-icon path {
   fill: #3463FF;
 }
+.chathomepage .csr-header .user-container .signout-btn {
+  background: 0;
+  border: 0;
+  cursor: pointer;
+}
 .chathomepage .chat-overview {
   width: 230px;
   height: inherit;
@@ -739,11 +675,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
   height: inherit;
 }
 .chathomepage .csr-header {
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -776,12 +710,14 @@
   flex-direction: row;
   justify-content: center;
   flex-grow: 1;
+  flex-wrap: wrap;
 }
 .chathomepage .chat-overview .chat-el-container div {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: baseline;
+  width: 100%;
 }
 .chathomepage .chat-overview .chat-el-container div h2 {
   margin: 0px;
@@ -789,12 +725,79 @@
   color: #3463FF;
   font-size: 16px;
 }
+.chathomepage .chat-overview .chat-el-container .chat-expand {
+  cursor: pointer;
+}
+.chathomepage .chat-overview .chat-el-container .chat-list-collapsed {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.chathomepage .chat-overview .chat-el-container .chat-list-collapsed li {
+  width: 100%;
+}
+.chathomepage .chat-overview .content {
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  max-height: 0;
+}
+.chathomepage .chat-overview .active {
+  max-height: 300px;
+}
 .chathomepage .csr-middle-section {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  height: inherit;
+  justify-content: space-between;
+  height: 100%;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container {
+  width: 100%;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .chat-bubble {
+  max-width: 320px;
+  height: 50px;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .user {
+  background-color: #EBEFFF;
+  border-radius: 4px 4px 4px 0px;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .csr {
+  background-color: #3463FF;
+  border-radius: 0px 4px 4px 4px;
+}
+.chathomepage .csr-middle-section .chat-input-wrapper {
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-top: 1px solid #E9E9E9;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.chathomepage .csr-middle-section .chat-input-wrapper .chat-input-form {
+  width: 100%;
+}
+.chathomepage .csr-middle-section .chat-input-wrapper input {
+  border: none;
+  height: 88px;
+}
+.chathomepage .csr-middle-section .chat-input-wrapper .plus {
+  height: 25px;
+}
+.chathomepage .csr-middle-section .chat-input-wrapper .plus path {
+  fill: #B0B0B0;
+}
+.chathomepage .csr-middle-section .chat-input-wrapper .paperclip {
+  height: 25px;
+}
+.chathomepage .csr-middle-section .chat-input-wrapper .paperclip path {
+  fill: #B0B0B0;
 }
 .chathomepage .csr-middle-section h1 {
   color: #3463FF;

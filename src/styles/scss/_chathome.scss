@@ -1,4 +1,4 @@
-//Fyrsta sem kemur á móti manni þegar maður loggar sig inn
+//Fyrsta sem kemur á móti manni eftir að maður loggar sig inn
 
 .chathomepage {
     height: 100vh;
@@ -46,8 +46,10 @@
                     fill: $primary;
                 }
             }
-            .signout-comp {
-            // justify-self: flex-end;
+            .signout-btn {
+                background: 0;
+                border: 0;
+                cursor: pointer;
             }
         }
     

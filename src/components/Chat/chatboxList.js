@@ -9,9 +9,11 @@ import SVGIcon from "../img/SVGIcon";
 import SignOutButton from '../SignOut';
 import logo from '../img/logo.svg';
 import konnektlady from '../img/konnektlady.svg';
-
+import paperclip from '../img/paperclip.svg';
 import Request from '../sw_request'
 
+
+// Þetta er chat fyrir þjónustuaðila
 class ChatList extends Component {
     constructor(props) {
         super(props);
@@ -26,9 +28,7 @@ class ChatList extends Component {
             authUser: JSON.parse(localStorage.getItem('authUser')),
             messageDate: '',
             url_id: null,
-            username: '',
-            email: '',
-            ip: '',
+            contentIsVisible: false,
         };
 
         this._handleClick = this._handleClick.bind(this);
@@ -114,9 +114,24 @@ class ChatList extends Component {
         })
     }
 
+
+
+    expand = () => {
+        console.log("clicked")
+        this.setState({ contentIsVisible: true })
+    }
+
     render() {
+
         const { message, } = this.state;
         const isInvalid = message === '';
+
+        let MyCollapse = "content";
+        if (this.state.contentIsVisible) { MyCollapse = "content active" }
+        else {
+            MyCollapse = "content"
+        }
+
         return (
             <div className="page-wrapper chathomepage" >
                 <div className="chathomepage-wrapper">
@@ -128,13 +143,14 @@ class ChatList extends Component {
                         </div>
 
                     </div>
+                    {/* Vinstri dálkur (Virk spjöll, öll spjöll og þjónustuteymi) */}
                     <div className="chat-overview">
                         <div className="chat-el-container">
                             <div>
-                                <h2>Virk Netspjöll</h2><img className="chat-expand" src={chatexpand} />
+                                <h2>Virk Netspjöll</h2><img onClick={this.expand} className="chat-expand" src={chatexpand} />
                             </div>
-                            <div>
-                                <ul>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li><button className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.username}</button></li>)}</ul>
+                            <div className={MyCollapse}>
+                                <ul className="chat-list-collapsed">{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</li>)}</ul>
                             </div>
                         </div>
 
@@ -151,39 +167,64 @@ class ChatList extends Component {
                         </div>
                     </div>
 
-                    <div>
-                        <div className="csr-middle-section ">
-                            <div className="chatbubble-wrapper">
-                                <div className="chat-bubble-user-container netspjall-skjar2">
-                                    {this.state.messages.map((message) => {
-                                        return (
-                                            <div class={message.chatName === this.state.chatName ? 'chat-bubble-csr' : 'chat-bubble-user'}>
-                                                {message.url ? <a href={message.url}>Click</a> : message.chatName + ':' + message.message}
-                                            </div>)
-                                    })
-                                    }
-                                </div>
+                    {/* Miðju dálkur sem sýnir chat history*/}
+                    <div className="csr-middle-section ">
+                        <div className="chatbubble-wrapper">
+                            <div className="chat-bubble-user-container netspjall-skjar2">
+                                {this.state.messages.map((message) => {
+                                    return (
+                                        <div class={message.chatName === this.state.chatName ? 'chat-bubble' : 'chat-bubble user'}>
+                                            {message.url ? <a href={message.url}>Click</a> : message.chatName + ':' + message.message}
+                                        </div>)
+                                })
+                                }
+
                             </div>
-                            {this.state.phone ? (<form onSubmit={this.onSubmit}>
+                        </div>
+                        <div className="chat-input-wrapper">
+                            {this.state.phone ? (<form className="chat-input-form" onSubmit={this.onSubmit}>
                                 <input
                                     name="message"
                                     value={message}
                                     onChange={this._handleChange}
                                     type="text"
                                     placeholder="Skrifaðu hér..."
-                                />
 
-                                <button className="btn" disabled={isInvalid} type="submit">
-                                    Senda
-                    </button>
+                                />
+                                <div className="chat-options">
+                                    <img className="paperclip" src={paperclip} />
+                                    <SVGIcon className="plus" name="plus" width={30} height={30} />
+                                    <button className="btn" disabled={isInvalid} type="submit">
+                                        Senda
+                                            </button>
+                                </div>
+
                             </form>) : (<div>Click on the chatbox to start chatting </div>)}
                         </div>
-
                     </div>
+                </div>
 
-                    {this.state.phone === '' ? (
-                        <div className="user-info-konnekt-wrapper">
-                            <div className="current-user-wrapper">
+                {this.state.phone === '' ? (
+                    <div className="user-info-konnekt-wrapper">
+                        <div className="current-user-wrapper">
+
+                            {/* Hægri dálkur (User info og konnekt status) */}
+                            <div className="current-user-container">
+                                <h2>Selected User name</h2>
+                                <div className="user-info">
+                                    <h3>Email</h3>
+                                    <p>user email</p>
+                                    <h3>Sími</h3>
+                                    <p>{this.state.phone}</p>
+                                    <h3>IP</h3>
+                                    <p>User IP</p>
+                                </div>
+                                <div>{this.state.user_info}</div>
+                            </div>
+                        </div>
+
+                        <div className="konnekt-status-wrapper">
+                            <div className="konnekt-status-container">
                                 <img className="logo" src={logo} />
                             </div>
 
@@ -191,40 +232,38 @@ class ChatList extends Component {
                                 <img className="konnekt-lady" src={konnektlady} />
                             </div>
 
-                        </div>)
-                        :
-                        (<div className="user-info-konnekt-wrapper">
-                            <div className="current-user-wrapper">
-                                <div className="current-user-container">
+                        </div>
+                    </div>)
+                    :
+                    (<div className="user-info-konnekt-wrapper">
+                        <div className="current-user-wrapper">
+                            <div className="current-user-container">
+                                <h2>{this.state.username}</h2>
+                                <div className="user-info">
+                                    <h3>Email</h3>
+                                    <p>{this.state.email}</p>
+                                    <h3>Sími</h3>
+                                    <p>{this.state.phone}</p>
+                                    <h3>IP</h3>
+                                    <p>{this.state.ip}</p>
+                                </div>
+                                <div>{this.state.user_info}</div>
+                            </div>
+                        </div>
+
+
+                        <div className="konnekt-status-wrapper">
+                            <div className="konnekt-status-container">
+                                <img className="logo" src={logo} />
+                                <div className="konnekt-section">
+                                    <p>Senda auðkenningsbeiðni til</p>
                                     <h2>{this.state.username}</h2>
-                                    <div className="user-info">
-                                        <h3>Email</h3>
-                                        <p>{this.state.email}</p>
-                                        <h3>Sími</h3>
-                                        <p>{this.state.phone}</p>
-                                        <h3>IP</h3>
-                                        <p>{this.state.ip}</p>
-                                    </div>
-                                    <div>{this.state.user_info}</div>
+                                    <Request phone={this.state.phone} authenticate={this.authenticate} />
                                 </div>
                             </div>
-
-
-                            <div className="konnekt-status-wrapper">
-                                <div className="konnekt-status-container">
-                                    <img className="logo" src={logo} />
-                                    <div className="konnekt-section">
-                                        <p>Senda auðkenningsbeiðni til</p>
-                                        <h2>{this.state.username}</h2>
-                                        <Request phone={this.state.phone} authenticate={this.authenticate} />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>)
-                    }
-                </div>
-            </div>
-        )
+                        </div>
+                    </div>)}
+            </div>)
     };
 }
 

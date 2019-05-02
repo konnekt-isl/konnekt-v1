@@ -4,7 +4,7 @@ import { withFirebase } from '../Firebase';
 
 const SignOutButton = ({ firebase }) => (
   <div>
-    <button type="button" onClick={firebase.doSignOut}>
+    <button className="signout-btn" type="button" onClick={firebase.doSignOut}>
       <SVGIcon name="logout" width={24} className="logout-icon" />
     </button>
   </div>
