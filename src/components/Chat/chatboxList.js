@@ -207,20 +207,7 @@ class ChatList extends Component {
                 {this.state.phone === '' ? (
                     <div className="user-info-konnekt-wrapper">
                         <div className="current-user-wrapper">
-
-                            {/* Hægri dálkur (User info og konnekt status) */}
-                            <div className="current-user-container">
-                                <h2>Selected User name</h2>
-                                <div className="user-info">
-                                    <h3>Email</h3>
-                                    <p>user email</p>
-                                    <h3>Sími</h3>
-                                    <p>{this.state.phone}</p>
-                                    <h3>IP</h3>
-                                    <p>User IP</p>
-                                </div>
-                                <div>{this.state.user_info}</div>
-                            </div>
+                            <img className="logo" src={logo} />
                         </div>
 
                         <div className="konnekt-status-wrapper">
