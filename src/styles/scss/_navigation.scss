@@ -23,7 +23,7 @@
 
 //Nav when user is logged in
 .auth {
-    width: 72px;
+    // width: 72px;
     ul {
         
         display: flex;
@@ -36,7 +36,7 @@
     }
     //Sidebar navigation
    .sidebar {
-    position: absolute;
+    position: fixed;
     width: 72px;
     background-color: $primary; 
     height: 100vh;
