@@ -1,144 +1,144 @@
-//Fyrsta sem kemur á móti manni eftir að maður loggar sig inn
+// //Fyrsta sem kemur á móti manni eftir að maður loggar sig inn
 
-.chathomepage {
-    height: 100vh;
-    padding-left:72px;
-    .chathomepage-wrapper {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        height: inherit;
-    }
-    //wrapper með nafn notendans og útskráningar takka 
-    .csr-header {
-        width: 100%;
-        // display: flex;
-        // flex-direction: row;
-        // align-items: center;
-        // justify-content: center;
-        .user-container {
-            display: flex;
-            flex-direction: row;
-            width: inherit;
-            padding-right: 3%;
-            align-items: center;
-            justify-content: center;
-            .username-container {
-                display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-                p{
-                    margin: 0px;
-                    text-align: center;
-                    font-size: 16px;
-                    color: $text;
-                }
-                .avatar {
-                    path {
-                        fill: $text;
-                    }
-                }
-            }
+// .chathomepage {
+//     height: 100vh;
+//     padding-left:72px;
+//     .chathomepage-wrapper {
+//         display: flex;
+//         flex-direction: row;
+//         flex-wrap: wrap;
+//         justify-content: space-between;
+//         height: inherit;
+//     }
+//     //wrapper með nafn notendans og útskráningar takka 
+//     .csr-header {
+//         width: 100%;
+//         // display: flex;
+//         // flex-direction: row;
+//         // align-items: center;
+//         // justify-content: center;
+//         .user-container {
+//             display: flex;
+//             flex-direction: row;
+//             width: inherit;
+//             padding-right: 3%;
+//             align-items: center;
+//             justify-content: center;
+//             .username-container {
+//                 display: flex;
+//                 flex-direction: row;
+//                 align-items: flex-start;
+//                 p{
+//                     margin: 0px;
+//                     text-align: center;
+//                     font-size: 16px;
+//                     color: $text;
+//                 }
+//                 .avatar {
+//                     path {
+//                         fill: $text;
+//                     }
+//                 }
+//             }
      
-            .logout-icon {
-                path {
-                    fill: $primary;
-                }
-            }
-            .signout-btn {
-                background: 0;
-                border: 0;
-                cursor: pointer;
-            }
-        }
+//             .logout-icon {
+//                 path {
+//                     fill: $primary;
+//                 }
+//             }
+//             .signout-btn {
+//                 background: 0;
+//                 border: 0;
+//                 cursor: pointer;
+//             }
+//         }
     
-    }
-    //Wrapper sem heldur utan um virk netspjöll, öll netspjöll og þjónustuteymi
-    .chat-overview {
-        width: 230px;
-        height: inherit;
-        border-right: 1px solid $border;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        //container sem heldur utan um hvern dálk 
-        .chat-el-container {
-            border-bottom: 1px solid $border;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            flex-grow: 1;
-            //heldur utan um lýsingu á flokk og expand takkann
-            div {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: baseline;
-                h2 {
-                    margin: 0px;
-                    text-transform: uppercase;
-                    color: $primary;
-                    font-size: 16px;
-                }
-            }
-        }
+//     }
+//     //Wrapper sem heldur utan um virk netspjöll, öll netspjöll og þjónustuteymi
+//     .chat-overview {
+//         width: 230px;
+//         height: inherit;
+//         border-right: 1px solid $border;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-around;
+//         //container sem heldur utan um hvern dálk 
+//         .chat-el-container {
+//             border-bottom: 1px solid $border;
+//             display: flex;
+//             flex-direction: row;
+//             justify-content: center;
+//             flex-grow: 1;
+//             //heldur utan um lýsingu á flokk og expand takkann
+//             div {
+//                 display: flex;
+//                 flex-direction: row;
+//                 justify-content: flex-start;
+//                 align-items: baseline;
+//                 h2 {
+//                     margin: 0px;
+//                     text-transform: uppercase;
+//                     color: $primary;
+//                     font-size: 16px;
+//                 }
+//             }
+//         }
        
-    }
-    //Miðjan á síðunni
-    .csr-middle-section {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        height: inherit;
-        h1 {
-            color: $primary;
-            text-transform: uppercase;
-            font-size: 22px;
-        }
-        h2 {
-            font-size: 16px;
-            color: $text;
-        }
+//     }
+//     //Miðjan á síðunni
+//     .csr-middle-section {
+//         display: flex;
+//         align-items: center;
+//         flex-direction: column;
+//         justify-content: center;
+//         height: inherit;
+//         h1 {
+//             color: $primary;
+//             text-transform: uppercase;
+//             font-size: 22px;
+//         }
+//         h2 {
+//             font-size: 16px;
+//             color: $text;
+//         }
 
-        p {
-            color: $text;
-            font-size: 14px;
-        }
-        span {
-        font-size: 36px;
-        color: $secondary-green;
-        }
-    }
-    //Dálkurinn með upplýsingar um notenda og konnekt status (sem er fyrst bara logo og konnekt lady) 
-    .user-info-konnekt-wrapper {
-        width: 300px;
-        border-left: 1px solid #E9E9E9;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        .current-user-wrapper {
-            width: 100%;
-            border-bottom: 1px solid $border;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            .logo {
-                height: 50px;
-                margin: auto auto;
-            }
-        }   
-        .konnekt-status-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-            .konnekt-lady {
-                height: 102px;
-                margin: auto auto;
-            }
-        }
-     }
+//         p {
+//             color: $text;
+//             font-size: 14px;
+//         }
+//         span {
+//         font-size: 36px;
+//         color: $secondary-green;
+//         }
+//     }
+//     //Dálkurinn með upplýsingar um notenda og konnekt status (sem er fyrst bara logo og konnekt lady) 
+//     .user-info-konnekt-wrapper {
+//         width: 300px;
+//         border-left: 1px solid #E9E9E9;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-around;
+//         .current-user-wrapper {
+//             width: 100%;
+//             border-bottom: 1px solid $border;
+//             flex-grow: 1;
+//             display: flex;
+//             align-items: center;
+//             .logo {
+//                 height: 50px;
+//                 margin: auto auto;
+//             }
+//         }   
+//         .konnekt-status-wrapper {
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             flex-grow: 1;
+//             .konnekt-lady {
+//                 height: 102px;
+//                 margin: auto auto;
+//             }
+//         }
+//      }
 
-}
+// }

@@ -11,19 +11,17 @@ import SVGIcon from "../img/SVGIcon";
 import logoVertical from '../img/logovertical.svg';
 
 
+
+//Hérna er ath hvort notandi sé skráður inn eða ekki, ef hann er skráður inn birtir hann navigation auth en ef ekki birtir hann navigation non auth.
 const Navigation = () => (
   <AuthUserContext.Consumer>
-    {authUser =>
-      authUser ? (
-        <NavigationAuth authUser={authUser} />
-      ) : (
-          <NavigationNonAuth />
-        )
+    { authUser=>
+      authUser ? <NavigationAuth/> : <NavigationNonAuth />
     }
   </AuthUserContext.Consumer>
 );
 
-const NavigationAuth = ({ authUser }) => (
+const NavigationAuth = () => (
 
   <div className="navigation auth">
     <div className="sidebar">{/* Sidebar with vertical logo and icons */}
@@ -45,13 +43,6 @@ const NavigationAuth = ({ authUser }) => (
         {/* <SignOutButton /> */}
       </div>
       {/* Sidebar ends */}</div>
-    <ul>
-      {!!authUser.roles[ROLES.ADMIN] && (
-        <li>
-          <Link to={ROUTES.ADMIN}>Admin</Link>
-        </li>
-      )}
-    </ul>
   </div>
 );
 
