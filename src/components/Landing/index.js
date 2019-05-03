@@ -10,7 +10,7 @@ import * as ROLES from '../../constants/roles';
 
 const Landing = () => (
   <div className="page-wrapper landing">
-
+    
     <div className="landing-section">
 
       <div className="landing-img-container">
@@ -83,26 +83,24 @@ const Landing = () => (
     </div>
 
     <footer>
-
+     
+     
+      <div class="list-container m-h">
       <a id="samband" />
-      <div class="list-container">
-        <h2>Er þitt fyrirtæki tilbúið til þess að...</h2>
+        <h2>ER ÞITT FYRIRTÆKI TILBÚIÐ TIL ÞESS AÐ ...</h2>
         <ul>
           <div className="list-item">
             <div className="dot"></div><li>Ræða um framtíðina?</li>
           </div>
           <div className="list-item">
-            <div className="dot"></div><li>Öryggisvæða stafrænu samskiptaleiðirnar?</li>
+            <div className="dot"></div><li>Öryggisvæða stafrænu viðskipti?</li>
           </div>
           <div className="list-item">
-            <div className="dot"></div><li>Auðvelda ferla í kringum samskiptaleiðir?</li>
-          </div>
-          <div className="list-item">
-            <div className="dot"></div><li>Auka persónugerða þjónustu til viðskiptavina?</li>
+            <div className="dot"></div><li>Auðvelda og persónuvæða samskiptaferla?</li>
           </div>
         </ul>
       </div>
-      <div class="contact-link-container">
+      <div class="contact-link-container m-v">
         <p>Sendu okkur línu á ...</p>
         <a className="contact-link">hello@konnekt.is</a>
       </div>
