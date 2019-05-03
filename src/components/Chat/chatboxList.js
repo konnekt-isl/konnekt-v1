@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import { AuthUserContext, withAuthorization, withEmailVerification } from '../Session';
+import { withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
-// import md5 from 'md5';
-// import { HashLink as Link } from 'react-router-hash-link';
 import chatexpand from '../img/chatexpand.svg';
 import SVGIcon from "../img/SVGIcon";
 import SignOutButton from '../SignOut';
@@ -22,6 +20,7 @@ class ChatList extends Component {
             read: true,
             phone: '',
             chatName: '',
+            isStaff: false,
             message: '',
             chatboxes: [],
             messages: [],
@@ -48,7 +47,8 @@ class ChatList extends Component {
             console.log(chatboxes)
             this.setState({ chatboxes })
             this.setState({
-                chatName: this.state.authUser.username
+                chatName: this.state.authUser.username,
+                isStaff: true
             })
         })
     }
@@ -83,11 +83,12 @@ class ChatList extends Component {
     }
 
     onSubmit = event => {
-        const { phone, message, messageDate, chatName } = this.state;
+        const { phone, message, messageDate, chatName, isStaff } = this.state;
         firebase.firestore().collection('chat').doc(phone).update({
             read: false,
             messages: firebase.firestore.FieldValue.arrayUnion({
                 chatName,
+                isStaff,
                 message,
                 messageDate,
             })
@@ -173,7 +174,7 @@ class ChatList extends Component {
                             <div className="chat-bubble-user-container netspjall-skjar2">
                                 {this.state.messages.map((message) => {
                                     return (
-                                        <div class={message.chatName === this.state.chatName ? 'chat-bubble' : 'chat-bubble user'}>
+                                        <div className={message.isStaff ? 'chat-bubble' : 'chat-bubble user '}>
                                             {message.url ? <a href={message.url}>Click</a> : message.chatName + ':' + message.message}
                                         </div>)
                                 })
