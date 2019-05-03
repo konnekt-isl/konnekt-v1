@@ -1,173 +1,153 @@
 // Mobile View
 
 .landing {
-
     //Div sem heldur utan um hvert section fyrir sig,
-    .section {
-        display: flex;
-        flex-direction: column;
-        padding: 5% 5%;
-        align-items: center;
-    }
-    //Fyrsta sectionið, það sem birtist þegar síðan er opnuð
-    .landing-section {
-        height:90vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        .landing-img-container {
-            width: 100%;
-            @extend %flex-row;
-            align-items: flex-end;
-            justify-content: space-around;
-            .konnekt-dude {
-                height: 122px;
-            }
-            .konnekt-lady {
-                height: 113px;
-            }
-        }
-
-        h1 {
-            color: $primary;
-            font-size: 32px;
-            text-align: center;
-            font-weight: bolder;
-            margin: 0;
-            width: 90%;
-            letter-spacing: 2px;
-        }
-        h2 {
-          font-size:20px;
-          width: 90%;
-          color: $text;
-          text-align: center;
-        }
-        .lausnir-btn {
-            @extend %landing-btn;
-            background:$primary;
-            width: 90%;
-            font-size: 20px;
-        }
-        .lausnir-btn:hover {
-            background: none;
-            color: $primary;
-            border: 4px solid $primary;
-        }
-    }
-    //Div sem heldur utan um texta
-    .summary-wrapper {
-        padding-top:5%;
-        width:90%;
-    }
-    //Div sem heldur utan um mynd eða annað stuðningsefni við texta
-    .summary-decoration {
-        width: 90%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-direction: column;
-        //Risa takkarnir: Lausnir/Fyrirtæki
-        .big-btn {
-            @extend %landing-btn;
-            width: 100%;
-            font-size: 20px;
-            margin: 5% auto;
-        }
-        .green {
-            background: $secondary-green;
-        }
-        .blue {
-            background: $primary;
-        }
-        .green:hover {
-            background: none;
-            color: $secondary-green;
-            border: 4px solid $secondary-green;
-            cursor:pointer
-        }
-        .blue:hover {
-            background: none;
-            color: $primary;
-            border: 4px solid $primary;
-            cursor:pointer
-        }
-    }
-    //Spurninga fyrirsagnir: Hvað er?/Hvernig Virkar það?
-    h3 {
-        color: $secondary-green;
-        text-transform: uppercase;
-        font-size: 16px;
-        margin: 0px;
-    }
-    //Undirfyrisagnir 
-    h4 {
-        margin: 5% 0% 0% 0%;
-        font-size: 50px;
-        color: $primary;
-        font-weight: bold;
-        letter-spacing: 2px;
+  .section {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 16px;
+    align-items: center;
+  }
+  //Fyrsta sectionið, það sem birtist þegar síðan er opnuð
+  .landing-section {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .landing-img-container {
+      width: 100%;
+      @extend %flex-row;
+      align-items: flex-end;
+      justify-content: space-around;
+      .konnekt-dude {
+        height: 122px;
+      }
+      .konnekt-lady {
+        height: 113px;
+      }
     }
 
-    p {
-        color: $text;
-        font-size: 20px;
+    h1 {
+      color: $primary;
+      font-size: 32px;
+      text-align: center;
+      font-weight: 900;
+      margin: 0;
+      width: 90%;
+      letter-spacing: 2px;
     }
-
-    .mobile-mockup {
-        height: 540px;
-        margin: 5% auto;
+    h2 {
+      font-size: 20px;
+      width: 90%;
+      color: $text;
+      text-align: center;
+    }
+    .lausnir-btn {
+      @extend %landing-btn;
+      background: $primary;
+      width: 90%;
+      font-size: 20px;
+    }
+    .lausnir-btn:hover {
+      background: none;
+      color: $primary;
+      border: 4px solid $primary;
+    }
+  }
+  //Div sem heldur utan um texta
+  .summary-wrapper {
+    padding-top: 5%;
+    width: 90%;
+  }
+  //Div sem heldur utan um mynd eða annað stuðningsefni við texta
+  .summary-decoration {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    //Risa takkarnir: Lausnir/Fyrirtæki
+    .big-btn {
+      @extend %landing-btn;
+      width: 100%;
+      font-size: 20px;
+      margin: 5% auto;
+    }
+    .green {
+      background: $secondary-green;
+    }
+    .blue {
+      background: $primary;
     }
     .okkar-syn-container {
         margin: 10% 0%;
         .okkar-syn {
-            height: 352px;
-           
-         
-            
+            height: 352px;   
         }
+    .green:hover {
+      background: none;
+      color: $secondary-green;
+      border: 4px solid $secondary-green;
+      cursor: pointer;
     }
+    .blue:hover {
+      background: none;
+      color: $primary;
+      border: 4px solid $primary;
+      cursor: pointer;
+    }
+  }
+  //Spurninga fyrirsagnir: Hvað er?/Hvernig Virkar það?
+  h3 {
+    color: $secondary-green;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin: 0px;
+  }
+  //Undirfyrisagnir
+  h4 {
+    margin: 5% 0% 0% 0%;
+    font-size: 50px;
+    color: $primary;
+    font-weight: 900;
+    letter-spacing: 2px;
+  }
 
-    footer {
-        height: 620px;
+  p {
+    color: $text;
+    font-size: 20px;
+  }
+
+  .mobile-mockup {
+    height: 540px;
+    margin: 5% auto;
+  }
+  .okkar-syn-container {
+    margin: 5% 0%;
+    .okkar-syn {
+      height: 152px;
+    }
+  }
+
+  footer {
+    height: 620px;
+    width: 100%;
+    background-color: $primary;
+    color: $light;
+    @extend %flex-column;
+    padding: 5% 5%;
+    .list-container {
+      ul {
+        list-style-type: none;
+        padding: 0px;
         width: 100%;
-        background-color: $primary;
-        color: $light;
-       @extend %flex-column;
-        padding: 5% 5%;
-        .list-container {
-            ul {
-                list-style-type: none;
-                padding: 0px;
-                width: 100%;
-                li {
-                    font-size: 20px;
-                    margin: 0px;
-                    width: 250px;
-
-                }
-            }
-            .list-item {
-                display: flex;
-                @extend %flex-row;
-                align-items: baseline;
-                padding: 5% 0%;
-            }
-
-            h2 {
-                color: $light;
-                text-align: left;
-                font-size: 22px;
-            }
-            .dot {
-                width: 12px;
-                height: 12px;
-                background: $secondary-green;
-                border-radius: 50%;
-                margin-right: 3%;
-            }
+        li {
+          font-size: 20px;
+          margin: 0px;
+          max-width: 250px;
         }
+<<<<<<< HEAD
             .contact-link-container {
                 margin-top: 10%;
                 p {
@@ -186,14 +166,64 @@
 
  
 
+=======
+      }
+      .list-item {
+        display: flex;
+        @extend %flex-row;
+        align-items: baseline;
+        padding: 5% 0%;
+      }
+>>>>>>> Landingpage
 
+      h2 {
+        color: $light;
+        text-align: left;
+        font-size: 20px;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        background: $secondary-green;
+        border-radius: 50%;
+        margin-right: 16px;
+      }
     }
-
+    .contact-link-container {
+      margin-top: 10%;
+      p {
+        color: $light;
+      }
+      .contact-link {
+        font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin: auto;
+      }
+      .contact-link:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////Desktop view
 @media only screen and (min-width: 768px) {
+  .landing {
+    .section {
+      padding: 5% 80px;
+      flex-direction: row;
+      display: flex;
+      flex-direction: row;
+      height: 80vh;
+      display: flex;
+      max-width: 1360px;
+      margin: 0% auto;
+      padding: 0;
+    }
 
+<<<<<<< HEAD
     .landing {
         .section {
             padding: 5% 5%;
@@ -257,86 +287,102 @@
                 width: 600px;
             }
         }
+=======
+    .landing-section {
+      height: 90vh;
+      flex-direction: column;
+      align-items: center;
+>>>>>>> Landingpage
 
-        .summary-decoration {
-            width: 600px;
+      h1 {
+        font-size: 80px;
+        text-transform: uppercase;
+        max-width: 600px;
+      }
 
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-direction: column;
+      h2 {
+        font-size: 20px;
+        max-width: 700px;
+      }
+      .lausnir-btn {
+        width: 304px;
+        cursor: pointer;
+      }
+    }
+    .m-h {
+      margin: 0 80px 0 0;
+    }
+    .m-v {
+      margin: 0 0 0 80px;
+    }
+    .summary-wrapper {
+      max-width: 600px;
+    }
+    .summary-decoration {
+      max-width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+      p {
+        max-width: 600px;
+      }
 
-            .big-btn {
-                width: 600px;
-                height: 128px;
-            }
-        }
-
-        h4 {
-            font-size: 60px;
-           
-        }
-
-        .okkar-syn {
-            height: 445px;
-        }
-
+      .big-btn {
+        width: 600px;
+        height: 128px;
+      }
+    }
+    h4 {
+      font-size: 60px;
+    }
+    .okkar-syn {
+      height: 445px;
     }
 
     footer {
-        height: 800px;
+        padding: 5% 160px;
+        display: flex;
+        flex-direction: row;
+        align-content: space-around;
 
-        .list-container {
-            ul {
-                list-style-type: none;
-                padding: 0px;
-                width: 100%;
-
-                li {
-                    font-size: 20px;
-                    margin: 0px;
-                    width: 250px;
-
-                }
-            }
-
-            .list-item {
-                display: flex;
-                align-items: baseline;
-                padding: 5% 0%;
-            }
-
-            h2 {
-                color: $light;
-                text-align: left;
-                font-size: 22px;
-            }
-
-            .dot {
-                border-radius: 50%;
-                margin-right: 3%;
-            }
+      .list-container {
+        max-width: 600px;
+        ul {
+          list-style-type: none;
+          padding: 0px;
+          width: 100%;
+          li {
+            font-size: 20px;
+            margin: 0px;
+            max-width: 572px;
+          }
         }
-
-        .contact-link-container {
-
-            .contact-link {
-                font-size: 60px;
-            }
-
+        .list-item {
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
+          padding: 5% 0%;
         }
-
-
-
-
+        h2 {
+          color: $light;
+          text-align: left;
+          font-size: 20px;
+          letter-spacing:2px;
+        }
+        .dot {
+          border-radius: 50%;
+          margin-right: 16px;
+        }
+      }
+      .contact-link-container {
+        max-width: 600px;
+        margin: auto;
+        .contact-link {
+          font-size: 60px;
+          letter-spacing: 2px;
+        }
+      }
     }
-
-
+  }
 }
-
-;
-
-
-
-
-
