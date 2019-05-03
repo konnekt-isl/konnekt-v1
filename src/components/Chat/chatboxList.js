@@ -107,7 +107,8 @@ class ChatList extends Component {
 
 
     render() {
-
+        const numRows = this.state.chatboxes.length
+        const userName = this.state.authUser.username
         const { message, } = this.state;
         const isInvalid = message === '';
         console.log(this.state.contentIsVisible);
@@ -121,16 +122,20 @@ class ChatList extends Component {
         }
         
         return (
+            
             <div className="page-wrapper chathomepage">
                 <div className="chathomepage-wrapper">
+
                     <div className="csr-header">
                         <div className="user-container">
                             <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-                            <p>User name</p>
-                            <SignOutButton />
+                            <h1>{userName}</h1>
+                            
                         </div>
-
+                        <SignOutButton className="signout-btn"/>
+                        
                     </div>
+
                     {/* Vinstri dálkur (Virk spjöll, öll spjöll og þjónustuteymi) */}
                     <div className="chat-overview">
                         <div className="chat-el-container">
@@ -157,11 +162,22 @@ class ChatList extends Component {
 
                     {/* Miðju dálkur sem sýnir chat history*/}
                         <div className="csr-middle-section ">
+                        {/* <h1>Hæ Username</h1>
+                        <h2>Gaman að sjá þig!</h2>
+                        <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p> */}
                             <div className="chat-display-wrapper">
-                                <div className="chat-bubble-container">
-                                        {this.state.messages.map((message) => <div className={message.chatName === this.state.chatName ? 'chat-bubble' : 'chat-bubble user'}>{message.chatName + ':' + message.message}</div>)}
-                                </div>
+                                
+                                        {this.state.messages.map((message) => <div className="chat-bubble-container">
+                                            <div className={message.chatName === this.state.chatName ? 'chat-bubble csr' : 'chat-bubble user'}>
+                                                <p className="msg">{message.chatName + ':' + message.message}</p>
+                                                <p className="msg-timestamp">Timestamp</p>
+                                            </div>
+                                        </div>)}
+                                        
+                               
                             </div>
+
+                            {/* Chat input neðst á miðju síðunnar (þarsem þjónustuaðili skrifar inn í) */}
                             <div className="chat-input-wrapper">
                                         {this.state.phone ? (<form className="chat-input-form"onSubmit={this.onSubmit}>
                                         <input
@@ -172,16 +188,18 @@ class ChatList extends Component {
                                             placeholder="Skrifaðu hér..."
                                             
                                         />
-                                        <div className="chat-options">
+                                  
+                                   
+                                    </form>) : (<div>Click on the chatbox to start chatting </div>)}
+                                          <div className="chat-options">
                                             <img className="paperclip" src={paperclip} />
                                             <SVGIcon className="plus" name="plus" width={30} height={30} />
                                             <button className="btn" disabled={isInvalid} type="submit">
                                                 Senda
                                             </button>
                                         </div>
-                                   
-                                    </form>) : (<div>Click on the chatbox to start chatting </div>)}
                             </div>
+                            
                         </div>
 
                     
