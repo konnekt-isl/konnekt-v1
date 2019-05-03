@@ -27,7 +27,7 @@ const NavigationAuth = ({ authUser }) => (
 
   <div className="navigation auth">
     <div className="sidebar">{/* Sidebar with vertical logo and icons */}
-      <Link to={ROUTES.HOME}><img className="logo-vertical" src={logoVertical} alt="Logo" /></Link>
+      <Link to={ROUTES.CHATLIST}><img className="logo-vertical" src={logoVertical} alt="Logo" /></Link>
       {/* Container around the 3 icons */}
       <div className="icons-container">
         <div className="single-icon-container">
