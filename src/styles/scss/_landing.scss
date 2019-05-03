@@ -147,7 +147,6 @@
           margin: 0px;
           max-width: 250px;
         }
-<<<<<<< HEAD
             .contact-link-container {
                 margin-top: 10%;
                 p {
@@ -164,9 +163,7 @@
                   }
             }
 
- 
 
-=======
       }
       .list-item {
         display: flex;
@@ -174,7 +171,6 @@
         align-items: baseline;
         padding: 5% 0%;
       }
->>>>>>> Landingpage
 
       h2 {
         color: $light;
@@ -223,76 +219,10 @@
       padding: 0;
     }
 
-<<<<<<< HEAD
-    .landing {
-        .section {
-            padding: 5% 5%;
-            flex-direction: row;
-
-            display: flex;
-            flex-direction: row;
-            height: 80vh;
-            display: flex;
-            max-width: 1360px;
-            margin: 0% auto;
-            padding: 0;
-
-        }
-
-        .landing-section {
-            padding-top:92px;
-            height: 90vh;
-            flex-direction: column;
-            align-items: center;
-
-            h1 {
-                font-size: 80px;
-                text-transform: uppercase;
-                width:600px;
-            }
-
-            h2 {
-                font-size: 20px;
-                max-width: 700px;
-            }
-
-
-            .lausnir-btn {
-                width: 304px;
-                cursor: pointer;
-            }
-        
-
-
-           
-        }
-        .m-h{
-            margin: 0 80px 0 0;
-        }
-        .m-v{
-            margin: 0 0 0 80px;
-        }
-        .summary-wrapper {
-            width:600px;
-
-        }
-
-        .summary-decoration {
-
-
-            width:600px;
-
-            max-width: 600px;
-            p {
-                width: 600px;
-            }
-        }
-=======
     .landing-section {
       height: 90vh;
       flex-direction: column;
       align-items: center;
->>>>>>> Landingpage
 
       h1 {
         font-size: 80px;
