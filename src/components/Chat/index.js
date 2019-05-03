@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-
+import konnektlady from '../img/konnektlady.svg';
 class ChatStart extends Component {
     constructor(props) {
         super(props);
@@ -61,11 +61,16 @@ class ChatStart extends Component {
         const isInvalid = phone === '' || name === '';
 
         return (
-            <div>
-                <h1>Chat</h1>
+            <div className="chat-index-wrapper">
+            <div className="img-container">
+                <img className="konnekt-lady" src={konnektlady} />
+            </div>
+            
+        
                 <form onSubmit={this.onSubmit}>
+                <h1>Netspjall</h1>
                     <fieldset>
-                        <legend>Chatbox</legend>
+                        <legend>Velkomin/n í netspjall KONNEKT</legend>
 
                         <label for="name">Notandi</label>
                         <input

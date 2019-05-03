@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import SVGIcon from "../img/SVGIcon";
+
+
 //Chat fyrir endanotenda
 class ChatBox extends Component {
     constructor(props) {
@@ -59,7 +61,7 @@ class ChatBox extends Component {
 
         return (
 
-            <div className="chat-wrapper">
+            <div className="chatbox-wrapper">
                 <h1>Chat</h1>
                 <p>{this.state.messages.map((message) => <div class={message.chatName === this.state.chatName ? 'right' : 'left'}>{message.chatName + ':' + message.message}</div>)}</p>
                 <div className="chat-input-wrapper">
