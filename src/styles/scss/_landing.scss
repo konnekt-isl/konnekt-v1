@@ -1,7 +1,7 @@
 // Mobile View
 
 .landing {
-    //Div sem heldur utan um hvert section fyrir sig,
+  //Div sem heldur utan um hvert section fyrir sig,
   .section {
     display: flex;
     flex-direction: column;
@@ -59,6 +59,7 @@
   .summary-wrapper {
     padding-top: 5%;
     width: 90%;
+
   }
   //Div sem heldur utan um mynd eða annað stuðningsefni við texta
   .summary-decoration {
@@ -68,6 +69,9 @@
     justify-content: space-around;
     flex-direction: column;
     //Risa takkarnir: Lausnir/Fyrirtæki
+    .virkni-video{
+      min-width: 350px;
+    }
     .big-btn {
       @extend %landing-btn;
       width: 100%;
@@ -80,11 +84,6 @@
     .blue {
       background: $primary;
     }
-    .okkar-syn-container {
-        margin: 10% 0%;
-        .okkar-syn {
-            height: 352px;   
-        }
     .green:hover {
       background: none;
       color: $secondary-green;
@@ -147,23 +146,6 @@
           margin: 0px;
           max-width: 250px;
         }
-            .contact-link-container {
-                margin-top: 10%;
-                p {
-                    color: $light;
-                }
-                .contact-link {
-                    font-size: 30px;
-                    font-weight: bold;
-                    margin: auto;
-                  }
-                  .contact-link:hover {
-                      text-decoration: underline;
-                      cursor: pointer;
-                  }
-            }
-
-
       }
       .list-item {
         display: flex;
@@ -216,13 +198,13 @@
       display: flex;
       max-width: 1360px;
       margin: 0% auto;
-      padding: 0;
     }
 
     .landing-section {
       height: 90vh;
       flex-direction: column;
       align-items: center;
+      padding-top: 80px;
 
       h1 {
         font-size: 80px;
@@ -247,9 +229,11 @@
     }
     .summary-wrapper {
       max-width: 600px;
+      min-width: 350px;
     }
     .summary-decoration {
       max-width: 600px;
+      min-width: 350px;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -257,24 +241,39 @@
       p {
         max-width: 600px;
       }
-
+      a {
+        width: 100%;
+      }
+      .virkni-video{
+        width: 100%;
+      }
       .big-btn {
-        width: 600px;
+        width: 100%;
         height: 128px;
       }
     }
     h4 {
       font-size: 60px;
     }
-    .okkar-syn {
-      height: 445px;
+    .okkar-syn-container {
+      
+      .okkar-syn {
+        max-width: 100%;
+        min-width: 200px;
+        display: block;
+        height: auto;
+      }
     }
 
     footer {
-        padding: 5% 160px;
-        display: flex;
-        flex-direction: row;
-        align-content: space-around;
+      padding: 5% 160px;
+      display: flex;
+      flex-direction: row;
+      align-content: space-around;
+      height: 620px;
+      width: 100%;
+      background-color: $primary;
+      color: $light;
 
       .list-container {
         max-width: 600px;
@@ -298,7 +297,7 @@
           color: $light;
           text-align: left;
           font-size: 20px;
-          letter-spacing:2px;
+          letter-spacing: 2px;
         }
         .dot {
           border-radius: 50%;
