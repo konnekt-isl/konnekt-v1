@@ -11,7 +11,7 @@ import * as ROLES from '../../constants/roles';
 
 const Landing = () => (
   <div className="page-wrapper landing">
-    
+
     <div className="landing-section">
 
       <div className="landing-img-container">
@@ -61,14 +61,14 @@ const Landing = () => (
       </div>
       <div className="summary-decoration m-v">
         <Link to={ROUTES.CHAT}><button className="big-btn blue">Einstaklingur</button></Link>
-        <button className="big-btn green">Fyrirtæki</button>
+        <Link to={ROUTES.SIGN_IN}><button className="big-btn green">Fyrirtæki</button></Link>
       </div>
-    </div>
+    </div >
 
     <div className="section okkar-syn-section">
 
 
-    <div className="summary-decoration okkar-syn-container m-h">
+      <div className="summary-decoration okkar-syn-container m-h">
         <img className="okkar-syn" src={okkarSyn} />
       </div>
 
@@ -86,10 +86,10 @@ const Landing = () => (
     </div>
 
     <footer>
-     
-     
+
+
       <div class="list-container m-h">
-      <a id="samband" />
+        <a id="samband" />
         <h2>ER ÞITT FYRIRTÆKI TILBÚIÐ TIL ÞESS AÐ ...</h2>
         <ul>
           <div className="list-item">
@@ -109,7 +109,7 @@ const Landing = () => (
       </div>
 
     </footer>
-  </div>//Page wrapper end
+  </div >//Page wrapper end
 );
 
 export default Landing;
