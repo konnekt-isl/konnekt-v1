@@ -149,9 +149,9 @@ class ChatList extends Component {
                         <div>
                             <h2>Virk Netspjöll</h2><img onClick={this.expand} className="chat-expand" src={chatexpand} />
                         </div>
-                        <div>
+                      
                             <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</li>)}</ul>
-                        </div>
+                        
                     </div>
 
                     <div className="chat-el-container">
@@ -169,9 +169,13 @@ class ChatList extends Component {
 
                 {/* Miðju dálkur sem sýnir chat history*/}
                 <div className="csr-middle-section ">
-                    {/* <h1>Hæ Username</h1>
-                        <h2>Gaman að sjá þig!</h2>
-                        <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p> */}
+                    
+                    <div className="welcome-msg">
+                            <h1>Hæ {userName}</h1>
+                            <h2>Gaman að sjá þig!</h2>
+                            <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p>
+                    </div>
+                        
                     <div className="chat-display-wrapper">
 
                         {this.state.messages.map((message) => <div className="chat-bubble-container">
@@ -216,13 +220,9 @@ class ChatList extends Component {
                             </div>
 
                             <div className="konnekt-status-wrapper">
-                                <div className="konnekt-status-container">
-                                    <img className="logo" src={logo} />
-                                </div>
-
-                                <div className="konnekt-status-wrapper">
-                                    <img className="konnekt-lady" src={konnektlady} />
-                                </div>
+                              
+                                <img className="konnekt-lady" src={konnektlady} />
+                                
 
                             </div>
                         </div>)
@@ -256,7 +256,7 @@ class ChatList extends Component {
                             </div>
                         </div>)
                 }
-            </div >
+            </div>
         </div>)
     };
 }
