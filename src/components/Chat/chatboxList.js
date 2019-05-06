@@ -134,6 +134,8 @@ class ChatList extends Component {
 
         return (<div className="page-wrapper chathomepage">
             <div className="chathomepage-wrapper">
+
+            {/* Header fyrir notenda avatar og signout takka */}
                 <div className="csr-header">
                     <div className="user-container">
                         <SVGIcon className="avatar" name="avatar" width={30} height={30} />
@@ -149,9 +151,7 @@ class ChatList extends Component {
                         <div>
                             <h2>Virk Netspjöll</h2><img onClick={this.expand} className="chat-expand" src={chatexpand} />
                         </div>
-                      
-                            <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</li>)}</ul>
-                        
+                        <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</li>)}</ul>
                     </div>
 
                     <div className="chat-el-container">
@@ -169,66 +169,75 @@ class ChatList extends Component {
 
                 {/* Miðju dálkur sem sýnir chat history*/}
                 <div className="csr-middle-section ">
-                    
-                    <div className="welcome-msg">
+                {
+                    this.state.phone === '' ? 
+                    (
+                        <div className="welcome-msg">
                             <h1>Hæ {userName}</h1>
                             <h2>Gaman að sjá þig!</h2>
                             <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p>
-                    </div>
-                        
-                    <div className="chat-display-wrapper">
-
-                        {this.state.messages.map((message) => <div className="chat-bubble-container">
-                            <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
-                                <p className="msg">{message.chatName + ':' + message.message}</p>
-                                <p className="msg-timestamp">Timestamp</p>
-                            </div>
-                        </div>)}
-
-
-                    </div>
-
-                    {/* Chat input neðst á miðju síðunnar (þarsem þjónustuaðili skrifar inn í) */}
-                    <div className="chat-input-wrapper">
-                        {this.state.phone ? (<form className="chat-input-form" onSubmit={this.onSubmit}>
-                            <input
-                                name="message"
-                                value={message}
-                                onChange={this._handleChange}
-                                type="text"
-                                placeholder="Skrifaðu hér..."
-                            />
-
-                        </form>) : (<div>Click on the chatbox to start chatting </div>)}
-                        <div className="chat-options">
-                            <img className="paperclip" src={paperclip} />
-                            <SVGIcon className="plus" name="plus" width={30} height={30} />
-                            <button className="btn" disabled={isInvalid} type="submit">
-                                Senda
-                        </button>
                         </div>
-                    </div>
+                        )
+                        :
+                        (
+                         <div className="chat-display-and-input-wrapper">
+                            <div className="chat-display-wrapper">
+
+                            {this.state.messages.map((message) => <div className="chat-bubble-container">
+                                <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
+                                    <p className="msg">{message.chatName + ':' + message.message}</p>
+                                    <p className="msg-timestamp">Timestamp</p>
+                                </div>
+                            </div>)}
+
+
+                            </div>
+
+                            {/* Chat input neðst á miðju síðunnar (þarsem þjónustuaðili skrifar inn í) */}
+                            <div className="chat-input-wrapper">
+                            {this.state.phone ? (<form className="chat-input-form" onSubmit={this.onSubmit}>
+                                <input
+                                    name="message"
+                                    value={message}
+                                    onChange={this._handleChange}
+                                    type="text"
+                                    placeholder="Skrifaðu hér..."
+                                />
+
+                            </form>) : (<div>Click on the chatbox to start chatting </div>)}
+                            <div className="chat-options">
+                                <img className="paperclip" src={paperclip} />
+                                <SVGIcon className="plus" name="plus" width={30} height={30} />
+                                <button className="btn" disabled={isInvalid} type="submit">
+                                    Senda
+                            </button>
+                            </div>
+                            </div>
+                         </div>
+                        )
+                }
 
                 </div>
 
 
                 {
                     this.state.phone === '' ? (
+                        //Viðmót ÁÐUR en er smellt á símanúmer
                         <div className="user-info-konnekt-wrapper">
+
                             <div className="current-user-wrapper">
                                 <img className="logo" src={logo} />
                             </div>
 
                             <div className="konnekt-status-wrapper">
-                              
                                 <img className="konnekt-lady" src={konnektlady} />
-                                
-
                             </div>
                         </div>)
                         :
                         (<div className="user-info-konnekt-wrapper">
+                       
                             <div className="current-user-wrapper">
+                             {/* Viðmót þegar smellt er á símanúmer */}
                                 <div className="current-user-container">
                                     <h2>{this.state.username}</h2>
                                     <div className="user-info">

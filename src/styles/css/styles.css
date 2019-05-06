@@ -907,7 +907,7 @@ template {
 }
 
 .chathomepage {
-  height: 96vh;
+  height: 100vh;
   padding-left: 72px;
 }
 .chathomepage .signout-btn {
@@ -923,13 +923,14 @@ template {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: inherit;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 .chathomepage .csr-header {
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: 0px 40px;
+  padding: 20px 40px;
 }
 .chathomepage .csr-header .user-container {
   display: flex;
@@ -959,7 +960,7 @@ template {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 300px;
+  height: 250px;
   flex-wrap: wrap;
 }
 .chathomepage .chat-overview .chat-el-container div {
@@ -987,6 +988,12 @@ template {
   font-size: 14px;
   color: #B0B0B0;
 }
+.chathomepage .chat-overview .chat-el-container .content li:hover {
+  background-color: #E6ECFF;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+}
 .chathomepage .chat-overview .chat-el-container .active {
   display: flex;
   list-style-type: none;
@@ -1001,27 +1008,39 @@ template {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   height: 100%;
   flex-grow: 1;
+}
+.chathomepage .csr-middle-section .chat-display-and-input-wrapper {
+  width: 100%;
 }
 .chathomepage .csr-middle-section .welcome-msg {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 80px;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar {
+  width: 1px;
+  background: #B0B0B0;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar-track {
+  width: 1px;
+  border-radius: 10px;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar-thumb {
+  width: 1px;
+  background: #B0B0B0;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  flex-grow: 1;
+  overflow-x: hidden;
   padding: 40px;
-}
-.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .msg {
-  margin: 0px;
-  font-size: 12px;
-  color: #B0B0B0;
+  height: 600px;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .chat-bubble {
   width: 40%;
@@ -1032,6 +1051,12 @@ template {
   flex-direction: row;
   font-size: 12px;
   flex-wrap: wrap;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .chat-bubble .msg {
+  margin: 0px;
+  font-size: 12px;
+  color: #B0B0B0;
+  max-width: 275px;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .chat-bubble .msg-timestamp {
   font-size: 12px;
@@ -1064,9 +1089,11 @@ template {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   border-top: 1px solid #E9E9E9;
   flex-wrap: wrap;
   width: 100%;
+  height: 100%;
   padding: 0px 40px;
 }
 .chathomepage .csr-middle-section .chat-input-wrapper .chat-input-form {
@@ -1127,7 +1154,7 @@ template {
   align-items: center;
 }
 .chathomepage .user-info-konnekt-wrapper .current-user-wrapper {
-  height: 450px;
+  height: 375px;
   border-bottom: 1px solid #E9E9E9;
   width: inherit;
   display: flex;
@@ -1137,15 +1164,17 @@ template {
 .chathomepage .user-info-konnekt-wrapper .current-user-wrapper .logo {
   height: 50px;
 }
+.chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container {
+  height: 100%;
+  width: 100%;
+  padding-left: 40px;
+}
 .chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container h2 {
   font-size: 16px;
   font-family: "Lato", Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   color: #3463FF;
-  text-align: center;
-}
-.chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container .user-info {
-  padding: 5% 0% 0% 10%;
+  text-align: left;
 }
 .chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container .user-info h3 {
   font-size: 11px;
@@ -1158,7 +1187,7 @@ template {
   color: #4F4F4F;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper {
-  height: 450px;
+  height: 375px;
   width: inherit;
   display: flex;
   align-items: center;
@@ -1178,7 +1207,7 @@ template {
   height: 100%;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .logo {
-  height: 50px;
+  height: 35px;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section {
   height: 50%;
