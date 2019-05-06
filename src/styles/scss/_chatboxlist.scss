@@ -3,6 +3,7 @@
 .chathomepage {
     height: 100vh;
     padding-left: 72px;
+    // position: fixed;
 
     .signout-btn {
         background: 0;
@@ -96,6 +97,18 @@
             }
 
             .chat-list-collapsed {
+            
+
+                li {
+                    width: 100%;
+                }
+            }
+            .content {
+                display: none;
+                overflow: hidden;
+            }
+            .active {
+                display: flex;
                 list-style-type: none;
                 display: flex;
                 flex-direction: column;
@@ -103,10 +116,6 @@
                 align-items: center;
                 margin: 0;
                 padding: 0;
-
-                li {
-                    width: 100%;
-                }
             }
         }
     }
