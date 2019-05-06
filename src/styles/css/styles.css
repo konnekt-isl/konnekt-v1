@@ -331,7 +331,7 @@ template {
 }
 
 /*# sourceMappingURL=bootstrap-reboot.css.map */
-.simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn, .simi-skjar1 .yes-btn {
+.simi-skjar2 .wrapper .status-screen .yes-btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .btn, .signin-page .wrapper .signin-section .container .btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -528,6 +528,9 @@ template {
   justify-content: space-around;
   flex-direction: column;
 }
+.landing .summary-decoration .virkni-video {
+  min-width: 350px;
+}
 .landing .summary-decoration .big-btn {
   width: 100%;
   font-size: 20px;
@@ -601,21 +604,6 @@ template {
   margin: 0px;
   max-width: 250px;
 }
-.landing footer .list-container ul .contact-link-container {
-  margin-top: 10%;
-}
-.landing footer .list-container ul .contact-link-container p {
-  color: #FFFFFF;
-}
-.landing footer .list-container ul .contact-link-container .contact-link {
-  font-size: 30px;
-  font-weight: bold;
-  margin: auto;
-}
-.landing footer .list-container ul .contact-link-container .contact-link:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
 .landing footer .list-container .list-item {
   display: flex;
   align-items: baseline;
@@ -660,12 +648,12 @@ template {
     display: flex;
     max-width: 1360px;
     margin: 0% auto;
-    padding: 0;
   }
   .landing .landing-section {
     height: 90vh;
     flex-direction: column;
     align-items: center;
+    padding-top: 80px;
   }
   .landing .landing-section h1 {
     font-size: 80px;
@@ -688,9 +676,11 @@ template {
   }
   .landing .summary-wrapper {
     max-width: 600px;
+    min-width: 350px;
   }
   .landing .summary-decoration {
     max-width: 600px;
+    min-width: 350px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -699,21 +689,34 @@ template {
   .landing .summary-decoration p {
     max-width: 600px;
   }
+  .landing .summary-decoration a {
+    width: 100%;
+  }
+  .landing .summary-decoration .virkni-video {
+    width: 100%;
+  }
   .landing .summary-decoration .big-btn {
-    width: 600px;
+    width: 100%;
     height: 128px;
   }
   .landing h4 {
     font-size: 60px;
   }
-  .landing .okkar-syn {
-    height: 445px;
+  .landing .okkar-syn-container .okkar-syn {
+    max-width: 100%;
+    min-width: 200px;
+    display: block;
+    height: auto;
   }
   .landing footer {
     padding: 5% 160px;
     display: flex;
     flex-direction: row;
     align-content: space-around;
+    height: 620px;
+    width: 100%;
+    background-color: #3463FF;
+    color: #FFFFFF;
   }
   .landing footer .list-container {
     max-width: 600px;
