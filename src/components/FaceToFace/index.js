@@ -89,7 +89,6 @@ class FaceToFace extends Component {
                     {firebase => {
                         return (
                             <div className="simi-skjar1">
-
                                 <div className="wrapper">
                                     <div className="container">
                                         <img className="logo" src={logo} alt="Logo" />
@@ -102,16 +101,11 @@ class FaceToFace extends Component {
                                         <p>Viltu halda áfram?</p>
                                         <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
                                     </div>
-                                       <div className="container">
-                                            <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
-                                            <button className="no-btn">Hætta við</button>
-                                       </div>
-                        
-                                    
+                                    <div className="container">
+                                        <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
+                                        <button className="no-btn">Hætta við</button>
+                                    </div>
                                 </div>
-                
-                                    
-                                
                             </div>)
                     }}</FirebaseContext.Consumer>
             </div>

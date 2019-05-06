@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 
 import * as firebase from 'firebase'
-import { FirebaseContext } from './Firebase';
 import logo from './img/logo.svg';
 import konnektlady from './img/konnektlady.svg';
 import checkcircle from './img/check-circle.svg';
 // import SVGIcon from "./img/SVGIcon";
-
 
 
 class uw_status extends Component {
@@ -62,21 +60,21 @@ class uw_status extends Component {
             statusScreen =
                 // Screen that shows when authentication is successfull
                 <div className="wrapper">
-                <div className="status-screen">
-                    <div className="container">
-                        <img className="logo" src={logo} />
-                        <img src={konnektlady} />
+                    <div className="status-screen">
+                        <div className="container">
+                            <img className="logo" src={logo} />
+                            <img src={konnektlady} />
+                        </div>
+                        <div className="container">
+                            <img src={checkcircle} />
+                            <h1>Auðkenni staðfest</h1>
+                            <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
+                        </div>
+                        <div className="container">
+                            <button class="yes-btn">Áfram</button>
+                        </div>
                     </div>
-                    <div className="container">
-                        <img src={checkcircle} />
-                        <h1>Auðkenni staðfest</h1>
-                        <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
-                    </div>
-                    <div className="container">
-                        <button class="yes-btn">Áfram</button>
-                    </div>
-                </div>
-            </div>;
+                </div>;
         } else {
             statusScreen =
                 // Screen that shows when authentication failed or connection timed out     
@@ -91,7 +89,7 @@ class uw_status extends Component {
                             <p className="error-p">Viltu reyna aftur?</p>
                         </div>
                     </div>
-            </div>;
+                </div>;
         }
         if (this.state.status !== '200') {
             statusMessage = this.state.message
