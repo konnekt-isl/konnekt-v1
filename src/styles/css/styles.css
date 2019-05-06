@@ -910,7 +910,7 @@ template {
 }
 
 .chathomepage {
-  height: 100vh;
+  height: 96vh;
   padding-left: 72px;
 }
 .chathomepage .signout-btn {
@@ -960,9 +960,9 @@ template {
 .chathomepage .chat-overview .chat-el-container {
   border-bottom: 1px solid #E9E9E9;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 300px;
   flex-wrap: wrap;
 }
 .chathomepage .chat-overview .chat-el-container div {
@@ -970,33 +970,35 @@ template {
   flex-direction: row;
   justify-content: center;
   align-items: baseline;
-  width: 100%;
+  height: 50px;
 }
 .chathomepage .chat-overview .chat-el-container div h2 {
   margin: 0px;
   text-transform: uppercase;
   color: #3463FF;
   font-size: 16px;
+  padding: 25px 0px;
 }
 .chathomepage .chat-overview .chat-el-container .chat-expand {
   cursor: pointer;
 }
-.chathomepage .chat-overview .chat-el-container .chat-list-collapsed li {
-  width: 100%;
-}
 .chathomepage .chat-overview .chat-el-container .content {
   display: none;
   overflow: hidden;
+}
+.chathomepage .chat-overview .chat-el-container .content li {
+  font-size: 14px;
+  color: #B0B0B0;
 }
 .chathomepage .chat-overview .chat-el-container .active {
   display: flex;
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin: 0;
-  padding: 0;
+  padding: 20px 0px 0px 40px;
 }
 .chathomepage .csr-middle-section {
   display: flex;
@@ -1005,6 +1007,11 @@ template {
   justify-content: space-between;
   height: 100%;
   flex-grow: 1;
+}
+.chathomepage .csr-middle-section .welcome-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper {
   width: 100%;
@@ -1122,9 +1129,16 @@ template {
   justify-content: space-around;
   align-items: center;
 }
-.chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container {
-  width: 100%;
-  align-self: flex-start;
+.chathomepage .user-info-konnekt-wrapper .current-user-wrapper {
+  height: 450px;
+  border-bottom: 1px solid #E9E9E9;
+  width: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chathomepage .user-info-konnekt-wrapper .current-user-wrapper .logo {
+  height: 50px;
 }
 .chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container h2 {
   font-size: 16px;
@@ -1146,6 +1160,19 @@ template {
   font-size: 14px;
   color: #4F4F4F;
 }
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper {
+  height: 450px;
+  width: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-lady {
+  height: 102px;
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .logo {
+  height: 50px;
+}
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container {
   display: flex;
   align-items: center;
@@ -1154,7 +1181,7 @@ template {
   height: 100%;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .logo {
-  height: 30px;
+  height: 50px;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section {
   height: 50%;

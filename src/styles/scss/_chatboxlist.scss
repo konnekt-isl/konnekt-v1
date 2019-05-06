@@ -1,7 +1,7 @@
 //Fyrsta sem kemur á móti manni þegar maður loggar sig inn
 
 .chathomepage {
-    height: 100vh;
+    height: 96vh;
     padding-left: 72px;
     // position: fixed;
 
@@ -71,9 +71,9 @@
         .chat-el-container {
             border-bottom: 1px solid $border;
             display: flex;
-            flex-direction: row;
-            justify-content: center;
-            flex-grow: 1;
+            flex-direction: column;
+            justify-content: flex-start;
+            height:300px;
             flex-wrap: wrap;
 
             //heldur utan um lýsingu á flokk og expand takkann
@@ -82,40 +82,40 @@
                 flex-direction: row;
                 justify-content: center;
                 align-items: baseline;
-                width: 100%;
+                height: 50px;
 
                 h2 {
                     margin: 0px;
                     text-transform: uppercase;
                     color: $primary;
                     font-size: 16px;
+                    padding: 25px 0px;
                 }
             }
 
             .chat-expand {
                 cursor: pointer;
             }
-
-            .chat-list-collapsed {
             
-
-                li {
-                    width: 100%;
-                }
-            }
+      
+            
             .content {
                 display: none;
                 overflow: hidden;
+                li {
+                    font-size: 14px; 
+                    color: $grey;
+                }
             }
             .active {
                 display: flex;
                 list-style-type: none;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                justify-content: flex-start;
+                align-items: flex-start;
                 margin: 0;
-                padding: 0;
+                padding: 20px 0px 0px 40px;
             }
         }
     }
@@ -128,6 +128,11 @@
         justify-content: space-between;
         height: 100%;
         flex-grow:1;
+        .welcome-msg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         .chat-display-wrapper {
             width: 100%;
             display: flex;
@@ -274,10 +279,17 @@
         // margin-left: auto;
 
         .current-user-wrapper {
+            height: 450px;
+            border-bottom: 1px solid $border;
+            width: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .logo {
+                height: 50px;
+                
+            }
             .current-user-container {
-                width: 100%;
-                align-self: flex-start;
-
                 h2 {
                     font-size: 16px;
                     font-family: $font-stack;
@@ -308,6 +320,17 @@
         }
 
         .konnekt-status-wrapper {
+            height: 450px;
+            width: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .konnekt-lady {
+                height: 102px;
+            }
+            .logo {
+                height: 50px;
+            }
             .konnekt-status-container {
                 display: flex;
                 align-items: center;
@@ -316,9 +339,9 @@
                 height: 100%;
 
                 .logo {
-                    height: 30px;
+                    height: 50px;
                 }
-
+            
                 .konnekt-section {
                     height: 50%;
                     display: flex;
