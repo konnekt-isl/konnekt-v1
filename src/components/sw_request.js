@@ -34,9 +34,9 @@ class Request extends Component {
                 firebase.firestore().collection('status').doc(sessionID).onSnapshot((doc) => {
                     const { ssn, date, status, message } = doc.data();
                     this.setState({
-                        ssn: ssn,
+                        ssn,
                         timeStamp: date.seconds,
-                        status: status,
+                        status,
                         message: message
                     })
                     if (ssn) {

@@ -103,14 +103,14 @@ class ChatList extends Component {
         })
 
         const url = 'http://localhost:3000/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.username
-        const { phone, messageDate, chatName } = this.state;
+        const { phone, chatName } = this.state;
         firebase.firestore().collection('chat').doc(phone).update({
             read: false,
             messages: firebase.firestore.FieldValue.arrayUnion({
                 chatName,
                 url,
                 message: '',
-                messageDate,
+                messageDate: firebase.firestore.Timestamp.fromDate(new Date()),
             })
         })
     }
@@ -135,7 +135,7 @@ class ChatList extends Component {
         return (<div className="page-wrapper chathomepage">
             <div className="chathomepage-wrapper">
 
-            {/* Header fyrir notenda avatar og signout takka */}
+                {/* Header fyrir notenda avatar og signout takka */}
                 <div className="csr-header">
                     <div className="user-container">
                         <SVGIcon className="avatar" name="avatar" width={30} height={30} />
@@ -169,53 +169,53 @@ class ChatList extends Component {
 
                 {/* Miðju dálkur sem sýnir chat history*/}
                 <div className="csr-middle-section ">
-                {
-                    this.state.phone === '' ? 
-                    (
-                        <div className="welcome-msg">
-                            <h1>Hæ {userName}</h1>
-                            <h2>Gaman að sjá þig!</h2>
-                            <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p>
-                        </div>
-                        )
-                        :
-                        (
-                         <div className="chat-display-and-input-wrapper">
-                            <div className="chat-display-wrapper">
-
-                            {this.state.messages.map((message) => <div className="chat-bubble-container">
-                                <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
-                                    <p className="msg">{message.chatName + ':' + message.message}</p>
-                                    <p className="msg-timestamp">Timestamp</p>
+                    {
+                        this.state.phone === '' ?
+                            (
+                                <div className="welcome-msg">
+                                    <h1>Hæ {userName}</h1>
+                                    <h2>Gaman að sjá þig!</h2>
+                                    <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p>
                                 </div>
-                            </div>)}
+                            )
+                            :
+                            (
+                                <div className="chat-display-and-input-wrapper">
+                                    <div className="chat-display-wrapper">
+
+                                        {this.state.messages.map((message) => <div className="chat-bubble-container">
+                                            <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
+                                                <p className="msg">{message.url ? 'Auðkennisbeðni hefur verið send.' : message.chatName + ':' + message.message}</p>
+                                                <p className="msg-timestamp">{new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                                            </div>
+                                        </div>)}
 
 
-                            </div>
+                                    </div>
 
-                            {/* Chat input neðst á miðju síðunnar (þarsem þjónustuaðili skrifar inn í) */}
-                            <div className="chat-input-wrapper">
-                            {this.state.phone ? (<form className="chat-input-form" onSubmit={this.onSubmit}>
-                                <input
-                                    name="message"
-                                    value={message}
-                                    onChange={this._handleChange}
-                                    type="text"
-                                    placeholder="Skrifaðu hér..."
-                                />
+                                    {/* Chat input neðst á miðju síðunnar (þarsem þjónustuaðili skrifar inn í) */}
+                                    <div className="chat-input-wrapper">
+                                        {this.state.phone ? (<form className="chat-input-form" onSubmit={this.onSubmit}>
+                                            <input
+                                                name="message"
+                                                value={message}
+                                                onChange={this._handleChange}
+                                                type="text"
+                                                placeholder="Skrifaðu hér..."
+                                            />
 
-                            </form>) : (<div>Click on the chatbox to start chatting </div>)}
-                            <div className="chat-options">
-                                <img className="paperclip" src={paperclip} />
-                                <SVGIcon className="plus" name="plus" width={30} height={30} />
-                                <button className="btn" disabled={isInvalid} type="submit">
-                                    Senda
+                                        </form>) : (<div>Click on the chatbox to start chatting </div>)}
+                                        <div className="chat-options">
+                                            <img className="paperclip" src={paperclip} />
+                                            <SVGIcon className="plus" name="plus" width={30} height={30} />
+                                            <button className="btn" disabled={isInvalid} type="submit">
+                                                Senda
                             </button>
-                            </div>
-                            </div>
-                         </div>
-                        )
-                }
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                    }
 
                 </div>
 
@@ -235,9 +235,9 @@ class ChatList extends Component {
                         </div>)
                         :
                         (<div className="user-info-konnekt-wrapper">
-                       
+
                             <div className="current-user-wrapper">
-                             {/* Viðmót þegar smellt er á símanúmer */}
+                                {/* Viðmót þegar smellt er á símanúmer */}
                                 <div className="current-user-container">
                                     <h2>{this.state.username}</h2>
                                     <div className="user-info">
