@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import * as ReactDOM from 'react-dom';
 import { withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
 import chatexpand from '../img/chatexpand.svg';
@@ -163,21 +162,24 @@ class ChatList extends Component {
                 {/* Vinstri dálkur (Virk spjöll, öll spjöll og þjónustuteymi) */}
                 <div className="chat-overview">
                     <div className="chat-el-container">
-                        <div>
-                            <h2>Virk Netspjöll</h2><img onClick={this.expand} className="chat-expand" src={chatexpand} />
+                        <div className="chat-el-div">
+                            <h2>Virk Netspjöll</h2>
+                            <img onClick={this.expand} className="chat-expand" src={chatexpand} />
                         </div>
                         <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</li>)}</ul>
                     </div>
 
                     <div className="chat-el-container">
-                        <div>
-                            <h2>Öll Netspjöll</h2><img className="chat-expand" src={chatexpand} />
+                       <div className="chat-el-div">
+                            <h2>Öll Netspjöll</h2>
+                            <img className="chat-expand" src={chatexpand} />
                         </div>
                     </div>
 
                     <div className="chat-el-container">
-                        <div>
-                            <h2>Þjónustuteymi</h2><img className="chat-expand" src={chatexpand} />
+                        <div className="chat-el-div">
+                            <h2>Þjónustuteymi</h2>
+                            <img className="chat-expand" src={chatexpand} />
                         </div>
                     </div>
                 </div>
@@ -200,8 +202,10 @@ class ChatList extends Component {
 
                                         {this.state.messages.map((message) => <div className="chat-bubble-container">
                                             <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
-                                                <p className="msg">{message.url ? 'Auðkennisbeðni hefur verið send.' : message.chatName + ':' + message.message}</p>
-                                                <p className="msg-timestamp">{new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                                                <p className="msg">{message.url ? 'Auðkennisbeðni hefur verið send.' : message.chatName + ' : ' + message.message}</p>
+                                            </div>
+                                            <div>
+                                                <p className={message.isStaff ? 'msg-timestamp' : 'msg-timestap'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                                             </div>
                                         </div>)}
 

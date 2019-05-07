@@ -43,11 +43,6 @@ class ChatStart extends Component {
                 phone: event.target.value
             })
         }
-        else if (event.target.name === 'message') {
-            this.setState({
-                message: event.target.value
-            })
-        }
         else if (event.target.name === 'email') {
             this.setState({
                 email: event.target.value
@@ -56,16 +51,17 @@ class ChatStart extends Component {
     }
 
     onSubmit = event => {
-        const { phone, chatName, message, messageDate, email, ip } = this.state;
+        const { phone, chatName, messageDate, email, ip } = this.state;
         firebase.firestore().collection('chat').doc(phone).set({
             read: false,
             ip: ip,
             email: email,
             username: chatName,
             messages: firebase.firestore.FieldValue.arrayUnion({
-                chatName,
-                message,
+                chatName: 'Þjónustufulltrúi',
+                message: 'Þú ert nú tengd/ur netspjalli, hér getum við auðkennt þig.',
                 messageDate,
+                isStaff: true,
             }),
         }, { merge: true })
         this.props.history.push({
@@ -77,20 +73,18 @@ class ChatStart extends Component {
     };
 
     render() {
-        const { name, phone, message, email } = this.state;
+        const { name, phone, email } = this.state;
         const isInvalid = phone === '' || name === '';
-
-        console.log(this.state.ip)
 
         return (
             <div className="chat-index-wrapper">
-            <div className="img-container">
-                <img className="konnekt-lady" src={konnektlady} />
-            </div>
-            
-        
+                <div className="img-container">
+                    <img className="konnekt-lady" src={konnektlady} />
+                </div>
+
+
                 <form onSubmit={this.onSubmit}>
-                <h1>Netspjall</h1>
+                    <h1>Netspjall</h1>
                     <fieldset>
                         <legend>Velkomin/n í netspjall KONNEKT</legend>
 
@@ -100,15 +94,15 @@ class ChatStart extends Component {
                             value={name}
                             onChange={this._handleChange}
                             type="text"
-                            placeholder="Username"
+                            placeholder="Notendanafn"
                         />
-                        <label for="phone">Phone</label>
+                        <label for="phone">Sími</label>
                         <input
                             name="phone"
                             value={phone}
                             onChange={this._handleChange}
                             type="text"
-                            placeholder="Phone"
+                            placeholder="Sími"
                         />
                         <label for="email">E-mail</label>
                         <input
@@ -116,15 +110,7 @@ class ChatStart extends Component {
                             value={email}
                             onChange={this._handleChange}
                             type="text"
-                            placeholder="Phone"
-                        />
-                        <label for="message">Question</label>
-                        <input
-                            name="message"
-                            value={message}
-                            onChange={this._handleChange}
-                            type="text"
-                            placeholder="What can i help you with?"
+                            placeholder="E-mail"
                         />
                     </fieldset>
                     <button className="btn" disabled={isInvalid} type="submit">
