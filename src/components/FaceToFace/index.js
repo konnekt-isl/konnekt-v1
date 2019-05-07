@@ -84,13 +84,13 @@ class FaceToFace extends Component {
 
     render() {
         return (
-            <div>
+            <div className="facetoface-homepage">
                 <FirebaseContext.Consumer>
                     {firebase => {
                         return (
-                            <div className="simi-skjar1">
-                                <div className="wrapper">
-                                    <div className="container">
+                    
+                                <div className="facetoface-wrapper">
+                                   <div className="facetoface-container">
                                         <img className="logo" src={logo} alt="Logo" />
                                         <img className="searchperson" src={searchperson} alt="Logo" />
                                         <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
@@ -99,15 +99,16 @@ class FaceToFace extends Component {
                                             <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
                                             <button onClick={this._confirmphone} className="yes-btn">Senda</button>
                                         </div>
+                                   </div>
+                                        
 
-                                    </div>
 
 
                                 </div>
 
 
 
-                            </div>)
+                        )
                     }}</FirebaseContext.Consumer>
             </div>
         )
