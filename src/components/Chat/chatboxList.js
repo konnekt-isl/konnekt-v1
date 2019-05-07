@@ -162,21 +162,24 @@ class ChatList extends Component {
                 {/* Vinstri dálkur (Virk spjöll, öll spjöll og þjónustuteymi) */}
                 <div className="chat-overview">
                     <div className="chat-el-container">
-                        <div>
-                            <h2>Virk Netspjöll</h2><img onClick={this.expand} className="chat-expand" src={chatexpand} />
+                        <div className="chat-el-div">
+                            <h2>Virk Netspjöll</h2>
+                            <img onClick={this.expand} className="chat-expand" src={chatexpand} />
                         </div>
                         <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</li>)}</ul>
                     </div>
 
                     <div className="chat-el-container">
-                        <div>
-                            <h2>Öll Netspjöll</h2><img className="chat-expand" src={chatexpand} />
+                       <div className="chat-el-div">
+                            <h2>Öll Netspjöll</h2>
+                            <img className="chat-expand" src={chatexpand} />
                         </div>
                     </div>
 
                     <div className="chat-el-container">
-                        <div>
-                            <h2>Þjónustuteymi</h2><img className="chat-expand" src={chatexpand} />
+                        <div className="chat-el-div">
+                            <h2>Þjónustuteymi</h2>
+                            <img className="chat-expand" src={chatexpand} />
                         </div>
                     </div>
                 </div>
