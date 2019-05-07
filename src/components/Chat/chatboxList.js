@@ -200,8 +200,10 @@ class ChatList extends Component {
 
                                         {this.state.messages.map((message) => <div className="chat-bubble-container">
                                             <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
-                                                <p className="msg">{message.url ? 'Auðkennisbeðni hefur verið send.' : message.chatName + ':' + message.message}</p>
-                                                <p className="msg-timestamp">{new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                                                <p className="msg">{message.url ? 'Auðkennisbeðni hefur verið send.' : message.chatName + ' : ' + message.message}</p>
+                                            </div>
+                                            <div>
+                                                <p className={message.isStaff ? 'msg-timestamp' : 'msg-timestap'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                                             </div>
                                         </div>)}
 
