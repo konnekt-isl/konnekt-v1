@@ -1,5 +1,11 @@
 // Mobile View
 
+// .navigation .navigation-link {
+//  display: none;
+// }
+
+
+
 .landing {
   //Div sem heldur utan um hvert section fyrir sig,
   .section {
@@ -17,6 +23,7 @@
     justify-content: space-around;
     .landing-img-container {
       width: 100%;
+      margin-top: 168px;
       @extend %flex-row;
       align-items: flex-end;
       justify-content: space-around;
@@ -33,21 +40,24 @@
       font-size: 32px;
       text-align: center;
       font-weight: 900;
-      margin: 0;
+      margin-top: 78px;
       width: 90%;
       letter-spacing: 2px;
     }
     h2 {
-      font-size: 20px;
+      font-size: 16px;
+      font-weight: 400;
       width: 90%;
       color: $text;
       text-align: center;
+      margin-top: 35px;
     }
     .lausnir-btn {
       @extend %landing-btn;
       background: $primary;
       width: 90%;
       font-size: 20px;
+      margin-top: 33px;
     }
     .lausnir-btn:hover {
       background: none;
@@ -200,6 +210,7 @@
       margin: 0% auto;
     }
 
+
     .landing-section {
       height: 90vh;
       flex-direction: column;
@@ -209,7 +220,7 @@
       h1 {
         font-size: 80px;
         text-transform: uppercase;
-        max-width: 600px;
+        max-width: 900px;
       }
 
       h2 {

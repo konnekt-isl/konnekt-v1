@@ -5,16 +5,6 @@ import logo from '../img/logo.svg';
 import konnektlady from '../img/konnektlady.svg';
 import searchperson from '../img/searchperson.svg';
 
-const mockResponse = {
-    "ssn": "0307844489",
-    "address": "Brúnastöðum 27",
-    "city": "Reykjavík",
-    "name": "Marcel Radix",
-    "phoneNumber": "6470788",
-    "postalCode": "112",
-    "token": "cd1ae943b74749d099fa",
-    "status": "200"
-}
 
 class FaceToFace extends Component {
     constructor(props) {
@@ -56,7 +46,7 @@ class FaceToFace extends Component {
 
                 data.responseStatus ? this.setState({ message: data.responseStatus.message }) :
                     this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
-                const { ssn, name, phoneNumber, address, postalCode, city, token, } = mockResponse;
+                const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
                 firebase.firestore().collection('end_users').doc(ssn).set({
                     name,
                     phoneNumber,
@@ -73,7 +63,7 @@ class FaceToFace extends Component {
                 })
                 console.log("Test: " + this.state.data.ssn)
                 this.props.history.push({
-                    pathname: '/authenticate/status',
+                    pathname: '/f2fstatus',
                     state: { ssn: this.state.data.ssn }
                 })
             })
@@ -84,30 +74,31 @@ class FaceToFace extends Component {
 
     render() {
         return (
-            <div>
+            <div className="facetoface-homepage">
                 <FirebaseContext.Consumer>
                     {firebase => {
                         return (
-                            <div className="simi-skjar1">
-                                <div className="wrapper">
-                                    <div className="container">
-                                        <img className="logo" src={logo} alt="Logo" />
-                                        <img className="searchperson" src={searchperson} alt="Logo" />
-                                        <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
-                                        <div class="input-btn-container">
-                                            <label for="phone">Símanúmer</label>
-                                            <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
-                                            <button onClick={this._confirmphone} className="yes-btn">Senda</button>
-                                        </div>
 
+                            <div className="facetoface-wrapper">
+                                <div className="facetoface-container">
+                                    <img className="logo" src={logo} alt="Logo" />
+                                    <img className="searchperson" src={searchperson} alt="Logo" />
+                                    <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
+                                    <div class="input-btn-container">
+                                        <label for="phone">Símanúmer</label>
+                                        <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
+                                        <button onClick={this._confirmphone} className="yes-btn">Senda</button>
                                     </div>
-
-
                                 </div>
 
 
 
-                            </div>)
+
+                            </div>
+
+
+
+                        )
                     }}</FirebaseContext.Consumer>
             </div>
         )

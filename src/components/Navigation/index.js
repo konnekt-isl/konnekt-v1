@@ -67,13 +67,13 @@ class NavigationNonAuth extends Component {
           <li className="navigation-link">
             <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
           </li>
-          <li>
+          <li className="navigation-link">
             <Link to={ROUTES.L_OKKARSYN}>Um okkur</Link>
           </li>
-          <li>
+          <li className="navigation-link">
             <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
           </li>
-          <li>
+          <li className="navigation-link">
             <Link to={ROUTES.SIGN_IN}>Innskráning</Link>
           </li>
         </ul>
