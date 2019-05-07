@@ -2,7 +2,7 @@
 
 //Navigation
 .navigation {
- 
+    display: none;
     ul {
         list-style-type: none;
         padding: 0;
@@ -23,7 +23,6 @@
 
 //Nav when user is logged in
 .auth {
-    // width: 72px;
     ul {
         
         display: flex;
@@ -74,6 +73,7 @@
  justify-content: space-between;
  padding: 30px 80px;
  background-color:rgba(255, 255, 255, 0.95);
+
 ul {
     @extend %flex-row;
 
