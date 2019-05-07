@@ -819,7 +819,6 @@ ul {
   border: none;
   padding: 0px;
   margin-bottom: 10px;
-  cursor: pointer;
 }
 .facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper h2 {
   text-transform: uppercase;
@@ -997,6 +996,18 @@ ul {
   font-size: 16px;
   font-weight: 400;
 }
+.chathomepage .csr-header .user-container .avatar path {
+  fill: #3463FF;
+}
+.chathomepage .csr-header .signout-btn {
+  background: 0;
+  border: 0;
+  margin-left: auto;
+  cursor: pointer;
+}
+.chathomepage .csr-header .signout-btn .logout-icon path {
+  fill: #3463FF;
+}
 .chathomepage .chat-overview {
   width: 230px;
   height: 100%;
@@ -1076,10 +1087,10 @@ ul {
 }
 .chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar {
   width: 5px;
-  background: #B0B0B0;
+  background: #FFFFFF;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar-track {
-  background: #B0B0B0;
+  background: #FFFFFF;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar-thumb {
   width: 30px;
