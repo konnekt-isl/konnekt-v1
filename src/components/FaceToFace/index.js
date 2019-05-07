@@ -17,7 +17,6 @@ const mockResponse = {
     "status": "200"
 }
 
-
 class FaceToFace extends Component {
     constructor(props) {
         super(props);
@@ -114,18 +113,19 @@ class FaceToFace extends Component {
                                             <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
                                             <button onClick={this._confirmphone} className="yes-btn">Senda</button>
                                         </div>
-                                        
+
                                     </div>
-                        
-                                    
+
+
                                 </div>
-                
-                                    
-                                
+
+
+
                             </div>)
                     }}</FirebaseContext.Consumer>
             </div>
         )
     };
 }
+
 export default FaceToFace
