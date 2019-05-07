@@ -204,8 +204,8 @@ class ChatList extends Component {
                                             <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
                                                 <p className="msg">{message.url ? 'Auðkennisbeðni hefur verið send.' : message.chatName + ' : ' + message.message}</p>
                                             </div>
-                                            <div>
-                                                <p className={message.isStaff ? 'msg-timestamp' : 'msg-timestap'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                                            <div className="timestamp-container">
+                                                <p className={message.isStaff ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                                             </div>
                                         </div>)}
 
