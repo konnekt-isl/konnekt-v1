@@ -5,16 +5,6 @@ import logo from '../img/logo.svg';
 import konnektlady from '../img/konnektlady.svg';
 import searchperson from '../img/searchperson.svg';
 
-const mockResponse = {
-    "ssn": "0307844489",
-    "address": "Brúnastöðum 27",
-    "city": "Reykjavík",
-    "name": "Marcel Radix",
-    "phoneNumber": "6470788",
-    "postalCode": "112",
-    "token": "cd1ae943b74749d099fa",
-    "status": "200"
-}
 
 class FaceToFace extends Component {
     constructor(props) {
@@ -56,7 +46,7 @@ class FaceToFace extends Component {
 
                 data.responseStatus ? this.setState({ message: data.responseStatus.message }) :
                     this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
-                const { ssn, name, phoneNumber, address, postalCode, city, token, } = mockResponse;
+                const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
                 firebase.firestore().collection('end_users').doc(ssn).set({
                     name,
                     phoneNumber,
