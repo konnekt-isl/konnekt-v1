@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import * as ReactDOM from 'react-dom';
 import { withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
 import chatexpand from '../img/chatexpand.svg';
