@@ -93,10 +93,25 @@
             }
 
             .chat-expand {
+                display: flex;
+                flex-direction: row;
                 cursor: pointer;
+                
             }
-
-
+            .chat-el-div{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                
+                img {
+                    margin-left: 16px;
+                }
+            }
+            .chat-el-container {
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+            }
 
             .content {
                 display: none;
