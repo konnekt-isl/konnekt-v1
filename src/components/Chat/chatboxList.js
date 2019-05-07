@@ -184,6 +184,7 @@ class ChatList extends Component {
                             <div className="chat-display-wrapper">
 
                             {this.state.messages.map((message) => <div className="chat-bubble-container">
+                            {/* <div className="first-letter-avatar">X</div> */}
                                 <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
                                     <p className="msg">{message.chatName + ':' + message.message}</p>
                                     <p className="msg-timestamp">Timestamp</p>
