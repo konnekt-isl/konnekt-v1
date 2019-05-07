@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { FirebaseContext } from '../Firebase';
 import logo from '../img/logo.svg';
-import konnektlady from '../img/konnektlady.svg';
+import searchperson from '../img/searchperson.svg';
+import SVGIcon from "../img/SVGIcon";
+import SignOutButton from '../SignOut';
 
 const mockResponse = {
     "ssn": "0307844489",
@@ -26,6 +28,7 @@ class FaceToFace extends Component {
             status: null,
             date: null,
             message: null,
+            authUser: JSON.parse(localStorage.getItem('authUser')),
         };
 
         this._handleChange = this._handleChange.bind(this);
@@ -83,29 +86,36 @@ class FaceToFace extends Component {
     }
 
     render() {
+        const userName = this.state.authUser.username
+
         return (
             <div>
                 <FirebaseContext.Consumer>
                     {firebase => {
                         return (
-                            <div className="simi-skjar1">
+                            <div className="facetoface-homepage">
 
-                                <div className="wrapper">
-                                    <div className="container">
+                                <div className="facetoface-wrapper">
+
+                                    <div className="csr-header">
+                                        <div className="user-container">
+                                            <SVGIcon className="avatar" name="avatar" width={30} height={30} />
+                                            <h1>{userName}</h1>
+                                        </div>
+                                        <SignOutButton className="signout-btn" />
+                                    </div>
+
+                                    <div className="facetoface-content-wrapper">
                                         <img className="logo" src={logo} alt="Logo" />
-                                        <h1>frá *nafn*</h1>
-                                        <img className="konnekt-lady" src={konnektlady} />
+                                        <img className="searchperson" src={searchperson} alt="Logo" />
+                                        <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
+                                        <div class="input-btn-container">
+                                            <label for="phone">Símanúmer</label>
+                                            <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
+                                            <button onClick={this._confirmphone} className="yes-btn">Senda</button>
+                                        </div>
+                                        
                                     </div>
-                                    <div className="container">
-                                        <h2>Hæ *customer name*</h2>
-                                        <p>Þú hefur fengið beiðni um auðkenningu</p>
-                                        <p>Viltu halda áfram?</p>
-                                        <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
-                                    </div>
-                                       <div className="container">
-                                            <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
-                                            <button className="no-btn">Hætta við</button>
-                                       </div>
                         
                                     
                                 </div>

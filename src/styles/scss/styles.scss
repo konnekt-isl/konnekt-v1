@@ -1,8 +1,9 @@
 @import 'reset';
 @import 'variables';
 @import 'navigation';
+@import 'universal';
 @import 'landing';
-@import 'simiskjar1';
+@import 'facetoface';
 @import 'simiskjar2';
 @import 'netspjallskjar1';
 @import 'netspjalldesktop';
@@ -14,23 +15,5 @@
 @import 'uwstatus';
 
 
-* {
-    font-family: $font-stack;
-    box-sizing: border-box;
-}
 
-html, body {
-    height: 100%;
-    margin: 0;
-    max-width:100%;
-}
-
-#root {
-    height: 100%;
-}
-
-
-ul {
-    margin: 0;
-}
 

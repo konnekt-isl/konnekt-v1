@@ -331,7 +331,7 @@ template {
 }
 
 /*# sourceMappingURL=bootstrap-reboot.css.map */
-.simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn, .simi-skjar1 .yes-btn {
+.simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn, .facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .yes-btn:hover, .facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -343,7 +343,7 @@ template {
   text-decoration: none;
 }
 
-.simi-skjar2 .wrapper .status-screen .no-btn, .simi-skjar1 .no-btn {
+.simi-skjar2 .wrapper .status-screen .no-btn {
   width: 208px;
   height: 40px;
   background: #FFEEED;
@@ -466,6 +466,25 @@ template {
 .non-auth ul li:before {
   -webkit-transition: width 0.2s ease-in-out;
   transition: width 0.2s ease-in-out;
+}
+
+* {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  max-width: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+ul {
+  margin: 0;
 }
 
 .landing .section {
@@ -753,31 +772,46 @@ template {
     letter-spacing: 2px;
   }
 }
-.simi-skjar1 {
+.facetoface-homepage {
   display: flex;
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  width: 100%;
+  padding-left: 72px;
 }
-.simi-skjar1 .wrapper {
+.facetoface-homepage .facetoface-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  flex-grow: 1;
-}
-.simi-skjar1 .wrapper .container {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
   align-items: center;
 }
-.simi-skjar1 .wrapper .container .logo {
-  margin-bottom: 5%;
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.simi-skjar1 .wrapper .container h1 {
-  margin-bottom: 15%;
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .logo {
+  margin-top: 25%;
+  height: 35px;
 }
-.simi-skjar1 input {
-  margin-top: 20px;
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .searchperson {
+  margin-top: 40%;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper label {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 14px;
+  text-align: left;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .input-btn-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25%;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper input {
   border-radius: 4px;
   background: #E6ECFF;
   height: 40px;
@@ -785,25 +819,53 @@ template {
   border: none;
   padding: 0px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
-.simi-skjar1 h1 {
-  font-size: 17px;
-  margin: auto;
-}
-.simi-skjar1 h2 {
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper h2 {
   text-transform: uppercase;
   font-weight: bold;
   color: #3463FF;
-  font-size: 20px;
-}
-.simi-skjar1 .yes-btn {
-  margin-bottom: 10%;
-}
-.simi-skjar1 p {
   font-size: 14px;
-  padding: 0;
-  margin: 0;
+  max-width: 205px;
+  margin-top: 20%;
 }
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .yes-btn {
+  margin-top: 5%;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .yes-btn:hover {
+  box-shadow: 1px 1px 3px #4F4F4F;
+}
+.facetoface-homepage .csr-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px 40px;
+}
+.facetoface-homepage .csr-header .user-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.facetoface-homepage .csr-header .user-container h1 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.facetoface-homepage .csr-header .signout-btn {
+  background: 0;
+  border: 0;
+  margin-left: auto;
+  cursor: pointer;
+}
+.facetoface-homepage .csr-header .signout-btn .logout-icon path {
+  fill: #3463FF;
+}
+.facetoface-homepage .csr-header .avatar path {
+  fill: #3463FF;
+}
+
 .signin-page {
   padding-top: 92px;
   display: flex;
@@ -910,15 +972,6 @@ template {
   overflow-x: hidden;
   padding-left: 72px;
 }
-.chathomepage .signout-btn {
-  background: 0;
-  border: 0;
-  margin-left: auto;
-  cursor: pointer;
-}
-.chathomepage .signout-btn .logout-icon path {
-  fill: #3463FF;
-}
 .chathomepage .chathomepage-wrapper {
   display: flex;
   flex-direction: row;
@@ -944,9 +997,6 @@ template {
   font-size: 16px;
   font-weight: 400;
 }
-.chathomepage .csr-header .user-container .avatar path {
-  fill: #3463FF;
-}
 .chathomepage .chat-overview {
   width: 230px;
   height: 100%;
@@ -956,7 +1006,6 @@ template {
   justify-content: space-around;
 }
 .chathomepage .chat-overview .chat-el-container {
-  border-bottom: 1px solid #E9E9E9;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1344,25 +1393,6 @@ template {
   text-transform: uppercase;
   color: red;
   font-weight: bold;
-}
-
-* {
-  font-family: "Lato", Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  max-width: 100%;
-}
-
-#root {
-  height: 100%;
-}
-
-ul {
-  margin: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

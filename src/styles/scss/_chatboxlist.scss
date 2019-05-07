@@ -1,24 +1,9 @@
 //Fyrsta sem kemur á móti manni þegar maður loggar sig inn
 .chathomepage {
     overflow-x: hidden;
-    
     padding-left: 72px;
-    //Sign out takki
-    .signout-btn {
-        background: 0;
-        border: 0;
-        margin-left: auto;
-        cursor: pointer;
-        .logout-icon {
-           
-            path {
-                fill: $primary;
-            }
-        }
-    }
     //wrapper INNÍ chathomepage sem heldur samt utan um allt content
     .chathomepage-wrapper {
-        
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -45,11 +30,7 @@
                 font-weight: 400;
             }
 
-            .avatar {
-                path {
-                    fill: $primary;
-                }
-            }
+        
 
        
         }
@@ -67,7 +48,6 @@
 
         //container sem heldur utan um hvern dálk 
         .chat-el-container {
-            border-bottom: 1px solid $border;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -153,8 +133,6 @@
             background: $grey;
         }
         .chat-display-wrapper::-webkit-scrollbar-track {
-            // width: 10px;
-            // border-radius: 10px;
             background: $grey;
         }
         .chat-display-wrapper::-webkit-scrollbar-thumb {
