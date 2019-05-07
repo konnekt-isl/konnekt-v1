@@ -940,7 +940,22 @@ template {
   padding: 25px 0px;
 }
 .chathomepage .chat-overview .chat-el-container .chat-expand {
+  display: flex;
+  flex-direction: row;
   cursor: pointer;
+}
+.chathomepage .chat-overview .chat-el-container .chat-el-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.chathomepage .chat-overview .chat-el-container .chat-el-div img {
+  margin-left: 16px;
+}
+.chathomepage .chat-overview .chat-el-container .chat-el-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
 }
 .chathomepage .chat-overview .chat-el-container .content {
   display: none;
