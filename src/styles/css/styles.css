@@ -331,7 +331,7 @@ template {
 }
 
 /*# sourceMappingURL=bootstrap-reboot.css.map */
-.facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn:hover, .facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn, .simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn {
+.simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -526,27 +526,34 @@ template {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-direction: column; }
-  .landing .summary-decoration .virkni-video {
-    min-width: 350px; }
-  .landing .summary-decoration .big-btn {
-    width: 100%;
-    font-size: 20px;
-    margin: 5% auto; }
-  .landing .summary-decoration .green {
-    background: #56E8A2; }
-  .landing .summary-decoration .blue {
-    background: #3463FF; }
-  .landing .summary-decoration .green:hover {
-    background: none;
-    color: #56E8A2;
-    border: 4px solid #56E8A2;
-    cursor: pointer; }
-  .landing .summary-decoration .blue:hover {
-    background: none;
-    color: #3463FF;
-    border: 4px solid #3463FF;
-    cursor: pointer; }
+  flex-direction: column;
+}
+.landing .summary-decoration .virkni-video {
+  min-width: 350px;
+}
+.landing .summary-decoration .big-btn {
+  width: 100%;
+  font-size: 20px;
+  margin: 5% auto;
+}
+.landing .summary-decoration .green {
+  background: #56E8A2;
+}
+.landing .summary-decoration .blue {
+  background: #3463FF;
+}
+.landing .summary-decoration .green:hover {
+  background: none;
+  color: #56E8A2;
+  border: 4px solid #56E8A2;
+  cursor: pointer;
+}
+.landing .summary-decoration .blue:hover {
+  background: none;
+  color: #3463FF;
+  border: 4px solid #3463FF;
+  cursor: pointer;
+}
 .landing h3 {
   color: #56E8A2;
   text-transform: uppercase;
@@ -579,41 +586,51 @@ template {
   width: 100%;
   background-color: #3463FF;
   color: #FFFFFF;
-  padding: 5% 5%; }
-  .landing footer .list-container ul {
-    list-style-type: none;
-    padding: 0px;
-    width: 100%; }
-    .landing footer .list-container ul li {
-      font-size: 20px;
-      margin: 0px;
-      max-width: 250px; }
-  .landing footer .list-container .list-item {
-    display: flex;
-    align-items: baseline;
-    padding: 5% 0%; }
-  .landing footer .list-container h2 {
-    color: #FFFFFF;
-    text-align: left;
-    font-size: 20px; }
-  .landing footer .list-container .dot {
-    width: 12px;
-    height: 12px;
-    background: #56E8A2;
-    border-radius: 50%;
-    margin-right: 16px; }
-  .landing footer .contact-link-container {
-    margin-top: 10%; }
-    .landing footer .contact-link-container p {
-      color: #FFFFFF; }
-    .landing footer .contact-link-container .contact-link {
-      font-size: 30px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      margin: auto; }
-    .landing footer .contact-link-container .contact-link:hover {
-      text-decoration: underline;
-      cursor: pointer; }
+  padding: 5% 5%;
+}
+.landing footer .list-container ul {
+  list-style-type: none;
+  padding: 0px;
+  width: 100%;
+}
+.landing footer .list-container ul li {
+  font-size: 20px;
+  margin: 0px;
+  max-width: 250px;
+}
+.landing footer .list-container .list-item {
+  display: flex;
+  align-items: baseline;
+  padding: 5% 0%;
+}
+.landing footer .list-container h2 {
+  color: #FFFFFF;
+  text-align: left;
+  font-size: 20px;
+}
+.landing footer .list-container .dot {
+  width: 12px;
+  height: 12px;
+  background: #56E8A2;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+.landing footer .contact-link-container {
+  margin-top: 10%;
+}
+.landing footer .contact-link-container p {
+  color: #FFFFFF;
+}
+.landing footer .contact-link-container .contact-link {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: auto;
+}
+.landing footer .contact-link-container .contact-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 @media only screen and (min-width: 768px) {
   .landing .section {
@@ -624,22 +641,27 @@ template {
     height: 80vh;
     display: flex;
     max-width: 1360px;
-    margin: 0% auto; }
+    margin: 0% auto;
+  }
   .landing .landing-section {
     height: 90vh;
     flex-direction: column;
     align-items: center;
-    padding-top: 80px; }
-    .landing .landing-section h1 {
-      font-size: 80px;
-      text-transform: uppercase;
-      max-width: 600px; }
-    .landing .landing-section h2 {
-      font-size: 20px;
-      max-width: 700px; }
-    .landing .landing-section .lausnir-btn {
-      width: 304px;
-      cursor: pointer; }
+    padding-top: 80px;
+  }
+  .landing .landing-section h1 {
+    font-size: 80px;
+    text-transform: uppercase;
+    max-width: 600px;
+  }
+  .landing .landing-section h2 {
+    font-size: 20px;
+    max-width: 700px;
+  }
+  .landing .landing-section .lausnir-btn {
+    width: 304px;
+    cursor: pointer;
+  }
   .landing .m-h {
     margin: 0 80px 0 0;
   }
@@ -648,30 +670,38 @@ template {
   }
   .landing .summary-wrapper {
     max-width: 600px;
-    min-width: 350px; }
+    min-width: 350px;
+  }
   .landing .summary-decoration {
     max-width: 600px;
     min-width: 350px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    flex-direction: column; }
-    .landing .summary-decoration p {
-      max-width: 600px; }
-    .landing .summary-decoration a {
-      width: 100%; }
-    .landing .summary-decoration .virkni-video {
-      width: 100%; }
-    .landing .summary-decoration .big-btn {
-      width: 100%;
-      height: 128px; }
+    flex-direction: column;
+  }
+  .landing .summary-decoration p {
+    max-width: 600px;
+  }
+  .landing .summary-decoration a {
+    width: 100%;
+  }
+  .landing .summary-decoration .virkni-video {
+    width: 100%;
+  }
+  .landing .summary-decoration .big-btn {
+    width: 100%;
+    height: 128px;
+  }
   .landing h4 {
-    font-size: 60px; }
+    font-size: 60px;
+  }
   .landing .okkar-syn-container .okkar-syn {
     max-width: 100%;
     min-width: 200px;
     display: block;
-    height: auto; }
+    height: auto;
+  }
   .landing footer {
     padding: 5% 160px;
     display: flex;
@@ -719,6 +749,57 @@ template {
     font-size: 60px;
     letter-spacing: 2px;
   }
+}
+.simi-skjar1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.simi-skjar1 .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+.simi-skjar1 .wrapper .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.simi-skjar1 .wrapper .container .logo {
+  margin-bottom: 5%;
+}
+.simi-skjar1 .wrapper .container h1 {
+  margin-bottom: 15%;
+}
+.simi-skjar1 input {
+  margin-top: 20px;
+  border-radius: 4px;
+  background: #E6ECFF;
+  height: 40px;
+  width: 208px;
+  border: none;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+.simi-skjar1 h1 {
+  font-size: 17px;
+  margin: auto;
+}
+.simi-skjar1 h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 20px;
+}
+.simi-skjar1 .yes-btn {
+  margin-bottom: 10%;
+}
+.simi-skjar1 p {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
 }
 .signin-page {
   padding-top: 92px;
@@ -910,7 +991,22 @@ template {
   padding: 25px 0px;
 }
 .chathomepage .chat-overview .chat-el-container .chat-expand {
+  display: flex;
+  flex-direction: row;
   cursor: pointer;
+}
+.chathomepage .chat-overview .chat-el-container .chat-el-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.chathomepage .chat-overview .chat-el-container .chat-el-div img {
+  margin-left: 16px;
+}
+.chathomepage .chat-overview .chat-el-container .chat-el-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
 }
 .chathomepage .chat-overview .chat-el-container .content {
   display: none;
@@ -998,9 +1094,6 @@ template {
   margin: 0px;
   align-self: flex-start;
   width: 100%;
-}
-.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .chat-bubble .time-csr {
-  float: right;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .user {
   background-color: #EBEFFF;
@@ -1378,10 +1471,12 @@ template {
 html, body {
   height: 100%;
   margin: 0;
-  max-width: 100%; }
+  max-width: 100%;
+}
 
 #root {
-  height: 100%; }
+  height: 100%;
+}
 
 ul {
   margin: 0;
