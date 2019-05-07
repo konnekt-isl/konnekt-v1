@@ -166,11 +166,11 @@ class ChatList extends Component {
                             <h2>Virk Netspjöll</h2>
                             <img onClick={this.expand} className="chat-expand" src={chatexpand} />
                         </div>
-                        <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.id}</li>)}</ul>
+                        <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.username}</li>)}</ul>
                     </div>
 
                     <div className="chat-el-container">
-                       <div className="chat-el-div">
+                        <div className="chat-el-div">
                             <h2>Öll Netspjöll</h2>
                             <img className="chat-expand" src={chatexpand} />
                         </div>
