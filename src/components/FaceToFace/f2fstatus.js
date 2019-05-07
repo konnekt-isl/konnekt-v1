@@ -23,8 +23,7 @@ class f2fstatus extends Component {
     }
 
     componentDidMount() {
-        console.log('Status')
-        firebase.firestore().collection('status').doc(this.props.history.state).get()
+        firebase.firestore().collection('status').doc(this.props.location.state.ssn).get()
             .then((doc) => {
                 this.setState({ ssn: doc.data().ssn })
                 this.setState({ timeStamp: doc.data().date.seconds })
@@ -42,16 +41,16 @@ class f2fstatus extends Component {
         clearInterval(this.timerID);
     }
 
-    tick = () => {
-        const d = firebase.firestore.Timestamp.fromDate(new Date()).seconds - this.state.timeStamp
-        console.log(d)
-        if (d < 60) {
-            this.setState({ sessionTimeOut: false })
-        }
-        else {
-            this.setState({ sessionTimeOut: true })
-        }
-    }
+    // tick = () => {
+    //     const d = firebase.firestore.Timestamp.fromDate(new Date()).seconds - this.state.timeStamp
+    //     console.log(d)
+    //     if (d < 60) {
+    //         this.setState({ sessionTimeOut: false })
+    //     }
+    //     else {
+    //         this.setState({ sessionTimeOut: true })
+    //     }
+    // }
 
     render() {
         const { sessionTimeOut } = this.state;
