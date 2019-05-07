@@ -63,7 +63,7 @@ class FaceToFace extends Component {
                 })
                 console.log("Test: " + this.state.data.ssn)
                 this.props.history.push({
-                    pathname: '/authenticate/status',
+                    pathname: '/face2face/status',
                     state: { ssn: this.state.data.ssn }
                 })
             })
