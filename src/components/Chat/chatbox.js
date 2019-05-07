@@ -24,7 +24,6 @@ class ChatBox extends Component {
         this.setState({ phone: this.props.history.location.state.phone, chatName: this.props.history.location.state.chatName })
         const phone = this.props.history.location.state.phone ? this.props.history.location.state.phone : this.state.phone
         firebase.firestore().collection('chat').doc(phone).onSnapshot((doc) => {
-            console.log(doc.data().messages)
             this.setState({
                 read: doc.data().read,
                 messages: doc.data().messages,
@@ -67,7 +66,7 @@ class ChatBox extends Component {
                     {this.state.messages.map((message) => {
                         return (
                             <div class={message.chatName === this.state.chatName ? 'chat-bubble-csr' : 'chat-bubble-user'}>
-                                {message.url ? <a href={message.url}>Click</a> : message.chatName + ':' + message.message}
+                                {message.url ? <a href={message.url}>Click</a> : message.chatName + ' : ' + message.message}
                             </div>)
                     })
                     }
