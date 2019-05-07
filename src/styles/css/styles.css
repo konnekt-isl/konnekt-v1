@@ -401,6 +401,7 @@ template {
   justify-content: space-around; }
   .landing .landing-section .landing-img-container {
     width: 100%;
+    margin-top: 168px;
     align-items: flex-end;
     justify-content: space-around; }
     .landing .landing-section .landing-img-container .konnekt-dude {
@@ -412,18 +413,21 @@ template {
     font-size: 32px;
     text-align: center;
     font-weight: 900;
-    margin: 0;
+    margin-top: 78px;
     width: 90%;
     letter-spacing: 2px; }
   .landing .landing-section h2 {
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: 400;
     width: 90%;
     color: #4F4F4F;
-    text-align: center; }
+    text-align: center;
+    margin-top: 35px; }
   .landing .landing-section .lausnir-btn {
     background: #3463FF;
     width: 90%;
-    font-size: 20px; }
+    font-size: 20px;
+    margin-top: 33px; }
   .landing .landing-section .lausnir-btn:hover {
     background: none;
     color: #3463FF;
@@ -537,7 +541,7 @@ template {
     .landing .landing-section h1 {
       font-size: 80px;
       text-transform: uppercase;
-      max-width: 600px; }
+      max-width: 900px; }
     .landing .landing-section h2 {
       font-size: 20px;
       max-width: 700px; }
@@ -914,7 +918,8 @@ template {
       font-size: 14px; }
     .chathomepage .csr-middle-section span {
       font-size: 36px;
-      color: #56E8A2; }
+      color: #56E8A2;
+      padding: 9px; }
   .chathomepage .user-info-konnekt-wrapper {
     height: 100%;
     width: 300px;
