@@ -34,9 +34,9 @@ class Request extends Component {
                 firebase.firestore().collection('status').doc(sessionID).onSnapshot((doc) => {
                     const { ssn, date, status, message } = doc.data();
                     this.setState({
-                        ssn: ssn,
+                        ssn,
                         timeStamp: date.seconds,
-                        status: status,
+                        status,
                         message: message
                     })
                     if (ssn) {
@@ -75,9 +75,8 @@ class Request extends Component {
 
         const phone = this.props.phone;
         const isInvalid = phone === '';
-        console.log(this.state.status)
 
-        let result = < button onClick={this._handleButtonClick} disabled={isInvalid} className="konnekt-btn" > Auðkenna með Konnekt</button >
+        let result = < button onClick={this._handleButtonClick} disabled={isInvalid} className="konnekt-btn" >Auðkenna með Konnekt</button >
 
         if (Object.keys(this.state.userInfo).length != 0) {
             result = <div>{this.state.status === '200' ? (<p>Green</p>) : (<p>Red</p>)}</div>
@@ -86,6 +85,7 @@ class Request extends Component {
         return (
             <div>
                 {result}
+                {user_info}
             </div>
         )
     }

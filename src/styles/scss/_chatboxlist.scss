@@ -1,15 +1,11 @@
 //Fyrsta sem kemur á móti manni þegar maður loggar sig inn
-
 .chathomepage {
     height: 100vh;
     padding-left: 72px;
-    // position: fixed;
-
     .signout-btn {
         background: 0;
         border: 0;
         margin-left: auto;
-        
         cursor: pointer;
         .logout-icon {
            
@@ -23,17 +19,16 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        height: inherit;
+        justify-content: space-between;
+        align-items: flex-start;
     }
 
     //wrapper með nafn notendans og útskráningar takka 
     .csr-header {
         display: flex;
         flex-direction: row;
-        // align-items: center;
-        // justify-content: center;
         width: 100%;
-        padding: 0px 40px;
+        padding: 20px 40px;
 
         .user-container {
             display: flex;
@@ -71,9 +66,9 @@
         .chat-el-container {
             border-bottom: 1px solid $border;
             display: flex;
-            flex-direction: row;
-            justify-content: center;
-            flex-grow: 1;
+            flex-direction: column;
+            justify-content: flex-start;
+            height:250px;
             flex-wrap: wrap;
 
             //heldur utan um lýsingu á flokk og expand takkann
@@ -82,40 +77,46 @@
                 flex-direction: row;
                 justify-content: center;
                 align-items: baseline;
-                width: 100%;
+                height: 50px;
 
                 h2 {
                     margin: 0px;
                     text-transform: uppercase;
                     color: $primary;
                     font-size: 16px;
+                    padding: 25px 0px;
                 }
             }
 
             .chat-expand {
                 cursor: pointer;
             }
-
-            .chat-list-collapsed {
             
-
-                li {
-                    width: 100%;
-                }
-            }
+      
+            
             .content {
                 display: none;
                 overflow: hidden;
+                li {
+                    font-size: 14px; 
+                    color: $grey;
+                }
+                li:hover {
+                    background-color: #E6ECFF;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    width:100px;
+                }
             }
             .active {
                 display: flex;
                 list-style-type: none;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                justify-content: flex-start;
+                align-items: flex-start;
                 margin: 0;
-                padding: 0;
+                padding: 20px 0px 0px 40px;
             }
         }
     }
@@ -125,22 +126,42 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         height: 100%;
         flex-grow:1;
+        .chat-display-and-input-wrapper {
+            width: 100%;
+        }
+        .welcome-msg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 80px;
+        }
+        .chat-display-wrapper::-webkit-scrollbar {
+            width: 1px;
+            background: $grey;
+        }
+        .chat-display-wrapper::-webkit-scrollbar-track {
+            width: 1px;
+            border-radius: 10px;
+        }
+        .chat-display-wrapper::-webkit-scrollbar-thumb {
+            width: 1px;
+            background: $grey;
+        }
         .chat-display-wrapper {
             width: 100%;
             display: flex;
             flex-direction: column;
             overflow-y: scroll;
-            flex-grow: 1;
+            overflow-x: hidden;
             padding: 40px;
+            height: 600px;
+
+        
             .chat-bubble-container {
-                .msg {
-                    margin: 0px;
-                    font-size: 12px;
-                    color: $grey;
-                }
+       
                 .chat-bubble {
                     width:40%;
                     margin-top:3%;
@@ -150,6 +171,12 @@
                     flex-direction: row;
                     font-size: 12px;
                     flex-wrap: wrap;
+                    .msg {
+                        margin: 0px;
+                        font-size: 12px;
+                        color: $grey;
+                        max-width: 275px;
+                    }
                     .msg-timestamp {
                         font-size: 12px;
                         margin: 0px;
@@ -189,9 +216,11 @@
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            align-items: center;
             border-top: 1px solid $border;
             flex-wrap: wrap;
             width: 100%;
+            height: 100%;
             padding: 0px 40px;
 
             .chat-input-form {
@@ -271,23 +300,31 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        // margin-left: auto;
 
         .current-user-wrapper {
+            height: 375px;
+            border-bottom: 1px solid $border;
+            width: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .logo {
+                height: 50px;
+                
+            }
             .current-user-container {
-                width: 100%;
-                align-self: flex-start;
-
+                height: 100%;
+                width:100%;
+                padding-left: 40px;
                 h2 {
                     font-size: 16px;
                     font-family: $font-stack;
                     text-transform: uppercase;
                     color: $primary;
-                    text-align: center;
+                    text-align: left;
                 }
 
                 .user-info {
-                    padding: 5% 0% 0% 10%;
 
                     h3 {
                         font-size: 11px;
@@ -308,6 +345,17 @@
         }
 
         .konnekt-status-wrapper {
+            height: 375px;
+            width: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .konnekt-lady {
+                height: 102px;
+            }
+            .logo {
+                height: 50px;
+            }
             .konnekt-status-container {
                 display: flex;
                 align-items: center;
@@ -316,9 +364,9 @@
                 height: 100%;
 
                 .logo {
-                    height: 30px;
+                    height: 35px;
                 }
-
+            
                 .konnekt-section {
                     height: 50%;
                     display: flex;

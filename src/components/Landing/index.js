@@ -39,7 +39,7 @@ const Landing = () => (
 
     <div className="section">
       <div className="summary-decoration m-h">
-        <video width="600" height="320" controls>
+        <video className="virkni-video"  controls>
           {/* <source src="movie.mp4" type="video/mp4">
             <source src="movie.ogg" type="video/ogg"> */}
         </video>
@@ -72,7 +72,7 @@ const Landing = () => (
         <img className="okkar-syn" src={okkarSyn} />
       </div>
 
-      <div className="summary-wrapper m-h">
+      <div className="summary-wrapper m-v">
         <a id="okkar-syn" />
         <h3>Framtíðin</h3>
         <h4>Okkar sýn</h4>
@@ -93,13 +93,13 @@ const Landing = () => (
         <h2>ER ÞITT FYRIRTÆKI TILBÚIÐ TIL ÞESS AÐ ...</h2>
         <ul>
           <div className="list-item">
-            <div className="dot"></div><li>Ræða um framtíðina?</li>
+            <div className="dot"></div><li>Ræða um framtíðina ?</li>
           </div>
           <div className="list-item">
-            <div className="dot"></div><li>Öryggisvæða stafrænu viðskipti?</li>
+            <div className="dot"></div><li>Öryggisvæða stafrænu viðskipti ?</li>
           </div>
           <div className="list-item">
-            <div className="dot"></div><li>Auðvelda og persónuvæða samskiptaferla?</li>
+            <div className="dot"></div><li>Auðvelda og persónuvæða samskiptaferla ?</li>
           </div>
         </ul>
       </div>
