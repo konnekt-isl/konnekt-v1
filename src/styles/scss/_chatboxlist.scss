@@ -205,15 +205,10 @@
 
         
             .chat-bubble-container {
-                // .first-letter-avatar {
-                //     height: 24px;
-                //     width: 24px;
-                //     border-radius:100%;
-                //     background-color: tomato;
-                // }
+                display: flex;
+                flex-direction: column;
                 .chat-bubble {
                     width:40%;
-                    margin-top:3%;
                     min-height: 80px;
                     padding: 16px;
                     display: flex;
@@ -226,18 +221,7 @@
                         color: $grey;
                         max-width: 275px;
                     }
-                    .msg-timestamp {
-                        font-size: 12px;
-                        margin: 0px;
-                        align-self: flex-start;
-                        width: 100%;
-                    }
-                    .time-csr {
-                        float: right;
-                    }
-                    .time-user {
-
-                    }
+                   
                 }
 
                 .user {
@@ -246,24 +230,34 @@
                     .msg {
                         color: $text;
                     }
-                    .msg-timestamp  {
-                        color: $text;
-                        
-                    }
+        
                 }
 
                 .csr {
                     background-color: $primary;
                     border-radius: 5px 5px 0px 5px;
-                    float: right;
+                    align-self: flex-end;
                     .msg {
                         color: $light;
                     }
-                    .msg-timestamp  {
-                        color: $light;
-                        // float: right;
-                    }
                 }
+
+                .timestamp-container {
+                    .timestamp{
+                        font-size: 10px;
+                        color: $grey;
+                        margin-top: 0.5rem;
+                    }
+                    .t-user {
+                        
+                    }
+                    .t-csr {
+                            float: right;
+                    }
+                 
+                }
+
+              
             }
         }
 
