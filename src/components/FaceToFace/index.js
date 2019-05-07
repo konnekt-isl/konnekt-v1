@@ -3,6 +3,7 @@ import * as firebase from 'firebase';
 import { FirebaseContext } from '../Firebase';
 import logo from '../img/logo.svg';
 import konnektlady from '../img/konnektlady.svg';
+import searchperson from '../img/searchperson.svg';
 
 const mockResponse = {
     "ssn": "0307844489",
@@ -14,7 +15,6 @@ const mockResponse = {
     "token": "cd1ae943b74749d099fa",
     "status": "200"
 }
-
 
 class FaceToFace extends Component {
     constructor(props) {
@@ -92,24 +92,26 @@ class FaceToFace extends Component {
                                 <div className="wrapper">
                                     <div className="container">
                                         <img className="logo" src={logo} alt="Logo" />
-                                        <h1>frá *nafn*</h1>
-                                        <img className="konnekt-lady" src={konnektlady} />
+                                        <img className="searchperson" src={searchperson} alt="Logo" />
+                                        <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
+                                        <div class="input-btn-container">
+                                            <label for="phone">Símanúmer</label>
+                                            <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
+                                            <button onClick={this._confirmphone} className="yes-btn">Senda</button>
+                                        </div>
+
                                     </div>
-                                    <div className="container">
-                                        <h2>Hæ *customer name*</h2>
-                                        <p>Þú hefur fengið beiðni um auðkenningu</p>
-                                        <p>Viltu halda áfram?</p>
-                                        <input type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
-                                    </div>
-                                    <div className="container">
-                                        <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
-                                        <button className="no-btn">Hætta við</button>
-                                    </div>
+
+
                                 </div>
+
+
+
                             </div>)
                     }}</FirebaseContext.Consumer>
             </div>
         )
     };
 }
+
 export default FaceToFace
