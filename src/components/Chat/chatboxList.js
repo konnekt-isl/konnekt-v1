@@ -203,7 +203,7 @@ class ChatList extends Component {
                                                 <p className="msg">{message.url ? 'Auðkennisbeðni hefur verið send.' : message.chatName + ' : ' + message.message}</p>
                                             </div>
                                             <div>
-                                                <p className={message.isStaff ? 'msg-timestamp' : 'msg-timestap'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                                                <p className={message.isStaff ? 'msg-timestamp time-csr' : 'msg-timestamp time-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                                             </div>
                                         </div>)}
 

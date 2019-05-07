@@ -1,43 +1,43 @@
-
-
 .facetoface-homepage {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
-    width:100%;
-    padding-left:72px;
+    width: 100%;
+    padding-left: 72px;
+
     .facetoface-wrapper {
         display: flex;
         flex-direction: column;
-        width:100%;
+        width: 100%;
         align-items: center;
-        .facetoface-content-wrapper {
+
+        .facetoface-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
             .logo {
-                margin-top:25%;
+                margin-top: 25%;
                 height: 35px;
             }
+
             .searchperson {
-                margin-top:40%;
+                margin-top: 40%;
             }
+
             label {
                 text-transform: uppercase;
                 font-weight: bold;
                 color: $primary;
-                font-size:14px;
+                font-size: 14px;
                 text-align: left;
             }
+
             .input-btn-container {
                 display: flex;
                 flex-direction: column;
-                margin-top:25%;
+                margin-top: 25%;
 
             }
+
             input {
                 border-radius: 4px;
                 background: #E6ECFF;
@@ -52,22 +52,27 @@
                 text-transform: uppercase;
                 font-weight: bold;
                 color: $primary;
-                font-size:14px;
+                font-size: 14px;
                 max-width: 205px;
                 margin-top: 20%;
             }
+
             .yes-btn {
                 @extend %yes-btn;
-                margin-top:5%;
-        
+                margin-top: 5%;
+
             }
+
             .yes-btn:hover {
                 @extend %yes-btn;
                 box-shadow: 1px 1px 3px $text;
-        
+
             }
         }
-           
+
+
+
+
     }
 
     .csr-header {
@@ -75,41 +80,43 @@
         flex-direction: row;
         width: 100%;
         padding: 20px 40px;
-    
+
         .user-container {
             display: flex;
             flex-direction: row;
             width: 100%;
             align-items: center;
             justify-content: center;
-           h1 {
+
+            h1 {
                 margin: 0px;
                 font-size: 16px;
                 font-weight: 400;
             }
         }
-    
+
         //Signout takki sem er eins alltaf
-            .signout-btn {
-                background: 0;
-                border: 0;
-                margin-left: auto;
-                cursor: pointer;
-                .logout-icon {
-                    path {
-                        fill: $primary;
-                    }
-                }
-            }
-    
-            //Avatar icon sem er alltaf eins
-            .avatar {
+        .signout-btn {
+            background: 0;
+            border: 0;
+            margin-left: auto;
+            cursor: pointer;
+
+            .logout-icon {
                 path {
                     fill: $primary;
                 }
             }
+        }
+
+        //Avatar icon sem er alltaf eins
+        .avatar {
+            path {
+                fill: $primary;
+            }
+        }
     }
 
 
-   
+
 }
