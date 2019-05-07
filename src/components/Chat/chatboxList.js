@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
+import * as ReactDOM from 'react-dom';
 import { withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
 import chatexpand from '../img/chatexpand.svg';
@@ -28,7 +29,10 @@ class ChatList extends Component {
             messageDate: '',
             url_id: null,
             contentIsVisible: false,
+            messageList: {},
         };
+
+        this.messageList = React.createRef();
 
         this._handleClick = this._handleClick.bind(this);
         this._handleChange = this._handleChange.bind(this);
@@ -51,6 +55,10 @@ class ChatList extends Component {
                 isStaff: true
             })
         })
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom()
     }
 
     _loadChat = (phone) => {
@@ -116,8 +124,15 @@ class ChatList extends Component {
     }
 
     expand = () => {
-        console.log("clicked")
         this.setState({ contentIsVisible: true })
+    }
+    // To let the chat scroll down automaticly.
+    scrollToBottom = () => {
+        const messageList = document.getElementById('messageList') || {}
+        const scrollHeight = messageList.scrollHeight;
+        const height = messageList.clientHeight;
+        const maxScrollTop = scrollHeight - height;
+        messageList.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
     }
 
     render() {
@@ -181,7 +196,7 @@ class ChatList extends Component {
                             :
                             (
                                 <div className="chat-display-and-input-wrapper">
-                                    <div className="chat-display-wrapper">
+                                    <div className="chat-display-wrapper" id='messageList'>
 
                                         {this.state.messages.map((message) => <div className="chat-bubble-container">
                                             <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
@@ -192,6 +207,7 @@ class ChatList extends Component {
 
 
                                     </div>
+                                    {this.scrollToBottom()}
 
                                     {/* Chat input neðst á miðju síðunnar (þarsem þjónustuaðili skrifar inn í) */}
                                     <div className="chat-input-wrapper">
