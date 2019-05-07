@@ -1,7 +1,9 @@
 //Fyrsta sem kemur á móti manni þegar maður loggar sig inn
 .chathomepage {
-    height: 100vh;
+    overflow-x: hidden;
+    
     padding-left: 72px;
+    //Sign out takki
     .signout-btn {
         background: 0;
         border: 0;
@@ -14,8 +16,9 @@
             }
         }
     }
-
+    //wrapper INNÍ chathomepage sem heldur samt utan um allt content
     .chathomepage-wrapper {
+        
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -23,7 +26,7 @@
         align-items: flex-start;
     }
 
-    //wrapper með nafn notendans og útskráningar takka 
+    //wrapper með nafn notendans og útskráningar takka /
     .csr-header {
         display: flex;
         flex-direction: row;
@@ -44,7 +47,7 @@
 
             .avatar {
                 path {
-                    fill: $text;
+                    fill: $primary;
                 }
             }
 
@@ -53,10 +56,10 @@
 
     }
 
-    //Wrapper sem heldur utan um virk netspjöll, öll netspjöll og þjónustuteymi
+    //Vinstri dálkur: Wrapper sem heldur utan um virk netspjöll, öll netspjöll og þjónustuteymi 
     .chat-overview {
         width: 230px;
-        height: inherit;
+        height: 100%;
         border-right: 1px solid $border;
         display: flex;
         flex-direction: column;
@@ -68,8 +71,9 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            height:250px;
+            min-height: 250px;
             flex-wrap: wrap;
+            flex-grow: 1;
 
             //heldur utan um lýsingu á flokk og expand takkann
             div {
@@ -91,23 +95,26 @@
             .chat-expand {
                 cursor: pointer;
             }
-            
-      
-            
+
+
+
             .content {
                 display: none;
                 overflow: hidden;
+
                 li {
-                    font-size: 14px; 
+                    font-size: 14px;
                     color: $grey;
                 }
+
                 li:hover {
                     background-color: #E6ECFF;
                     border-radius: 5px;
                     cursor: pointer;
-                    width:100px;
+                    width: 100px;
                 }
             }
+
             .active {
                 display: flex;
                 list-style-type: none;
@@ -121,16 +128,19 @@
         }
     }
 
-    //Miðjan á síðunni
+    //Miðjan á síðunni, velkomin X skilaboð sem breytst í chat glugga
     .csr-middle-section {
         display: flex;
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        height: 100%;
         flex-grow:1;
+        height: 850px;
         .chat-display-and-input-wrapper {
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .welcome-msg {
             display: flex;
@@ -139,16 +149,18 @@
             margin-top: 80px;
         }
         .chat-display-wrapper::-webkit-scrollbar {
-            width: 1px;
+            width: 5px;
             background: $grey;
         }
         .chat-display-wrapper::-webkit-scrollbar-track {
-            width: 1px;
-            border-radius: 10px;
+            // width: 10px;
+            // border-radius: 10px;
+            background: $grey;
         }
         .chat-display-wrapper::-webkit-scrollbar-thumb {
-            width: 1px;
-            background: $grey;
+            width:30px;
+            border-radius: 3px;
+            background: $primary;
         }
         .chat-display-wrapper {
             width: 100%;
@@ -157,7 +169,7 @@
             overflow-y: scroll;
             overflow-x: hidden;
             padding: 40px;
-            height: 600px;
+            height:732px;
 
         
             .chat-bubble-container {
@@ -220,7 +232,6 @@
             border-top: 1px solid $border;
             flex-wrap: wrap;
             width: 100%;
-            height: 100%;
             padding: 0px 40px;
 
             .chat-input-form {
@@ -294,6 +305,7 @@
 
     //Dálkurinn með upplýsingar um notenda og konnekt status
     .user-info-konnekt-wrapper {
+        height: 100%;
         width: 300px;
         border-left: 1px solid #E9E9E9;
         display: flex;
@@ -302,7 +314,8 @@
         align-items: center;
 
         .current-user-wrapper {
-            height: 375px;
+            flex-grow:1;
+            min-height: 375px;
             border-bottom: 1px solid $border;
             width: inherit;
             display: flex;
@@ -345,7 +358,8 @@
         }
 
         .konnekt-status-wrapper {
-            height: 375px;
+            flex-grow:1;
+            min-height: 375px;
             width: inherit;
             display: flex;
             align-items: center;
@@ -357,6 +371,7 @@
                 height: 50px;
             }
             .konnekt-status-container {
+                padding: 0px 40px;
                 display: flex;
                 align-items: center;
                 flex-direction: column;

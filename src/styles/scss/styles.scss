@@ -22,10 +22,11 @@
 html, body {
     height: 100%;
     margin: 0;
+    max-width:100%;
 }
 
 #root {
-    height: inherit;
+    height: 100%;
 }
 
 
