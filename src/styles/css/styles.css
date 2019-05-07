@@ -658,43 +658,94 @@ template {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh; }
-  .simi-skjar1 .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-grow: 1; }
-    .simi-skjar1 .wrapper .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center; }
-      .simi-skjar1 .wrapper .container .logo {
-        margin-bottom: 5%; }
-      .simi-skjar1 .wrapper .container h1 {
-        margin-bottom: 15%; }
-  .simi-skjar1 input {
-    margin-top: 20px;
-    border-radius: 4px;
-    background: #E6ECFF;
-    height: 40px;
-    width: 208px;
-    border: none;
-    padding: 0px;
-    margin-bottom: 10px; }
-  .simi-skjar1 h1 {
-    font-size: 17px;
-    margin: auto; }
-  .simi-skjar1 h2 {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #3463FF;
-    font-size: 20px; }
-  .simi-skjar1 .yes-btn {
-    margin-bottom: 10%; }
-  .simi-skjar1 p {
-    font-size: 14px;
-    padding: 0;
-    margin: 0; }
+  height: 100vh;
+  width: 100%;
+  padding-left: 72px;
+}
+.facetoface-homepage .facetoface-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .logo {
+  margin-top: 25%;
+  height: 35px;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .searchperson {
+  margin-top: 40%;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper label {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 14px;
+  text-align: left;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .input-btn-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25%;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper input {
+  border-radius: 4px;
+  background: #E6ECFF;
+  height: 40px;
+  width: 208px;
+  border: none;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 14px;
+  max-width: 205px;
+  margin-top: 20%;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .yes-btn {
+  margin-top: 5%;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-content-wrapper .yes-btn:hover {
+  box-shadow: 1px 1px 3px #4F4F4F;
+}
+.facetoface-homepage .csr-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px 40px;
+}
+.facetoface-homepage .csr-header .user-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.facetoface-homepage .csr-header .user-container h1 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.facetoface-homepage .csr-header .signout-btn {
+  background: 0;
+  border: 0;
+  margin-left: auto;
+  cursor: pointer;
+}
+.facetoface-homepage .csr-header .signout-btn .logout-icon path {
+  fill: #3463FF;
+}
+.facetoface-homepage .csr-header .avatar path {
+  fill: #3463FF;
+}
 
 .signin-page {
   padding-top: 92px;
@@ -824,6 +875,15 @@ template {
 .chathomepage .csr-header .user-container .avatar path {
   fill: #3463FF;
 }
+.chathomepage .csr-header .signout-btn {
+  background: 0;
+  border: 0;
+  margin-left: auto;
+  cursor: pointer;
+}
+.chathomepage .csr-header .signout-btn .logout-icon path {
+  fill: #3463FF;
+}
 .chathomepage .chat-overview {
   width: 230px;
   height: 100%;
@@ -904,10 +964,10 @@ template {
 }
 .chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar {
   width: 5px;
-  background: #B0B0B0;
+  background: #FFFFFF;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar-track {
-  background: #B0B0B0;
+  background: #FFFFFF;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar-thumb {
   width: 30px;

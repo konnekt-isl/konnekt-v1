@@ -51,7 +51,26 @@
                 }
             }
 
+        //Avatar icon sem er alltaf eins
+        .avatar {
+            path {
+                fill: $primary;
+            }
+        }
+
        
+        }
+           //Signout takki sem er eins alltaf
+           .signout-btn {
+            background: 0;
+            border: 0;
+            margin-left: auto;
+            cursor: pointer;
+            .logout-icon {
+                path {
+                    fill: $primary;
+                }
+            }
         }
 
     }
@@ -150,12 +169,10 @@
         }
         .chat-display-wrapper::-webkit-scrollbar {
             width: 5px;
-            background: $grey;
+            background: $light;
         }
         .chat-display-wrapper::-webkit-scrollbar-track {
-            // width: 10px;
-            // border-radius: 10px;
-            background: $grey;
+            background: $light;
         }
         .chat-display-wrapper::-webkit-scrollbar-thumb {
             width:30px;
@@ -173,7 +190,12 @@
 
         
             .chat-bubble-container {
-       
+                // .first-letter-avatar {
+                //     height: 24px;
+                //     width: 24px;
+                //     border-radius:100%;
+                //     background-color: tomato;
+                // }
                 .chat-bubble {
                     width:40%;
                     margin-top:3%;
