@@ -23,7 +23,8 @@ class f2fstatus extends Component {
     }
 
     componentDidMount() {
-        firebase.firestore().collection('status').doc(this.props.history.ssn).get()
+        console.log('Status')
+        firebase.firestore().collection('status').doc(this.props.history.state).get()
             .then((doc) => {
                 this.setState({ ssn: doc.data().ssn })
                 this.setState({ timeStamp: doc.data().date.seconds })
