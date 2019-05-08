@@ -1,124 +1,147 @@
-
 .active-link {
-    background-color: #F0F2FF;
-    path {
-        fill: $primary;
-    }
+  background-color: #f0f2ff;
+  path {
+    fill: $primary;
+  }
 }
 
 //Navigation
 .navigation {
-    // display: none;
-    ul {
-        list-style-type: none;
-        padding: 0;
-        font-size: 20px;
+  // display: none;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 20px;
+    color: $text;
+    li {
+      a {
+        text-decoration: none;
+      }
+      a:visited {
         color: $text;
-        li {
-
-            a {
-                text-decoration: none;
-            }
-            a:visited {
-                color: $text;
-            }
-            
-        }
+      }
     }
+  }
 }
 
 //Nav when user is logged in
 .auth {
-    ul {
-        
-        display: flex;
-        flex-direction: row;
-        
-        li {
-            padding-right:15px;
-        }
-     
+  ul .nav-ul {
+    display: flex;
+    flex-direction: row;
+
+    li {
+      padding-right: 15px;
     }
-    //Sidebar navigation
-   .sidebar {
+  }
+  //Sidebar navigation
+  .sidebar {
     position: fixed;
     width: 72px;
-    background-color: $primary; 
+    background-color: $primary;
     height: 100vh;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 0px 0px 0px;
-}
-.icons-container {
+    padding: 24px 0px;
+  }
+  .icons-container {
     height: 216px;
-}
-.single-icon-container {
-    width: 72px; 
+  }
+  .single-icon-container {
+    width: 72px;
     height: 72px;
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     align-items: center;
     .nav-icon {
-        width: 24px;
+      width: 24px;
     }
     .nav-icon:hover {
-        width: 28px;
+      width: 28px;
     }
+  }
 }
 
-}
-
-//Nav when user is not logged in
+//LANDING NEV MOBILEEEEE
 .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.non-auth {
+  @extend %flex-row;
+  width: 100%;
+  justify-content: space-between;
+  padding: 30px 80px;
+  background-color: rgba(255, 255, 255, 0.95);
+
+  .nav-ul {
+    display: none;
+  }
+  .nav-locker {
+    border: none;
+    background-color: $light;
+  }
+  
+}
+
+// HÉR ER DESKTOP NAV Á LANDING ________---------------__________-------------___________---------__________--------------_______________-----------___________
+@media only screen and (min-width: 830px) {
+  .sticky {
     position: fixed;
     top: 0;
     width: 100%;
   }
-.non-auth {
- @extend %flex-row;
- width: 100%;
- justify-content: space-between;
- padding: 30px 80px;
- background-color:rgba(255, 255, 255, 0.95);
+  .non-auth {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 30px 80px;
+    background-color: rgba(255, 255, 255, 0.95);
+    .nav-ul {
+      display: flex;
+      flex-direction: row;
+    }
+    .nav-locker {
+      display: none;
+    }
+  }
 
-ul {
-    @extend %flex-row;
-
+  ul {
     li {
-        display: block;
-        position: relative;
-        margin-left: 40px;
-        text-decoration: none;
-        -webkit-transition: color .2s ease-in-out;
-        transition: color .2s ease-in-out;
+      display: block;
+      position: relative;
+      margin-left: 40px;
+      text-decoration: none;
+      -webkit-transition: color 0.2s ease-in-out;
+      transition: color 0.2s ease-in-out;
     }
-    
+
     li:before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        width: 0;
-        border-bottom: solid 2px;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      border-bottom: solid 2px;
     }
     li:before {
-        left: 0;
+      left: 0;
     }
-    
+
     li:hover {
-        color: $primary;
+      color: $primary;
     }
-    
+
     li:hover:before {
-        width: 100%;
+      width: 100%;
     }
-    
+
     li:before {
-        -webkit-transition: width .2s ease-in-out;
-        transition: width .2s ease-in-out;
+      -webkit-transition: width 0.2s ease-in-out;
+      transition: width 0.2s ease-in-out;
     }
-}
-
-
+  }
 }
