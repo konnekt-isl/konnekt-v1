@@ -67,6 +67,7 @@ class SignInFormBase extends Component {
     const { email, password, error } = this.state;
 
     const isInvalid = password === '' || email === '';
+    this.state.error != null ? console.log(error.message) : console.log('No error')
 
     return (
       <div className="signin-page">
@@ -103,7 +104,7 @@ class SignInFormBase extends Component {
                     placeholder="Password"
                   />
                 </fieldset>
-
+                {this.state.error != null ? <p>{error.message}</p> : <p></p>}
                 <button className="btn" disabled={isInvalid} type="submit">
                   Skrá inn
                 </button>
