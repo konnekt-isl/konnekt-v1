@@ -134,6 +134,45 @@ class ChatList extends Component {
         messageList.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
     }
 
+    urlify = (text) => {
+        let urlRegex = /(https?:\/\/[^\s]+)/g;
+        return text.replace(urlRegex, function (url) {
+            return `<a href=${url} target="_blank">${url}</a>`;
+        })
+    }
+
+    renderMessage = (message) => {
+        return (message.url
+            ? <div className="chat-bubble-container">
+                <div className={message.isStaff ? 'csr' : 'user'}>{message.chatName.charAt(0)}</div>
+                <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
+                    <div className="msg">Auðkennisbeðni hefur verið send.</div>
+                </div>
+            </div>
+
+            : <div className="chat-bubble-container">
+                <div className={message.isStaff ? 'csr' : 'user'}>{message.chatName.charAt(0)}</div>
+                <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
+                    <div className="msg">
+                        <div dangerouslySetInnerHTML={{ __html: this.urlify(message.message) }} />
+                    </div>
+                </div>
+                <div className="timestamp-container">
+                    <p className={message.isStaff ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                </div>
+            </div>
+
+
+
+
+
+
+        );
+    }
+
+
+
+
     render() {
         const numRows = this.state.chatboxes.length
         const userName = this.state.authUser.username
@@ -200,14 +239,7 @@ class ChatList extends Component {
                                 <div className="chat-display-and-input-wrapper">
                                     <div className="chat-display-wrapper" id='messageList'>
 
-                                        {this.state.messages.map((message) => <div className="chat-bubble-container">
-                                            <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
-                                                <p className="msg">{message.url ? 'Auðkennisbeðni hefur verið send.' : message.chatName + ' : ' + message.message}</p>
-                                            </div>
-                                            <div className="timestamp-container">
-                                                <p className={message.isStaff ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
-                                            </div>
-                                        </div>)}
+                                        {this.state.messages.map((message) => this.renderMessage(message))}
 
 
                                     </div>
