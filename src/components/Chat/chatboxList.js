@@ -31,8 +31,6 @@ class ChatList extends Component {
             messageList: {},
         };
 
-        this.messageList = React.createRef();
-
         this._handleClick = this._handleClick.bind(this);
         this._handleChange = this._handleChange.bind(this);
         this._loadChat = this._loadChat.bind(this);
@@ -47,7 +45,6 @@ class ChatList extends Component {
                 const data = doc.data()
                 chatboxes.push({ id: doc.id, read: data.read, username: data.username, email: data.email, date: data.messages.pop().messageDate.seconds })
             });
-            console.log(chatboxes)
             this.setState({ chatboxes })
             this.setState({
                 chatName: this.state.authUser.username,
@@ -95,7 +92,7 @@ class ChatList extends Component {
             read: false,
             messages: firebase.firestore.FieldValue.arrayUnion({
                 chatName,
-                isStaff,
+                isStaff: true,
                 message,
                 messageDate,
             })
@@ -110,13 +107,14 @@ class ChatList extends Component {
         })
 
         const url = 'http://localhost:3000/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.username
-        const { phone, chatName } = this.state;
+        const { phone, chatName, isStaff } = this.state;
         firebase.firestore().collection('chat').doc(phone).update({
             read: false,
             messages: firebase.firestore.FieldValue.arrayUnion({
                 chatName,
                 url,
                 message: '',
+                isStaff: true,
                 messageDate: firebase.firestore.Timestamp.fromDate(new Date()),
             })
         })
@@ -147,6 +145,9 @@ class ChatList extends Component {
                 <div className={message.isStaff ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
                 <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
                     <div className="msg">Auðkennisbeðni hefur verið send.</div>
+                </div>
+                <div className="timestamp-container">
+                    <p className={message.isStaff ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                 </div>
             </div>
 
@@ -247,7 +248,7 @@ class ChatList extends Component {
 
                                     {/* Chat input neðst á miðju síðunnar (þarsem þjónustuaðili skrifar inn í) */}
                                     <div className="chat-input-wrapper">
-                                        {this.state.phone ? (<form className="chat-input-form" onSubmit={this.onSubmit}>
+                                        <form className="chat-input-form" onSubmit={this.onSubmit}>
                                             <input
                                                 name="message"
                                                 value={message}
@@ -255,14 +256,11 @@ class ChatList extends Component {
                                                 type="text"
                                                 placeholder="Skrifaðu hér..."
                                             />
-
-                                        </form>) : (<div>Click on the chatbox to start chatting </div>)}
+                                        </form>
                                         <div className="chat-options">
                                             <img className="paperclip" src={paperclip} />
                                             <SVGIcon className="plus" name="plus" width={30} height={30} />
-                                            <button className="btn" disabled={isInvalid} type="submit">
-                                                Senda
-                            </button>
+                                            <button className="btn" disabled={isInvalid} onClick={this.onSubmit} type="submit">Senda</button>
                                         </div>
                                     </div>
                                 </div>

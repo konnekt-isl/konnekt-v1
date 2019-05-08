@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import md5 from 'md5';
 import { compose } from 'recompose';
 import * as firebase from 'firebase'
-import { AuthUserContext, withAuthorization, withEmailVerification } from './Session';
+import { withAuthorization, withEmailVerification } from './Session';
 
 
 class Request extends Component {
