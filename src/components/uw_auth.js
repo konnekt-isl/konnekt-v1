@@ -3,7 +3,6 @@ import * as firebase from 'firebase';
 import { FirebaseContext } from './Firebase';
 import logo from './img/logo.svg';
 import konnektlady from './img/konnektlady.svg';
-import checkcircle from './img/check-circle.svg';
 
 class uw_auth extends Component {
     constructor(props) {
@@ -17,6 +16,7 @@ class uw_auth extends Component {
             date: null,
             message: null,
             url_id: '',
+            isLoading: false,
         };
     }
 
@@ -29,6 +29,7 @@ class uw_auth extends Component {
     }
 
     _confirmphone = () => {
+        this.setState({ isLoading: true })
         fetch('https://onboardingdev.taktikal.is:443/api/Auth', {
             method: 'POST',
             headers: {
@@ -45,9 +46,10 @@ class uw_auth extends Component {
                 return response.json();
             })
             .then(data => {
-                console.log(data)
-
-                data.responseStatus ? this.setState({ message: data.responseStatus.message }) :
+                data.responseStatus ? this.props.history.push({
+                    pathname: '/status',
+                    state: { status: this.state.status, data: data, phone: this.state.phone }
+                }) :
                     this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
                 const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
                 firebase.firestore().collection('end_users').doc(ssn).set({
@@ -59,18 +61,15 @@ class uw_auth extends Component {
                     token,
                 });
                 this.setState({ data: data });
-                firebase.firestore().collection('status').doc(this.props.match.params.session).set({
-                    ssn: data.ssn,
+                firebase.firestore().collection('status').doc(this.state.url_id).set({
                     date: this.state.date,
                     status: this.state.status,
                     message: this.state.message,
                 })
-                firebase.firestore().collection('systemState').doc('session').update({
-                    url_id: this.props.match.params.session
-                })
+                console.log("Test: " + this.state.phone)
                 this.props.history.push({
                     pathname: '/status',
-                    state: { session: this.props.match.params.session, phone: this.state.phone }
+                    state: { status: this.state.status, ssn: data.ssn }
                 })
             })
             .catch(err => {

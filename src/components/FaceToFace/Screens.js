@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SignOutButton from '../SignOut';
 import * as firebase from 'firebase'
 import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
@@ -59,7 +58,6 @@ const Audkent = (props) => {
 };
 
 const NonAudkent = (props) => {
-  console.log(props.phone)
   return (
     <div className="facetoface-wrapper">
       <CsrHeader />

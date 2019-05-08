@@ -14,12 +14,11 @@ import ChatStart from '../Chat';
 import ChatBox from '../Chat/chatbox';
 import ChatList from '../Chat/chatboxList';
 import Status from '../FaceToFace/Screens'
-import f2fstatus from '../FaceToFace/f2fstatus';
 import Telephone from '../Telephone';
 
 
 import uw_auth from '../uw_auth';
-import uw_status from '../uw_status';
+import RequestStatus from '../IdRequest/RequestScreens';
 import sw_request from '../sw_request';
 
 import * as ROUTES from '../../constants/routes';
@@ -45,7 +44,7 @@ const App = () => (
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.ADMIN} component={AdminPage} />
       <Route path={ROUTES.AUTH} component={uw_auth} />
-      <Route path={ROUTES.STATUS} component={uw_status} />
+      <Route path={ROUTES.STATUS} component={RequestStatus} />
       <Route path={ROUTES.FACETOFACE} component={FaceToFace} />
       <Route path={ROUTES.F2FSTATUS} component={Status} />
       <Route path={ROUTES.TELEPHONE} component={Telephone} />

@@ -7,7 +7,7 @@ import SVGIcon from "../img/SVGIcon";
 import logo from '../img/logo.svg';
 import konnektlady from '../img/konnektlady.svg';
 import paperclip from '../img/paperclip.svg';
-import Request from '../sw_request'
+import Request from '../IdRequest'
 import CsrHeader from '../Navigation/csrHeader'
 
 
@@ -290,14 +290,14 @@ class ChatList extends Component {
 
 
                             <div className="konnekt-status-wrapper">
-                                <div className="konnekt-status-container">
-                                    <img className="logo" src={logo} />
+
+                                {/* <img className="logo" src={logo} />
                                     <div className="konnekt-section">
                                         <p>Senda auðkenningsbeiðni til</p>
                                         <h2>{this.state.username}</h2>
                                         <Request phone={this.state.phone} authenticate={this.authenticate} />
-                                    </div>
-                                </div>
+                                    </div> */}
+                                <Request phone={this.state.phone} authenticate={this.authenticate} username={this.state.username} />
                             </div>
                         </div>)
                 }
