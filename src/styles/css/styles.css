@@ -1561,6 +1561,54 @@ template {
   fill: #3463FF;
 }
 
+.loader-container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-1 {
+  background-color: #EBEFFF;
+}
+
+.circle-2 {
+  background-color: #FFEEED;
+}
+
+.circle-3 {
+  background-color: #EAFCF3;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.circle:not(:last-child) {
+  margin-right: 10px;
+}
+.circle-1 {
+  animation: moveup 0.9s infinite;
+}
+.circle-2 {
+  animation: moveup 0.9s 0.3s infinite;
+}
+.circle-3 {
+  animation: moveup 0.9s 0.6s infinite;
+}
+
+@keyframes moveup {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 * {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   box-sizing: border-box;
