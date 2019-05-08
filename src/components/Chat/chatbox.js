@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import SVGIcon from "../img/SVGIcon";
-
+import logo from "../img/logo.svg";
 
 //Chat fyrir endanotenda
 class ChatBox extends Component {
@@ -61,29 +61,38 @@ class ChatBox extends Component {
         return (
 
             <div className="chatbox-wrapper">
-                <h1>Chat</h1>
-                <div className="chat-bubble-user-container netspjall-skjar2">
+                <img className="logo" src={logo} />
+                <div className="chat-display-wrapper">
+                    <div className="chat-bubble-container">
                     {this.state.messages.map((message) => {
-                        return (
-                            <div class={message.chatName === this.state.chatName ? 'chat-bubble-csr' : 'chat-bubble-user'}>
-                                {message.url ? <a href={message.url}>Click</a> : message.chatName + ' : ' + message.message}
-                            </div>)
-                    })
-                    }
+                            return (
+                                <div class={message.chatName === this.state.chatName ? 'chat-bubble csr' : 'chat-bubble user'}>
+                                <p className="msg">{message.url ? <a href={message.url}>Auðkenna með Konnekt</a> : message.chatName + ' : ' + message.message}</p>  
+                                </div>)
+                        })
+                        }    
+                        {/* <div className="timestamp-container">
+                            <p className={message.isStaff ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                        </div> */}
+                    </div>
+           
                 </div>
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        name="message"
-                        value={message}
-                        onChange={this._handleChange}
-                        type="text"
-                        placeholder="Skrifaðu hér..."
-                    />
-                    <button className="btn" disabled={isInvalid} type="submit">
-                        Senda
-                    </button>
-                </form>
-            </div >
+                <div className="chat-input-wrapper">
+                    <form onSubmit={this.onSubmit}>
+                        <input
+                            name="message"
+                            value={message}
+                            onChange={this._handleChange}
+                            type="text"
+                            placeholder="Skrifaðu hér..."
+                        />
+                        <button className="btn" disabled={isInvalid} type="submit">
+                            Senda
+                        </button>
+                    </form>
+                </div>
+      
+            </div>
         )
     };
 }

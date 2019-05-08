@@ -22,3 +22,4 @@ export const REQUEST = '/request';
 export const CHAT = '/chat';
 export const CHATBOX = '/chatbox';
 export const CHATLIST = '/chatlist';
+export const TELEPHONE = '/siminn';

@@ -25,6 +25,7 @@ $text: #4F4F4F;
 $bg-light: #FBFCFE;
 $border: #E9E9E9;
 
+
 //Buttons
 
 %yes-btn {
@@ -37,6 +38,7 @@ $border: #E9E9E9;
     border: 0;
     color: $light;
     text-decoration: none;
+    cursor: pointer;
 }
 
 %no-btn {

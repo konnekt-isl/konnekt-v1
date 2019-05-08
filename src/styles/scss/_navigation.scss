@@ -1,8 +1,14 @@
-//Mobile View
+
+.active-link {
+    background-color: #F0F2FF;
+    path {
+        fill: $primary;
+    }
+}
 
 //Navigation
 .navigation {
- 
+    // display: none;
     ul {
         list-style-type: none;
         padding: 0;
@@ -23,7 +29,6 @@
 
 //Nav when user is logged in
 .auth {
-    // width: 72px;
     ul {
         
         display: flex;
@@ -55,9 +60,12 @@
     display: flex; 
     justify-content: center; 
     align-items: center;
-}
-.active {
-    background-color: #F1F3FF;
+    .nav-icon {
+        width: 24px;
+    }
+    .nav-icon:hover {
+        width: 28px;
+    }
 }
 
 }
@@ -74,6 +82,7 @@
  justify-content: space-between;
  padding: 30px 80px;
  background-color:rgba(255, 255, 255, 0.95);
+
 ul {
     @extend %flex-row;
 
