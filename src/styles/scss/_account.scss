@@ -1,0 +1,56 @@
+.account-page {
+    padding-left: 72px;
+    height: 100vh;
+    .account-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: inherit;
+        
+        .account-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            height: inherit;
+            margin-top:10%;
+            .account-img {
+                height: 80px;
+            }
+            h1 {
+                font-size: 22px;
+                font-weight: bold;
+                color: $primary;
+                text-transform: uppercase;
+                margin-top: 2%
+            }
+            p {
+                max-width: 208px;
+                font-size: 14px;
+                color: $text;
+                margin-top: 2%
+            }
+            .account-form {
+                display: flex;
+                flex-direction: column;
+                margin-top: 2%
+            }
+            label {
+                font-size: 14px;
+                color: $primary;
+                text-transform: uppercase;
+            }
+            .account-input {
+                @extend %input-field;
+                background-color: #E6ECFF;
+                border: none;
+                width: 208px;
+            }
+            .account-btn {
+                @extend %yes-btn;
+                margin-top: 5%;
+            }
+        }
+    
+    }
+}

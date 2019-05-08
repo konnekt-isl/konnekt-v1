@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { compose } from 'recompose';
-
+import settings from '../img/settings.svg';
 import {
   AuthUserContext,
   withAuthorization,
@@ -32,11 +32,20 @@ const SIGN_IN_METHODS = [
 const AccountPage = () => (
   <AuthUserContext.Consumer>
     {authUser => (
-      <div>
-        <h1>Account: {authUser.email}</h1>
-        <PasswordForgetForm />
-        <PasswordChangeForm />
-        {/* <LoginManagement authUser={authUser} /> */}
+      <div className="account-page">
+        <div className="account-wrapper">
+        <div className="account-container">
+          <img className="account-img" src={settings} />
+          <h1>Hæ {authUser.username}</h1>
+          <p>Hér getur þú breytt um lykilorð. 
+            Sláðu inn netfang og þú færð link sendan í tölvupósti.</p>
+            <PasswordForgetForm />
+            {/* <PasswordChangeForm /> */}
+            {/* <LoginManagement authUser={authUser} /> */}
+        </div>
+      
+        </div>
+     
       </div>
     )}
   </AuthUserContext.Consumer>
