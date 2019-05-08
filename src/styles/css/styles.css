@@ -383,9 +383,13 @@ template {
   flex-wrap: wrap;
 }
 
-.navigation {
-  display: none;
+.active-link {
+  background-color: #F0F2FF;
 }
+.active-link path {
+  fill: #3463FF;
+}
+
 .navigation ul {
   list-style-type: none;
   padding: 0;
@@ -427,8 +431,8 @@ template {
   justify-content: center;
   align-items: center;
 }
-.auth .active {
-  background-color: #F1F3FF;
+.auth .single-icon-container path:hover {
+  width: 28px;
 }
 
 .sticky {
@@ -487,6 +491,7 @@ template {
 }
 .landing .landing-section .landing-img-container {
   width: 100%;
+  margin-top: 168px;
   align-items: flex-end;
   justify-content: space-around;
 }
@@ -501,20 +506,23 @@ template {
   font-size: 32px;
   text-align: center;
   font-weight: 900;
-  margin: 0;
+  margin-top: 78px;
   width: 90%;
   letter-spacing: 2px;
 }
 .landing .landing-section h2 {
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 400;
   width: 90%;
   color: #4F4F4F;
   text-align: center;
+  margin-top: 35px;
 }
 .landing .landing-section .lausnir-btn {
   background: #3463FF;
   width: 90%;
   font-size: 20px;
+  margin-top: 33px;
 }
 .landing .landing-section .lausnir-btn:hover {
   background: none;
@@ -656,7 +664,7 @@ template {
   .landing .landing-section h1 {
     font-size: 80px;
     text-transform: uppercase;
-    max-width: 600px;
+    max-width: 900px;
   }
   .landing .landing-section h2 {
     font-size: 20px;
@@ -1126,6 +1134,7 @@ template {
 .chathomepage .csr-middle-section span {
   font-size: 36px;
   color: #56E8A2;
+  padding: 9px;
 }
 .chathomepage .user-info-konnekt-wrapper {
   height: 100%;

@@ -1,8 +1,14 @@
-//Mobile View
+
+.active-link {
+    background-color: #F0F2FF;
+    path {
+        fill: $primary;
+    }
+}
 
 //Navigation
 .navigation {
-    display: none;
+    // display: none;
     ul {
         list-style-type: none;
         padding: 0;
@@ -54,9 +60,12 @@
     display: flex; 
     justify-content: center; 
     align-items: center;
-}
-.active {
-    background-color: #F1F3FF;
+    .nav-icon {
+        width: 24px;
+    }
+    .nav-icon:hover {
+        width: 28px;
+    }
 }
 
 }
