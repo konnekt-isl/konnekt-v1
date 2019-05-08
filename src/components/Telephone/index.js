@@ -12,7 +12,7 @@ import Request from '../sw_request'
 
 
 // Þetta er chat fyrir þjónustuaðila
-class ChatList extends Component {
+class Telephone extends Component {
     constructor(props) {
         super(props);
 
@@ -161,12 +161,6 @@ class ChatList extends Component {
                     <p className={message.isStaff ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                 </div>
             </div>
-
-
-
-
-
-
         );
     }
 
@@ -225,49 +219,13 @@ class ChatList extends Component {
 
                 {/* Miðju dálkur sem sýnir chat history*/}
                 <div className="csr-middle-section ">
-                    {
-                        this.state.phone === '' ?
-                            (
-                                <div className="welcome-msg">
-                                    <h1>Hæ {userName}</h1>
-                                    <h2>Gaman að sjá þig!</h2>
-                                    <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p>
-                                </div>
-                            )
-                            :
-                            (
-                                <div className="chat-display-and-input-wrapper">
-                                    <div className="chat-display-wrapper" id='messageList'>
 
-                                        {this.state.messages.map((message) => this.renderMessage(message))}
+                    <div className="welcome-msg">
+                        <h1>Telephone Screen</h1>
+                        <h2>for the phone!</h2>
+                        <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p>
+                    </div>
 
-
-                                    </div>
-                                    {this.scrollToBottom()}
-
-                                    {/* Chat input neðst á miðju síðunnar (þarsem þjónustuaðili skrifar inn í) */}
-                                    <div className="chat-input-wrapper">
-                                        {this.state.phone ? (<form className="chat-input-form" onSubmit={this.onSubmit}>
-                                            <input
-                                                name="message"
-                                                value={message}
-                                                onChange={this._handleChange}
-                                                type="text"
-                                                placeholder="Skrifaðu hér..."
-                                            />
-
-                                        </form>) : (<div>Click on the chatbox to start chatting </div>)}
-                                        <div className="chat-options">
-                                            <img className="paperclip" src={paperclip} />
-                                            <SVGIcon className="plus" name="plus" width={30} height={30} />
-                                            <button className="btn" disabled={isInvalid} type="submit">
-                                                Senda
-                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                    }
 
                 </div>
 
@@ -327,4 +285,4 @@ const condition = authUser => !!authUser;
 export default compose(
     withEmailVerification,
     withAuthorization(condition),
-)(ChatList);
+)(Telephone);
