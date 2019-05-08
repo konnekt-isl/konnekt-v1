@@ -139,13 +139,14 @@
                 li {
                     font-size: 14px;
                     color: $grey;
+                    padding: 1%;
                 }
 
                 li:hover {
                     background-color: #E6ECFF;
                     border-radius: 5px;
                     cursor: pointer;
-                    width: 100px;
+                    width: 80%;
                 }
             }
 
@@ -158,6 +159,9 @@
                 align-items: flex-start;
                 margin: 0;
                 padding: 20px 0px 0px 40px;
+                height: inherit;
+                overflow: visible;
+                
             }
         }
     }
@@ -206,7 +210,9 @@
         
             .chat-bubble-container {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-end;
                 .chat-bubble {
                     width:40%;
                     min-height: 80px;
@@ -221,12 +227,42 @@
                         color: $grey;
                         max-width: 275px;
                     }
+                    
+                }
+                .csr-letter {
+                    // height: 24px;
+                    // width: 24px;
+                    // font-size: 12px;
+                    // font-weight: bold;
+                    // display: flex;
+                    // align-items: center;
+                    // justify-content: center;
+                    // background-color: $primary;
+                    // color: $light;
+                    // border-radius: 100% 100% 0% 100%;
+                    display: none;
                    
                 }
+               .user-letter {
+                   background-color:  #EBEFFF;
+                   height: 24px;
+                   width: 24px;
+                   font-size: 12px;
+                   font-weight: bold;
+                   display: flex;
+                   align-items: center;
+                   justify-content: center;
+                   color: $primary;
+                   border-radius: 100% 100% 0% 100%;
+                   margin-right: 1%;
+               }
 
+
+               //Chat bubbles
                 .user {
                     background-color: #EBEFFF;
                     border-radius: 5px 5px 5px 0px;
+                    
                     .msg {
                         color: $text;
                     }
@@ -236,20 +272,21 @@
                 .csr {
                     background-color: $primary;
                     border-radius: 5px 5px 0px 5px;
-                    align-self: flex-end;
+                    margin-left: auto;
                     .msg {
                         color: $light;
                     }
                 }
 
                 .timestamp-container {
+                    width:100%;
                     .timestamp{
                         font-size: 10px;
                         color: $grey;
                         margin-top: 0.5rem;
                     }
                     .t-user {
-                        
+                        margin-left: 3%;
                     }
                     .t-csr {
                             float: right;
@@ -363,7 +400,7 @@
             align-items: center;
             justify-content: center;
             .logo {
-                height: 50px;
+                height: 35px;
                 
             }
             .current-user-container {
@@ -409,7 +446,7 @@
                 height: 102px;
             }
             .logo {
-                height: 50px;
+                height: 25px;
             }
             .konnekt-status-container {
                 padding: 0px 40px;
@@ -420,7 +457,7 @@
                 height: 100%;
 
                 .logo {
-                    height: 35px;
+                    height: 25px;
                 }
             
                 .konnekt-section {

@@ -144,14 +144,14 @@ class ChatList extends Component {
     renderMessage = (message) => {
         return (message.url
             ? <div className="chat-bubble-container">
-                <div className={message.isStaff ? 'csr' : 'user'}>{message.chatName.charAt(0)}</div>
+                <div className={message.isStaff ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
                 <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
                     <div className="msg">Auðkennisbeðni hefur verið send.</div>
                 </div>
             </div>
 
             : <div className="chat-bubble-container">
-                <div className={message.isStaff ? 'csr' : 'user'}>{message.chatName.charAt(0)}</div>
+                <div className={message.isStaff ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
                 <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
                     <div className="msg">
                         <div dangerouslySetInnerHTML={{ __html: this.urlify(message.message) }} />

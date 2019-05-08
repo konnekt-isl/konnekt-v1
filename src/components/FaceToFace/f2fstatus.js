@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import * as firebase from 'firebase'
 import logo from '../img/logo.svg';
-import konnektlady from '../img/konnektlady.svg';
 import checkcircle from '../img/check-circle.svg';
+import error from '../img/error.svg';
 import SVGIcon from "../img/SVGIcon";
 import SignOutButton from '../SignOut';
 
@@ -60,16 +60,39 @@ class f2fstatus extends Component {
         let statusMessage;
         if (!sessionTimeOut) {
             statusScreen =
-                // Screen that shows when authentication is successfull
+                //Screen that shows when authentication is successfull
                 <div className="facetoface-homepage">
 
-                </div>;
+                    <div className="csr-header">
+                        <div className="user-container">
+                            <SVGIcon className="avatar" name="avatar" width={30} height={30} />
+                            <h1>{userName}</h1>
+                        </div>
+                        <SignOutButton className="signout-btn" />
+                    </div>
+
+                    <div className="facetoface-container">
+
+                        <img className="logo" src={logo} />
+                        <img className="status-img" src={checkcircle} />
+                        <h2>Auðkenning tókst</h2>
+                        <p>Jón Jónsson hefur auðkennt sig</p>
+
+                        <div className="input-btn-container">
+                            <button className="yes-btn">Auðkenna Næsta?</button>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                ;
         } else {
             statusScreen =
-                // Screen that shows when authentication failed or connection timed out     
+                // Screen that shows when authentication failed or connection timed out
                 <div className="facetoface-homepage">
                     <div className="facetoface-wrapper">
-
                         <div className="csr-header">
                             <div className="user-container">
                                 <SVGIcon className="avatar" name="avatar" width={30} height={30} />
@@ -77,19 +100,13 @@ class f2fstatus extends Component {
                             </div>
                             <SignOutButton className="signout-btn" />
                         </div>
-
                         <div className="facetoface-container">
-
                             <img className="logo" src={logo} />
-                            <img className="check-circle" src={checkcircle} />
-                            <h2>!!!!Auðkenning tókst ekki</h2>
-                            <p></p>
-
+                            <img className="status-img" src={error} />
+                            <h2>Auðkenning tókst ekki</h2>
                             <div className="input-btn-container">
-                                <button class="yes-btn">Auðkenna Næsta?</button>
+                                <button className="yes-btn">Senda aftur</button>
                             </div>
-
-
                         </div>
                     </div>
                 </div>;
