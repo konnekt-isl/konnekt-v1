@@ -4,7 +4,8 @@ import { FirebaseContext } from '../Firebase';
 import logo from '../img/logo.svg';
 import konnektlady from '../img/konnektlady.svg';
 import searchperson from '../img/searchperson.svg';
-
+import SVGIcon from "../img/SVGIcon";
+import SignOutButton from '../SignOut';
 
 class FaceToFace extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class FaceToFace extends Component {
             status: null,
             date: null,
             message: null,
+            authUser: JSON.parse(localStorage.getItem('authUser')),
         };
 
         this._handleChange = this._handleChange.bind(this);
@@ -73,6 +75,7 @@ class FaceToFace extends Component {
     }
 
     render() {
+        const userName = this.state.authUser.username
         return (
             <div className="facetoface-homepage">
                 <FirebaseContext.Consumer>
@@ -80,9 +83,16 @@ class FaceToFace extends Component {
                         return (
 
                             <div className="facetoface-wrapper">
+                            <div className="csr-header">
+                                <div className="user-container">
+                                    <SVGIcon className="avatar" name="avatar" width={30} height={30} />
+                                    <h1>{userName}</h1>
+                                </div>
+                                <SignOutButton className="signout-btn" />
+                            </div>
                                 <div className="facetoface-container">
                                     <img className="logo" src={logo} alt="Logo" />
-                                    <img className="searchperson" src={searchperson} alt="Logo" />
+                                    <img className="searchperson" src={searchperson} alt="" />
                                     <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
                                     <div class="input-btn-container">
                                         <label for="phone">Símanúmer</label>

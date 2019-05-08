@@ -4,8 +4,8 @@ import * as firebase from 'firebase'
 import logo from '../img/logo.svg';
 import konnektlady from '../img/konnektlady.svg';
 import checkcircle from '../img/check-circle.svg';
-// import SVGIcon from "./img/SVGIcon";
-
+import SVGIcon from "../img/SVGIcon";
+import SignOutButton from '../SignOut';
 
 class f2fstatus extends Component {
     constructor(props) {
@@ -19,6 +19,7 @@ class f2fstatus extends Component {
             statusStamp: null,
             sessionTimeOut: false,
             message: '',
+            authUser: JSON.parse(localStorage.getItem('authUser')),
         }
     }
 
@@ -53,42 +54,55 @@ class f2fstatus extends Component {
     // }
 
     render() {
+        const userName = this.state.authUser.username
         const { sessionTimeOut } = this.state;
         let statusScreen;
         let statusMessage;
         if (!sessionTimeOut) {
             statusScreen =
                 // Screen that shows when authentication is successfull
-                <div className="wrapper">
-                    <div className="status-screen">
-                        <div className="container">
-                            <img className="logo" src={logo} />
-                            <img src={konnektlady} />
+                <div className="facetoface-homepage">
+                    <div className="facetoface-wrapper">
+
+                    <div className="csr-header">
+                        <div className="user-container">
+                            <SVGIcon className="avatar" name="avatar" width={30} height={30} />
+                            <h1>{userName}</h1>
                         </div>
-                        <div className="container">
-                            <img src={checkcircle} />
-                            <h1>Auðkenni staðfest</h1>
-                            <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
-                        </div>
-                        <div className="container">
-                            <button class="yes-btn">Áfram</button>
+                        <SignOutButton className="signout-btn" />
+                    </div>
+
+                        <div className="facetoface-container">
+                   
+                                <img className="logo" src={logo} />
+                                <img className="check-circle" src={checkcircle} />
+                                <h2>Auðkenning tókst</h2>
+                                <p>Jón Jónsson hefur auðkennt sig</p>
+                         
+                           <div className="input-btn-container">
+                                <button class="yes-btn">Auðkenna Næsta?</button>
+                           </div>
+                                
+                         
                         </div>
                     </div>
                 </div>;
         } else {
             statusScreen =
                 // Screen that shows when authentication failed or connection timed out     
-                <div className="wrapper">
-                    <div className="status-screen">
-                        <div className="container">
+                <div className="facetoface-homepage">
+                    <div className="facetoface-wrapper">
+                        <div className="status-screen">
                             <img className="logo" src={logo} />
-                            <img src={konnektlady} />
-                        </div>
-                        <div className="container">
-                            <p className="error-p">Auðkenning tókst ekki</p>
-                            <p className="error-p">Viltu reyna aftur?</p>
+                               
+                         
+                            <div className="container">
+                                <p className="error-p">Auðkenning tókst ekki</p>
+                                <p className="error-p">Viltu reyna aftur?</p>
+                            </div>
                         </div>
                     </div>
+              
                 </div>;
         }
         if (this.state.status !== '200') {
