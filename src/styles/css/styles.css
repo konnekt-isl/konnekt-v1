@@ -979,12 +979,13 @@ template {
 .chathomepage .chat-overview .chat-el-container .content li {
   font-size: 14px;
   color: #B0B0B0;
+  padding: 1%;
 }
 .chathomepage .chat-overview .chat-el-container .content li:hover {
   background-color: #E6ECFF;
   border-radius: 5px;
   cursor: pointer;
-  width: 100px;
+  width: 80%;
 }
 .chathomepage .chat-overview .chat-el-container .active {
   display: flex;
@@ -995,6 +996,8 @@ template {
   align-items: flex-start;
   margin: 0;
   padding: 20px 0px 0px 40px;
+  height: inherit;
+  overflow: visible;
 }
 .chathomepage .csr-middle-section {
   display: flex;
@@ -1039,7 +1042,9 @@ template {
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .chat-bubble {
   width: 40%;
@@ -1056,6 +1061,22 @@ template {
   color: #B0B0B0;
   max-width: 275px;
 }
+.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .csr-letter {
+  display: none;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .user-letter {
+  background-color: #EBEFFF;
+  height: 24px;
+  width: 24px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3463FF;
+  border-radius: 100% 100% 0% 100%;
+  margin-right: 1%;
+}
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .user {
   background-color: #EBEFFF;
   border-radius: 5px 5px 5px 0px;
@@ -1066,15 +1087,21 @@ template {
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .csr {
   background-color: #3463FF;
   border-radius: 5px 5px 0px 5px;
-  align-self: flex-end;
+  margin-left: auto;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .csr .msg {
   color: #FFFFFF;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .timestamp-container {
+  width: 100%;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .timestamp-container .timestamp {
   font-size: 10px;
   color: #B0B0B0;
   margin-top: 0.5rem;
+}
+.chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .timestamp-container .t-user {
+  margin-left: 3%;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .timestamp-container .t-csr {
   float: right;
@@ -1161,7 +1188,7 @@ template {
   justify-content: center;
 }
 .chathomepage .user-info-konnekt-wrapper .current-user-wrapper .logo {
-  height: 50px;
+  height: 35px;
 }
 .chathomepage .user-info-konnekt-wrapper .current-user-wrapper .current-user-container {
   height: 100%;
@@ -1197,7 +1224,7 @@ template {
   height: 102px;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .logo {
-  height: 50px;
+  height: 25px;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container {
   padding: 0px 40px;
@@ -1208,7 +1235,7 @@ template {
   height: 100%;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .logo {
-  height: 35px;
+  height: 25px;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section {
   height: 50%;
