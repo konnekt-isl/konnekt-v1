@@ -3,9 +3,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import logo from '../img/logo.svg';
 import locker from '../img/locker.svg';
-
 import { AuthUserContext } from '../Session';
-// import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 import SVGIcon from "../img/SVGIcon";

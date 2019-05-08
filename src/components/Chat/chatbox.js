@@ -79,8 +79,12 @@ class ChatBox extends Component {
         return (message.url
             ? <div className="chat-bubble-container">
                 <div className={message.isStaff != true ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
-                <div className={message.isStaff != true ? 'chat-bubble csr' : 'chat-bubble user'}>
-                    <div className="msg">Auðkennisbeðni hefur verið send.</div>
+                <div className={message.isStaff != true ? 'csr' : 'user'}>
+                    <div className="msg">
+                        <a href={message.url}>
+                            <button className="btn" type="submit">Auðkenna með Konnekt</button>
+                        </a>
+                    </div>
                 </div>
                 <div className="timestamp-container">
                     <p className={message.isStaff != true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>

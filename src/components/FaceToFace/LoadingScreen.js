@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SVGIcon from "../img/SVGIcon";
-import SignOutButton from '../SignOut';
+import CsrHeader from '../Navigation/csrHeader'
+
 import logo from '../img/logo.svg';
 
 const LoadingScreen = (props) => {
@@ -9,16 +9,7 @@ const LoadingScreen = (props) => {
 
         <div className="facetoface-homepage">
             <div className="facetoface-wrapper">
-                <div className="csr-header">
-                    {/* This could be component */}
-                    <div className="user-container">
-                        <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-                        <h1>{props.userName}</h1>
-                    </div>
-                    <SignOutButton className="signout-btn" />
-                </div>
-                {/* end of component */}
-
+                <CsrHeader />
                 <div className="facetoface-container">
 
                     <img className="logo" src={logo} />

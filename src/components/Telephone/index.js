@@ -3,12 +3,10 @@ import * as firebase from 'firebase';
 import { withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
 import chatexpand from '../img/chatexpand.svg';
-import SVGIcon from "../img/SVGIcon";
-import SignOutButton from '../SignOut';
 import logo from '../img/logo.svg';
 import konnektlady from '../img/konnektlady.svg';
-import paperclip from '../img/paperclip.svg';
 import Request from '../sw_request'
+import CsrHeader from '../Navigation/csrHeader'
 
 
 // Þetta er chat fyrir þjónustuaðila
@@ -183,13 +181,7 @@ class Telephone extends Component {
             <div className="chathomepage-wrapper">
 
                 {/* Header fyrir notenda avatar og signout takka */}
-                <div className="csr-header">
-                    <div className="user-container">
-                        <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-                        <h1>{userName}</h1>
-                    </div>
-                    <SignOutButton className="signout-btn" />
-                </div>
+                <CsrHeader />
 
 
                 {/* Vinstri dálkur (Virk spjöll, öll spjöll og þjónustuteymi) */}
