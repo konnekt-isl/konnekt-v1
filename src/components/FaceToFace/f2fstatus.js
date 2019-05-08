@@ -14,7 +14,7 @@ class f2fstatus extends Component {
         this.state = {
             ssn: null,
             date: null,
-            status: '200',
+            status: '403',
             timeStamp: null,
             statusStamp: null,
             sessionTimeOut: false,
@@ -62,50 +62,39 @@ class f2fstatus extends Component {
             statusScreen =
                 // Screen that shows when authentication is successfull
                 <div className="facetoface-homepage">
-                    <div className="facetoface-wrapper">
 
-                    <div className="csr-header">
-                        <div className="user-container">
-                            <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-                            <h1>{userName}</h1>
-                        </div>
-                        <SignOutButton className="signout-btn" />
-                    </div>
-
-                        <div className="facetoface-container">
-                   
-                                <img className="logo" src={logo} />
-                                <img className="check-circle" src={checkcircle} />
-                                <h2>Auðkenning tókst</h2>
-                                <p>Jón Jónsson hefur auðkennt sig</p>
-                         
-                           <div className="input-btn-container">
-                                <button class="yes-btn">Auðkenna Næsta?</button>
-                           </div>
-                                
-                         
-                        </div>
-                    </div>
                 </div>;
         } else {
             statusScreen =
                 // Screen that shows when authentication failed or connection timed out     
                 <div className="facetoface-homepage">
                     <div className="facetoface-wrapper">
-                        <div className="status-screen">
-                            <img className="logo" src={logo} />
-                               
-                         
-                            <div className="container">
-                                <p className="error-p">Auðkenning tókst ekki</p>
-                                <p className="error-p">Viltu reyna aftur?</p>
+
+                        <div className="csr-header">
+                            <div className="user-container">
+                                <SVGIcon className="avatar" name="avatar" width={30} height={30} />
+                                <h1>{userName}</h1>
                             </div>
+                            <SignOutButton className="signout-btn" />
+                        </div>
+
+                        <div className="facetoface-container">
+
+                            <img className="logo" src={logo} />
+                            <img className="check-circle" src={checkcircle} />
+                            <h2>!!!!Auðkenning tókst ekki</h2>
+                            <p></p>
+
+                            <div className="input-btn-container">
+                                <button class="yes-btn">Auðkenna Næsta?</button>
+                            </div>
+
+
                         </div>
                     </div>
-              
                 </div>;
         }
-        if (this.state.status !== '200') {
+        if (this.props.location.state.status !== '200') {
             statusMessage = this.state.message
         }
         else {

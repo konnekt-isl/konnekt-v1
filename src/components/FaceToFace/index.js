@@ -40,13 +40,17 @@ class FaceToFace extends Component {
             })
         })
             .then(response => {
+                console.log(response.status);
                 this.setState({ status: response.status });
                 return response.json();
             })
             .then(data => {
                 console.log(data)
 
-                data.responseStatus ? this.setState({ message: data.responseStatus.message }) :
+                data.responseStatus ? this.props.history.push({
+                    pathname: '/fstatus',
+                    state: { status: this.state.status }
+                }) :
                     this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
                 const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
                 firebase.firestore().collection('end_users').doc(ssn).set({
@@ -65,8 +69,8 @@ class FaceToFace extends Component {
                 })
                 console.log("Test: " + this.state.data.ssn)
                 this.props.history.push({
-                    pathname: '/f2fstatus',
-                    state: { ssn: this.state.data.ssn }
+                    pathname: '/fstatus',
+                    state: { status: this.state.status, ssn: data.ssn }
                 })
             })
             .catch(err => {
@@ -81,15 +85,14 @@ class FaceToFace extends Component {
                 <FirebaseContext.Consumer>
                     {firebase => {
                         return (
-
                             <div className="facetoface-wrapper">
-                            <div className="csr-header">
-                                <div className="user-container">
-                                    <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-                                    <h1>{userName}</h1>
+                                <div className="csr-header">
+                                    <div className="user-container">
+                                        <SVGIcon className="avatar" name="avatar" width={30} height={30} />
+                                        <h1>{userName}</h1>
+                                    </div>
+                                    <SignOutButton className="signout-btn" />
                                 </div>
-                                <SignOutButton className="signout-btn" />
-                            </div>
                                 <div className="facetoface-container">
                                     <img className="logo" src={logo} alt="Logo" />
                                     <img className="searchperson" src={searchperson} alt="" />

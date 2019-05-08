@@ -13,6 +13,7 @@ import FaceToFace from '../FaceToFace';
 import ChatStart from '../Chat';
 import ChatBox from '../Chat/chatbox';
 import ChatList from '../Chat/chatboxList';
+import Status from '../FaceToFace/Screens'
 import f2fstatus from '../FaceToFace/f2fstatus';
 import Telephone from '../Telephone';
 
@@ -46,7 +47,7 @@ const App = () => (
       <Route path={ROUTES.AUTH} component={uw_auth} />
       <Route path={ROUTES.STATUS} component={uw_status} />
       <Route path={ROUTES.FACETOFACE} component={FaceToFace} />
-      <Route path={ROUTES.F2FSTATUS} component={f2fstatus} />
+      <Route path={ROUTES.F2FSTATUS} component={Status} />
       <Route path={ROUTES.TELEPHONE} component={Telephone} />
 
       <Route path={ROUTES.REQUEST} component={sw_request} />
