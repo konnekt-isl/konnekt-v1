@@ -6,6 +6,8 @@ import konnektlady from '../img/konnektlady.svg';
 import searchperson from '../img/searchperson.svg';
 import SVGIcon from "../img/SVGIcon";
 import SignOutButton from '../SignOut';
+import LoadingScreen from '../FaceToFace/LoadingScreen'
+
 
 class FaceToFace extends Component {
     constructor(props) {
@@ -18,9 +20,18 @@ class FaceToFace extends Component {
             date: null,
             message: null,
             authUser: JSON.parse(localStorage.getItem('authUser')),
+            isLoading: false,
         };
 
         this._handleChange = this._handleChange.bind(this);
+    }
+
+    componentDidMount() {
+        // here the re-authenticate is running 
+        if (this.props.location.state && this.props.location.state.phone) {
+            this.setState({ phone: this.props.location.state.phone }, this._confirmphone)
+        }
+
     }
 
     _handleChange = (event) => {
@@ -28,6 +39,7 @@ class FaceToFace extends Component {
     }
 
     _confirmphone = () => {
+        this.setState({ isLoading: true })
         fetch('https://onboardingdev.taktikal.is:443/api/Auth', {
             method: 'POST',
             headers: {
@@ -40,16 +52,13 @@ class FaceToFace extends Component {
             })
         })
             .then(response => {
-                console.log(response.status);
                 this.setState({ status: response.status });
                 return response.json();
             })
             .then(data => {
-                console.log(data)
-
                 data.responseStatus ? this.props.history.push({
                     pathname: '/fstatus',
-                    state: { status: this.state.status }
+                    state: { status: this.state.status, data: data, phone: this.state.phone }
                 }) :
                     this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
                 const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
@@ -67,7 +76,7 @@ class FaceToFace extends Component {
                     status: this.state.status,
                     message: this.state.message,
                 })
-                console.log("Test: " + this.state.data.ssn)
+                console.log("Test: " + this.state.phone)
                 this.props.history.push({
                     pathname: '/fstatus',
                     state: { status: this.state.status, ssn: data.ssn }
@@ -81,39 +90,38 @@ class FaceToFace extends Component {
     render() {
         const userName = this.state.authUser.username
         return (
-            <div className="facetoface-homepage">
-                <FirebaseContext.Consumer>
-                    {firebase => {
-                        return (
-                            <div className="facetoface-wrapper">
-                                <div className="csr-header">
-                                    <div className="user-container">
-                                        <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-                                        <h1>{userName}</h1>
+            // Checking if the loading page shuld be shown
+            this.state.isLoading
+                ? <LoadingScreen /> //true
+                : <div className="facetoface-homepage"> {/*false*/}
+                    <FirebaseContext.Consumer>
+                        {firebase => {
+                            return (
+                                <div className="facetoface-wrapper">
+                                    <div className="csr-header">
+                                        <div className="user-container">
+                                            <SVGIcon className="avatar" name="avatar" width={30} height={30} />
+                                            <h1>{userName}</h1>
+                                        </div>
+                                        <SignOutButton className="signout-btn" />
                                     </div>
-                                    <SignOutButton className="signout-btn" />
-                                </div>
-                                <div className="facetoface-container">
-                                    <img className="logo" src={logo} alt="Logo" />
-                                    <img className="searchperson" src={searchperson} alt="" />
-                                    <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
-                                    <div class="input-btn-container">
-                                        <label for="phone">Símanúmer</label>
-                                        <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
-                                        <button onClick={this._confirmphone} className="yes-btn">Senda</button>
+                                    <div className="facetoface-container">
+                                        <img className="logo" src={logo} alt="Logo" />
+                                        <img className="searchperson" src={searchperson} alt="" />
+                                        <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
+                                        <div class="input-btn-container">
+                                            <label for="phone">Símanúmer</label>
+                                            <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
+                                            <button onClick={this._confirmphone} className="yes-btn">Senda</button>
+                                        </div>
                                     </div>
                                 </div>
 
 
 
-
-                            </div>
-
-
-
-                        )
-                    }}</FirebaseContext.Consumer>
-            </div>
+                            )
+                        }}</FirebaseContext.Consumer>
+                </div>
         )
     };
 }
