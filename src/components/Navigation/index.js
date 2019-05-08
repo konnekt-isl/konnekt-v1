@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import logo from '../img/logo.svg';
+import locker from '../img/locker.svg';
 
 import { AuthUserContext } from '../Session';
 // import SignOutButton from '../SignOut';
@@ -65,7 +66,7 @@ class NavigationNonAuth extends Component {
         <div className="logo-container">
           <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
         </div>
-        <ul>
+        <ul className="nav-ul">
           <li className="navigation-link">
             <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
           </li>
@@ -79,6 +80,12 @@ class NavigationNonAuth extends Component {
             <Link to={ROUTES.SIGN_IN}>Innskráning</Link>
           </li>
         </ul>
+        <button className="nav-locker">
+          <Link to={ROUTES.SIGN_IN}>
+            <img src={locker} alt="Fara í innskráningu" />
+          </Link>
+          
+        </button>
       </nav>
     )
   }

@@ -13,6 +13,8 @@
     flex-direction: column;
     padding: 5% 16px;
     align-items: center;
+    min-width: 340px;
+
   }
   //Fyrsta sectionið, það sem birtist þegar síðan er opnuð
   .landing-section {
@@ -21,6 +23,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    min-width: 340px;
     .landing-img-container {
       width: 100%;
       margin-top: 168px;
@@ -55,7 +58,7 @@
     .lausnir-btn {
       @extend %landing-btn;
       background: $primary;
-      width: 90%;
+      min-width: 340px;
       font-size: 20px;
       margin-top: 33px;
     }
@@ -84,7 +87,8 @@
     }
     .big-btn {
       @extend %landing-btn;
-      width: 100%;
+      width: 340px;
+      height: 50px;
       font-size: 20px;
       margin: 5% auto;
     }
