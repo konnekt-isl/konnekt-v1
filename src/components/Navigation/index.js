@@ -9,14 +9,14 @@ import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 import SVGIcon from "../img/SVGIcon";
 import logoVertical from '../img/logovertical.svg';
-import { NavLink }  from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 //Hérna er ath hvort notandi sé skráður inn eða ekki, ef hann er skráður inn birtir hann navigation auth en ef ekki birtir hann navigation non auth.
 const Navigation = () => (
   <AuthUserContext.Consumer>
-    { authUser=>
-      authUser ? <NavigationAuth/> : <NavigationNonAuth />
+    {authUser =>
+      authUser ? <NavigationAuth /> : <NavigationNonAuth />
     }
   </AuthUserContext.Consumer>
 );
@@ -28,21 +28,22 @@ const NavigationAuth = () => (
       <NavLink to={ROUTES.CHATLIST}><img className="logo-vertical" src={logoVertical} alt="Logo" /></NavLink>
       {/* Container around the 3 icons */}
       <div className="icons-container">
-        <div className="single-icon-container">
+
+        <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.TELEPHONE}>
           <SVGIcon name="phone" width={24} />
-        </div>
-        
-          <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.CHATLIST}>
-            <SVGIcon name="message" width={24} />
-          </NavLink>
-      
-       
-          <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.FACETOFACE}><SVGIcon className="nav-icon" name="face" width={24} /></NavLink>
-   
+        </NavLink>
+
+        <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.CHATLIST}>
+          <SVGIcon name="message" width={24} />
+        </NavLink>
+
+
+        <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.FACETOFACE}><SVGIcon className="nav-icon" name="face" width={24} /></NavLink>
+
       </div>
-    
-        <NavLink className="single-icon-container"  activeClassName="active-link" to={ROUTES.ACCOUNT}><SVGIcon className="nav-icon" name="settings" width={24} /></NavLink>
-   
+
+      <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.ACCOUNT}><SVGIcon className="nav-icon" name="settings" width={24} /></NavLink>
+
       {/* Sidebar ends */}</div>
   </div>
 );
