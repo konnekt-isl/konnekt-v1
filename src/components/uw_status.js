@@ -31,10 +31,10 @@ class uw_status extends Component {
                 this.setState({ message: doc.data().message })
             })
 
-        this.timerID = setInterval(
-            this.tick,
-            1000
-        );
+        // this.timerID = setInterval(
+        //     this.tick,
+        //     1000
+        // );
 
     }
     componentWillUnmount() {
@@ -50,6 +50,14 @@ class uw_status extends Component {
         else {
             this.setState({ sessionTimeOut: true })
         }
+    }
+
+    backToChat = () => {
+        this.props.history.push({
+            pathname: '/chatbox',
+            state: { phone: this.props.location.state.phone }
+        })
+        console.log(this.props.location.state.phone)
     }
 
     render() {
@@ -71,7 +79,7 @@ class uw_status extends Component {
                             <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
                         </div>
                         <div className="container">
-                            <button class="yes-btn">Áfram</button>
+                            <button onClick={this.backToChat} class="yes-btn">Áfram</button>
                         </div>
                     </div>
                 </div>;

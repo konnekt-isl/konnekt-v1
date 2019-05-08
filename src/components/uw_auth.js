@@ -68,10 +68,9 @@ class uw_auth extends Component {
                 firebase.firestore().collection('systemState').doc('session').update({
                     url_id: this.props.match.params.session
                 })
-                console.log("Test: " + this.state.data)
                 this.props.history.push({
                     pathname: '/status',
-                    state: { session: this.props.match.params.session }
+                    state: { session: this.props.match.params.session, phone: this.state.phone }
                 })
             })
             .catch(err => {

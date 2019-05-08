@@ -15,6 +15,7 @@ class ChatBox extends Component {
             message: '',
             messages: [],
             messageDate: '',
+            messageList: {},
         };
         this._handleChange = this._handleChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -31,6 +32,10 @@ class ChatBox extends Component {
         })
     }
 
+    componentDidUpdate() {
+        this.scrollToBottom()
+    }
+
     _handleChange = (event) => {
         this.setState({ messageDate: firebase.firestore.Timestamp.fromDate(new Date()) });
         if (event.target.name === 'message') {
@@ -42,8 +47,8 @@ class ChatBox extends Component {
     // Adding to the array of objects
     onSubmit = event => {
         event.preventDefault();
-        const { phone, message, messageDate, chatName } = this.state;
-        firebase.firestore().collection('chat').doc(phone).update({
+        const { message, messageDate, chatName } = this.state;
+        firebase.firestore().collection('chat').doc(this.state.phone).update({
             read: false,
             messages: firebase.firestore.FieldValue.arrayUnion({
                 chatName,
@@ -54,6 +59,48 @@ class ChatBox extends Component {
         this.setState({ message: '', messageDate: '' })
     };
 
+    // To let the chat scroll down automaticly.
+    scrollToBottom = () => {
+        const messageList = document.getElementById('messageList') || {}
+        const scrollHeight = messageList.scrollHeight;
+        const height = messageList.clientHeight;
+        const maxScrollTop = scrollHeight - height;
+        messageList.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+    }
+
+    urlify = (text) => {
+        let urlRegex = /(https?:\/\/[^\s]+)/g;
+        return text.replace(urlRegex, function (url) {
+            return `<a href=${url} target="_blank">${url}</a>`;
+        })
+    }
+
+    renderMessage = (message) => {
+        return (message.url
+            ? <div className="chat-bubble-container">
+                <div className={message.isStaff != true ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
+                <div className={message.isStaff != true ? 'chat-bubble csr' : 'chat-bubble user'}>
+                    <div className="msg">Auðkennisbeðni hefur verið send.</div>
+                </div>
+                <div className="timestamp-container">
+                    <p className={message.isStaff != true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                </div>
+            </div>
+
+            : <div className="chat-bubble-container">
+                <div className={message.chatName != this.state.chatName ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
+                <div className={message.chatName === this.state.chatName ? 'chat-bubble csr' : 'chat-bubble user'}>
+                    <div className="msg">
+                        <div dangerouslySetInnerHTML={{ __html: this.urlify(message.message) }} />
+                    </div>
+                </div>
+                <div className="timestamp-container">
+                    <p className={message.isStaff != true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                </div>
+            </div>
+        );
+    }
+
     render() {
         const { message, } = this.state;
         const isInvalid = message === '';
@@ -62,21 +109,12 @@ class ChatBox extends Component {
 
             <div className="chatbox-wrapper">
                 <img className="logo" src={logo} />
-                <div className="chat-display-wrapper">
-                    <div className="chat-bubble-container">
-                    {this.state.messages.map((message) => {
-                            return (
-                                <div class={message.chatName === this.state.chatName ? 'chat-bubble csr' : 'chat-bubble user'}>
-                                <p className="msg">{message.url ? <a href={message.url}>Auðkenna með Konnekt</a> : message.chatName + ' : ' + message.message}</p>  
-                                </div>)
-                        })
-                        }    
-                        {/* <div className="timestamp-container">
-                            <p className={message.isStaff ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
-                        </div> */}
-                    </div>
-           
+                <div className="chat-display-wrapper" id='messageList'>
+
+                    {this.state.messages.map((message) => this.renderMessage(message))}
+
                 </div>
+                {this.scrollToBottom()}
                 <div className="chat-input-wrapper">
                     <form onSubmit={this.onSubmit}>
                         <input
@@ -91,7 +129,6 @@ class ChatBox extends Component {
                         </button>
                     </form>
                 </div>
-      
             </div>
         )
     };

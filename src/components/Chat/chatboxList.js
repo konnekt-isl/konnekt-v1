@@ -123,6 +123,7 @@ class ChatList extends Component {
     expand = () => {
         this.setState({ contentIsVisible: true })
     }
+
     // To let the chat scroll down automaticly.
     scrollToBottom = () => {
         const messageList = document.getElementById('messageList') || {}
@@ -162,12 +163,6 @@ class ChatList extends Component {
                     <p className={message.isStaff ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                 </div>
             </div>
-
-
-
-
-
-
         );
     }
 
