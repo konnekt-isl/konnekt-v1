@@ -1300,6 +1300,7 @@ template {
 }
 .chat-index-wrapper .img-container .konnekt-lady {
   height: 102px;
+  margin-top: 5%;
 }
 .chat-index-wrapper h1 {
   font-size: 16px;
@@ -1341,6 +1342,11 @@ template {
   margin: 10px 0px;
 }
 
+@media only screen and (min-width: 768px) {
+  .chat-index-wrapper {
+    margin: 0px;
+  }
+}
 .simi-skjar2 {
   display: flex;
   align-items: center;
