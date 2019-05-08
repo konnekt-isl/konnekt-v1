@@ -50,6 +50,10 @@
                 @extend %yes-btn;
                 margin-top: 5%;
             }
+            .account-btn:hover {
+                box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
+            }
+            
         }
     
     }

@@ -79,14 +79,12 @@
     .chat-overview {
         width: 230px;
         height: 100%;
-        border-right: 1px solid $border;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
 
         //container sem heldur utan um hvern dálk 
         .chat-el-container {
-            border-bottom: 1px solid $border;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -174,6 +172,9 @@
         justify-content: center;
         flex-grow:1;
         height: 850px;
+        border-left: 1px solid $border;
+        border-right: 1px solid $border;
+   
         .chat-display-and-input-wrapper {
             width: 100%;
             display: flex;
@@ -213,6 +214,7 @@
                 flex-direction: row;
                 flex-wrap: wrap;
                 align-items: flex-end;
+                margin: 1% 0%;
                 .chat-bubble {
                     min-width: 100px;
                     min-height: 46px;
@@ -302,12 +304,12 @@
         .chat-input-wrapper {
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             border-top: 1px solid $border;
             flex-wrap: wrap;
             width: 100%;
-            padding: 0px 40px;
+            padding-right: 40px;
 
             .chat-input-form {
                 width: 60%;
@@ -318,6 +320,7 @@
                 height: 88px;
                 width: 100%;
                 cursor: text;
+                padding:16px;
                 
                 
             }
@@ -325,7 +328,7 @@
                 border: $primary;
             }
             .chat-options {
-                width: 40%;
+                // width: 40%;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -386,7 +389,6 @@
     .user-info-konnekt-wrapper {
         height: 100%;
         width: 300px;
-        border-left: 1px solid #E9E9E9;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -395,7 +397,6 @@
         .current-user-wrapper {
             flex-grow:1;
             min-height: 375px;
-            border-bottom: 1px solid $border;
             width: inherit;
             display: flex;
             align-items: center;
@@ -455,18 +456,18 @@
                 align-items: center;
                 flex-direction: column;
                 justify-content: space-around;
-                height: 100%;
+                height: 300px;
 
                 .logo {
                     height: 25px;
                 }
             
                 .konnekt-section {
-                    height: 50%;
                     display: flex;
                     align-items: center;
                     flex-direction: column;
                     justify-content: space-between;
+                    margin-top: 10%;
 
                     h2 {
                         font-size: 16px;
@@ -485,6 +486,9 @@
                     .konnekt-btn {
                         @extend %yes-btn;
 
+                    }
+                    .konnekt-btn:hover {
+                        box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
                     }
                 }
 
