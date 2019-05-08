@@ -214,8 +214,9 @@
                 flex-wrap: wrap;
                 align-items: flex-end;
                 .chat-bubble {
-                    width:40%;
-                    min-height: 80px;
+                    min-width: 100px;
+                    min-height: 46px;
+                    max-width: 600px;
                     padding: 16px;
                     display: flex;
                     flex-direction: row;
@@ -225,7 +226,7 @@
                         margin: 0px;
                         font-size: 12px;
                         color: $grey;
-                        max-width: 275px;
+                        
                     }
                     
                 }

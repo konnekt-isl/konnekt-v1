@@ -1047,8 +1047,9 @@ template {
   align-items: flex-end;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .chat-bubble {
-  width: 40%;
-  min-height: 80px;
+  min-width: 100px;
+  min-height: 46px;
+  max-width: 600px;
   padding: 16px;
   display: flex;
   flex-direction: row;
@@ -1059,7 +1060,6 @@ template {
   margin: 0px;
   font-size: 12px;
   color: #B0B0B0;
-  max-width: 275px;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .csr-letter {
   display: none;
