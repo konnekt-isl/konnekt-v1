@@ -400,6 +400,9 @@ template {
   text-decoration: none;
   color: #4F4F4F;
 }
+.navigation ul li a:hover {
+  color: #4F4F4F;
+}
 .navigation ul li a:visited {
   color: #4F4F4F;
 }
@@ -489,6 +492,7 @@ template {
     text-decoration: none;
     -webkit-transition: color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out;
+    cursor: pointer;
   }
   ul li:before {
     content: "";
@@ -500,17 +504,19 @@ template {
   ul li:before {
     left: 0;
   }
-  ul li:hover {
-    color: #3463FF;
-  }
   ul li:hover:before {
     width: 100%;
+    color: #3463FF;
   }
   ul li:before {
     -webkit-transition: width 0.2s ease-in-out;
     transition: width 0.2s ease-in-out;
   }
 }
+.navigation.non-auth ul {
+  display: none;
+}
+
 .landing .section {
   display: flex;
   flex-direction: column;
@@ -532,6 +538,7 @@ template {
   margin-top: 168px;
   align-items: flex-end;
   justify-content: space-around;
+  margin-right: 98px;
 }
 .landing .landing-section .landing-img-container .konnekt-dude {
   height: 122px;
@@ -685,6 +692,10 @@ template {
 }
 
 @media only screen and (min-width: 768px) {
+  .navigation.non-auth ul {
+    display: flex;
+  }
+
   .landing .section {
     flex-direction: row;
     display: flex;
@@ -696,6 +707,21 @@ template {
   }
   .landing .section .order {
     order: 1;
+  }
+  .landing .landing-img-container {
+    position: absolute;
+  }
+  .landing .konnekt-lady {
+    position: absolute;
+    right: 63px;
+    height: 260px !important;
+    margin-top: 200px;
+  }
+  .landing .konnekt-dude {
+    position: absolute;
+    left: 63px;
+    height: 280px !important;
+    margin-top: 200px;
   }
   .landing .landing-section {
     height: 90vh;
@@ -819,6 +845,9 @@ template {
   .landing footer .contact-link-container .contact-link {
     font-size: 60px;
     letter-spacing: 2px;
+  }
+  .landing footer .contact-link-container .senduokkurlinu {
+    font-size: 18px;
   }
 }
 .simi-skjar1 {
@@ -1703,6 +1732,13 @@ template {
 
 .loader-container {
   height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-container-small {
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;

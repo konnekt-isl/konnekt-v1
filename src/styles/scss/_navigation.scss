@@ -18,6 +18,9 @@
         text-decoration: none;
         color: $text;
       }
+      a:hover {
+        color: $text;
+      }
       a:visited {
         color: $text;
       }
@@ -121,6 +124,7 @@
       text-decoration: none;
       -webkit-transition: color 0.2s ease-in-out;
       transition: color 0.2s ease-in-out;
+      cursor: pointer;
     }
 
     li:before {
@@ -134,12 +138,9 @@
       left: 0;
     }
 
-    li:hover {
-      color: $primary;
-    }
-
     li:hover:before {
       width: 100%;
+      color: $primary;
     }
 
     li:before {

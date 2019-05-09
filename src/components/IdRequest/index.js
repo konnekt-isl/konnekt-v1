@@ -28,7 +28,6 @@ class Request extends Component {
         })
             .then(() => {
                 firebase.firestore().collection('status').doc(sessionID).onSnapshot((doc) => {
-                    this.setState({ isLoading: false })
                     const { ssn, date, status, message } = doc.data();
                     this.setState({
                         ssn,
@@ -38,6 +37,7 @@ class Request extends Component {
                     })
                     if (ssn) {
                         this.getUserInfo(ssn);
+                        this.setState({ isLoading: false })
                     }
                 });
             })
@@ -48,8 +48,8 @@ class Request extends Component {
             .then((doc) => {
                 this.setState({
                     userInfo: doc.data()
-
                 })
+                console.log(doc.data())
             })
     }
 
@@ -67,7 +67,6 @@ class Request extends Component {
         const isInvalid = phone === '';
 
         return (
-
             <div>
                 {this.state.isLoading ? <LoadingScreen /> :
                     <div className="konnekt-status-container" >
@@ -85,14 +84,32 @@ class Request extends Component {
 
 const LoadingScreen = () => {
     return (
-        <div>
+        < div className="konnekt-status-container" >
             <img className="logo" src={logo} />
-
-            <div class="loader-container">
+            <div className="konnekt-section">
                 <div class="circle circle-1"></div>
                 <div class="circle circle-2"></div>
                 <div class="circle circle-3"></div>
             </div>
+        </div >
+    )
+}
+
+const AudkenniTokstEkki = () => {
+    return (
+        <div>
+            <img className="logo" src={logo} />
+
+            Tokst ekki
+        </div>
+    )
+}
+
+const AudkenniTokst = () => {
+    return (
+        <div>
+            <img className="logo" src={logo} />
+            Tokst
         </div>
     )
 }

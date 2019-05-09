@@ -79,7 +79,7 @@ const Landing = () => (
         <img className="or-hlidar-graen" src={orHlidarGraen} />
         </button></Link>
       </div>
-    </div >
+    </div>
 
 
 
@@ -103,7 +103,7 @@ const Landing = () => (
     <footer>
       <div class="list-container m-h">
         <a id="samband" />
-        <h2>ER ÞITT FYRIRTÆKI TILBÚIÐ TIL ÞESS AÐ ...</h2>
+        <h2>ER ÞITT FYRIRTÆKI TILBÚIÐ TIL ÞESS AÐ...</h2>
         <ul>
           <div className="list-item">
             <div className="dot"></div><li>Ræða um framtíðina ?</li>
@@ -117,7 +117,7 @@ const Landing = () => (
         </ul>
       </div>
       <div class="contact-link-container m-v">
-        <p>Sendu okkur línu á ...</p>
+        <p class="senduokkurlinu">Sendu okkur línu á</p>
         <a className="contact-link">hello@konnekt.is</a>
       </div>
 
