@@ -500,9 +500,9 @@ template {
   ul .navigation-link:before {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     width: 0;
-    border-bottom: solid 2px;
+    border-bottom: solid 3px;
   }
   ul li:before {
     left: 0;
@@ -526,7 +526,7 @@ template {
   padding: 5% 16px;
   align-items: center;
   min-width: 340px;
-  margin: 50px 0;
+  margin: 80px 0;
 }
 .landing .landing-section {
   height: 90vh;
@@ -541,7 +541,6 @@ template {
   margin-top: 168px;
   align-items: flex-end;
   justify-content: space-around;
-  margin-right: 98px;
 }
 .landing .landing-section .landing-img-container .konnekt-dude {
   height: 122px;
@@ -601,8 +600,14 @@ template {
 .landing .summary-decoration .green {
   background: #56E8A2;
 }
+.landing .summary-decoration .green img {
+  display: none;
+}
 .landing .summary-decoration .blue {
   background: #3463FF;
+}
+.landing .summary-decoration .blue img {
+  display: none;
 }
 .landing .summary-decoration .green:hover {
   background: none;
@@ -787,11 +792,14 @@ template {
     height: 128px;
     padding-left: 32px;
   }
-  .landing .summary-decoration .big-btn .or-hlidar-bla {
+  .landing .summary-decoration .big-btn img {
+    display: inline-block;
+  }
+  .landing .summary-decoration .big-btn img.or-hlidar-bla {
     margin-left: 16px;
     width: 40px;
   }
-  .landing .summary-decoration .big-btn .or-hlidar-graen {
+  .landing .summary-decoration .big-btn img.or-hlidar-graen {
     margin-left: 16px;
     width: 40px;
     color: #56E8A2;
