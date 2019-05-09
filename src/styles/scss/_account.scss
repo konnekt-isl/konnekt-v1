@@ -1,0 +1,110 @@
+
+.account-page {
+    padding-left: 72px;
+    height: 100vh;
+    //wrapper með nafn notendans og útskráningar takka /
+    .csr-header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 20px 40px;
+
+        .user-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+           h1 {
+                margin: 0px;
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .avatar {
+                path {
+                    fill: $primary;
+                }
+            }
+
+        //Avatar icon sem er alltaf eins
+        .avatar {
+            path {
+                fill: $primary;
+            }
+        }
+
+       
+        }
+           //Signout takki sem er eins alltaf
+           .signout-btn {
+            background: 0;
+            border: 0;
+            margin-left: auto;
+            cursor: pointer;
+            .logout-icon {
+                path {
+                    fill: $primary;
+                }
+            }
+        }
+
+    }
+    .account-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: inherit;
+        
+        
+        .account-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            height: inherit;
+            margin-top:10%;
+            .account-img {
+                height: 80px;
+            }
+            h1 {
+                font-size: 22px;
+                font-weight: bold;
+                color: $primary;
+                text-transform: uppercase;
+                margin-top: 2%
+            }
+            p {
+                max-width: 208px;
+                font-size: 14px;
+                color: $text;
+                margin-top: 2%
+            }
+            .account-form {
+                display: flex;
+                flex-direction: column;
+                margin-top: 2%
+            }
+            label {
+                font-size: 14px;
+                color: $primary;
+                text-transform: uppercase;
+            }
+            .account-input {
+                @extend %input-field;
+                background-color: #E6ECFF;
+                border: none;
+                width: 208px;
+            }
+            .account-btn {
+                @extend %yes-btn;
+                margin-top: 5%;
+            }
+            .account-btn:hover {
+                box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
+            }
+            
+        }
+    
+    }
+}

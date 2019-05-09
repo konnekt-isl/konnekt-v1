@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import SignOutButton from '../SignOut';
 import * as firebase from 'firebase'
 import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
+import CsrHeader from '../Navigation/csrHeader';
 
-import SVGIcon from "../img/SVGIcon";
 import checkcircle from '../img/check-circle.svg';
 import logo from '../img/logo.svg';
 import error from '../img/error.svg';
@@ -31,7 +30,7 @@ class Status extends Component {
   render() {
     return (
       <div className="facetoface-homepage">
-        {this.props.location.state.status != '200' ? <NonAudkent data={this.props.location.state.data} userName={this.state.authUser.username} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} userName={this.state.authUser.username} />}
+        {this.props.location.state.status !== '200' ? <NonAudkent data={this.props.location.state.data} userName={this.state.authUser.username} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} userName={this.state.authUser.username} />}
       </div>
     )
   };
@@ -40,16 +39,7 @@ class Status extends Component {
 const Audkent = (props) => {
   return (
     <div className="facetoface-wrapper">
-      <div className="csr-header">
-        {/* This could be component */}
-        <div className="user-container">
-          <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-          <h1>{props.userName}</h1>
-        </div>
-        <SignOutButton className="signout-btn" />
-      </div>
-      {/* end of component */}
-
+      <CsrHeader />
       <div className="facetoface-container">
 
         <img className="logo" src={logo} />
@@ -60,25 +50,15 @@ const Audkent = (props) => {
         <div className="input-btn-container">
           <button className="yes-btn">Auðkenna Næsta?</button>
         </div>
-
       </div>
     </div>
   )
 };
 
 const NonAudkent = (props) => {
-  console.log(props.phone)
   return (
     <div className="facetoface-wrapper">
-      <div className="csr-header">
-
-        <div className="user-container">
-          <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-          <h1>{props.userName}</h1>
-        </div>
-        <SignOutButton className="signout-btn" />
-      </div>
-
+      <CsrHeader />
       <div className="facetoface-container">
         <img className="logo" src={logo} />
         <img className="status-img" src={error} />

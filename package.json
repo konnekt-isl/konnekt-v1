@@ -13,6 +13,7 @@
     "react-router-dom": "^5.0.0",
     "react-router-hash-link": "^1.2.1",
     "react-scripts": "2.1.8",
+    "react-scroll": "^1.7.11",
     "recompose": "^0.30.0",
     "sass": "^1.19.0"
   },

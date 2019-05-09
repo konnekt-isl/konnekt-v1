@@ -1,6 +1,7 @@
 export const LANDING = '/';
 
 //Links within the landing page
+export const L_HOMELOGO = '/#homelogo';
 export const L_LAUSNIR = '/#lausnir';
 export const L_DEMO = '/#demo';
 export const L_OKKARSYN = '/#okkar-syn';

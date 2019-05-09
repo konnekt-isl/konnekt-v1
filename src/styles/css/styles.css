@@ -331,7 +331,7 @@ template {
 }
 
 /*# sourceMappingURL=bootstrap-reboot.css.map */
-.facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn:hover, .facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn, .simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chatbox-wrapper .btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn {
+.status-screen-wrapper .status-screen-container .yes-btn, .account-page .account-wrapper .account-container .account-btn, .facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn, .simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chatbox-wrapper .konnekt-btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -344,7 +344,7 @@ template {
   cursor: pointer;
 }
 
-.simi-skjar2 .wrapper .status-screen .no-btn {
+.simi-skjar2 .wrapper .status-screen .no-btn, .simi-skjar1 .no-btn {
   width: 208px;
   height: 40px;
   background: #FFEEED;
@@ -365,7 +365,7 @@ template {
   font-weight: bolder;
 }
 
-.chat-index-wrapper input, .chatbox-wrapper .chat-input-wrapper form input {
+.account-page .account-wrapper .account-container .account-input, .chat-index-wrapper input, .chatbox-wrapper .chat-input-wrapper form input {
   width: 202px;
   height: 40px;
   border-radius: 4px;
@@ -398,6 +398,7 @@ template {
 }
 .navigation ul li a {
   text-decoration: none;
+  color: #4F4F4F;
 }
 .navigation ul li a:visited {
   color: #4F4F4F;
@@ -419,7 +420,7 @@ template {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 0px;
+  padding: 24px 0px 0px 0px;
 }
 .auth .icons-container {
   height: 216px;
@@ -447,7 +448,7 @@ template {
 .non-auth {
   width: 100%;
   justify-content: space-between;
-  padding: 30px 80px;
+  padding: 16px 32px;
   background-color: rgba(255, 255, 255, 0.95);
 }
 .non-auth .nav-ul {
@@ -516,6 +517,7 @@ template {
   padding: 5% 16px;
   align-items: center;
   min-width: 340px;
+  margin: 50px 0;
 }
 .landing .landing-section {
   height: 90vh;
@@ -625,17 +627,17 @@ template {
   margin: 5% auto;
 }
 .landing .okkar-syn-container {
-  margin: 5% 0%;
+  margin-top: 50px;
 }
 .landing .okkar-syn-container .okkar-syn {
-  height: 152px;
+  height: 200px;
 }
 .landing footer {
-  height: 620px;
-  width: 100%;
+  height: 667px;
+  width: 100vw;
   background-color: #3463FF;
   color: #FFFFFF;
-  padding: 5% 5%;
+  padding: 100px 16px 50px 16px;
 }
 .landing footer .list-container ul {
   list-style-type: none;
@@ -665,7 +667,7 @@ template {
   margin-right: 16px;
 }
 .landing footer .contact-link-container {
-  margin-top: 10%;
+  margin: 80px 0 0 32px;
 }
 .landing footer .contact-link-container p {
   color: #FFFFFF;
@@ -683,14 +685,16 @@ template {
 
 @media only screen and (min-width: 768px) {
   .landing .section {
-    padding: 5% 80px;
     flex-direction: row;
     display: flex;
     flex-direction: row;
     height: 80vh;
     display: flex;
     max-width: 1360px;
-    margin: 0% auto;
+    margin: 150px auto 150px auto;
+  }
+  .landing .section .order {
+    order: 1;
   }
   .landing .landing-section {
     height: 90vh;
@@ -799,6 +803,57 @@ template {
     letter-spacing: 2px;
   }
 }
+.simi-skjar1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.simi-skjar1 .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+.simi-skjar1 .wrapper .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.simi-skjar1 .wrapper .container .logo {
+  margin-bottom: 5%;
+}
+.simi-skjar1 .wrapper .container h1 {
+  margin-bottom: 15%;
+}
+.simi-skjar1 input {
+  margin-top: 20px;
+  border-radius: 4px;
+  background: #E6ECFF;
+  height: 40px;
+  width: 208px;
+  border: none;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+.simi-skjar1 h1 {
+  font-size: 17px;
+  margin: auto;
+}
+.simi-skjar1 h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 20px;
+}
+.simi-skjar1 .yes-btn {
+  margin-bottom: 10%;
+}
+.simi-skjar1 p {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
 .signin-page {
   padding-top: 92px;
   display: flex;
@@ -900,7 +955,7 @@ template {
   margin-top: 34px;
 }
 .signin-page .wrapper .signin-section .container .btn:hover {
-  background: #2be28a;
+  box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
   cursor: pointer;
 }
 
@@ -960,13 +1015,11 @@ template {
 .chathomepage .chat-overview {
   width: 230px;
   height: 100%;
-  border-right: 1px solid #E9E9E9;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 .chathomepage .chat-overview .chat-el-container {
-  border-bottom: 1px solid #E9E9E9;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1013,7 +1066,8 @@ template {
 .chathomepage .chat-overview .chat-el-container .content li {
   font-size: 14px;
   color: #B0B0B0;
-  padding: 1%;
+  padding: 2%;
+  margin: 0px;
 }
 .chathomepage .chat-overview .chat-el-container .content li:hover {
   background-color: #E6ECFF;
@@ -1040,6 +1094,8 @@ template {
   justify-content: center;
   flex-grow: 1;
   height: 850px;
+  border-left: 1px solid #E9E9E9;
+  border-right: 1px solid #E9E9E9;
 }
 .chathomepage .csr-middle-section .chat-display-and-input-wrapper {
   width: 100%;
@@ -1051,7 +1107,6 @@ template {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar {
   width: 5px;
@@ -1079,10 +1134,12 @@ template {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-end;
+  margin: 1% 0%;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .chat-bubble {
-  width: 40%;
-  min-height: 80px;
+  min-width: 100px;
+  min-height: 46px;
+  max-width: 600px;
   padding: 16px;
   display: flex;
   flex-direction: row;
@@ -1093,7 +1150,6 @@ template {
   margin: 0px;
   font-size: 12px;
   color: #B0B0B0;
-  max-width: 275px;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper .chat-bubble-container .csr-letter {
   display: none;
@@ -1143,12 +1199,12 @@ template {
 .chathomepage .csr-middle-section .chat-input-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-top: 1px solid #E9E9E9;
   flex-wrap: wrap;
   width: 100%;
-  padding: 0px 40px;
+  padding-right: 40px;
 }
 .chathomepage .csr-middle-section .chat-input-wrapper .chat-input-form {
   width: 60%;
@@ -1158,12 +1214,12 @@ template {
   height: 88px;
   width: 100%;
   cursor: text;
+  padding: 16px;
 }
 .chathomepage .csr-middle-section .chat-input-wrapper input:focus {
   border: #3463FF;
 }
 .chathomepage .csr-middle-section .chat-input-wrapper .chat-options {
-  width: 40%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1206,7 +1262,6 @@ template {
 .chathomepage .user-info-konnekt-wrapper {
   height: 100%;
   width: 300px;
-  border-left: 1px solid #E9E9E9;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -1215,7 +1270,6 @@ template {
 .chathomepage .user-info-konnekt-wrapper .current-user-wrapper {
   flex-grow: 1;
   min-height: 375px;
-  border-bottom: 1px solid #E9E9E9;
   width: inherit;
   display: flex;
   align-items: center;
@@ -1266,17 +1320,17 @@ template {
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  height: 100%;
+  height: 300px;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .logo {
   height: 25px;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section {
-  height: 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  margin-top: 10%;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section h2 {
   font-size: 16px;
@@ -1290,9 +1344,17 @@ template {
   color: #4F4F4F;
   text-align: center;
 }
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn:hover {
+  box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
+}
+
 .chatbox-wrapper {
-  padding: 0px 20px;
-  max-height: 100%;
+  padding: 0px 20px 20px 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 425px;
 }
 .chatbox-wrapper .logo {
   height: 24px;
@@ -1301,22 +1363,56 @@ template {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 65vh;
+  height: 90vh;
   overflow-y: scroll;
+  padding: 0px 8px;
+}
+.chatbox-wrapper .chat-display-wrapper::-webkit-scrollbar {
+  width: 5px;
+  background: #FFFFFF;
+}
+.chatbox-wrapper .chat-display-wrapper::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+.chatbox-wrapper .chat-display-wrapper::-webkit-scrollbar-thumb {
+  width: 30px;
+  border-radius: 3px;
+  background: #3463FF;
 }
 .chatbox-wrapper .chat-bubble-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+.chatbox-wrapper .chat-bubble-container .csr-letter {
+  background-color: #EBEFFF;
+  height: 24px;
+  width: 24px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3463FF;
+  border-radius: 100% 100% 0% 100%;
+  margin-right: 1%;
+}
+.chatbox-wrapper .chat-bubble-container .user-letter {
+  display: none;
 }
 .chatbox-wrapper .chat-bubble {
+  max-width: 200px;
   margin-top: 24px;
-  width: 75%;
   min-height: 40px;
-  padding: 16px;
+  padding: 8px 16px;
   display: flex;
   flex-direction: row;
   font-size: 12px;
   flex-wrap: wrap;
+}
+.chatbox-wrapper .chat-bubble .msg div a {
+  max-width: 200px;
 }
 .chatbox-wrapper .user {
   background-color: #EBEFFF;
@@ -1328,10 +1424,16 @@ template {
 .chatbox-wrapper .csr {
   background-color: #3463FF;
   border-radius: 5px 5px 0px 5px;
-  align-self: flex-end;
+  margin-left: auto;
 }
 .chatbox-wrapper .csr .msg {
   color: #FFFFFF;
+}
+.chatbox-wrapper .csr .msg div a {
+  max-width: 200px;
+}
+.chatbox-wrapper .timestamp-container {
+  width: 100%;
 }
 .chatbox-wrapper .timestamp-container .timestamp {
   font-size: 10px;
@@ -1341,10 +1443,30 @@ template {
 .chatbox-wrapper .timestamp-container .t-csr {
   float: right;
 }
-.chatbox-wrapper .chat-input-wrapper form input {
+.chatbox-wrapper .chat-input-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.chatbox-wrapper .chat-input-wrapper form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
 }
+.chatbox-wrapper .chat-input-wrapper form input {
+  width: 100%;
+  background-color: #E6ECFF;
+  border: none;
+  padding-left: 16px;
+}
+.chatbox-wrapper .btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 .chat-index-wrapper {
+  margin-top: 102px;
   margin-top: 5%;
   display: flex;
   flex-direction: column;
@@ -1358,10 +1480,10 @@ template {
   width: 80%;
   margin: auto;
   justify-content: flex-end;
+  margin-top: 102px;
 }
 .chat-index-wrapper .img-container .konnekt-lady {
   height: 102px;
-  margin-top: 5%;
 }
 .chat-index-wrapper h1 {
   font-size: 16px;
@@ -1569,15 +1691,15 @@ template {
 }
 
 .circle-1 {
-  background-color: #EBEFFF;
+  background-color: #C2D0FF;
 }
 
 .circle-2 {
-  background-color: #FFEEED;
+  background-color: #FFCBC9;
 }
 
 .circle-3 {
-  background-color: #EAFCF3;
+  background-color: #C0F6DC;
 }
 
 .circle {
@@ -1608,6 +1730,173 @@ template {
   100% {
     transform: translateY(0);
   }
+}
+.account-page {
+  padding-left: 72px;
+  height: 100vh;
+}
+.account-page .csr-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px 40px;
+}
+.account-page .csr-header .user-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.account-page .csr-header .user-container h1 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.account-page .csr-header .user-container .avatar path {
+  fill: #3463FF;
+}
+.account-page .csr-header .user-container .avatar path {
+  fill: #3463FF;
+}
+.account-page .csr-header .signout-btn {
+  background: 0;
+  border: 0;
+  margin-left: auto;
+  cursor: pointer;
+}
+.account-page .csr-header .signout-btn .logout-icon path {
+  fill: #3463FF;
+}
+.account-page .account-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: inherit;
+}
+.account-page .account-wrapper .account-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  height: inherit;
+  margin-top: 10%;
+}
+.account-page .account-wrapper .account-container .account-img {
+  height: 80px;
+}
+.account-page .account-wrapper .account-container h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #3463FF;
+  text-transform: uppercase;
+  margin-top: 2%;
+}
+.account-page .account-wrapper .account-container p {
+  max-width: 208px;
+  font-size: 14px;
+  color: #4F4F4F;
+  margin-top: 2%;
+}
+.account-page .account-wrapper .account-container .account-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+.account-page .account-wrapper .account-container label {
+  font-size: 14px;
+  color: #3463FF;
+  text-transform: uppercase;
+}
+.account-page .account-wrapper .account-container .account-input {
+  background-color: #E6ECFF;
+  border: none;
+  width: 208px;
+}
+.account-page .account-wrapper .account-container .account-btn {
+  margin-top: 5%;
+}
+.account-page .account-wrapper .account-container .account-btn:hover {
+  box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
+}
+
+.telephone-screen {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10%;
+}
+.telephone-screen .letter-avatar {
+  background-color: #EBEFFF;
+  height: 107px;
+  width: 107px;
+  border-radius: 100% 100% 0% 100%;
+}
+.telephone-screen p {
+  color: #4F4F4F;
+  font-size: 16px;
+}
+.telephone-screen .phone-btn-container {
+  margin-top: 15%;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+.telephone-screen .phone-btn-container img:hover {
+  box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
+}
+
+.status-screen-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 16px;
+  height: 100vh;
+  width: 100%;
+}
+.status-screen-wrapper .status-screen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+}
+.status-screen-wrapper .status-screen-container .logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.status-screen-wrapper .status-screen-container .logo-container .logo {
+  height: 24px;
+  margin-right: auto;
+}
+.status-screen-wrapper .status-screen-container .status-msg-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20%;
+}
+.status-screen-wrapper .status-screen-container .status-msg-container .status-icon {
+  height: 50px;
+  margin-bottom: 10%;
+}
+.status-screen-wrapper .status-screen-container .status-msg-container h1 {
+  text-transform: uppercase;
+  color: #3463FF;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.status-screen-wrapper .status-screen-container .status-msg-container p {
+  text-align: center;
+  color: #4F4F4F;
+  font-weight: bold;
+  font-size: 14px;
+  max-width: 250px;
+}
+.status-screen-wrapper .status-screen-container .btn-container {
+  margin-top: auto;
 }
 * {
   font-family: "Lato", Arial, Helvetica, sans-serif;

@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { FirebaseContext } from '../Firebase';
 import logo from '../img/logo.svg';
-import konnektlady from '../img/konnektlady.svg';
 import searchperson from '../img/searchperson.svg';
-import SVGIcon from "../img/SVGIcon";
-import SignOutButton from '../SignOut';
 import LoadingScreen from '../FaceToFace/LoadingScreen'
+import CsrHeader from '../Navigation/csrHeader'
 
 
 class FaceToFace extends Component {
@@ -19,7 +17,7 @@ class FaceToFace extends Component {
             status: null,
             date: null,
             message: null,
-            authUser: JSON.parse(localStorage.getItem('authUser')),
+            // authUser: JSON.parse(localStorage.getItem('authUser')),
             isLoading: false,
         };
 
@@ -88,7 +86,6 @@ class FaceToFace extends Component {
     }
 
     render() {
-        const userName = this.state.authUser.username
         return (
             // Checking if the loading page shuld be shown
             this.state.isLoading
@@ -98,13 +95,7 @@ class FaceToFace extends Component {
                         {firebase => {
                             return (
                                 <div className="facetoface-wrapper">
-                                    <div className="csr-header">
-                                        <div className="user-container">
-                                            <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-                                            <h1>{userName}</h1>
-                                        </div>
-                                        <SignOutButton className="signout-btn" />
-                                    </div>
+                                    <CsrHeader />
                                     <div className="facetoface-container">
                                         <img className="logo" src={logo} alt="Logo" />
                                         <img className="searchperson" src={searchperson} alt="" />

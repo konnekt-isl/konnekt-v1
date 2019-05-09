@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
-import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import konnektlady from '../img/konnektlady.svg';
-import logo from '../img/logo.svg';
 
 const SignInPage = () => (
   <div className="page-wrapper">
-    {/* <h1>SignIn</h1> */}
+
     <SignInForm />
-    {/* <SignInGoogle />
-    <SignInFacebook />
-    <SignInTwitter /> */}
-    {/* <SignUpLink /> */}
+
   </div>
 );
 
@@ -67,6 +61,7 @@ class SignInFormBase extends Component {
     const { email, password, error } = this.state;
 
     const isInvalid = password === '' || email === '';
+    this.state.error != null ? console.log(error.message) : console.log('No error')
 
     return (
       <div className="signin-page">
@@ -103,7 +98,7 @@ class SignInFormBase extends Component {
                     placeholder="Password"
                   />
                 </fieldset>
-
+                {this.state.error != null ? <p>{error.message}</p> : <p></p>}
                 <button className="btn" disabled={isInvalid} type="submit">
                   Skrá inn
                 </button>

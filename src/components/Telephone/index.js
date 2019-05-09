@@ -3,12 +3,12 @@ import * as firebase from 'firebase';
 import { withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
 import chatexpand from '../img/chatexpand.svg';
-import SVGIcon from "../img/SVGIcon";
-import SignOutButton from '../SignOut';
 import logo from '../img/logo.svg';
+import phonegreen from '../img/phonegreen.svg';
+import phonered from '../img/phonered.svg';
 import konnektlady from '../img/konnektlady.svg';
-import paperclip from '../img/paperclip.svg';
 import Request from '../sw_request'
+import CsrHeader from '../Navigation/csrHeader'
 
 
 // Þetta er chat fyrir þjónustuaðila
@@ -109,7 +109,7 @@ class Telephone extends Component {
             url_id
         })
 
-        const url = 'http://localhost:3000/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.username
+        const url = '/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.username
         const { phone, chatName } = this.state;
         firebase.firestore().collection('chat').doc(phone).update({
             read: false,
@@ -169,9 +169,6 @@ class Telephone extends Component {
 
     render() {
         const numRows = this.state.chatboxes.length
-        const userName = this.state.authUser.username
-        const { message, } = this.state;
-        const isInvalid = message === '';
 
         let MyCollapse = "content";
         if (this.state.contentIsVisible) { MyCollapse = "content active" }
@@ -183,20 +180,14 @@ class Telephone extends Component {
             <div className="chathomepage-wrapper">
 
                 {/* Header fyrir notenda avatar og signout takka */}
-                <div className="csr-header">
-                    <div className="user-container">
-                        <SVGIcon className="avatar" name="avatar" width={30} height={30} />
-                        <h1>{userName}</h1>
-                    </div>
-                    <SignOutButton className="signout-btn" />
-                </div>
+                <CsrHeader />
 
 
                 {/* Vinstri dálkur (Virk spjöll, öll spjöll og þjónustuteymi) */}
                 <div className="chat-overview">
                     <div className="chat-el-container">
                         <div className="chat-el-div">
-                            <h2>Virk Netspjöll</h2>
+                            <h2>Símtöl í bið</h2>
                             <img onClick={this.expand} className="chat-expand" src={chatexpand} />
                         </div>
                         <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.username}</li>)}</ul>
@@ -204,7 +195,7 @@ class Telephone extends Component {
 
                     <div className="chat-el-container">
                         <div className="chat-el-div">
-                            <h2>Öll Netspjöll</h2>
+                            <h2>Öll símtöl</h2>
                             <img className="chat-expand" src={chatexpand} />
                         </div>
                     </div>
@@ -217,17 +208,21 @@ class Telephone extends Component {
                     </div>
                 </div>
 
-                {/* Miðju dálkur sem sýnir chat history*/}
-                <div className="csr-middle-section ">
+                {/* Miðju dálkur sem sýnir telephone gluggann*/}
+               
 
-                    <div className="welcome-msg">
-                        <h1>Telephone Screen</h1>
-                        <h2>for the phone!</h2>
-                        <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p>
+                    <div className="telephone-screen">
+                        <div className="letter-avatar"></div>
+                        <p>Username</p>
+                        <div className="phone-btn-container">
+                            <img src={phonegreen} alt="Answer call"/>
+                            <img src={phonered} alt="Decline call"/>
+                        </div>
+                        
+                       
                     </div>
 
 
-                </div>
 
 
                 {
