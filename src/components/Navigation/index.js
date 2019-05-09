@@ -1,6 +1,6 @@
-import React, {Component}from 'react';
+import React, { Component } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
-import {Link as ScrollLink} from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 
 
 import logo from '../img/logo.svg';
@@ -67,11 +67,11 @@ class NavigationNonAuth extends Component {
     return (
       <nav className="navigation non-auth sticky" >
         <div className="logo-container">
-          <ScrollLink to="logoScroll" smooth={true} duration={500} ><img src={logo} alt="Fara á forsíðu" /></ScrollLink>
+          <ScrollLink to="logoScroll" smooth={true} duration={500} ><Link to={ROUTES.HOME}><img src={logo} alt="Fara á forsíðu" /></Link></ScrollLink>
         </div>
         <ul className="nav-ul">
           <li className="navigation-link">
-             <ScrollLink to="lausnirScroll" smooth={true} duration={500} >Lausnir</ScrollLink>
+            <ScrollLink to="lausnirScroll" smooth={true} duration={500} >Lausnir</ScrollLink>
           </li>
           <li className="navigation-link">
             <ScrollLink to="umOkkurScroll" smooth={true} duration={500} >Um okkur</ScrollLink>
@@ -87,7 +87,7 @@ class NavigationNonAuth extends Component {
           <Link to={ROUTES.SIGN_IN}>
             <img src={locker} alt="Fara í innskráningu" />
           </Link>
-          
+
         </button>
       </nav>
     )
