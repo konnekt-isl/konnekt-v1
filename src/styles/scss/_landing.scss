@@ -31,6 +31,7 @@
       @extend %flex-row;
       align-items: flex-end;
       justify-content: space-around;
+      margin-right: 98px;
       .konnekt-dude {
         height: 122px;
       }
@@ -232,14 +233,14 @@
       position: absolute;
       right: 63px;
       height: 260px!important;
-      margin-top: 190px;
+      margin-top: 200px;
     }
       
     .konnekt-dude {
       position: absolute;
       left: 63px;
       height: 280px!important;
-      margin-top: 180px;
+      margin-top: 200px;
     }
 
 
