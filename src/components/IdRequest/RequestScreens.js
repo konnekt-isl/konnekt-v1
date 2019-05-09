@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-
+import { HashLink as Link } from 'react-router-hash-link';
 import * as firebase from 'firebase'
+import * as ROUTES from '../../constants/routes';
+
+
 
 import konnektlady from '../img/konnektlady.svg';
 import checkcircle from '../img/check-circle.svg';
@@ -8,12 +11,12 @@ import logo from '../img/logo.svg';
 import error from '../img/error.svg';
 
 
+
 class RequestStatus extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      authUser: JSON.parse(localStorage.getItem('authUser')),
     }
   }
 
@@ -30,19 +33,20 @@ class RequestStatus extends Component {
       pathname: '/chatbox',
       state: { phone: this.props.location.state.phone }
     })
-    console.log(this.props.location.state.phone)
   }
 
   render() {
+    console.log(this.props.location.state.name)
     return (
-      <div className="status-screen-wrapper">
-        {this.props.location.state.status !== 200 ? <NonAudkent data={this.props.location.state.data} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} />}
+      <div className="facetoface-homepage">
+        {this.props.location.state.status !== 200 ? <NonAudkent data={this.props.location.state.data} phone={this.props.location.state.phone} /> : <Audkent name={this.props.location.state.name} phone={this.props.location.state.phone} />}
       </div>
     )
   };
 }
 
 const Audkent = (props) => {
+  console.log(props)
   return (
     <div className="status-screen-wrapper">
  
@@ -54,8 +58,8 @@ const Audkent = (props) => {
           <h1>Auðkenni staðfest</h1>
           <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
         </div>
-        <div className="container">
-          <button onClick={this.props.backToChat} class="yes-btn">Áfram</button>
+        <div className="input-btn-container">
+          <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone, chatName: props.name } }} className="yes-btn">Áfram</Link>
         </div>
      
     </div>
@@ -63,6 +67,7 @@ const Audkent = (props) => {
 };
 
 const NonAudkent = (props) => {
+  console.log(props)
   return (
     <div className="status-screen-wrapper">
       <div className="status-screen">
@@ -71,7 +76,10 @@ const NonAudkent = (props) => {
         <div className="container">
           <img src={error} />
           <p className="error-p">Auðkenning tókst ekki</p>
-          <p className="error-p">Viltu reyna aftur?</p>
+          <p className="error-p">{props.data.message}</p>
+          <div className="input-btn-container">
+            <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone, chatName: props.name } }} className="yes-btn">Senda aftur</Link>
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { FirebaseContext } from './Firebase';
+
 import logo from './img/logo.svg';
 import konnektlady from './img/konnektlady.svg';
+
+import LoadingScreen from './FaceToFace/LoadingScreen'
 
 class uw_auth extends Component {
     constructor(props) {
@@ -47,11 +50,12 @@ class uw_auth extends Component {
                 return response.json();
             })
             .then(data => {
+                console.log(data.responseStatus)
                 if (data.responseStatus) {
                     this.setState({ message: data.responseStatus.message });
                     this.props.history.push({
                         pathname: '/status',
-                        state: { status: this.state.status, data: data, phone: this.state.phone }
+                        state: { status: this.state.status, data: data.responseStatus, phone: this.state.phone, name: this.state.userName }
                     })
                 }
                 else {
@@ -63,17 +67,20 @@ class uw_auth extends Component {
                         postalCode,
                         city,
                         token,
-                    });
+                    })
+                    console.log(this.state.status)
+                    this.props.history.push({
+                        pathname: '/status',
+                        state: { status: this.state.status, name: data.name, phone: data.phoneNumber, ssn: data.ssn }
+                    })
                 }
                 this.setState({ data: data });
+                console.log(data)
                 firebase.firestore().collection('status').doc(this.state.url_id).set({
                     date: this.state.date,
                     status: this.state.status,
                     message: this.state.message,
-                })
-                this.props.history.push({
-                    pathname: '/status',
-                    state: { status: this.state.status, ssn: data.ssn }
+                    ssn: data.ssn,
                 })
             })
             .catch(err => {
@@ -85,29 +92,32 @@ class uw_auth extends Component {
     render() {
         return (
             <div>
-                <FirebaseContext.Consumer>
-                    {firebase => {
-                        return (
-                            <div className="simi-skjar1">
-
-                                <div className="wrapper">
-                                    <div className="container">
-                                        <img className="logo" src={logo} alt="Logo" />
-                                        <h1>frá *nafn*</h1>
-                                        <img className="konnekt-lady" src={konnektlady} />
+                {/* Checking if the loading page shuld be shown */}
+                {this.state.isLoading
+                    ? <LoadingScreen /> //true
+                    : <FirebaseContext.Consumer>
+                        {firebase => {
+                            return (
+                                <div className="simi-skjar1">
+                                    <div className="wrapper">
+                                        <div className="container">
+                                            <img className="logo" src={logo} alt="Logo" />
+                                            <h1>frá *nafn*</h1>
+                                            <img className="konnekt-lady" src={konnektlady} />
+                                        </div>
+                                        <div className="container">
+                                            <h2>Hæ {this.state.userName}</h2>
+                                            <p>Þú hefur fengið beiðni um auðkenningu</p>
+                                            <p>Viltu halda áfram?</p>
+                                        </div>
+                                        <div className="container">
+                                            <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
+                                            <button className="no-btn">Hætta við</button>
+                                        </div>
                                     </div>
-                                    <div className="container">
-                                        <h2>Hæ {this.state.userName}</h2>
-                                        <p>Þú hefur fengið beiðni um auðkenningu</p>
-                                        <p>Viltu halda áfram?</p>
-                                    </div>
-                                    <div className="container">
-                                        <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
-                                        <button className="no-btn">Hætta við</button>
-                                    </div>
-                                </div>
-                            </div>)
-                    }}</FirebaseContext.Consumer>
+                                </div>)
+                        }}
+                    </FirebaseContext.Consumer>}
             </div>
         )
     };

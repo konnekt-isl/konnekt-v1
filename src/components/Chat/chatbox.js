@@ -21,6 +21,7 @@ class ChatBox extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.history.location.state.phone, this.props.history.location.state.chatName)
         this.setState({ phone: this.props.history.location.state.phone, chatName: this.props.history.location.state.chatName })
         const phone = this.props.history.location.state.phone ? this.props.history.location.state.phone : this.state.phone
         firebase.firestore().collection('chat').doc(phone).onSnapshot((doc) => {
@@ -76,7 +77,7 @@ class ChatBox extends Component {
 
     renderMessage = (message) => {
         return (message.url
-            ? 
+            ?
             <div className="chat-bubble-container">
                 <div className={message.isStaff !== true ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
                 <div className={message.isStaff !== true ? 'csr' : 'user'}>
@@ -86,20 +87,20 @@ class ChatBox extends Component {
                         </a>
                     </div>
                 </div>
-                
+
                 <div className="timestamp-container">
                     <p className={message.isStaff !== true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                 </div>
             </div>
 
             : <div className="chat-bubble-container">
-            <div className={message.chatName !== this.state.chatName ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
+                <div className={message.chatName !== this.state.chatName ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
                 <div className={message.chatName === this.state.chatName ? 'chat-bubble csr' : 'chat-bubble user'}>
                     <div className="msg">
                         <div dangerouslySetInnerHTML={{ __html: this.urlify(message.message) }} />
                     </div>
                 </div>
-                
+
                 <div className="timestamp-container">
                     <p className={message.isStaff !== true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                 </div>
@@ -130,7 +131,7 @@ class ChatBox extends Component {
                             placeholder="Skrifaðu hér..."
                         />
                         <button className="btn" disabled={isInvalid} type="submit">
-                            <img src={send} alt="send message"/>
+                            <img src={send} alt="send message" />
                         </button>
                     </form>
                 </div>
