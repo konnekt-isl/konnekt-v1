@@ -398,6 +398,7 @@ template {
 }
 .navigation ul li a {
   text-decoration: none;
+  color: #4F4F4F;
 }
 .navigation ul li a:visited {
   color: #4F4F4F;
