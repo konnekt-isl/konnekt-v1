@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component}from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import {Link as ScrollLink} from 'react-scroll';
 
@@ -52,7 +52,6 @@ const NavigationAuth = () => (
   </div>
 );
 
-<<<<<<< HEAD
 class NavigationNonAuth extends Component {
   constructor(props) {
     super(props);
@@ -93,36 +92,6 @@ class NavigationNonAuth extends Component {
       </nav>
     )
   }
-=======
-const NavigationNonAuth = () => {
-  return (
-    <nav className="navigation non-auth sticky" >
-      <div className="logo-container">
-        <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
-      </div>
-      <ul className="nav-ul">
-        <li className="navigation-link">
-          <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
-        </li>
-        <li className="navigation-link">
-          <Link to={ROUTES.L_OKKARSYN}>Um okkur</Link>
-        </li>
-        <li className="navigation-link">
-          <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
-        </li>
-        <li className="navigation-link">
-          <Link to={ROUTES.SIGN_IN}>Innskráning</Link>
-        </li>
-      </ul>
-      <button className="nav-locker">
-        <Link to={ROUTES.SIGN_IN}>
-          <img src={locker} alt="Fara í innskráningu" />
-        </Link>
-
-      </button>
-    </nav>
-  )
->>>>>>> cef2930a40db3d79716f63d3c4fb784a1d6f1200
 };
 
 export default Navigation;

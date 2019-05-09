@@ -2,13 +2,9 @@ import React from 'react';
 import konnektlady from '../img/konnektlady.svg';
 import okkarSyn from '../img/okkarsyn.svg'
 import konnektDude from '../img/konnektdude.svg';
-<<<<<<< HEAD
 import mobileMockup from '../img/iPhoneX.png';
 import {Element} from 'react-scroll';
 
-=======
-// import mobileMockup from '../img/iPhoneX.png';
->>>>>>> cef2930a40db3d79716f63d3c4fb784a1d6f1200
 
 import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
