@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import logo from "../img/logo.svg";
+import send from "../img/send.svg";
 
 //Chat fyrir endanotenda
 class ChatBox extends Component {
@@ -77,7 +77,8 @@ class ChatBox extends Component {
 
     renderMessage = (message) => {
         return (message.url
-            ? <div className="chat-bubble-container">
+            ? 
+            <div className="chat-bubble-container">
                 <div className={message.isStaff !== true ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
                 <div className={message.isStaff !== true ? 'csr' : 'user'}>
                     <div className="msg">
@@ -86,18 +87,20 @@ class ChatBox extends Component {
                         </a>
                     </div>
                 </div>
+                
                 <div className="timestamp-container">
                     <p className={message.isStaff !== true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                 </div>
             </div>
 
             : <div className="chat-bubble-container">
-                <div className={message.chatName !== this.state.chatName ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
+            <div className={message.chatName !== this.state.chatName ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
                 <div className={message.chatName === this.state.chatName ? 'chat-bubble csr' : 'chat-bubble user'}>
                     <div className="msg">
                         <div dangerouslySetInnerHTML={{ __html: this.urlify(message.message) }} />
                     </div>
                 </div>
+                
                 <div className="timestamp-container">
                     <p className={message.isStaff !== true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                 </div>
@@ -112,7 +115,6 @@ class ChatBox extends Component {
         return (
 
             <div className="chatbox-wrapper">
-                <img className="logo" src={logo} />
                 <div className="chat-display-wrapper" id='messageList'>
 
                     {this.state.messages.map((message) => this.renderMessage(message))}
@@ -129,7 +131,7 @@ class ChatBox extends Component {
                             placeholder="Skrifaðu hér..."
                         />
                         <button className="btn" disabled={isInvalid} type="submit">
-                            Senda
+                            <img src={send} alt="send message"/>
                         </button>
                     </form>
                 </div>
