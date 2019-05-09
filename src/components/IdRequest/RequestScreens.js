@@ -38,7 +38,7 @@ class RequestStatus extends Component {
   render() {
     console.log(this.props.location.state.name)
     return (
-      <div className="facetoface-homepage">
+      <div className="status-screen-wrapper">
         {this.props.location.state.status !== 200 ? <NonAudkent data={this.props.location.state.data} phone={this.props.location.state.phone} /> : <Audkent name={this.props.location.state.name} phone={this.props.location.state.phone} />}
       </div>
     )
@@ -48,21 +48,22 @@ class RequestStatus extends Component {
 const Audkent = (props) => {
   console.log(props)
   return (
-    <div className="wrapper">
-      <div className="status-screen">
-        <div className="container">
+    <div className="status-screen-container">
+ 
+        <div className="logo-container">
           <img className="logo" src={logo} />
-          <img src={konnektlady} />
         </div>
-        <div className="container">
-          <img src={checkcircle} />
+        <div className="status-msg-container">
+          <img className="status-icon" src={checkcircle} />
           <h1>Auðkenni staðfest</h1>
-          <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
+          <p>Þjónustufulltrúi X hefur móttekið auðkennið þitt</p>
         </div>
-        <div className="input-btn-container">
+        <div className="btn-container">
+          <button className="yes-btn">
           <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone, chatName: props.name } }} className="yes-btn">Áfram</Link>
+          </button>
         </div>
-      </div>
+     
     </div>
   )
 };
@@ -70,22 +71,22 @@ const Audkent = (props) => {
 const NonAudkent = (props) => {
   console.log(props)
   return (
-    <div className="wrapper">
-      <div className="status-screen">
-        <div className="container">
+      <div className="status-screen-container">
+        <div className="logo-container">
           <img className="logo" src={logo} />
-          <img src={konnektlady} />
         </div>
-        <div className="container">
-          <img src={error} />
+        <div className="status-msg-container">
+          <img className="status-icon" src={error} />
           <p className="error-p">Auðkenning tókst ekki</p>
           <p className="error-p">{props.data.message}</p>
-          <div className="input-btn-container">
-            <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone, chatName: props.name } }} className="yes-btn">Senda aftur</Link>
-          </div>
         </div>
+        <div className="btn-container">
+            <button className="yes-btn">
+            <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone, chatName: props.name } }} className="yes-btn">Senda aftur</Link>
+            </button>
+          </div>
       </div>
-    </div>
+   
   );
 }
 

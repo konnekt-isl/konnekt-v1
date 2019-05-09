@@ -18,6 +18,9 @@
         text-decoration: none;
         color: $text;
       }
+      a:hover {
+        color: $text;
+      }
       a:visited {
         color: $text;
       }
@@ -45,7 +48,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 0px;
+    padding: 24px 0px 0px 0px;
   }
   .icons-container {
     height: 216px;
@@ -77,7 +80,7 @@
   @extend %flex-row;
   width: 100%;
   justify-content: space-between;
-  padding: 30px 80px;
+  padding: 16px 32px;
   background-color: rgba(255, 255, 255, 0.95);
 
   .nav-ul {
@@ -121,6 +124,7 @@
       text-decoration: none;
       -webkit-transition: color 0.2s ease-in-out;
       transition: color 0.2s ease-in-out;
+      cursor: pointer;
     }
 
     li:before {
@@ -134,12 +138,9 @@
       left: 0;
     }
 
-    li:hover {
-      color: $primary;
-    }
-
     li:hover:before {
       width: 100%;
+      color: $primary;
     }
 
     li:before {
