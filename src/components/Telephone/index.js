@@ -3,16 +3,16 @@ import * as firebase from 'firebase';
 import { withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
 import chatexpand from '../img/chatexpand.svg';
-import SVGIcon from "../img/SVGIcon";
 import logo from '../img/logo.svg';
+import phonegreen from '../img/phonegreen.svg';
+import phonered from '../img/phonered.svg';
 import konnektlady from '../img/konnektlady.svg';
-import paperclip from '../img/paperclip.svg';
-import Request from '../IdRequest'
+import Request from '../sw_request'
 import CsrHeader from '../Navigation/csrHeader'
 
 
 // Þetta er chat fyrir þjónustuaðila
-class ChatList extends Component {
+class Telephone extends Component {
     constructor(props) {
         super(props);
 
@@ -31,6 +31,8 @@ class ChatList extends Component {
             messageList: {},
         };
 
+        this.messageList = React.createRef();
+
         this._handleClick = this._handleClick.bind(this);
         this._handleChange = this._handleChange.bind(this);
         this._loadChat = this._loadChat.bind(this);
@@ -45,6 +47,7 @@ class ChatList extends Component {
                 const data = doc.data()
                 chatboxes.push({ id: doc.id, read: data.read, username: data.username, email: data.email, date: data.messages.pop().messageDate.seconds })
             });
+            console.log(chatboxes)
             this.setState({ chatboxes })
             this.setState({
                 chatName: this.state.authUser.username,
@@ -87,12 +90,12 @@ class ChatList extends Component {
     }
 
     onSubmit = event => {
-        const { phone, message, messageDate, chatName } = this.state;
+        const { phone, message, messageDate, chatName, isStaff } = this.state;
         firebase.firestore().collection('chat').doc(phone).update({
             read: false,
             messages: firebase.firestore.FieldValue.arrayUnion({
                 chatName,
-                isStaff: true,
+                isStaff,
                 message,
                 messageDate,
             })
@@ -114,7 +117,6 @@ class ChatList extends Component {
                 chatName,
                 url,
                 message: '',
-                isStaff: true,
                 messageDate: firebase.firestore.Timestamp.fromDate(new Date()),
             })
         })
@@ -123,7 +125,6 @@ class ChatList extends Component {
     expand = () => {
         this.setState({ contentIsVisible: true })
     }
-
     // To let the chat scroll down automaticly.
     scrollToBottom = () => {
         const messageList = document.getElementById('messageList') || {}
@@ -143,17 +144,14 @@ class ChatList extends Component {
     renderMessage = (message) => {
         return (message.url
             ? <div className="chat-bubble-container">
-                <div className={message.isStaff ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
+                <div className={message.isStaff ? 'csr' : 'user'}>{message.chatName.charAt(0)}</div>
                 <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
                     <div className="msg">Auðkennisbeðni hefur verið send.</div>
-                </div>
-                <div className="timestamp-container">
-                    <p className={message.isStaff ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                 </div>
             </div>
 
             : <div className="chat-bubble-container">
-                <div className={message.isStaff ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
+                <div className={message.isStaff ? 'csr' : 'user'}>{message.chatName.charAt(0)}</div>
                 <div className={message.isStaff ? 'chat-bubble csr' : 'chat-bubble user'}>
                     <div className="msg">
                         <div dangerouslySetInnerHTML={{ __html: this.urlify(message.message) }} />
@@ -171,9 +169,6 @@ class ChatList extends Component {
 
     render() {
         const numRows = this.state.chatboxes.length
-        const userName = this.state.authUser.username
-        const { message, } = this.state;
-        const isInvalid = message === '';
 
         let MyCollapse = "content";
         if (this.state.contentIsVisible) { MyCollapse = "content active" }
@@ -184,12 +179,15 @@ class ChatList extends Component {
         return (<div className="page-wrapper chathomepage">
             <div className="chathomepage-wrapper">
 
+                {/* Header fyrir notenda avatar og signout takka */}
                 <CsrHeader />
 
+
+                {/* Vinstri dálkur (Virk spjöll, öll spjöll og þjónustuteymi) */}
                 <div className="chat-overview">
                     <div className="chat-el-container">
                         <div className="chat-el-div">
-                            <h2>Virk Netspjöll</h2>
+                            <h2>Símtöl í bið</h2>
                             <img onClick={this.expand} className="chat-expand" src={chatexpand} />
                         </div>
                         <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.username}</li>)}</ul>
@@ -197,7 +195,7 @@ class ChatList extends Component {
 
                     <div className="chat-el-container">
                         <div className="chat-el-div">
-                            <h2>Öll Netspjöll</h2>
+                            <h2>Öll símtöl</h2>
                             <img className="chat-expand" src={chatexpand} />
                         </div>
                     </div>
@@ -210,50 +208,21 @@ class ChatList extends Component {
                     </div>
                 </div>
 
-                {/* Miðju dálkur sem sýnir chat history*/}
-                <div className="csr-middle-section ">
-                    {
-                        this.state.phone === '' ?
-                            (
-                                <div className="welcome-msg">
-                                    <h1>Hæ {userName}</h1>
-                                    <h2>Gaman að sjá þig!</h2>
-                                    <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p>
-                                </div>
-                            )
-                            :
-                            (
-                                <div className="chat-display-and-input-wrapper">
-                                    <div className="chat-display-wrapper" id='messageList'>
+                {/* Miðju dálkur sem sýnir telephone gluggann*/}
+               
 
-                                        {this.state.messages.map((message) => this.renderMessage(message))}
+                    <div className="telephone-screen">
+                        <div className="letter-avatar"></div>
+                        <p>Username</p>
+                        <div className="phone-btn-container">
+                            <img src={phonegreen} alt="Answer call"/>
+                            <img src={phonered} alt="Decline call"/>
+                        </div>
+                        
+                       
+                    </div>
 
 
-                                    </div>
-                                    {this.scrollToBottom()}
-
-                                    {/* Chat input neðst á miðju síðunnar (þarsem þjónustuaðili skrifar inn í) */}
-                                    <div className="chat-input-wrapper">
-                                        <form className="chat-input-form" onSubmit={this.onSubmit}>
-                                            <input
-                                                name="message"
-                                                value={message}
-                                                onChange={this._handleChange}
-                                                type="text"
-                                                placeholder="Skrifaðu hér..."
-                                            />
-                                        </form>
-                                        <div className="chat-options">
-                                            <img className="paperclip" src={paperclip} />
-                                            <SVGIcon className="plus" name="plus" width={30} height={30} />
-                                            <button className="btn" disabled={isInvalid} onClick={this.onSubmit} type="submit">Senda</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                    }
-
-                </div>
 
 
                 {
@@ -290,14 +259,14 @@ class ChatList extends Component {
 
 
                             <div className="konnekt-status-wrapper">
-
-                                {/* <img className="logo" src={logo} />
+                                <div className="konnekt-status-container">
+                                    <img className="logo" src={logo} />
                                     <div className="konnekt-section">
                                         <p>Senda auðkenningsbeiðni til</p>
                                         <h2>{this.state.username}</h2>
                                         <Request phone={this.state.phone} authenticate={this.authenticate} />
-                                    </div> */}
-                                <Request phone={this.state.phone} authenticate={this.authenticate} username={this.state.username} />
+                                    </div>
+                                </div>
                             </div>
                         </div>)
                 }
@@ -311,4 +280,4 @@ const condition = authUser => !!authUser;
 export default compose(
     withEmailVerification,
     withAuthorization(condition),
-)(ChatList);
+)(Telephone);

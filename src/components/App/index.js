@@ -6,18 +6,18 @@ import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
-import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import FaceToFace from '../FaceToFace';
 import ChatStart from '../Chat';
 import ChatBox from '../Chat/chatbox';
 import ChatList from '../Chat/chatboxList';
-import f2fstatus from '../FaceToFace/f2fstatus';
+import Status from '../FaceToFace/Screens'
+import Telephone from '../Telephone';
 
 
 import uw_auth from '../uw_auth';
-import uw_status from '../uw_status';
+import RequestStatus from '../IdRequest/RequestScreens';
 import sw_request from '../sw_request';
 
 import * as ROUTES from '../../constants/routes';
@@ -39,13 +39,13 @@ const App = () => (
         path={ROUTES.PASSWORD_FORGET}
         component={PasswordForgetPage}
       />
-      <Route path={ROUTES.HOME} component={HomePage} />
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.ADMIN} component={AdminPage} />
       <Route path={ROUTES.AUTH} component={uw_auth} />
-      <Route path={ROUTES.STATUS} component={uw_status} />
+      <Route path={ROUTES.STATUS} component={RequestStatus} />
       <Route path={ROUTES.FACETOFACE} component={FaceToFace} />
-      <Route path={ROUTES.F2FSTATUS} component={f2fstatus} />
+      <Route path={ROUTES.F2FSTATUS} component={Status} />
+      <Route path={ROUTES.TELEPHONE} component={Telephone} />
 
       <Route path={ROUTES.REQUEST} component={sw_request} />
 

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { FirebaseContext } from '../Firebase';
 import logo from '../img/logo.svg';
-import konnektlady from '../img/konnektlady.svg';
 import searchperson from '../img/searchperson.svg';
+import LoadingScreen from '../FaceToFace/LoadingScreen'
+import CsrHeader from '../Navigation/csrHeader'
 
 
 class FaceToFace extends Component {
@@ -16,9 +17,19 @@ class FaceToFace extends Component {
             status: null,
             date: null,
             message: null,
+            // authUser: JSON.parse(localStorage.getItem('authUser')),
+            isLoading: false,
         };
 
         this._handleChange = this._handleChange.bind(this);
+    }
+
+    componentDidMount() {
+        // here the re-authenticate is running 
+        if (this.props.location.state && this.props.location.state.phone) {
+            this.setState({ phone: this.props.location.state.phone }, this._confirmphone)
+        }
+
     }
 
     _handleChange = (event) => {
@@ -26,6 +37,7 @@ class FaceToFace extends Component {
     }
 
     _confirmphone = () => {
+        this.setState({ isLoading: true })
         fetch('https://onboardingdev.taktikal.is:443/api/Auth', {
             method: 'POST',
             headers: {
@@ -42,9 +54,10 @@ class FaceToFace extends Component {
                 return response.json();
             })
             .then(data => {
-                console.log(data)
-
-                data.responseStatus ? this.setState({ message: data.responseStatus.message }) :
+                data.responseStatus ? this.props.history.push({
+                    pathname: '/fstatus',
+                    state: { status: this.state.status, data: data, phone: this.state.phone }
+                }) :
                     this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
                 const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
                 firebase.firestore().collection('end_users').doc(ssn).set({
@@ -61,10 +74,10 @@ class FaceToFace extends Component {
                     status: this.state.status,
                     message: this.state.message,
                 })
-                console.log("Test: " + this.state.data.ssn)
+                console.log("Test: " + this.state.phone)
                 this.props.history.push({
-                    pathname: '/face2face/status',
-                    state: { ssn: this.state.data.ssn }
+                    pathname: '/fstatus',
+                    state: { status: this.state.status, ssn: data.ssn }
                 })
             })
             .catch(err => {
@@ -74,33 +87,32 @@ class FaceToFace extends Component {
 
     render() {
         return (
-            <div className="facetoface-homepage">
-                <FirebaseContext.Consumer>
-                    {firebase => {
-                        return (
-
-                            <div className="facetoface-wrapper">
-                                <div className="facetoface-container">
-                                    <img className="logo" src={logo} alt="Logo" />
-                                    <img className="searchperson" src={searchperson} alt="Logo" />
-                                    <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
-                                    <div class="input-btn-container">
-                                        <label for="phone">Símanúmer</label>
-                                        <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
-                                        <button onClick={this._confirmphone} className="yes-btn">Senda</button>
+            // Checking if the loading page shuld be shown
+            this.state.isLoading
+                ? <LoadingScreen /> //true
+                : <div className="facetoface-homepage"> {/*false*/}
+                    <FirebaseContext.Consumer>
+                        {firebase => {
+                            return (
+                                <div className="facetoface-wrapper">
+                                    <CsrHeader />
+                                    <div className="facetoface-container">
+                                        <img className="logo" src={logo} alt="Logo" />
+                                        <img className="searchperson" src={searchperson} alt="" />
+                                        <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
+                                        <div class="input-btn-container">
+                                            <label for="phone">Símanúmer</label>
+                                            <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
+                                            <button onClick={this._confirmphone} className="yes-btn">Senda</button>
+                                        </div>
                                     </div>
                                 </div>
 
 
 
-
-                            </div>
-
-
-
-                        )
-                    }}</FirebaseContext.Consumer>
-            </div>
+                            )
+                        }}</FirebaseContext.Consumer>
+                </div>
         )
     };
 }

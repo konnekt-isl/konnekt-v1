@@ -79,14 +79,12 @@
     .chat-overview {
         width: 230px;
         height: 100%;
-        border-right: 1px solid $border;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
 
         //container sem heldur utan um hvern dálk 
         .chat-el-container {
-            border-bottom: 1px solid $border;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -139,13 +137,15 @@
                 li {
                     font-size: 14px;
                     color: $grey;
+                    padding: 2%;
+                    margin: 0px;
                 }
 
                 li:hover {
                     background-color: #E6ECFF;
                     border-radius: 5px;
                     cursor: pointer;
-                    width: 100px;
+                    width: 80%;
                 }
             }
 
@@ -158,6 +158,9 @@
                 align-items: flex-start;
                 margin: 0;
                 padding: 20px 0px 0px 40px;
+                height: inherit;
+                overflow: visible;
+                
             }
         }
     }
@@ -170,6 +173,9 @@
         justify-content: center;
         flex-grow:1;
         height: 850px;
+        border-left: 1px solid $border;
+        border-right: 1px solid $border;
+   
         .chat-display-and-input-wrapper {
             width: 100%;
             display: flex;
@@ -180,7 +186,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 80px;
         }
         .chat-display-wrapper::-webkit-scrollbar {
             width: 5px;
@@ -206,10 +211,14 @@
         
             .chat-bubble-container {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-end;
+                margin: 1% 0%;
                 .chat-bubble {
-                    width:40%;
-                    min-height: 80px;
+                    min-width: 100px;
+                    min-height: 46px;
+                    max-width: 600px;
                     padding: 16px;
                     display: flex;
                     flex-direction: row;
@@ -219,14 +228,34 @@
                         margin: 0px;
                         font-size: 12px;
                         color: $grey;
-                        max-width: 275px;
+                        
                     }
+                    
+                }
+                .csr-letter {
+                    display: none;
                    
                 }
+               .user-letter {
+                   background-color:  #EBEFFF;
+                   height: 24px;
+                   width: 24px;
+                   font-size: 12px;
+                   font-weight: bold;
+                   display: flex;
+                   align-items: center;
+                   justify-content: center;
+                   color: $primary;
+                   border-radius: 100% 100% 0% 100%;
+                   margin-right: 1%;
+               }
 
+
+               //Chat bubbles
                 .user {
                     background-color: #EBEFFF;
                     border-radius: 5px 5px 5px 0px;
+                    
                     .msg {
                         color: $text;
                     }
@@ -236,20 +265,21 @@
                 .csr {
                     background-color: $primary;
                     border-radius: 5px 5px 0px 5px;
-                    align-self: flex-end;
+                    margin-left: auto;
                     .msg {
                         color: $light;
                     }
                 }
 
                 .timestamp-container {
+                    width:100%;
                     .timestamp{
                         font-size: 10px;
                         color: $grey;
                         margin-top: 0.5rem;
                     }
                     .t-user {
-                        
+                        margin-left: 3%;
                     }
                     .t-csr {
                             float: right;
@@ -264,12 +294,12 @@
         .chat-input-wrapper {
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             border-top: 1px solid $border;
             flex-wrap: wrap;
             width: 100%;
-            padding: 0px 40px;
+            padding-right: 40px;
 
             .chat-input-form {
                 width: 60%;
@@ -280,6 +310,7 @@
                 height: 88px;
                 width: 100%;
                 cursor: text;
+                padding:16px;
                 
                 
             }
@@ -287,7 +318,7 @@
                 border: $primary;
             }
             .chat-options {
-                width: 40%;
+                // width: 40%;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -311,6 +342,9 @@
     
                 .btn {
                     @extend %yes-btn;
+                }
+                .btn:hover{
+                    box-shadow: 2px 4px 4px rgba(79,79,79,0.2)
                 }
             }
      
@@ -345,7 +379,6 @@
     .user-info-konnekt-wrapper {
         height: 100%;
         width: 300px;
-        border-left: 1px solid #E9E9E9;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -354,13 +387,12 @@
         .current-user-wrapper {
             flex-grow:1;
             min-height: 375px;
-            border-bottom: 1px solid $border;
             width: inherit;
             display: flex;
             align-items: center;
             justify-content: center;
             .logo {
-                height: 50px;
+                height: 35px;
                 
             }
             .current-user-container {
@@ -406,7 +438,7 @@
                 height: 102px;
             }
             .logo {
-                height: 50px;
+                height: 25px;
             }
             .konnekt-status-container {
                 padding: 0px 40px;
@@ -414,18 +446,18 @@
                 align-items: center;
                 flex-direction: column;
                 justify-content: space-around;
-                height: 100%;
+                height: 300px;
 
                 .logo {
-                    height: 35px;
+                    height: 25px;
                 }
             
                 .konnekt-section {
-                    height: 50%;
                     display: flex;
                     align-items: center;
                     flex-direction: column;
                     justify-content: space-between;
+                    margin-top: 10%;
 
                     h2 {
                         font-size: 16px;
@@ -444,6 +476,9 @@
                     .konnekt-btn {
                         @extend %yes-btn;
 
+                    }
+                    .konnekt-btn:hover {
+                        box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
                     }
                 }
 

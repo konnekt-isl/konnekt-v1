@@ -24,7 +24,6 @@ class ChatStart extends Component {
                 return response.json();
             })
             .then(data => {
-                console.log(data)
                 this.setState({ ip: data.ip + ' (' + data.city + ')' })
             })
     }

@@ -1,7 +1,8 @@
-
+//Velkomin í netspjall Konnekt /f. endanotenda
 
 .chat-index-wrapper {
-    padding-left: 72px;
+    margin-top: 102px;
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -13,7 +14,7 @@
         width: 80%;
         margin: auto;
         justify-content: flex-end;
-     
+        margin-top: 102px;
         .konnekt-lady {
             height: 102px;
         }
@@ -46,6 +47,10 @@
         .btn {
             @extend %yes-btn;
             margin-top: 35px;
+            
+        }
+        .btn:hover {
+            box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
         }
        
 
@@ -62,3 +67,12 @@
     margin: 10px 0px;
  }
 }
+
+@media only screen and (min-width: 768px) {
+    
+.chat-index-wrapper {
+    margin: 0px;
+}
+
+
+} 

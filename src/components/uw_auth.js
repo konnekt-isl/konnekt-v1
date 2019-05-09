@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { FirebaseContext } from './Firebase';
+
 import logo from './img/logo.svg';
 import konnektlady from './img/konnektlady.svg';
-import checkcircle from './img/check-circle.svg';
+
+import LoadingScreen from './FaceToFace/LoadingScreen'
 
 class uw_auth extends Component {
     constructor(props) {
@@ -17,6 +19,7 @@ class uw_auth extends Component {
             date: null,
             message: null,
             url_id: '',
+            isLoading: false,
         };
     }
 
@@ -29,6 +32,7 @@ class uw_auth extends Component {
     }
 
     _confirmphone = () => {
+        this.setState({ isLoading: true })
         fetch('https://onboardingdev.taktikal.is:443/api/Auth', {
             method: 'POST',
             headers: {
@@ -41,70 +45,79 @@ class uw_auth extends Component {
             })
         })
             .then(response => {
+                this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
                 this.setState({ status: response.status });
                 return response.json();
             })
             .then(data => {
-                console.log(data)
-
-                data.responseStatus ? this.setState({ message: data.responseStatus.message }) :
-                    this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
-                const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
-                firebase.firestore().collection('end_users').doc(ssn).set({
-                    name,
-                    phoneNumber,
-                    address,
-                    postalCode,
-                    city,
-                    token,
-                });
+                console.log(data.responseStatus)
+                if (data.responseStatus) {
+                    this.setState({ message: data.responseStatus.message });
+                    this.props.history.push({
+                        pathname: '/status',
+                        state: { status: this.state.status, data: data.responseStatus, phone: this.state.phone, name: this.state.userName }
+                    })
+                }
+                else {
+                    const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
+                    firebase.firestore().collection('end_users').doc(ssn).set({
+                        name,
+                        phoneNumber,
+                        address,
+                        postalCode,
+                        city,
+                        token,
+                    })
+                    console.log(this.state.status)
+                    this.props.history.push({
+                        pathname: '/status',
+                        state: { status: this.state.status, name: data.name, phone: data.phoneNumber, ssn: data.ssn }
+                    })
+                }
                 this.setState({ data: data });
-                firebase.firestore().collection('status').doc(this.props.match.params.session).set({
-                    ssn: data.ssn,
+                console.log(data)
+                firebase.firestore().collection('status').doc(this.state.url_id).set({
                     date: this.state.date,
                     status: this.state.status,
                     message: this.state.message,
-                })
-                firebase.firestore().collection('systemState').doc('session').update({
-                    url_id: this.props.match.params.session
-                })
-                console.log("Test: " + this.state.data)
-                this.props.history.push({
-                    pathname: '/status',
-                    state: { session: this.props.match.params.session }
+                    ssn: data.ssn,
                 })
             })
             .catch(err => {
                 console.log(err);
             })
+
     }
 
     render() {
         return (
             <div>
-                <FirebaseContext.Consumer>
-                    {firebase => {
-                        return (
-                            <div className="simi-skjar1">
-
-                                <div className="wrapper">
-                                    <div className="container">
-                                        <img className="logo" src={logo} alt="Logo" />
-                                        <h1>frá *nafn*</h1>
-                                        <img className="konnekt-lady" src={konnektlady} />
+                {/* Checking if the loading page shuld be shown */}
+                {this.state.isLoading
+                    ? <LoadingScreen /> //true
+                    : <FirebaseContext.Consumer>
+                        {firebase => {
+                            return (
+                                <div className="simi-skjar1">
+                                    <div className="wrapper">
+                                        <div className="container">
+                                            <img className="logo" src={logo} alt="Logo" />
+                                            <h1>frá *nafn*</h1>
+                                            <img className="konnekt-lady" src={konnektlady} />
+                                        </div>
+                                        <div className="container">
+                                            <h2>Hæ {this.state.userName}</h2>
+                                            <p>Þú hefur fengið beiðni um auðkenningu</p>
+                                            <p>Viltu halda áfram?</p>
+                                        </div>
+                                        <div className="container">
+                                            <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
+                                            <button className="no-btn">Hætta við</button>
+                                        </div>
                                     </div>
-                                    <div className="container">
-                                        <h2>Hæ {this.state.userName}</h2>
-                                        <p>Þú hefur fengið beiðni um auðkenningu</p>
-                                        <p>Viltu halda áfram?</p>
-                                    </div>
-                                    <div className="container">
-                                        <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
-                                        <button className="no-btn">Hætta við</button>
-                                    </div>
-                                </div>
-                            </div>)
-                    }}</FirebaseContext.Consumer>
+                                </div>)
+                        }}
+                    </FirebaseContext.Consumer>}
             </div>
         )
     };
