@@ -35,8 +35,8 @@ class RequestStatus extends Component {
 
   render() {
     return (
-      <div className="facetoface-homepage">
-        {this.props.location.state.status !== '200' ? <NonAudkent data={this.props.location.state.data} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} />}
+      <div className="status-screen-wrapper">
+        {this.props.location.state.status !== 200 ? <NonAudkent data={this.props.location.state.data} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} />}
       </div>
     )
   };
@@ -44,11 +44,10 @@ class RequestStatus extends Component {
 
 const Audkent = (props) => {
   return (
-    <div className="wrapper">
-      <div className="status-screen">
+    <div className="status-screen-wrapper">
+ 
         <div className="container">
           <img className="logo" src={logo} />
-          <img src={konnektlady} />
         </div>
         <div className="container">
           <img src={checkcircle} />
@@ -58,19 +57,17 @@ const Audkent = (props) => {
         <div className="container">
           <button onClick={this.props.backToChat} class="yes-btn">Áfram</button>
         </div>
-      </div>
+     
     </div>
   )
 };
 
 const NonAudkent = (props) => {
   return (
-    <div className="wrapper">
+    <div className="status-screen-wrapper">
       <div className="status-screen">
-        <div className="container">
           <img className="logo" src={logo} />
-          <img src={konnektlady} />
-        </div>
+       
         <div className="container">
           <img src={error} />
           <p className="error-p">Auðkenning tókst ekki</p>
