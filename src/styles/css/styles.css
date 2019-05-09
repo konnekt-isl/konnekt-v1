@@ -400,6 +400,9 @@ template {
   text-decoration: none;
   color: #4F4F4F;
 }
+.navigation ul li a:hover {
+  color: #4F4F4F;
+}
 .navigation ul li a:visited {
   color: #4F4F4F;
 }
@@ -489,6 +492,7 @@ template {
     text-decoration: none;
     -webkit-transition: color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out;
+    cursor: pointer;
   }
   ul li:before {
     content: "";
@@ -500,11 +504,9 @@ template {
   ul li:before {
     left: 0;
   }
-  ul li:hover {
-    color: #3463FF;
-  }
   ul li:hover:before {
     width: 100%;
+    color: #3463FF;
   }
   ul li:before {
     -webkit-transition: width 0.2s ease-in-out;

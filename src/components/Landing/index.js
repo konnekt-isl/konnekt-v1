@@ -63,7 +63,7 @@ const Landing = () => (
         <Link to={ROUTES.CHAT}><button className="big-btn blue">Einstaklingur</button></Link>
         <Link to={ROUTES.SIGN_IN}><button className="big-btn green">Fyrirtæki</button></Link>
       </div>
-    </div >
+    </div>
 
 
 
