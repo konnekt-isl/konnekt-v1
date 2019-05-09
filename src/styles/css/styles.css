@@ -456,7 +456,7 @@ template {
 }
 .non-auth .nav-locker {
   border: none;
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 
 @media only screen and (min-width: 830px) {
@@ -568,7 +568,6 @@ template {
   border: 4px solid #3463FF;
 }
 .landing .summary-wrapper {
-  padding-top: 5%;
   width: 90%;
 }
 .landing .summary-decoration {
@@ -579,7 +578,9 @@ template {
   flex-direction: column;
 }
 .landing .summary-decoration .virkni-video {
-  min-width: 350px;
+  margin-top: 50px;
+  width: 100%;
+  height: auto;
 }
 .landing .summary-decoration .big-btn {
   width: 340px;
@@ -712,8 +713,13 @@ template {
     max-width: 700px;
   }
   .landing .landing-section .lausnir-btn {
+    margin-right: 16px;
     width: 304px;
+    padding-left: 32px;
     cursor: pointer;
+  }
+  .landing .landing-section .lausnir-btn .or-nidur {
+    margin-left: 16px;
   }
   .landing .m-h {
     margin: 0 80px 0 0;
@@ -740,11 +746,23 @@ template {
     width: 100%;
   }
   .landing .summary-decoration .virkni-video {
+    margin-top: 0;
     width: 100%;
+    height: 421px;
   }
   .landing .summary-decoration .big-btn {
     width: 100%;
     height: 128px;
+    padding-left: 32px;
+  }
+  .landing .summary-decoration .big-btn .or-hlidar-bla {
+    margin-left: 16px;
+    width: 40px;
+  }
+  .landing .summary-decoration .big-btn .or-hlidar-graen {
+    margin-left: 16px;
+    width: 40px;
+    color: #56E8A2;
   }
   .landing h4 {
     font-size: 60px;

@@ -72,7 +72,7 @@
   }
   //Div sem heldur utan um texta
   .summary-wrapper {
-    padding-top: 5%;
+    // padding-top: 5%;
     width: 90%;
 
   }
@@ -85,7 +85,9 @@
     flex-direction: column;
     //Risa takkarnir: Lausnir/Fyrirtæki
     .virkni-video{
-      min-width: 350px;
+      margin-top: 50px;
+      width: 100%;
+      height: auto;
     }
     .big-btn {
       @extend %landing-btn;
@@ -238,8 +240,13 @@
         max-width: 700px;
       }
       .lausnir-btn {
+        margin-right: 16px;
         width: 304px;
+        padding-left: 32px;
         cursor: pointer;
+        .or-nidur{
+          margin-left: 16px;
+        }
       }
     }
     .m-h {
@@ -266,11 +273,23 @@
         width: 100%;
       }
       .virkni-video{
+        margin-top: 0;
         width: 100%;
+        height: 421px;
       }
       .big-btn {
         width: 100%;
         height: 128px;
+        padding-left: 32px;
+        .or-hlidar-bla{
+          margin-left: 16px;
+          width: 40px;
+        }
+        .or-hlidar-graen{
+          margin-left: 16px;
+          width: 40px;
+          color: $secondary-green;
+        }
       }
     }
     h4 {

@@ -1,8 +1,13 @@
 import React from 'react';
 import konnektlady from '../img/konnektlady.svg';
+import orNidur from '../img/or-nidur-bla.svg';
+import orHlidarBla from '../img/or-hlidar-bla.svg';
+import orHlidarGraen from '../img/or-hlidar-graen.svg';
+
 import okkarSyn from '../img/okkarsyn.svg';
 import konnektDude from '../img/konnektdude.svg';
 import {Element} from 'react-scroll';
+import {Link as ScrollLink} from 'react-scroll';
 
 import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
@@ -11,17 +16,23 @@ const Landing = () => (
  
 
   <div className="page-wrapper landing">
- <Element name="logoScroll"></Element>
+  <Element name="logoScroll"></Element>
     <div className="landing-section">
       
       <div className="landing-img-container">
-        <a id="homelogo" />
+        
         <img className="konnekt-dude" src={konnektDude} />
         <img className="konnekt-lady" src={konnektlady} />
       </div>
       <h1>Örugg samskipti, <br></br>hraðar.</h1>
       <h2>Hjálpum fyrirtækjum að auka hagkvæmni og skilvirkni í rekstri með því að veita þeim auðveldar og traustar auðkenningar leiðir.</h2>
-      <button class="lausnir-btn">Sjá Lausnir</button>
+      <ScrollLink to="videoScroll" smooth={true} duration={500} >
+        <button class="lausnir-btn">
+          Sjá Lausnir
+          <img className="or-nidur" src={orNidur} />
+        </button>
+      </ScrollLink>
+      
     </div>
 
     <div className="section">
@@ -37,6 +48,7 @@ const Landing = () => (
       </div>
     </div>
 
+    <Element name="videoScroll"></Element>
     <div className="section">
       <div className="summary-wrapper order m-v">
         <h3>Hvernig virkar það?</h3>
@@ -44,10 +56,8 @@ const Landing = () => (
         <p>Konnekt er hægt að bæta við hvaða stafræna vettvang sem er, hvort sem það sé núverandi grunnkerfi eða samfélagsmiðla tól. Hér til hliðar sérðu dæmi um notkun. Möguleikarnir eru endalausir. </p>
       </div>
       <div className="summary-decoration m-h">
-        <video className="virkni-video" controls>
-          {/* <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg"> */}
-        </video>
+        {/* <video className="virkni-video" src="https://www.youtube.com/watch?v=KphI23vRfqg&feature=youtu.be" controls></video> */}
+        <iframe className="virkni-video" width="900" height="506" src="https://www.youtube.com/embed/KphI23vRfqg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
 
@@ -60,8 +70,14 @@ const Landing = () => (
         <p>Hér til hliðar getur þú ýtt á takkana til að fá upp sýnishorn af því hvernig varan virkar. Þar getur þú prófað vöruna sem bæði fyrirtæki / þjónustufulltrúi og sem einstakling.</p>
       </div>
       <div className="summary-decoration m-v">
-        <Link to={ROUTES.CHAT}><button className="big-btn blue">Einstaklingur</button></Link>
-        <Link to={ROUTES.SIGN_IN}><button className="big-btn green">Fyrirtæki</button></Link>
+        <Link to={ROUTES.CHAT}><button className="big-btn blue">
+          Einstaklingur
+          <img className="or-hlidar-bla" src={orHlidarBla} />
+        </button></Link>
+        <Link to={ROUTES.SIGN_IN}><button className="big-btn green">
+        Fyrirtæki
+        <img className="or-hlidar-graen" src={orHlidarGraen} />
+        </button></Link>
       </div>
     </div >
 
