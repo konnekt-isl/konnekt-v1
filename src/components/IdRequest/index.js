@@ -21,24 +21,26 @@ class Request extends Component {
     }
 
     onListenForStatus = (sessionID) => {
+        this.setState({ isLoading: true })
         firebase.firestore().collection('status').doc(sessionID).set({
             sessionID,
             date: { seconds: null }
         })
             .then(() => {
                 firebase.firestore().collection('status').doc(sessionID).onSnapshot((doc) => {
+                    this.setState({ isLoading: false })
                     const { ssn, date, status, message } = doc.data();
                     this.setState({
                         ssn,
                         timeStamp: date.seconds,
                         status,
-                        message: message
+                        message,
                     })
                     if (ssn) {
                         this.getUserInfo(ssn);
                     }
                 });
-            });
+            })
     }
 
     getUserInfo = (ssn) => {
@@ -46,6 +48,7 @@ class Request extends Component {
             .then((doc) => {
                 this.setState({
                     userInfo: doc.data()
+
                 })
             })
     }
@@ -64,18 +67,34 @@ class Request extends Component {
         const isInvalid = phone === '';
 
         return (
+
             <div>
-                <div className="konnekt-status-container" >
-                    <img className="logo" src={logo} />
-                    <div className="konnekt-section">
-                        <p>Senda auðkenningsbeiðni til</p>
-                        <h2>{this.props.username}</h2>
-                        <button onClick={this._handleButtonClick} disabled={isInvalid} className="konnekt-btn" >Auðkenna með Konnekt</button>
-                    </div>
-                </div>
+                {this.state.isLoading ? <LoadingScreen /> :
+                    <div className="konnekt-status-container" >
+                        <img className="logo" src={logo} />
+                        <div className="konnekt-section">
+                            <p>Senda auðkenningsbeiðni til</p>
+                            <h2>{this.props.username}</h2>
+                            <button onClick={this._handleButtonClick} disabled={isInvalid} className="konnekt-btn" >Auðkenna með Konnekt</button>
+                        </div>
+                    </div>}
             </div>
         )
     }
+}
+
+const LoadingScreen = () => {
+    return (
+        <div>
+            <img className="logo" src={logo} />
+
+            <div class="loader-container">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+            </div>
+        </div>
+    )
 }
 
 const condition = authUser => !!authUser;

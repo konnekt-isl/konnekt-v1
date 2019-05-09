@@ -80,6 +80,7 @@ class uw_auth extends Component {
                     date: this.state.date,
                     status: this.state.status,
                     message: this.state.message,
+                    ssn: data.ssn,
                 })
             })
             .catch(err => {
