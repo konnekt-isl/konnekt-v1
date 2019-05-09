@@ -1,13 +1,8 @@
 import React from 'react';
 import konnektlady from '../img/konnektlady.svg';
-import okkarSyn from '../img/okkarsyn.svg'
+import okkarSyn from '../img/okkarsyn.svg';
 import konnektDude from '../img/konnektdude.svg';
-<<<<<<< HEAD
-// import mobileMockup from '../img/iPhoneX.png';
-=======
-import mobileMockup from '../img/iPhoneX.png';
 import {Element} from 'react-scroll';
->>>>>>> kamilla
 
 import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
