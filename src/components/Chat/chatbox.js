@@ -83,7 +83,7 @@ class ChatBox extends Component {
                 <div className={message.isStaff !== true ? 'csr' : 'user'}>
                     <div className="msg">
                         <a href={message.url}>
-                            <button className="btn" type="submit">Auðkenna með Konnekt</button>
+                            <button className="konnekt-btn" type="submit">Auðkenna með Konnekt</button>
                         </a>
                     </div>
                 </div>

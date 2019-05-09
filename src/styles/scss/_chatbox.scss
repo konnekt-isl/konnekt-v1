@@ -58,6 +58,9 @@
         }
         
     }
+    .konnekt-btn {
+        @extend %yes-btn;
+    }
     .user {
         background-color: #EBEFFF;
         border-radius: 5px 5px 5px 0px;

@@ -1,0 +1,25 @@
+.telephone-screen {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10%;
+    .letter-avatar {
+        background-color: #EBEFFF;
+        height: 107px;
+        width: 107px;
+        border-radius: 100% 100% 0% 100%;
+    }
+    p {
+        color: $text;
+        font-size: 16px;
+    }
+    .phone-btn-container {
+        margin-top: 15%;
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+        img:hover {
+            box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
+        }
+    }
+}
