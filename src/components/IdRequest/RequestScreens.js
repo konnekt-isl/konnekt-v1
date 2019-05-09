@@ -60,7 +60,7 @@ const Audkent = (props) => {
           <p>Þjónustufulltrúi Arion banka hefur móttekið auðkennið þitt</p>
         </div>
         <div className="input-btn-container">
-          <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone } }} className="yes-btn">Áfram</Link>
+          <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone, chatName: props.name } }} className="yes-btn">Áfram</Link>
         </div>
       </div>
     </div>
@@ -81,7 +81,7 @@ const NonAudkent = (props) => {
           <p className="error-p">Auðkenning tókst ekki</p>
           <p className="error-p">{props.data.message}</p>
           <div className="input-btn-container">
-            <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone } }} className="yes-btn">Senda aftur</Link>
+            <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone, chatName: props.name } }} className="yes-btn">Senda aftur</Link>
           </div>
         </div>
       </div>
