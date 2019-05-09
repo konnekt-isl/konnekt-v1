@@ -1581,6 +1581,7 @@ template {
   background: #E6ECFF;
   border: 0;
   margin: 10px 0px;
+  padding: 16px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1691,8 +1692,8 @@ template {
   height: 40px;
   width: 208px;
   border: none;
-  padding: 0px;
   margin-bottom: 10px;
+  padding-left: 16px;
 }
 .facetoface-homepage .facetoface-wrapper .facetoface-container h2 {
   text-transform: uppercase;
