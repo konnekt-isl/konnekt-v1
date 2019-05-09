@@ -50,7 +50,6 @@ const Audkent = (props) => {
         <div className="input-btn-container">
           <button className="yes-btn">Auðkenna Næsta?</button>
         </div>
-
       </div>
     </div>
   )

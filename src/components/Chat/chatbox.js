@@ -21,6 +21,7 @@ class ChatBox extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.history.location.state.phone, this.props.history.location.state.chatName)
         this.setState({ phone: this.props.history.location.state.phone, chatName: this.props.history.location.state.chatName })
         const phone = this.props.history.location.state.phone ? this.props.history.location.state.phone : this.state.phone
         firebase.firestore().collection('chat').doc(phone).onSnapshot((doc) => {
