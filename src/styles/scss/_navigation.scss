@@ -58,9 +58,11 @@
     align-items: center;
     .nav-icon {
       width: 24px;
+      // transition-duration: 1s;
     }
     .nav-icon:hover {
       width: 28px;
+      // transform: scale(2);
     }
   }
 }

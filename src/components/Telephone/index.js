@@ -4,6 +4,8 @@ import { withAuthorization, withEmailVerification } from '../Session';
 import { compose } from 'recompose';
 import chatexpand from '../img/chatexpand.svg';
 import logo from '../img/logo.svg';
+import phonegreen from '../img/phonegreen.svg';
+import phonered from '../img/phonered.svg';
 import konnektlady from '../img/konnektlady.svg';
 import Request from '../sw_request'
 import CsrHeader from '../Navigation/csrHeader'
@@ -185,7 +187,7 @@ class Telephone extends Component {
                 <div className="chat-overview">
                     <div className="chat-el-container">
                         <div className="chat-el-div">
-                            <h2>Virk Netspjöll</h2>
+                            <h2>Símtöl í bið</h2>
                             <img onClick={this.expand} className="chat-expand" src={chatexpand} />
                         </div>
                         <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.username}</li>)}</ul>
@@ -193,7 +195,7 @@ class Telephone extends Component {
 
                     <div className="chat-el-container">
                         <div className="chat-el-div">
-                            <h2>Öll Netspjöll</h2>
+                            <h2>Öll símtöl</h2>
                             <img className="chat-expand" src={chatexpand} />
                         </div>
                     </div>
@@ -206,17 +208,21 @@ class Telephone extends Component {
                     </div>
                 </div>
 
-                {/* Miðju dálkur sem sýnir chat history*/}
-                <div className="csr-middle-section ">
+                {/* Miðju dálkur sem sýnir telephone gluggann*/}
+               
 
-                    <div className="welcome-msg">
-                        <h1>Telephone Screen</h1>
-                        <h2>for the phone!</h2>
-                        <p>Þú ert með <span>{numRows}</span> virk spjöll í gangi</p>
+                    <div className="telephone-screen">
+                        <div className="letter-avatar"></div>
+                        <p>Username</p>
+                        <div className="phone-btn-container">
+                            <img src={phonegreen} alt="Answer call"/>
+                            <img src={phonered} alt="Decline call"/>
+                        </div>
+                        
+                       
                     </div>
 
 
-                </div>
 
 
                 {

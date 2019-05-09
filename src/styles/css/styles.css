@@ -331,7 +331,7 @@ template {
 }
 
 /*# sourceMappingURL=bootstrap-reboot.css.map */
-.account-page .account-wrapper .account-container .account-btn, .facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn, .simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chatbox-wrapper .konnekt-btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn {
+.account-page .account-wrapper .account-container .account-btn, .facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn, .simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chatbox-wrapper .konnekt-btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -344,7 +344,7 @@ template {
   cursor: pointer;
 }
 
-.simi-skjar2 .wrapper .status-screen .no-btn {
+.simi-skjar2 .wrapper .status-screen .no-btn, .simi-skjar1 .no-btn {
   width: 208px;
   height: 40px;
   background: #FFEEED;
@@ -800,6 +800,57 @@ template {
     letter-spacing: 2px;
   }
 }
+.simi-skjar1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.simi-skjar1 .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+.simi-skjar1 .wrapper .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.simi-skjar1 .wrapper .container .logo {
+  margin-bottom: 5%;
+}
+.simi-skjar1 .wrapper .container h1 {
+  margin-bottom: 15%;
+}
+.simi-skjar1 input {
+  margin-top: 20px;
+  border-radius: 4px;
+  background: #E6ECFF;
+  height: 40px;
+  width: 208px;
+  border: none;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+.simi-skjar1 h1 {
+  font-size: 17px;
+  margin: auto;
+}
+.simi-skjar1 h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 20px;
+}
+.simi-skjar1 .yes-btn {
+  margin-bottom: 10%;
+}
+.simi-skjar1 p {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
 .signin-page {
   padding-top: 92px;
   display: flex;
@@ -901,7 +952,7 @@ template {
   margin-top: 34px;
 }
 .signin-page .wrapper .signin-section .container .btn:hover {
-  background: #2be28a;
+  box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
   cursor: pointer;
 }
 
@@ -1012,7 +1063,8 @@ template {
 .chathomepage .chat-overview .chat-el-container .content li {
   font-size: 14px;
   color: #B0B0B0;
-  padding: 1%;
+  padding: 2%;
+  margin: 0px;
 }
 .chathomepage .chat-overview .chat-el-container .content li:hover {
   background-color: #E6ECFF;
@@ -1052,7 +1104,6 @@ template {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px;
 }
 .chathomepage .csr-middle-section .chat-display-wrapper::-webkit-scrollbar {
   width: 5px;
@@ -1399,6 +1450,7 @@ template {
 }
 
 .chat-index-wrapper {
+  margin-top: 102px;
   margin-top: 5%;
   display: flex;
   flex-direction: column;
@@ -1412,10 +1464,10 @@ template {
   width: 80%;
   margin: auto;
   justify-content: flex-end;
+  margin-top: 102px;
 }
 .chat-index-wrapper .img-container .konnekt-lady {
   height: 102px;
-  margin-top: 5%;
 }
 .chat-index-wrapper h1 {
   font-size: 16px;
@@ -1667,6 +1719,39 @@ template {
   padding-left: 72px;
   height: 100vh;
 }
+.account-page .csr-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px 40px;
+}
+.account-page .csr-header .user-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.account-page .csr-header .user-container h1 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.account-page .csr-header .user-container .avatar path {
+  fill: #3463FF;
+}
+.account-page .csr-header .user-container .avatar path {
+  fill: #3463FF;
+}
+.account-page .csr-header .signout-btn {
+  background: 0;
+  border: 0;
+  margin-left: auto;
+  cursor: pointer;
+}
+.account-page .csr-header .signout-btn .logout-icon path {
+  fill: #3463FF;
+}
 .account-page .account-wrapper {
   display: flex;
   flex-direction: column;
@@ -1716,6 +1801,32 @@ template {
   margin-top: 5%;
 }
 .account-page .account-wrapper .account-container .account-btn:hover {
+  box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
+}
+
+.telephone-screen {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10%;
+}
+.telephone-screen .letter-avatar {
+  background-color: #EBEFFF;
+  height: 107px;
+  width: 107px;
+  border-radius: 100% 100% 0% 100%;
+}
+.telephone-screen p {
+  color: #4F4F4F;
+  font-size: 16px;
+}
+.telephone-screen .phone-btn-container {
+  margin-top: 15%;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+.telephone-screen .phone-btn-container img:hover {
   box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
 }
 

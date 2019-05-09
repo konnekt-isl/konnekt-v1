@@ -137,7 +137,8 @@
                 li {
                     font-size: 14px;
                     color: $grey;
-                    padding: 1%;
+                    padding: 2%;
+                    margin: 0px;
                 }
 
                 li:hover {
@@ -185,7 +186,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 80px;
         }
         .chat-display-wrapper::-webkit-scrollbar {
             width: 5px;
@@ -233,16 +233,6 @@
                     
                 }
                 .csr-letter {
-                    // height: 24px;
-                    // width: 24px;
-                    // font-size: 12px;
-                    // font-weight: bold;
-                    // display: flex;
-                    // align-items: center;
-                    // justify-content: center;
-                    // background-color: $primary;
-                    // color: $light;
-                    // border-radius: 100% 100% 0% 100%;
                     display: none;
                    
                 }

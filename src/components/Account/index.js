@@ -9,7 +9,7 @@ import {
 import { withFirebase } from '../Firebase';
 import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
-
+import CsrHeader from '../Navigation/csrHeader'
 const SIGN_IN_METHODS = [
   {
     id: 'password',
@@ -33,7 +33,10 @@ const AccountPage = () => (
   <AuthUserContext.Consumer>
     {authUser => (
       <div className="account-page">
+       {/* Header fyrir notenda avatar og signout takka */}
+       <CsrHeader />
         <div className="account-wrapper">
+        
         <div className="account-container">
           <img className="account-img" src={settings} />
           <h1>Hæ {authUser.username}</h1>
