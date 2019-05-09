@@ -28,19 +28,23 @@ const NavigationAuth = () => (
       <div className="icons-container">
 
         <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.TELEPHONE}>
-          <SVGIcon name="phone" width={24} />
+          <SVGIcon className="nav-icon" name="phone" width={24} />
         </NavLink>
 
         <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.CHATLIST}>
-          <SVGIcon name="message" width={24} />
+          <SVGIcon className="nav-icon" name="message" width={24} />
         </NavLink>
 
 
-        <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.FACETOFACE}><SVGIcon className="nav-icon" name="face" width={24} /></NavLink>
+        <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.FACETOFACE}>
+          <SVGIcon className="nav-icon" name="face" width={24} />
+        </NavLink>
 
       </div>
 
-      <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.ACCOUNT}><SVGIcon className="nav-icon" name="settings" width={24} /></NavLink>
+      <NavLink className="single-icon-container" activeClassName="active-link" to={ROUTES.ACCOUNT}>
+        <SVGIcon className="nav-icon" name="settings" width={24} />
+      </NavLink>
 
       {/* Sidebar ends */}</div>
   </div>

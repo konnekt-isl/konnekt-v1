@@ -420,7 +420,7 @@ template {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 0px;
+  padding: 24px 0px 0px 0px;
 }
 .auth .icons-container {
   height: 216px;
@@ -1362,6 +1362,19 @@ template {
   justify-content: center;
   height: 90vh;
   overflow-y: scroll;
+  padding: 0px 8px;
+}
+.chatbox-wrapper .chat-display-wrapper::-webkit-scrollbar {
+  width: 5px;
+  background: #FFFFFF;
+}
+.chatbox-wrapper .chat-display-wrapper::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+.chatbox-wrapper .chat-display-wrapper::-webkit-scrollbar-thumb {
+  width: 30px;
+  border-radius: 3px;
+  background: #3463FF;
 }
 .chatbox-wrapper .chat-bubble-container {
   display: flex;
