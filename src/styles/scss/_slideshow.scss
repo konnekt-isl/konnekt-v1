@@ -1,0 +1,28 @@
+.react-slideshow-container {
+    width: 250px;
+    height: 300px;
+    margin: 40% 0% 20% 0%;
+    .image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .phone-mockup {
+        margin: auto;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    .react-slideshow-container {
+        margin: 0% 0% 0% 0%;
+        height: 550px;
+        .phone-mockup {
+            height: 250px;
+        }
+    }
+    
+
+
+}

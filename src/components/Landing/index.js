@@ -3,10 +3,10 @@ import konnektlady from '../img/konnektlady.svg';
 import okkarSyn from '../img/okkarsyn.svg';
 import konnektDude from '../img/konnektdude.svg';
 import {Element} from 'react-scroll';
-
+import iphoneMockup from '../img/iPhoneX.png';
 import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
-
+import Slideshow from '../Landing/slideshow.js';
 const Landing = () => (
  
 
@@ -34,6 +34,7 @@ const Landing = () => (
         <p>Konnekt kemur til móts við þarfir fólks um að geta fengið einstaklingsmiðaða þjónustu og ráðgjöf á netinu. Það vill geta spurt strax og fengið skjót svör óháð staðsetningu. Ferlið er hratt og auðvelt í notkun. </p>
       </div>
       <div className="summary-decoration m-v">
+        <Slideshow></Slideshow>
       </div>
     </div>
 
@@ -106,7 +107,7 @@ const Landing = () => (
       </div>
 
     </footer>
-  </div >//Page wrapper end
+  </div>//Page wrapper end
 );
 
 export default Landing;

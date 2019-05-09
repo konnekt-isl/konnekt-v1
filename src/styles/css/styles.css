@@ -390,6 +390,9 @@ template {
   fill: #3463FF;
 }
 
+.navigation {
+  z-index: 999;
+}
 .navigation ul {
   list-style-type: none;
   padding: 0;
@@ -606,6 +609,9 @@ template {
   color: #3463FF;
   border: 4px solid #3463FF;
   cursor: pointer;
+}
+.landing .summary-decoration .phone-mockup {
+  height: 450px;
 }
 .landing h3 {
   color: #56E8A2;
@@ -1899,6 +1905,29 @@ template {
 }
 .status-screen-wrapper .status-screen-container .btn-container {
   margin-top: auto;
+}
+.react-slideshow-container {
+  width: 250px;
+  height: 300px;
+  margin: 40% 0% 20% 0%;
+}
+.react-slideshow-container .image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.react-slideshow-container .phone-mockup {
+  margin: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .react-slideshow-container {
+    margin: 0% 0% 0% 0%;
+    height: 550px;
+  }
+  .react-slideshow-container .phone-mockup {
+    height: 250px;
+  }
 }
 * {
   font-family: "Lato", Arial, Helvetica, sans-serif;
