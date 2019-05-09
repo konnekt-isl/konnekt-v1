@@ -12,22 +12,12 @@
         align-items: center;
         height: 90vh;
         width: 100%;
-        .logo-container {
-            width: 100%;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            flex-direction: row;
-            .logo {
-                height: 24px;
-                margin-right: auto;
-            }
-        }
+        justify-content: center;
         .status-msg-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20%;
+            margin: auto;
             .status-icon {
                 height: 50px;
                 margin-bottom: 10%;

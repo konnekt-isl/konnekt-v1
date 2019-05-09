@@ -3,8 +3,9 @@ import md5 from 'md5';
 import { compose } from 'recompose';
 import * as firebase from 'firebase'
 import { withAuthorization, withEmailVerification } from '../Session';
-
 import logo from '../img/logo.svg';
+import checkCircle from '../img/check-circle.svg';
+import error from '../img/error.svg';
 
 class Request extends Component {
     constructor(props) {
@@ -84,32 +85,36 @@ class Request extends Component {
 
 const LoadingScreen = () => {
     return (
-        < div className="konnekt-status-container" >
+        <div className="konnekt-status-container" >
             <img className="logo" src={logo} />
             <div className="konnekt-section">
-                <div class="circle circle-1"></div>
-                <div class="circle circle-2"></div>
-                <div class="circle circle-3"></div>
+                <div className="loading-container">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                </div>
             </div>
-        </div >
+        </div>
+  
     )
 }
 
 const AudkenniTokstEkki = () => {
     return (
-        <div>
+        <div className="konnekt-status-container">
             <img className="logo" src={logo} />
-
-            Tokst ekki
+            <img className="status-icon" src={error} />
+            <h2>Auðkenning tókst ekki</h2>
         </div>
     )
 }
 
 const AudkenniTokst = () => {
     return (
-        <div>
+        <div className="konnekt-status-container">
             <img className="logo" src={logo} />
-            Tokst
+            <img className="status-icon" src={checkCircle} />
+            <h2>Auðkenning tókst</h2>
         </div>
     )
 }

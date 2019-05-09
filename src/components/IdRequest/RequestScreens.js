@@ -49,14 +49,10 @@ const Audkent = (props) => {
   console.log(props)
   return (
     <div className="status-screen-container">
- 
-        <div className="logo-container">
-          <img className="logo" src={logo} />
-        </div>
         <div className="status-msg-container">
           <img className="status-icon" src={checkcircle} />
           <h1>Auðkenni staðfest</h1>
-          <p>Þjónustufulltrúi X hefur móttekið auðkennið þitt</p>
+          <p>Þjónustufulltrúi hefur móttekið auðkennið þitt</p>
         </div>
         <div className="btn-container">
           <button className="yes-btn">
@@ -72,9 +68,6 @@ const NonAudkent = (props) => {
   console.log(props)
   return (
       <div className="status-screen-container">
-        <div className="logo-container">
-          <img className="logo" src={logo} />
-        </div>
         <div className="status-msg-container">
           <img className="status-icon" src={error} />
           <p className="error-p">Auðkenning tókst ekki</p>

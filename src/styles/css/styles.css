@@ -488,7 +488,7 @@ template {
     display: none;
   }
 
-  ul li {
+  ul .navigation-link {
     display: block;
     position: relative;
     margin-left: 40px;
@@ -497,7 +497,7 @@ template {
     transition: color 0.2s ease-in-out;
     cursor: pointer;
   }
-  ul li:before {
+  ul .navigation-link:before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -507,11 +507,11 @@ template {
   ul li:before {
     left: 0;
   }
-  ul li:hover:before {
+  ul .navigation-link:hover:before {
     width: 100%;
     color: #3463FF;
   }
-  ul li:before {
+  ul .navigation-link:before {
     -webkit-transition: width 0.2s ease-in-out;
     transition: width 0.2s ease-in-out;
   }
@@ -863,6 +863,7 @@ template {
   height: 100vh;
 }
 .simi-skjar1 .wrapper {
+  padding-top: 15%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -1375,6 +1376,13 @@ template {
   justify-content: space-around;
   height: 300px;
 }
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container h2 {
+  font-size: 16px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  color: #3463FF;
+  text-align: center;
+}
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .logo {
   height: 25px;
 }
@@ -1385,13 +1393,6 @@ template {
   justify-content: space-between;
   margin-top: 10%;
 }
-.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section h2 {
-  font-size: 16px;
-  font-family: "Lato", Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
-  color: #3463FF;
-  text-align: center;
-}
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section p {
   font-size: 14px;
   color: #4F4F4F;
@@ -1399,6 +1400,10 @@ template {
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn:hover {
   box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .loading-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .chatbox-wrapper {
@@ -1644,7 +1649,6 @@ template {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding-left: 72px;
 }
 .facetoface-homepage .facetoface-wrapper {
   display: flex;
@@ -1920,23 +1924,13 @@ template {
   align-items: center;
   height: 90vh;
   width: 100%;
-}
-.status-screen-wrapper .status-screen-container .logo-container {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: row;
-}
-.status-screen-wrapper .status-screen-container .logo-container .logo {
-  height: 24px;
-  margin-right: auto;
+  justify-content: center;
 }
 .status-screen-wrapper .status-screen-container .status-msg-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20%;
+  margin: auto;
 }
 .status-screen-wrapper .status-screen-container .status-msg-container .status-icon {
   height: 50px;

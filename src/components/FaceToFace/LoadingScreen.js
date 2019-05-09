@@ -12,8 +12,6 @@ const LoadingScreen = (props) => {
                 <CsrHeader />
                 <div className="facetoface-container">
 
-                    <img className="logo" src={logo} />
-
                     <div class="loader-container">
                         <div class="circle circle-1"></div>
                         <div class="circle circle-2"></div>

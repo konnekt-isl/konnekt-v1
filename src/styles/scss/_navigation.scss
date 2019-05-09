@@ -117,7 +117,7 @@ z-index: 999;
   }
 
   ul {
-    li {
+    .navigation-link {
       display: block;
       position: relative;
       margin-left: 40px;
@@ -127,7 +127,7 @@ z-index: 999;
       cursor: pointer;
     }
 
-    li:before {
+    .navigation-link:before {
       content: "";
       position: absolute;
       bottom: 0;
@@ -138,12 +138,12 @@ z-index: 999;
       left: 0;
     }
 
-    li:hover:before {
+    .navigation-link:hover:before {
       width: 100%;
       color: $primary;
     }
 
-    li:before {
+    .navigation-link:before {
       -webkit-transition: width 0.2s ease-in-out;
       transition: width 0.2s ease-in-out;
     }

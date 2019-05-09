@@ -101,8 +101,6 @@ class uw_auth extends Component {
                                 <div className="simi-skjar1">
                                     <div className="wrapper">
                                         <div className="container">
-                                            <img className="logo" src={logo} alt="Logo" />
-                                            <h1>frá *nafn*</h1>
                                             <img className="konnekt-lady" src={konnektlady} />
                                         </div>
                                         <div className="container">

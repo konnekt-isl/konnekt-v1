@@ -447,6 +447,13 @@
                 flex-direction: column;
                 justify-content: space-around;
                 height: 300px;
+                h2 {
+                    font-size: 16px;
+                    font-family: $font-stack;
+                    text-transform: uppercase;
+                    color: $primary;
+                    text-align: center;
+                }
 
                 .logo {
                     height: 25px;
@@ -459,13 +466,7 @@
                     justify-content: space-between;
                     margin-top: 10%;
 
-                    h2 {
-                        font-size: 16px;
-                        font-family: $font-stack;
-                        text-transform: uppercase;
-                        color: $primary;
-                        text-align: center;
-                    }
+             
 
                     p {
                         font-size: 14px;
@@ -479,6 +480,10 @@
                     }
                     .konnekt-btn:hover {
                         box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
+                    }
+                    .loading-container {
+                        display: flex;
+                        flex-direction: row;
                     }
                 }
 
