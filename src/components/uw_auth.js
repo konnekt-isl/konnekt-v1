@@ -42,31 +42,35 @@ class uw_auth extends Component {
             })
         })
             .then(response => {
+                this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
                 this.setState({ status: response.status });
                 return response.json();
             })
             .then(data => {
-                data.responseStatus ? this.props.history.push({
-                    pathname: '/status',
-                    state: { status: this.state.status, data: data, phone: this.state.phone }
-                }) :
-                    this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
-                const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
-                firebase.firestore().collection('end_users').doc(ssn).set({
-                    name,
-                    phoneNumber,
-                    address,
-                    postalCode,
-                    city,
-                    token,
-                });
+                if (data.responseStatus) {
+                    this.setState({ message: data.responseStatus.message });
+                    this.props.history.push({
+                        pathname: '/status',
+                        state: { status: this.state.status, data: data, phone: this.state.phone }
+                    })
+                }
+                else {
+                    const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
+                    firebase.firestore().collection('end_users').doc(ssn).set({
+                        name,
+                        phoneNumber,
+                        address,
+                        postalCode,
+                        city,
+                        token,
+                    });
+                }
                 this.setState({ data: data });
                 firebase.firestore().collection('status').doc(this.state.url_id).set({
                     date: this.state.date,
                     status: this.state.status,
                     message: this.state.message,
                 })
-                console.log("Test: " + this.state.phone)
                 this.props.history.push({
                     pathname: '/status',
                     state: { status: this.state.status, ssn: data.ssn }
@@ -75,6 +79,7 @@ class uw_auth extends Component {
             .catch(err => {
                 console.log(err);
             })
+
     }
 
     render() {

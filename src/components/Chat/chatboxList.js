@@ -87,7 +87,7 @@ class ChatList extends Component {
     }
 
     onSubmit = event => {
-        const { phone, message, messageDate, chatName, isStaff } = this.state;
+        const { phone, message, messageDate, chatName } = this.state;
         firebase.firestore().collection('chat').doc(phone).update({
             read: false,
             messages: firebase.firestore.FieldValue.arrayUnion({
@@ -106,8 +106,8 @@ class ChatList extends Component {
             url_id
         })
 
-        const url = 'http://localhost:3000/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.username
-        const { phone, chatName, isStaff } = this.state;
+        const url = '/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.username
+        const { phone, chatName } = this.state;
         firebase.firestore().collection('chat').doc(phone).update({
             read: false,
             messages: firebase.firestore.FieldValue.arrayUnion({

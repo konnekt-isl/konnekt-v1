@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
-import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import konnektlady from '../img/konnektlady.svg';
-import logo from '../img/logo.svg';
 
 const SignInPage = () => (
   <div className="page-wrapper">
-    {/* <h1>SignIn</h1> */}
+
     <SignInForm />
-    {/* <SignInGoogle />
-    <SignInFacebook />
-    <SignInTwitter /> */}
-    {/* <SignUpLink /> */}
+
   </div>
 );
 

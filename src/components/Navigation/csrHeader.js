@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
 import SVGIcon from "../img/SVGIcon";

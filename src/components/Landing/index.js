@@ -2,12 +2,10 @@ import React from 'react';
 import konnektlady from '../img/konnektlady.svg';
 import okkarSyn from '../img/okkarsyn.svg'
 import konnektDude from '../img/konnektdude.svg';
-import mobileMockup from '../img/iPhoneX.png';
+// import mobileMockup from '../img/iPhoneX.png';
 
 import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
-import * as ROLES from '../../constants/roles';
-
 
 const Landing = () => (
   <div className="page-wrapper landing">

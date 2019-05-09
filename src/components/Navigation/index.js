@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import logo from '../img/logo.svg';
 import locker from '../img/locker.svg';
 import { AuthUserContext } from '../Session';
 import * as ROUTES from '../../constants/routes';
-import * as ROLES from '../../constants/roles';
 import SVGIcon from "../img/SVGIcon";
 import logoVertical from '../img/logovertical.svg';
 import { NavLink } from 'react-router-dom';
@@ -47,46 +46,34 @@ const NavigationAuth = () => (
   </div>
 );
 
-class NavigationNonAuth extends Component {
-  constructor(props) {
-    super(props);
-  }
+const NavigationNonAuth = () => {
+  return (
+    <nav className="navigation non-auth sticky" >
+      <div className="logo-container">
+        <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
+      </div>
+      <ul className="nav-ul">
+        <li className="navigation-link">
+          <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
+        </li>
+        <li className="navigation-link">
+          <Link to={ROUTES.L_OKKARSYN}>Um okkur</Link>
+        </li>
+        <li className="navigation-link">
+          <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
+        </li>
+        <li className="navigation-link">
+          <Link to={ROUTES.SIGN_IN}>Innskráning</Link>
+        </li>
+      </ul>
+      <button className="nav-locker">
+        <Link to={ROUTES.SIGN_IN}>
+          <img src={locker} alt="Fara í innskráningu" />
+        </Link>
 
-  componentDidMount() {
-
-  }
-
-  render() {
-
-
-    return (
-      <nav className="navigation non-auth sticky" >
-        <div className="logo-container">
-          <Link to={ROUTES.LANDING}> <img src={logo} alt="Fara á forsíðu" /></Link>
-        </div>
-        <ul className="nav-ul">
-          <li className="navigation-link">
-            <Link to={ROUTES.L_LAUSNIR}>Lausnir</Link>
-          </li>
-          <li className="navigation-link">
-            <Link to={ROUTES.L_OKKARSYN}>Um okkur</Link>
-          </li>
-          <li className="navigation-link">
-            <Link to={ROUTES.L_SAMBAND}>Hafa samband</Link>
-          </li>
-          <li className="navigation-link">
-            <Link to={ROUTES.SIGN_IN}>Innskráning</Link>
-          </li>
-        </ul>
-        <button className="nav-locker">
-          <Link to={ROUTES.SIGN_IN}>
-            <img src={locker} alt="Fara í innskráningu" />
-          </Link>
-          
-        </button>
-      </nav>
-    )
-  }
+      </button>
+    </nav>
+  )
 };
 
 export default Navigation;

@@ -107,7 +107,7 @@ class Telephone extends Component {
             url_id
         })
 
-        const url = 'http://localhost:3000/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.username
+        const url = '/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.username
         const { phone, chatName } = this.state;
         firebase.firestore().collection('chat').doc(phone).update({
             read: false,
@@ -167,9 +167,6 @@ class Telephone extends Component {
 
     render() {
         const numRows = this.state.chatboxes.length
-        const userName = this.state.authUser.username
-        const { message, } = this.state;
-        const isInvalid = message === '';
 
         let MyCollapse = "content";
         if (this.state.contentIsVisible) { MyCollapse = "content active" }

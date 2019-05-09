@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import SVGIcon from "../img/SVGIcon";
 import logo from "../img/logo.svg";
 
 //Chat fyrir endanotenda
@@ -78,8 +77,8 @@ class ChatBox extends Component {
     renderMessage = (message) => {
         return (message.url
             ? <div className="chat-bubble-container">
-                <div className={message.isStaff != true ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
-                <div className={message.isStaff != true ? 'csr' : 'user'}>
+                <div className={message.isStaff !== true ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
+                <div className={message.isStaff !== true ? 'csr' : 'user'}>
                     <div className="msg">
                         <a href={message.url}>
                             <button className="btn" type="submit">Auðkenna með Konnekt</button>
@@ -87,19 +86,19 @@ class ChatBox extends Component {
                     </div>
                 </div>
                 <div className="timestamp-container">
-                    <p className={message.isStaff != true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                    <p className={message.isStaff !== true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                 </div>
             </div>
 
             : <div className="chat-bubble-container">
-                <div className={message.chatName != this.state.chatName ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
+                <div className={message.chatName !== this.state.chatName ? 'csr-letter' : 'user-letter'}>{message.chatName.charAt(0)}</div>
                 <div className={message.chatName === this.state.chatName ? 'chat-bubble csr' : 'chat-bubble user'}>
                     <div className="msg">
                         <div dangerouslySetInnerHTML={{ __html: this.urlify(message.message) }} />
                     </div>
                 </div>
                 <div className="timestamp-container">
-                    <p className={message.isStaff != true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
+                    <p className={message.isStaff !== true ? 'timestamp t-csr' : 'timestamp t-user'}> {new Date(parseInt(message.messageDate.seconds * 1000)).toUTCString()}</p>
                 </div>
             </div>
         );

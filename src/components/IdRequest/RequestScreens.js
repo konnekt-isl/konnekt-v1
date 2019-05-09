@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import SignOutButton from '../SignOut';
-import * as firebase from 'firebase'
-import { HashLink as Link } from 'react-router-hash-link';
-import * as ROUTES from '../../constants/routes';
-import CsrHeader from '../Navigation/csrHeader';
 
-import SVGIcon from "../img/SVGIcon";
+import * as firebase from 'firebase'
+
 import konnektlady from '../img/konnektlady.svg';
 import checkcircle from '../img/check-circle.svg';
 import logo from '../img/logo.svg';
@@ -40,7 +36,7 @@ class RequestStatus extends Component {
   render() {
     return (
       <div className="facetoface-homepage">
-        {this.props.location.state.status != '200' ? <NonAudkent data={this.props.location.state.data} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} />}
+        {this.props.location.state.status !== '200' ? <NonAudkent data={this.props.location.state.data} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} />}
       </div>
     )
   };

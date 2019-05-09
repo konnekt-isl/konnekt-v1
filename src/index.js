@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as firebase from 'firebase'
 import * as serviceWorker from './serviceWorker';
 import App from './components/App';
 import Firebase, { FirebaseContext } from './components/Firebase';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-import config from './components/Firebase/firebase';
 
 // firebase.initializeApp(config);
 

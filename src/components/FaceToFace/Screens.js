@@ -4,7 +4,6 @@ import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
 import CsrHeader from '../Navigation/csrHeader';
 
-import SVGIcon from "../img/SVGIcon";
 import checkcircle from '../img/check-circle.svg';
 import logo from '../img/logo.svg';
 import error from '../img/error.svg';
@@ -31,7 +30,7 @@ class Status extends Component {
   render() {
     return (
       <div className="facetoface-homepage">
-        {this.props.location.state.status != '200' ? <NonAudkent data={this.props.location.state.data} userName={this.state.authUser.username} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} userName={this.state.authUser.username} />}
+        {this.props.location.state.status !== '200' ? <NonAudkent data={this.props.location.state.data} userName={this.state.authUser.username} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} userName={this.state.authUser.username} />}
       </div>
     )
   };

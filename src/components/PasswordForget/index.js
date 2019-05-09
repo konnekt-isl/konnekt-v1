@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
-import SVGIcon from "../img/SVGIcon";
-import SignOutButton from '../SignOut';
+
 const PasswordForgetPage = () => (
   <div>
     <h1>PasswordForget</h1>
@@ -50,7 +49,7 @@ class PasswordForgetFormBase extends Component {
 
     return (
       <form className="account-form" onSubmit={this.onSubmit}>
-      <label for="email">Netfang:</label>
+        <label for="email">Netfang:</label>
         <input className="account-input"
           name="email"
           value={this.state.email}
