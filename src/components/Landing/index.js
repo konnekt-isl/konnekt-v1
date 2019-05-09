@@ -5,7 +5,6 @@ import konnektDude from '../img/konnektdude.svg';
 import mobileMockup from '../img/iPhoneX.png';
 import {Element} from 'react-scroll';
 
-
 import { HashLink as Link } from 'react-router-hash-link';
 import * as ROUTES from '../../constants/routes';
 
