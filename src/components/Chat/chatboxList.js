@@ -7,7 +7,7 @@ import SVGIcon from "../img/SVGIcon";
 import logo from '../img/logo.svg';
 import konnektlady from '../img/konnektlady.svg';
 import paperclip from '../img/paperclip.svg';
-import Request from '../IdRequest'
+import Request from '../IdRequest';
 import CsrHeader from '../Navigation/csrHeader'
 
 
