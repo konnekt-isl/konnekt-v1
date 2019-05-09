@@ -1,9 +1,8 @@
-// Mobile View
+// Mobile View 
 
-// .navigation .navigation-link {
-//  display: none;
-// }
-
+  .navigation.non-auth ul {
+    display: none;
+  }
 
 
 .landing {
@@ -196,8 +195,13 @@
   }
 }
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////Desktop view
 @media only screen and (min-width: 768px) {
+  .navigation.non-auth ul {
+    display: flex;
+  }
+
   .landing {
     .section {
       padding: 5% 80px;
@@ -209,6 +213,25 @@
       max-width: 1360px;
       margin: 0% auto;
     }
+
+    .landing-img-container {
+      position: absolute;
+    }
+
+     .konnekt-lady {
+      position: absolute;
+      right: 63px;
+      height: 260px!important;
+      margin-top: 190px;
+    }
+      
+    .konnekt-dude {
+      position: absolute;
+      left: 63px;
+      height: 280px!important;
+      margin-top: 180px;
+    }
+
 
 
     .landing-section {
@@ -321,6 +344,10 @@
         .contact-link {
           font-size: 60px;
           letter-spacing: 2px;
+        }
+
+        .senduokkurlinu {
+          font-size: 18px;
         }
       }
     }
