@@ -331,7 +331,7 @@ template {
 }
 
 /*# sourceMappingURL=bootstrap-reboot.css.map */
-.status-screen-wrapper .status-screen-container .yes-btn, .account-page .account-wrapper .account-container .account-btn, .facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content .yes-btn, .simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chatbox-wrapper .konnekt-btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn, .simi-skjar1 .yes-btn {
+.status-screen-wrapper .status-screen-container .yes-btn, .account-page .account-wrapper .account-container .account-btn, .facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn, .simi-skjar2 .wrapper .status-screen .yes-btn, .chat-index-wrapper .btn, .chatbox-wrapper .konnekt-btn, .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn, .chathomepage .csr-middle-section .chat-input-wrapper .chat-options .btn, .signin-page .wrapper .signin-section .container .btn, .simi-skjar1 .yes-btn {
   width: 208px;
   height: 40px;
   background: rgba(43, 226, 138, 0.8);
@@ -1025,6 +1025,9 @@ template {
   overflow-x: hidden;
   padding-left: 72px;
 }
+.chathomepage .unread {
+  font-weight: bold;
+}
 .chathomepage .signout-btn {
   background: 0;
   border: 0;
@@ -1357,6 +1360,7 @@ template {
   text-transform: uppercase;
   color: #3463FF;
   text-align: center;
+  margin-top: 15%;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .logo {
   height: 25px;
@@ -1372,6 +1376,9 @@ template {
   font-size: 14px;
   color: #4F4F4F;
   text-align: center;
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn {
+  margin-top: 25%;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn:hover {
   box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
@@ -1631,6 +1638,15 @@ template {
   height: 90vh;
   justify-content: center;
 }
+.facetoface-homepage .facetoface-wrapper .facetoface-container h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 14px;
+  max-width: 205px;
+  text-align: center;
+  margin-top: 15%;
+}
 .facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content {
   display: flex;
   flex-direction: column;
@@ -1646,7 +1662,7 @@ template {
 }
 .facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content .status-img {
   height: 80px;
-  margin-top: 40%;
+  margin-top: 20%;
 }
 .facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content label {
   text-transform: uppercase;
@@ -1669,28 +1685,18 @@ template {
   margin-bottom: 10px;
   padding-left: 16px;
 }
-.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content h2 {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #3463FF;
-  font-size: 14px;
-  max-width: 205px;
-  margin-top: 20%;
-  text-align: center;
-}
-.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content .yes-btn {
+.facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn {
   margin-top: auto;
 }
-.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content .yes-btn a {
+.facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn a {
   text-decoration: none;
   color: #FFFFFF;
 }
-.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content .yes-btn:hover {
+.facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn:hover {
   box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
 }
-
 .loader-container {
-  height: 80vh;
+  height: 35vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1792,6 +1798,7 @@ template {
   background-color: #E6ECFF;
   border: none;
   width: 208px;
+  padding-left: 16px;
 }
 .account-page .account-wrapper .account-container .account-btn {
   margin-top: 5%;

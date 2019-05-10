@@ -1,7 +1,10 @@
 //Fyrsta sem kemur á móti manni þegar maður loggar sig inn
 .chathomepage {
+    .unread {
+        font-weight: bold;
+    }
+
     overflow-x: hidden;
-    
     padding-left: 72px;
     //Sign out takki
     .signout-btn {
@@ -404,6 +407,7 @@
                     text-transform: uppercase;
                     color: $primary;
                     text-align: center;
+                    margin-top:15%;
                 }
 
                 .logo {
@@ -427,6 +431,7 @@
 
                     .konnekt-btn {
                         @extend %yes-btn;
+                        margin-top:25%;
 
                     }
                     .konnekt-btn:hover {

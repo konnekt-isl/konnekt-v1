@@ -11,13 +11,15 @@ const LoadingScreen = (props) => {
             <div className="facetoface-wrapper">
                 <CsrHeader />
                 <div className="facetoface-container">
-
-                    <div class="loader-container">
-                        <div class="circle circle-1"></div>
-                        <div class="circle circle-2"></div>
-                        <div class="circle circle-3"></div>
-                    </div>
-                    <h2>Auðkenning í ferli</h2>
+                <div class="facetoface-content">
+                            <div class="loader-container">
+                                <div class="circle circle-1"></div>
+                                <div class="circle circle-2"></div>
+                                <div class="circle circle-3"></div>
+                            </div>
+                <h2>Auðkenning í ferli</h2>
+                </div>
+                  
                 </div>
             </div>
         </div>
