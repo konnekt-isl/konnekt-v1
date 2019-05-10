@@ -39,7 +39,7 @@ class Status extends Component {
 const Audkent = (props) => {
   return (
     <div className="facetoface-wrapper">
-      
+
       <div className="facetoface-container">
         <div className="facetoface-content">
           <img className="logo" src={logo} />
@@ -47,13 +47,9 @@ const Audkent = (props) => {
           <h2>Auðkenning tókst</h2>
           <p>{props.name} hefur auðkennt sig</p>
 
-        <img className="logo" src={logo} />
-        <img className="status-img" src={checkcircle} />
-        <h2>Auðkenning tókst</h2>
-        <p>{props.name} hefur auðkennt sig</p>
-
-        <div className="input-btn-container">
-          <Link to={{ pathname: ROUTES.FACETOFACE }} className="yes-btn"><button className="yes-btn">Auðkenna Næsta?</button></Link>
+          <div className="input-btn-container">
+            <Link to={{ pathname: ROUTES.FACETOFACE }} className="yes-btn"><button className="yes-btn">Auðkenna Næsta?</button></Link>
+          </div>
         </div>
       </div>
     </div>
@@ -62,7 +58,6 @@ const Audkent = (props) => {
 
 const NonAudkent = (props) => {
   return (
-    
     <div className="facetoface-wrapper">
       <div className="facetoface-container">
         <div className="facetoface-content">
@@ -76,8 +71,8 @@ const NonAudkent = (props) => {
         </div>
       </div>
     </div>
-  );
-}
+  )
+};
 
 
 

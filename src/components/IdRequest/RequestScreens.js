@@ -49,17 +49,17 @@ const Audkent = (props) => {
   console.log(props)
   return (
     <div className="status-screen-container">
-        <div className="status-msg-container">
-          <img className="status-icon" src={checkcircle} />
-          <h1>Auðkenni staðfest</h1>
-          <p>Þjónustufulltrúi hefur móttekið auðkennið þitt</p>
-        </div>
-        <div className="btn-container">
-          <button className="yes-btn">
+      <div className="status-msg-container">
+        <img className="status-icon" src={checkcircle} />
+        <h1>Auðkenni staðfest</h1>
+        <p>Þjónustufulltrúi hefur móttekið auðkennið þitt</p>
+      </div>
+      <div className="btn-container">
+        <button className="yes-btn">
           <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone, chatName: props.name } }} className="yes-btn">Áfram</Link>
-          </button>
-        </div>
-     
+        </button>
+      </div>
+
     </div>
   )
 };
@@ -67,19 +67,19 @@ const Audkent = (props) => {
 const NonAudkent = (props) => {
   console.log(props)
   return (
-      <div className="status-screen-container">
-        <div className="status-msg-container">
-          <img className="status-icon" src={error} />
-          <p className="error-p">Auðkenning tókst ekki</p>
-          <p className="error-p">{props.data.message}</p>
-        </div>
-        <div className="btn-container">
-            <button className="yes-btn">
-            <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone, chatName: props.name } }} className="yes-btn">Senda aftur</Link>
-            </button>
-          </div>
+    <div className="status-screen-container">
+      <div className="status-msg-container">
+        <img className="status-icon" src={error} />
+        <h1>Auðkenning tókst ekki</h1>
+        <p className="error-p">{props.data.message}</p>
       </div>
-   
+      <div className="btn-container">
+        <button className="yes-btn">
+          <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: props.phone, chatName: props.name } }} className="yes-btn">Senda aftur</Link>
+        </button>
+      </div>
+    </div>
+
   );
 }
 

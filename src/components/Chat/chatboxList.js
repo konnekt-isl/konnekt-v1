@@ -169,9 +169,6 @@ class ChatList extends Component {
         );
     }
 
-
-
-
     render() {
         const numRows = this.state.chatboxes.length
         const userName = this.state.authUser.username

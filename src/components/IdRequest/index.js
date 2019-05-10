@@ -26,7 +26,7 @@ class Request extends Component {
 
     componentWillReceiveProps(rProps) {
         if (rProps.username !== this.props.username) {
-            this.setState({ status: null })
+            this.setState({ status: null, isLoading: false })
         }
     }
 
@@ -75,7 +75,6 @@ class Request extends Component {
     render() {
         const phone = this.props.phone;
         const isInvalid = phone === '';
-
 
         if (this.state.status === 200) {
             if (this.state.isLoading) this.setState({ isLoading: false })

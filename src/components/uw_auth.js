@@ -52,7 +52,7 @@ class uw_auth extends Component {
                 return response.json();
             })
             .then(data => {
-                console.log("log1" + data.responseStatus)
+                console.log("log1" + data.responseStatus.message)
                 if (data.responseStatus) {
                     this.setState({ message: data.responseStatus.message });
                     this.props.history.push({
@@ -63,6 +63,7 @@ class uw_auth extends Component {
                 else {
                     console.log('Test 2: ' + data.ssn)
                     const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
+                    this.setState({ ssn: data.ssn })
                     firebase.firestore().collection('end_users').doc(ssn).set({
                         ssn,
                         name,
@@ -78,13 +79,13 @@ class uw_auth extends Component {
                         state: { status: this.state.status, name: data.name, phone: data.phoneNumber, ssn: data.ssn }
                     })
                 }
-                this.setState({ data: data, ssn: data.ssn });
+                this.setState({ data: data });
                 console.log(data)
                 firebase.firestore().collection('status').doc(this.state.url_id).set({
                     date: this.state.date,
                     status: this.state.status,
                     message: this.state.message,
-                    ssn: data.ssn,
+                    ssn: this.state.ssn,
                 })
             })
             .catch(err => {
