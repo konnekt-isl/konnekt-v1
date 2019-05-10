@@ -2,7 +2,6 @@
 @import 'variables';
 @import 'navigation';
 @import 'landing';
-@import 'simiskjar2';
 @import 'simiskjar1';
 @import 'signindesktop';
 @import 'chatboxlist';
@@ -10,13 +9,12 @@
 @import 'chatindex';
 @import 'uwstatus';
 @import 'facetoface';
-@import 'facetofacestatus';
 @import 'loader';
 @import 'account';
 @import 'telephone';
 @import 'requestscreens';
 @import 'slideshow';
-
+@import 'csrheader';
 
 * {
     font-family: $font-stack;

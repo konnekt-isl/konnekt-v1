@@ -1025,6 +1025,9 @@ template {
   overflow-x: hidden;
   padding-left: 72px;
 }
+.chathomepage .unread {
+  font-weight: bold;
+}
 .chathomepage .signout-btn {
   background: 0;
   border: 0;
@@ -1040,39 +1043,6 @@ template {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-}
-.chathomepage .csr-header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 20px 40px;
-}
-.chathomepage .csr-header .user-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-.chathomepage .csr-header .user-container h1 {
-  margin: 0px;
-  font-size: 16px;
-  font-weight: 400;
-}
-.chathomepage .csr-header .user-container .avatar path {
-  fill: #3463FF;
-}
-.chathomepage .csr-header .user-container .avatar path {
-  fill: #3463FF;
-}
-.chathomepage .csr-header .signout-btn {
-  background: 0;
-  border: 0;
-  margin-left: auto;
-  cursor: pointer;
-}
-.chathomepage .csr-header .signout-btn .logout-icon path {
-  fill: #3463FF;
 }
 .chathomepage .chat-overview {
   width: 230px;
@@ -1390,6 +1360,7 @@ template {
   text-transform: uppercase;
   color: #3463FF;
   text-align: center;
+  margin-top: 15%;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .logo {
   height: 25px;
@@ -1405,6 +1376,9 @@ template {
   font-size: 14px;
   color: #4F4F4F;
   text-align: center;
+}
+.chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn {
+  margin-top: 25%;
 }
 .chathomepage .user-info-konnekt-wrapper .konnekt-status-wrapper .konnekt-status-container .konnekt-section .konnekt-btn:hover {
   box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
@@ -1654,47 +1628,55 @@ template {
 }
 
 .facetoface-homepage {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-}
-.facetoface-homepage .facetoface-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
+  padding-left: 72px;
 }
 .facetoface-homepage .facetoface-wrapper .facetoface-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  align-items: center;
+  height: 90vh;
+  justify-content: center;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-container h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #3463FF;
+  font-size: 14px;
+  max-width: 205px;
+  text-align: center;
+  margin-top: 15%;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
-.facetoface-homepage .facetoface-wrapper .facetoface-container .logo {
+.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content .logo {
   margin-top: 25%;
   height: 35px;
 }
-.facetoface-homepage .facetoface-wrapper .facetoface-container .searchperson {
+.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content .searchperson {
   margin-top: 40%;
   height: 80px;
 }
-.facetoface-homepage .facetoface-wrapper .facetoface-container .status-img {
+.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content .status-img {
   height: 80px;
-  margin-top: 40%;
+  margin-top: 20%;
 }
-.facetoface-homepage .facetoface-wrapper .facetoface-container label {
+.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content label {
   text-transform: uppercase;
   font-weight: bold;
   color: #3463FF;
   font-size: 14px;
   text-align: left;
 }
-.facetoface-homepage .facetoface-wrapper .facetoface-container .input-btn-container {
+.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content .input-btn-container {
   display: flex;
   flex-direction: column;
   margin-top: 25%;
 }
-.facetoface-homepage .facetoface-wrapper .facetoface-container input {
+.facetoface-homepage .facetoface-wrapper .facetoface-container .facetoface-content input {
   border-radius: 4px;
   background: #E6ECFF;
   height: 40px;
@@ -1703,54 +1685,18 @@ template {
   margin-bottom: 10px;
   padding-left: 16px;
 }
-.facetoface-homepage .facetoface-wrapper .facetoface-container h2 {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #3463FF;
-  font-size: 14px;
-  max-width: 205px;
-  margin-top: 20%;
-  text-align: center;
-}
 .facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn {
   margin-top: auto;
+}
+.facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn a {
+  text-decoration: none;
+  color: #FFFFFF;
 }
 .facetoface-homepage .facetoface-wrapper .facetoface-container .yes-btn:hover {
   box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
 }
-.facetoface-homepage .csr-header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 20px 40px;
-}
-.facetoface-homepage .csr-header .user-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-.facetoface-homepage .csr-header .user-container h1 {
-  margin: 0px;
-  font-size: 16px;
-  font-weight: 400;
-}
-.facetoface-homepage .csr-header .signout-btn {
-  background: 0;
-  border: 0;
-  margin-left: auto;
-  cursor: pointer;
-}
-.facetoface-homepage .csr-header .signout-btn .logout-icon path {
-  fill: #3463FF;
-}
-.facetoface-homepage .csr-header .avatar path {
-  fill: #3463FF;
-}
-
 .loader-container {
-  height: 80vh;
+  height: 35vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1808,52 +1754,19 @@ template {
   padding-left: 72px;
   height: 100vh;
 }
-.account-page .csr-header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 20px 40px;
-}
-.account-page .csr-header .user-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-.account-page .csr-header .user-container h1 {
-  margin: 0px;
-  font-size: 16px;
-  font-weight: 400;
-}
-.account-page .csr-header .user-container .avatar path {
-  fill: #3463FF;
-}
-.account-page .csr-header .user-container .avatar path {
-  fill: #3463FF;
-}
-.account-page .csr-header .signout-btn {
-  background: 0;
-  border: 0;
-  margin-left: auto;
-  cursor: pointer;
-}
-.account-page .csr-header .signout-btn .logout-icon path {
-  fill: #3463FF;
-}
 .account-page .account-wrapper {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: inherit;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
 }
 .account-page .account-wrapper .account-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  height: inherit;
-  margin-top: 10%;
 }
 .account-page .account-wrapper .account-container .account-img {
   height: 80px;
@@ -1863,7 +1776,7 @@ template {
   font-weight: bold;
   color: #3463FF;
   text-transform: uppercase;
-  margin-top: 2%;
+  margin-top: 10%;
 }
 .account-page .account-wrapper .account-container p {
   max-width: 208px;
@@ -1885,6 +1798,7 @@ template {
   background-color: #E6ECFF;
   border: none;
   width: 208px;
+  padding-left: 16px;
 }
 .account-page .account-wrapper .account-container .account-btn {
   margin-top: 5%;
@@ -1984,6 +1898,37 @@ template {
     height: 250px;
   }
 }
+.csr-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px 40px;
+}
+.csr-header .user-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.csr-header .user-container h1 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.csr-header .signout-btn {
+  background: 0;
+  border: 0;
+  margin-left: auto;
+  cursor: pointer;
+}
+.csr-header .signout-btn .logout-icon path {
+  fill: #3463FF;
+}
+.csr-header .avatar path {
+  fill: #3463FF;
+}
+
 * {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   box-sizing: border-box;

@@ -91,19 +91,24 @@ class FaceToFace extends Component {
             this.state.isLoading
                 ? <LoadingScreen /> //true
                 : <div className="facetoface-homepage"> {/*false*/}
+                       <CsrHeader />
                     <FirebaseContext.Consumer>
                         {firebase => {
                             return (
+                                
                                 <div className="facetoface-wrapper">
-                                    <CsrHeader />
+                                
                                     <div className="facetoface-container">
-                                        <img className="logo" src={logo} alt="Logo" />
-                                        <img className="searchperson" src={searchperson} alt="" />
-                                        <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
-                                        <div class="input-btn-container">
-                                            <label for="phone">Símanúmer</label>
-                                            <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
-                                            <button onClick={this._confirmphone} className="yes-btn">Senda</button>
+                                 
+                                        <div className="facetoface-content">
+                                            <img className="logo" src={logo} alt="Logo" />
+                                                <img className="searchperson" src={searchperson} alt="" />
+                                                <h2>Sendu Auðkenni með símanúmer viðkomandi</h2>
+                                                <div class="input-btn-container">
+                                                    <label for="phone">Símanúmer</label>
+                                                    <input name="phone" type='text' placeholder='Símanúmer' value={this.state.phone} onChange={this._handleChange} />
+                                                    <button onClick={this._confirmphone} className="yes-btn">Senda</button>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>

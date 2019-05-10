@@ -1,7 +1,10 @@
 //Fyrsta sem kemur á móti manni þegar maður loggar sig inn
 .chathomepage {
+    .unread {
+        font-weight: bold;
+    }
+
     overflow-x: hidden;
-    
     padding-left: 72px;
     //Sign out takki
     .signout-btn {
@@ -24,55 +27,6 @@
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: flex-start;
-    }
-
-    //wrapper með nafn notendans og útskráningar takka /
-    .csr-header {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        padding: 20px 40px;
-
-        .user-container {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-           h1 {
-                margin: 0px;
-                font-size: 16px;
-                font-weight: 400;
-            }
-
-            .avatar {
-                path {
-                    fill: $primary;
-                }
-            }
-
-        //Avatar icon sem er alltaf eins
-        .avatar {
-            path {
-                fill: $primary;
-            }
-        }
-
-       
-        }
-           //Signout takki sem er eins alltaf
-           .signout-btn {
-            background: 0;
-            border: 0;
-            margin-left: auto;
-            cursor: pointer;
-            .logout-icon {
-                path {
-                    fill: $primary;
-                }
-            }
-        }
-
     }
 
     //Vinstri dálkur: Wrapper sem heldur utan um virk netspjöll, öll netspjöll og þjónustuteymi 
@@ -453,6 +407,7 @@
                     text-transform: uppercase;
                     color: $primary;
                     text-align: center;
+                    margin-top:15%;
                 }
 
                 .logo {
@@ -476,6 +431,7 @@
 
                     .konnekt-btn {
                         @extend %yes-btn;
+                        margin-top:25%;
 
                     }
                     .konnekt-btn:hover {

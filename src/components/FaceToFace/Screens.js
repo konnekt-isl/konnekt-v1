@@ -39,8 +39,13 @@ class Status extends Component {
 const Audkent = (props) => {
   return (
     <div className="facetoface-wrapper">
-      <CsrHeader />
+      
       <div className="facetoface-container">
+        <div className="facetoface-content">
+          <img className="logo" src={logo} />
+          <img className="status-img" src={checkcircle} />
+          <h2>Auðkenning tókst</h2>
+          <p>{props.name} hefur auðkennt sig</p>
 
         <img className="logo" src={logo} />
         <img className="status-img" src={checkcircle} />
@@ -57,18 +62,20 @@ const Audkent = (props) => {
 
 const NonAudkent = (props) => {
   return (
+    
     <div className="facetoface-wrapper">
-      <CsrHeader />
       <div className="facetoface-container">
-        <img className="logo" src={logo} />
-        <img className="status-img" src={error} />
-        <h2>Auðkenning tókst ekki</h2>
-        <h2>{props.data.responseStatus.message}</h2>
-        <div className="input-btn-container">
-          <Link to={{ pathname: ROUTES.FACETOFACE, state: { phone: props.phone }, }} className="yes-btn">Senda aftur</Link>
+        <div className="facetoface-content">
+          <img className="logo" src={logo} />
+          <img className="status-img" src={error} />
+          <h2>Auðkenning tókst ekki</h2>
+          <p>{props.data.responseStatus.message}</p>
+          <div className="input-btn-container">
+            <button className="yes-btn"><Link to={{ pathname: ROUTES.FACETOFACE, state: { phone: props.phone }, }} >Senda aftur</Link></button>
+          </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 

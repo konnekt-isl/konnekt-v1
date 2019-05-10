@@ -185,9 +185,10 @@ class ChatList extends Component {
         }
 
         return (<div className="page-wrapper chathomepage">
+        <CsrHeader />
             <div className="chathomepage-wrapper">
 
-                <CsrHeader />
+                
 
                 <div className="chat-overview">
                     <div className="chat-el-container">
