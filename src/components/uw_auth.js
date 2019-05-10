@@ -22,7 +22,7 @@ class uw_auth extends Component {
             date: null,
             message: null,
             url_id: '',
-            isLoading: false,
+            isLoading: true,
         };
     }
 

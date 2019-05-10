@@ -714,7 +714,7 @@ template {
     height: 80vh;
     display: flex;
     max-width: 1360px;
-    margin: 150px auto 150px auto;
+    margin: 100px auto 100px auto;
   }
   .landing .section .order {
     order: 1;
@@ -1629,6 +1629,11 @@ template {
 
 .facetoface-homepage {
   padding-left: 72px;
+}
+@media only screen and (max-width: 768px) {
+  .facetoface-homepage {
+    padding-left: 0;
+  }
 }
 .facetoface-homepage .facetoface-wrapper .facetoface-container {
   display: flex;
