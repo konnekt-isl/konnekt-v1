@@ -29,6 +29,7 @@ class ChatList extends Component {
             url_id: null,
             contentIsVisible: false,
             messageList: {},
+            isAuthenticated: true
         };
 
         this._handleClick = this._handleClick.bind(this);
@@ -48,7 +49,7 @@ class ChatList extends Component {
             this.setState({ chatboxes })
             this.setState({
                 chatName: this.state.authUser.username,
-                isStaff: true
+                isStaff: true,
             })
         })
     }
@@ -64,7 +65,8 @@ class ChatList extends Component {
                 messages: doc.data().messages,
                 username: doc.data().username,
                 email: doc.data().email,
-                ip: doc.data().ip
+                ip: doc.data().ip,
+                isAuthenticated: false
             })
         })
     }
@@ -103,7 +105,8 @@ class ChatList extends Component {
 
     authenticate = (url_id) => {
         this.setState({
-            url_id
+            url_id,
+            isAuthenticated: true
         })
 
         const url = '/authenticate/' + url_id + '/' + this.state.phone + '/' + this.state.username
@@ -291,12 +294,6 @@ class ChatList extends Component {
 
                             <div className="konnekt-status-wrapper">
 
-                                {/* <img className="logo" src={logo} />
-                                    <div className="konnekt-section">
-                                        <p>Senda auðkenningsbeiðni til</p>
-                                        <h2>{this.state.username}</h2>
-                                        <Request phone={this.state.phone} authenticate={this.authenticate} />
-                                    </div> */}
                                 <Request phone={this.state.phone} authenticate={this.authenticate} username={this.state.username} />
                             </div>
                         </div>)

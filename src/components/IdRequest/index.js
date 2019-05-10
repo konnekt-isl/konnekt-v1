@@ -12,6 +12,7 @@ class Request extends Component {
         super(props);
 
         this.state = {
+            ssn: '',
             phone: '',
             data: null,
             status: null,
@@ -19,6 +20,14 @@ class Request extends Component {
             message: null,
             isLoading: false,
         };
+        this._handleButtonClick = this._handleButtonClick.bind(this);
+        this.onListenForStatus = this.onListenForStatus.bind(this);
+    }
+
+    componentWillReceiveProps(rProps) {
+        if (rProps.username !== this.props.username) {
+            this.setState({ status: null })
+        }
     }
 
     onListenForStatus = (sessionID) => {
@@ -28,29 +37,29 @@ class Request extends Component {
             date: { seconds: null }
         })
             .then(() => {
-                firebase.firestore().collection('status').doc(sessionID).onSnapshot((doc) => {
+                firebase.firestore().collection('status').doc(sessionID).onSnapshot({ includeMetadataChanges: true }, (doc) => {
                     const { ssn, date, status, message } = doc.data();
+                    console.log(doc.data())
                     this.setState({
                         ssn,
                         timeStamp: date.seconds,
                         status,
                         message,
                     })
-                    if (ssn) {
+                    if (this.state.ssn) {
                         this.getUserInfo(ssn);
-                        this.setState({ isLoading: false })
                     }
                 });
             })
     }
 
     getUserInfo = (ssn) => {
+        console.log('This is happening...')
         firebase.firestore().collection('end_users').doc(ssn).get()
             .then((doc) => {
                 this.setState({
                     userInfo: doc.data()
                 })
-                console.log(doc.data())
             })
     }
 
@@ -67,19 +76,29 @@ class Request extends Component {
         const phone = this.props.phone;
         const isInvalid = phone === '';
 
-        return (
-            <div>
-                {this.state.isLoading ? <LoadingScreen /> :
-                    <div className="konnekt-status-container" >
-                        <img className="logo" src={logo} />
-                        <div className="konnekt-section">
-                            <p>Senda auðkenningsbeiðni til</p>
-                            <h2>{this.props.username}</h2>
-                            <button onClick={this._handleButtonClick} disabled={isInvalid} className="konnekt-btn" >Auðkenna með Konnekt</button>
-                        </div>
-                    </div>}
-            </div>
-        )
+
+        if (this.state.status === 200) {
+            if (this.state.isLoading) this.setState({ isLoading: false })
+            return < AudkenniTokst />
+        }
+        else if (this.state.status && this.state.status !== 200) {
+            if (this.state.isLoading) this.setState({ isLoading: false })
+            return < AudkenniTokstEkki message={this.state.message} />;
+        }
+        else if (this.state.isLoading) {
+            return <LoadingScreen />;
+        }
+        else
+            return (
+                < div className="konnekt-status-container" >
+                    <img className="logo" src={logo} />
+                    <div className="konnekt-section">
+                        <p>Senda auðkenningsbeiðni til</p>
+                        <h2>{this.props.username}</h2>
+                        <button onClick={this._handleButtonClick} disabled={isInvalid} className="konnekt-btn" >Auðkenna með Konnekt</button>
+                    </div>
+                </div>
+            )
     }
 }
 
@@ -95,26 +114,28 @@ const LoadingScreen = () => {
                 </div>
             </div>
         </div>
-  
+
     )
 }
 
-const AudkenniTokstEkki = () => {
+const AudkenniTokstEkki = (props) => {
     return (
-        <div className="konnekt-status-container">
+        < div className="konnekt-status-container" >
             <img className="logo" src={logo} />
             <img className="status-icon" src={error} />
             <h2>Auðkenning tókst ekki</h2>
-        </div>
+            <h2>{props.message}</h2>
+        </div >
     )
 }
 
-const AudkenniTokst = () => {
+const AudkenniTokst = (props) => {
     return (
         <div className="konnekt-status-container">
             <img className="logo" src={logo} />
             <img className="status-icon" src={checkCircle} />
             <h2>Auðkenning tókst</h2>
+            <h2>{props.name}</h2>
         </div>
     )
 }

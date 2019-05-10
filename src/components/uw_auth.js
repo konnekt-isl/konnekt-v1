@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { FirebaseContext } from './Firebase';
+import { HashLink as Link } from 'react-router-hash-link';
+import * as ROUTES from '../constants/routes';
 
 import logo from './img/logo.svg';
 import konnektlady from './img/konnektlady.svg';
@@ -12,6 +14,7 @@ class uw_auth extends Component {
         super(props);
 
         this.state = {
+            ssn: null,
             phone: null,
             userName: '',
             data: null,
@@ -45,12 +48,11 @@ class uw_auth extends Component {
             })
         })
             .then(response => {
-                this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()) });
-                this.setState({ status: response.status });
+                this.setState({ date: firebase.firestore.Timestamp.fromDate(new Date()), status: response.status });
                 return response.json();
             })
             .then(data => {
-                console.log(data.responseStatus)
+                console.log("log1" + data.responseStatus)
                 if (data.responseStatus) {
                     this.setState({ message: data.responseStatus.message });
                     this.props.history.push({
@@ -59,8 +61,10 @@ class uw_auth extends Component {
                     })
                 }
                 else {
+                    console.log('Test 2: ' + data.ssn)
                     const { ssn, name, phoneNumber, address, postalCode, city, token, } = data;
                     firebase.firestore().collection('end_users').doc(ssn).set({
+                        ssn,
                         name,
                         phoneNumber,
                         address,
@@ -74,7 +78,7 @@ class uw_auth extends Component {
                         state: { status: this.state.status, name: data.name, phone: data.phoneNumber, ssn: data.ssn }
                     })
                 }
-                this.setState({ data: data });
+                this.setState({ data: data, ssn: data.ssn });
                 console.log(data)
                 firebase.firestore().collection('status').doc(this.state.url_id).set({
                     date: this.state.date,
@@ -110,7 +114,9 @@ class uw_auth extends Component {
                                         </div>
                                         <div className="container">
                                             <button onClick={this._confirmphone} className="yes-btn">Auðkenna mig</button>
-                                            <button className="no-btn">Hætta við</button>
+                                            <button className="no-btn">
+                                                <Link to={{ pathname: ROUTES.CHATBOX, state: { phone: this.state.phone, chatName: this.state.userName } }} className="no-btn">Hætta við</Link>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>)
