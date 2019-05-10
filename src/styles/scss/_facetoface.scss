@@ -1,127 +1,89 @@
 .facetoface-homepage {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-
+padding-left: 72px;
     .facetoface-wrapper {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
+
 
         .facetoface-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            .logo {
-                margin-top: 25%;
-                height: 35px;
-            }
-
-            .searchperson {
-                margin-top: 40%;
-                height: 80px;
-            }
-            .status-img {
-                height: 80px;
-                margin-top: 40%;
-            }
-
-            label {
-                text-transform: uppercase;
-                font-weight: bold;
-                color: $primary;
-                font-size: 14px;
-                text-align: left;
-            }
-
-            .input-btn-container {
-                display: flex;
-                flex-direction: column;
-                margin-top: 25%;
-
-            }
-
-            input {
-                border-radius: 4px;
-                background: #E6ECFF;
-                height: 40px;
-                width: 208px;
-                border: none;
-                margin-bottom: 10px;
-                padding-left: 16px;
-            }
-
-            h2 {
-                text-transform: uppercase;
-                font-weight: bold;
-                color: $primary;
-                font-size: 14px;
-                max-width: 205px;
-                margin-top: 20%;
-                text-align: center;
-            }
-
-            .yes-btn {
-                @extend %yes-btn;
-                margin-top: auto;
-
-            }
-
-            .yes-btn:hover {
-                box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
-
-            }
-        }
-
-
-
-
-    }
-
-    .csr-header {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        padding: 20px 40px;
-
-        .user-container {
-            display: flex;
-            flex-direction: row;
             width: 100%;
             align-items: center;
+            height: 90vh;
             justify-content: center;
-
-            h1 {
-                margin: 0px;
-                font-size: 16px;
-                font-weight: 400;
-            }
-        }
-
-        //Signout takki sem er eins alltaf
-        .signout-btn {
-            background: 0;
-            border: 0;
-            margin-left: auto;
-            cursor: pointer;
-
-            .logout-icon {
-                path {
-                    fill: $primary;
+            .facetoface-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .logo {
+                    margin-top: 25%;
+                    height: 35px;
+                }
+    
+                .searchperson {
+                    margin-top: 40%;
+                    height: 80px;
+                }
+                .status-img {
+                    height: 80px;
+                    margin-top: 40%;
+                }
+    
+                label {
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    color: $primary;
+                    font-size: 14px;
+                    text-align: left;
+                }
+    
+                .input-btn-container {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 25%;
+    
+                }
+    
+                input {
+                    border-radius: 4px;
+                    background: #E6ECFF;
+                    height: 40px;
+                    width: 208px;
+                    border: none;
+                    margin-bottom: 10px;
+                    padding-left: 16px;
+                }
+    
+                h2 {
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    color: $primary;
+                    font-size: 14px;
+                    max-width: 205px;
+                    margin-top: 20%;
+                    text-align: center;
+                }
+    
+                .yes-btn {
+                    @extend %yes-btn;
+                    margin-top: auto;
+                    a {
+                        text-decoration: none;
+                        color: $light;
+                    }
+    
+                }
+    
+                .yes-btn:hover {
+                    box-shadow: 2px 4px 4px rgba(79, 79, 79, 0.2);
+    
                 }
             }
+            
         }
 
-        //Avatar icon sem er alltaf eins
-        .avatar {
-            path {
-                fill: $primary;
-            }
-        }
+
+
+
     }
-
-
 
 }

@@ -30,6 +30,7 @@ class Status extends Component {
   render() {
     return (
       <div className="facetoface-homepage">
+      <CsrHeader />
         {this.props.location.state.status !== '200' ? <NonAudkent data={this.props.location.state.data} userName={this.state.authUser.username} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} userName={this.state.authUser.username} />}
       </div>
     )
@@ -39,7 +40,7 @@ class Status extends Component {
 const Audkent = (props) => {
   return (
     <div className="facetoface-wrapper">
-      <CsrHeader />
+      
       <div className="facetoface-container">
 
         <img className="logo" src={logo} />
@@ -57,18 +58,18 @@ const Audkent = (props) => {
 
 const NonAudkent = (props) => {
   return (
+    
     <div className="facetoface-wrapper">
-      <CsrHeader />
       <div className="facetoface-container">
         <img className="logo" src={logo} />
         <img className="status-img" src={error} />
         <h2>Auðkenning tókst ekki</h2>
         <h2>{props.data.responseStatus.message}</h2>
         <div className="input-btn-container">
-          <Link to={{ pathname: ROUTES.FACETOFACE, state: { phone: props.phone }, }} className="yes-btn">Senda aftur</Link>
+          <button className="yes-btn"><Link to={{ pathname: ROUTES.FACETOFACE, state: { phone: props.phone }, }} >Senda aftur</Link></button>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 

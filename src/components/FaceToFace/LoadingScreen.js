@@ -17,6 +17,7 @@ const LoadingScreen = (props) => {
                         <div class="circle circle-2"></div>
                         <div class="circle circle-3"></div>
                     </div>
+                    <h2>Auðkenning í ferli</h2>
                 </div>
             </div>
         </div>
