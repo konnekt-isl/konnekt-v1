@@ -30,7 +30,7 @@ class Status extends Component {
   render() {
     return (
       <div className="facetoface-homepage">
-        {this.props.location.state.status !== '200' ? <NonAudkent data={this.props.location.state.data} userName={this.state.authUser.username} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} userName={this.state.authUser.username} />}
+        {this.props.location.state.status !== 200 ? <NonAudkent data={this.props.location.state.data} userName={this.state.authUser.username} phone={this.props.location.state.phone} /> : <Audkent name={this.state.name} userName={this.state.authUser.username} />}
       </div>
     )
   };
@@ -48,7 +48,7 @@ const Audkent = (props) => {
         <p>{props.name} hefur auðkennt sig</p>
 
         <div className="input-btn-container">
-          <button className="yes-btn">Auðkenna Næsta?</button>
+          <Link to={{ pathname: ROUTES.FACETOFACE }} className="yes-btn"><button className="yes-btn">Auðkenna Næsta?</button></Link>
         </div>
       </div>
     </div>
