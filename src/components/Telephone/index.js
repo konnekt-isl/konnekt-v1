@@ -190,7 +190,7 @@ class Telephone extends Component {
                             <h2>Símtöl í bið</h2>
                             <img onClick={this.expand} className="chat-expand" src={chatexpand} />
                         </div>
-                        <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} onClick={() => this._handleClick(chatbox.id)}>{chatbox.username}</li>)}</ul>
+                        <ul className={MyCollapse}>{this.state.chatboxes.sort((a, b) => b.date - a.date).map((chatbox) => <li className={chatbox.read ? 'read' : 'unread'} >{chatbox.username}</li>)}</ul>
                     </div>
 
                     <div className="chat-el-container">
